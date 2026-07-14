@@ -1,5 +1,14 @@
 # Costim Counter-Screen — FINAL SUBMISSION
 
+> ## ▶ [**Open the interactive landing page →**](https://maxgoulazian.github.io/Spatial-ScRNA-seq-PBPK-QSP-Model/)
+> **[https://maxgoulazian.github.io/Spatial-ScRNA-seq-PBPK-QSP-Model/](https://maxgoulazian.github.io/Spatial-ScRNA-seq-PBPK-QSP-Model/)**
+>
+> The recommended way to explore this submission: an interactive site with the deck, the
+> spatial atlas, the antigen×costim-arm sweep, the PBPK runner, the QSP model explorer, the
+> 3D binder viewer, the diffusion timelapse, and every figure — all linked from one landing
+> page. (Served from the `gh-pages` branch; the full submission source and data live here on `main`.)
+
+
 **This is the single authoritative directory. Everything final lives here.**
 
 **A toxicity counter-screen for costimulatory T-cell engagers: nominating a costim arm that amplifies CD8
