@@ -26,12 +26,16 @@ in the project directory; nothing was deleted). The PBPK/QSP model is left in it
    model_output_validation/  20-molecule full-model output analysis (2026-07-14): cross-molecule
                          depletion (FIG_depletion_cross_molecule), spatial penetration->kill metrics,
                          IL-6 provenance correction. See MODEL_OUTPUT_ANALYSIS_2026-07-14.md.
-   model_pkpd/           Model PK/PD cross-check: per-arm costim screen (signal-2 kill rescue + storm cytokines) + analysis memo
+   model_pkpd/           Model PK/PD cross-checks: (1) CD3×CD19 per-arm screen (signal-2 kill rescue + storm cytokines);
+                         (2) whole-body antigen×arm off-tumor/therapeutic-index sweep (CD28 off-tumor amplification, TI ladder) + memos
+   costim_arm_sweep_solid/  Whole-body sweep on 3 solid CRC antigens (EGFR/CEACAM5/CEACAM6): on-target/off-tumor
+                         TI + CD28 off-tumor amplification (+40-57%); confirms CD28 veto on a whole-body axis.
+                         See COSTIM_SWEEP_SOLID_RESULTS.md + FIG_costim_offtumor_window. 432 spatial overlays in 06.
 03_reproduction/         Reproduction notebooks: data-analysis (36/36 checks passed, *_executed.ipynb carries stored outputs),
                          binder-design (23/23 checks passed, *_executed.ipynb carries stored outputs), QSP repro notebook, requirements.txt
 04_binder_design/        AF3 campaign results (funnel, scored, panels), 39 finalist structures (CIF), sequences
 05_grn/                  ALL GRN data: hero full edges, QSP operators, GOF effector nets, Tier-2 A26, source, tooling
-06_figures_and_media/    Key figures (GRN rings, discovery, binder, effector, model PD) + the 4-arm diffusion animation
+06_figures_and_media/    Key figures (GRN rings, discovery, binder, effector, model PD) + the 4-arm diffusion animation + 432 costim-sweep spatial overlays (costim_sweep_spatial_overlays/)
 07_datasets_reference/   DATASETS.md manifest, full data bundle zip, canonical artifact map
 08_model_pointer/        Pointer to the PBPK/QSP model (NOT moved — self-contained, would break if relocated)
 09_model_and_qsp/        PBPK/QSP model lane's complete bundle: runnable model (FINAL_MODEL/), QSP research
@@ -45,6 +49,7 @@ archive/                 Superseded root notes, scratch scripts, old deliverable
 Of 11 costimulatory arms, **4-1BB** and **CD27** are the only two that clear the six-axis liability veto.
 CD28 (top effector, z=12.11) is gated on CRS+SUPP+PROLIF. The GRN/QSP layers additionally carry CD2 as a 12th
 network source (pan-lineage, CRS-gated) — see report §4.
+A whole-body multi-antigen sweep (EGFR/CEACAM5/CEACAM6) **independently confirms the CD28 veto on a second axis**: efficacy is CD3-gated and arm-invariant, while CD28 is the dominant on-target/off-tumor amplifier (+40–57% off-tumor kill, zero on-tumor benefit) — reproducing the TGN1412 signature from expression alone, with 4-1BB/OX40/inducible arms sparing the off-tumor window. See 02_analysis_results/costim_arm_sweep_solid/.
 
 ## Model & figures (09 + 06)
 - **09_model_and_qsp/FINAL_MODEL/** — the runnable whole-body single-cell PBPK/QSP model:
