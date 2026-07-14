@@ -1,12 +1,12 @@
 # Model-Output Analysis — 20-Molecule Production Sweep
-_Analysis date 2026-07-14. Source: `model/rundir/handoff/tce_pd_*.json` (PD/kill/IL-6) and
+_Source: `model/rundir/handoff/tce_pd_*.json` (PD/kill/IL-6) and
 `tce_spatial_*.pkl` (per-cell spatial state). All numbers computed directly from the deposited
 run outputs — nothing hand-entered._
 
 ## 1. Cross-molecule depletion (the headline result)
 
 The full-model unified PK→PD run was executed for 20 clinical T-cell engagers (11 heme-target,
-9 solid-target; `MODEL_OUTPUT_ANALYSIS_2026-07-14.csv`). Target-cell-count-weighted depletion
+9 solid-target; `MODEL_OUTPUT_ANALYSIS.csv`). Target-cell-count-weighted depletion
 separates cleanly by disease setting:
 
 | Setting | n | mean depletion | range |

@@ -2,7 +2,7 @@
 
 *Analysis of the PBPK/QSP model's whole-body antigen×arm sweep on three solid-tumor antigens
 (EGFR, CEACAM5, CEACAM6) × 12 costim arms + no-costim baseline. Source table:
-`COSTIM_OFFTOX_ANALYSIS_2026-07-14.csv` (artifact ceb9250c), read read-only from the model lane.
+`COSTIM_OFFTOX_ANALYSIS.csv` (artifact ceb9250c), read read-only from the model lane.
 All numbers below re-derived directly from that table.*
 
 ## What was run
@@ -59,5 +59,5 @@ The sweep **reinforces** the nomination on an independent whole-body axis: effic
 preserve the window. It also adds a genuinely new capability — **antigen×arm window ranking**.
 
 ## Files
-- `COSTIM_OFFTOX_ANALYSIS_2026-07-14.csv` — 3 antigens × 12 arms (on/off kill, TI, depletion)
+- `COSTIM_OFFTOX_ANALYSIS.csv` — 3 antigens × 12 arms (on/off kill, TI, depletion)
 - `../06_figures_and_media/figures/model_offtumor_TI_screen.png` — CD28 off-tumor amplification + TI ladder

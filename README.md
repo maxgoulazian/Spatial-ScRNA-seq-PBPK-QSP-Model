@@ -23,9 +23,9 @@ in the project directory; nothing was deleted). The PBPK/QSP model is left in it
    discovery_modules/    A22 redirector co-expression, A24 kinetic onset
    taa_selection/        TAA_finalists_6.csv
    verification/         S3 verdict master, C3 verification, V7 verification ledger
-   model_output_validation/  20-molecule full-model output analysis (2026-07-14): cross-molecule
+   model_output_validation/  20-molecule full-model output analysis: cross-molecule
                          depletion (FIG_depletion_cross_molecule), spatial penetration->kill metrics,
-                         IL-6 provenance correction. See MODEL_OUTPUT_ANALYSIS_2026-07-14.md.
+                         IL-6 provenance correction. See MODEL_OUTPUT_ANALYSIS.md.
    model_pkpd/           Model PK/PD cross-checks: (1) CD3×CD19 per-arm screen (signal-2 kill rescue + storm cytokines);
                          (2) whole-body antigen×arm off-tumor/therapeutic-index sweep (CD28 off-tumor amplification, TI ladder) + memos
    costim_arm_sweep_solid/  Whole-body sweep on 3 solid CRC antigens (EGFR/CEACAM5/CEACAM6): on-target/off-tumor
@@ -57,7 +57,7 @@ A whole-body multi-antigen sweep (EGFR/CEACAM5/CEACAM6) **independently confirms
 - **Simulation-output figures (all from full-model runs):** 262 spatial 5-panel overlays
   (cell-type / drug / bound-receptor / receptor / kill), 20 per-organ kill, 11 PK-vs-clinical,
   2 cell-type overlays (PD/IL-6 overlays being finalized separately). Plus 13 TIFF-underlay spatial, 66 antigen maps, GRN rings, 2 diffusion animations (06).
-- **Model-output validation (2026-07-14):** the 20-molecule sweep shows the heme-vs-solid depletion split
+- **Model-output validation:** the 20-molecule sweep shows the heme-vs-solid depletion split
   (0.77 vs 0.18) is *emergent from geometry* under one shared kill law; spatial kill is 10-26x enriched in
   high-drug regions (drug-penetration-limited); IL-6 magnitude is read only from the validated `fin_` set.
   Full detail: **02_analysis_results/model_output_validation/**.

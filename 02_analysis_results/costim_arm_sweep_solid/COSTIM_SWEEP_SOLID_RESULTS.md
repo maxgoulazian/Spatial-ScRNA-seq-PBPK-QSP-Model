@@ -75,4 +75,4 @@ liability." This is a compartment-coverage gap, not a claim.
 - `FIG_costim_offtumor_window.png` — 3-panel: TI ladder, off-tumor-by-arm, per-arm Δoff ranked by receptor class
 - `COSTIM_OFFTOX_ANALYSIS.csv` — per-construct on/off-tumor kill + TI, all 3 solid TAAs × 12 arms
 - `EGFR_SWEEP_ANALYSIS.csv`, `COSTIM_SWEEP_ANALYSIS.csv` — per-arm depletion/IL-6 tables
-- Spatial overlays: `spatial_resolved_2026-07-14/spatialres_cs_cs_tri_{EGFR,CEACAM5,CEACAM6}_*` (432 PNGs, 12 organs each)
+- Spatial overlays: `spatial_resolved/spatialres_cs_cs_tri_{EGFR,CEACAM5,CEACAM6}_*` (432 PNGs, 12 organs each)
