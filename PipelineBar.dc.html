@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="display:flex;align-items:flex-start;width:100%">
+  <sc-for list="{{ nodes }}" as="node" hint-placeholder-count="7">
+    <div style="display:flex;flex-direction:column;gap:9px;flex:none">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="{{ node.dotStyle }}"></span>
+        <span style="{{ node.numStyle }}">{{ node.num }}</span>
+      </div>
+      <span style="{{ node.labelStyle }}">{{ node.label }}</span>
+    </div>
+    <sc-if value="{{ node.showLine }}" hint-placeholder-val="{{ true }}">
+      <div style="height:1px;flex:1;margin:5px 16px 0;background:{{ lineColor }}"></div>
+    </sc-if>
+  </sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1720,&quot;height&quot;:60},&quot;lit&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;1,2,3&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;glow&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;dark&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const litRaw = (this.props.lit == null ? '' : String(this.props.lit));
+    const lit = new Set(litRaw.split(',').map(function (s) { return s.trim(); }).filter(Boolean));
+    const glow = this.props.glow === true || this.props.glow === 'true';
+    const dark = this.props.dark === true || this.props.dark === 'true';
+    const defs = [
+      ['01', 'LIT REVIEW'], ['02', 'SCREEN'], ['03', 'INTEGRATE'], ['04', 'GRN'],
+      ['05', 'QSP'], ['06', 'VALIDATE'], ['07', 'DESIGN']
+    ];
+    const gold = '#E8A33D';
+    const dimText = dark ? 'rgba(243,239,230,0.42)' : 'rgba(28,26,22,0.34)';
+    const onText = dark ? '#F3EFE6' : '#3A342A';
+    const dimDot = dark ? 'rgba(243,239,230,0.20)' : 'rgba(28,26,22,0.15)';
+    const line = dark ? 'rgba(243,239,230,0.16)' : 'rgba(28,26,22,0.12)';
+    const ring = dark ? 'rgba(232,163,61,0.16)' : 'rgba(232,163,61,0.18)';
+    const nodes = defs.map(function (d, i) {
+      const on = lit.has(String(i + 1)) || lit.has(d[0]);
+      const glowShadow = on ? (',' + (glow ? '0 0 22px rgba(232,163,61,0.8)' : '0 0 12px rgba(232,163,61,0.45)')) : '';
+      return {
+        num: d[0], label: d[1], on: on, showLine: i < defs.length - 1,
+        dotStyle: 'width:12px;height:12px;border-radius:50%;flex:none;background:' + (on ? gold : dimDot) + ';' + (on ? ('box-shadow:0 0 0 5px ' + ring + glowShadow + ';') : ''),
+        numStyle: "font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;letter-spacing:0.04em;color:" + (on ? gold : dimText),
+        labelStyle: "font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.15em;white-space:nowrap;color:" + (on ? onText : dimText)
+      };
+    });
+    return { nodes: nodes, lineColor: line };
+  }
+}
+</script>
+</body>
+</html>

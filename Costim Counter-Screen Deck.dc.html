@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&amp;display=swap" rel="stylesheet">
+  <script src="./image-slot.js"></script>
+  <style>
+    @keyframes ds-rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+    @keyframes ds-fade { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes ds-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    @keyframes ds-growy { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+    @keyframes ds-pop { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: no-preference) {
+      [data-deck-active] [data-rise] { animation: ds-rise 0.72s cubic-bezier(.16,1,.3,1) both; }
+      [data-deck-active] [data-fade] { animation: ds-fade 0.9s ease both; }
+      [data-deck-active] [data-grow] { animation: ds-grow 0.95s cubic-bezier(.16,1,.3,1) both; transform-origin: left center; }
+      [data-deck-active] [data-growr] { animation: ds-grow 0.95s cubic-bezier(.16,1,.3,1) both; transform-origin: right center; }
+      [data-deck-active] [data-growy] { animation: ds-growy 0.8s cubic-bezier(.16,1,.3,1) both; transform-origin: bottom center; }
+      [data-deck-active] [data-pop] { animation: ds-pop 0.6s cubic-bezier(.16,1,.3,1) both; }
+      [data-deck-active] [data-step="1"] { animation-delay: 0.06s; }
+      [data-deck-active] [data-step="2"] { animation-delay: 0.14s; }
+      [data-deck-active] [data-step="3"] { animation-delay: 0.22s; }
+      [data-deck-active] [data-step="4"] { animation-delay: 0.30s; }
+      [data-deck-active] [data-step="5"] { animation-delay: 0.38s; }
+      [data-deck-active] [data-step="6"] { animation-delay: 0.46s; }
+      [data-deck-active] [data-step="7"] { animation-delay: 0.54s; }
+      [data-deck-active] [data-step="8"] { animation-delay: 0.62s; }
+      [data-deck-active] [data-step="9"] { animation-delay: 0.70s; }
+      [data-deck-active] [data-step="10"] { animation-delay: 0.78s; }
+      [data-deck-active] [data-step="11"] { animation-delay: 0.86s; }
+      [data-deck-active] [data-step="12"] { animation-delay: 0.94s; }
+    }
+    body { margin: 0; background: #100E09; }
+    a { color: #B87A22; text-decoration: none; }
+    a:hover { color: #8a5a15; }
+  </style>
+  <script>
+  (function(){
+    /* Auto-demo mode B: deck plays context slides, then hands off to the live dashboard chain. */
+    var DUR=[10,12,20,12,16,18,10,14,16]; /* slides 0..8 : Hook .. See it live */
+    var HANDOFF='Costim Landscape.dc.html?demo=1';
+    var total=DUR.reduce(function(a,b){return a+b;},0), running=false, timers=[], bar, btn, t0;
+    function stage(){ return document.querySelector('deck-stage'); }
+    function go(i){ var s=stage(); if(s&&s.goTo){ try{ s.goTo(i); }catch(e){} } }
+    function stop(){ running=false; timers.forEach(clearTimeout); timers=[]; if(bar)bar.style.width='0%'; if(btn)btn.textContent='\u25B6 Auto-play'; }
+    function handoff(){ running=false; if(bar)bar.style.width='100%'; setTimeout(function(){ location.href=HANDOFF; },1400); }
+    function start(){ var s=stage(); if(!s||!s.goTo){ setTimeout(start,200); return; } if(running){ stop(); return; }
+      running=true; if(btn)btn.textContent='\u25A0 Stop'; go(0); t0=Date.now();
+      (function raf(){ if(!running)return; var el=(Date.now()-t0)/1000; if(bar)bar.style.width=Math.min(100,el/total*100)+'%'; if(el<total)requestAnimationFrame(raf); })();
+      var acc=0; for(var i=0;i<DUR.length;i++){ acc+=DUR[i]; (function(idx,at){ timers.push(setTimeout(function(){ if(idx+1<DUR.length) go(idx+1); else handoff(); }, at*1000)); })(i,acc); }
+    }
+    function ui(){ if(!document.body){ return setTimeout(ui,60); }
+      btn=document.createElement('button'); btn.textContent='\u25B6 Auto-play';
+      btn.style.cssText='position:fixed;right:16px;bottom:16px;z-index:100000;font-family:IBM Plex Mono,monospace;font-size:12px;font-weight:600;letter-spacing:.04em;color:#17150F;background:#E8A33D;border:none;border-radius:8px;padding:10px 16px;cursor:pointer;box-shadow:0 4px 14px -4px rgba(0,0,0,.55)';
+      btn.onclick=start; document.body.appendChild(btn);
+      var track=document.createElement('div'); track.style.cssText='position:fixed;left:0;top:0;right:0;height:3px;z-index:100000;background:rgba(255,255,255,.08)';
+      bar=document.createElement('div'); bar.style.cssText='height:100%;width:0%;background:#E8A33D;transition:width .2s linear'; track.appendChild(bar); document.body.appendChild(track);
+      document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&running)stop(); });
+      if(/[?&]demo=1/.test(location.search)) setTimeout(start,900);
+    }
+    if(document.readyState!=='loading') ui(); else document.addEventListener('DOMContentLoaded',ui);
+  })();
+  </script>
+</helmet>
+<a href="Costim - Start Here.dc.html" data-home-link="1" style="position:fixed;left:14px;top:14px;z-index:99999;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.04em;color:#1A1712;background:#F3ECE0;border:1px solid #C9BFAE;border-radius:7px;padding:7px 12px;text-decoration:none;box-shadow:0 2px 8px -3px rgba(26,23,18,0.3)">↑ Start here</a>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
+
+  <section data-label="Hook" data-speaker-notes="My name is Max Goulazian, a PhD in pharmaceutical sciences. Working with Claude, I compressed a complete antibody-discovery campaign, from target nomination through to a designed binder, that ordinarily requires a multidisciplinary team the better part of a year, into a single week. I will walk through it." style="background:radial-gradient(125% 120% at 80% 6%, #241f15 0%, #17150F 52%, #100E09 100%);color:#F3EFE6;font-family:'Hanken Grotesk',system-ui,sans-serif;padding:76px 100px 128px;display:flex;flex-direction:column;box-sizing:border-box">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:#E8A33D">Built with Claude · Life Sciences</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(243,239,230,0.5)">Research Track</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;max-width:1500px">
+      <div data-rise="" data-step="1" style="font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(243,239,230,0.55);margin-bottom:28px">A toxicity counter-screen for costimulatory T-cell engagers</div>
+      <h1 data-rise="" data-step="2" style="font-family:'Newsreader',serif;font-weight:500;font-size:80px;line-height:1.03;letter-spacing:-0.015em;margin:0;text-wrap:balance">A drug-discovery campaign that normally takes a multidisciplinary team <span style="color:#E8A33D">months</span> — from target to designed binder — run in <span style="font-style:italic">one week</span>.</h1>
+      <p data-rise="" data-step="3" style="font-size:26px;line-height:1.5;color:rgba(243,239,230,0.72);margin:34px 0 0;max-width:1060px">One scientist, directing Claude across every discipline it normally takes a team to cover — computational biology, systems pharmacology, structural design.</p>
+      <div data-rise="" data-step="3" style="font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:0.2em;text-transform:uppercase;color:#E8A33D;margin-top:26px">Max Goulazian</div>
+    </div>
+    <div style="position:absolute;left:100px;right:100px;bottom:52px">
+      <div data-fade="" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(243,239,230,0.45);margin-bottom:16px">The campaign, end to end</div>
+      <div data-fade="">
+        <dc-import name="PipelineBar" lit="" dark="true" hint-size="100%,58px"></dc-import>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <section data-label="Problem" data-speaker-notes="The constraint is that the CD3 arm engages all T cells, so CD4 cannot be avoided, and costimulation amplifies the CD4 programs responsible for cytokine-release syndrome and regulatory-T-cell suppression. The key reframing is that the liability is not the CD4 lineage, which provides essential help, but a specific CD4 sub-program. Accordingly I did not build a conventional screen but a counter-screen: a genome-scale CD4 CRISPRi map quantifies liability and a CD8 CRISPRa map quantifies benefit, on independent axes." style="background:#F3EFE6;color:#1C1A16;font-family:'Hanken Grotesk',system-ui,sans-serif;padding:72px 100px 128px;display:flex;flex-direction:column;box-sizing:border-box">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:#B87A22">02 · The Problem → The Instrument</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#938A7B">Costim engagers · counter-screen logic</div>
+    </div>
+    <h2 data-rise="" data-step="1" style="font-family:'Newsreader',serif;font-weight:500;font-size:44px;line-height:1.08;letter-spacing:-0.01em;margin:22px 0 0;max-width:1620px;text-wrap:balance">A costim arm can't avoid CD4, and costim amplifies CD4's <span style="color:#C0392B">toxicity</span>. So don't build a screen — build a <span style="font-style:italic;color:#C0392B">counter-screen</span>.</h2>
+    <div style="flex:1;display:flex;gap:34px;margin-top:34px;align-items:stretch">
+      <div data-rise="" data-step="2" style="flex:0.92;display:flex;flex-direction:column">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:0.14em;color:#C0392B">THE PROBLEM</div>
+        <p style="font-size:20px;line-height:1.5;color:#413B32;margin:12px 0 0">Anti-CD3 sits on <em>every</em> T cell, so the molecule can't avoid CD4⁺ — and costimulation amplifies whatever CD4 does.</p>
+        <p style="font-size:22px;line-height:1.4;color:#1C1A16;margin:16px 0 0;font-weight:500">The enemy is a CD4 <span style="color:#C0392B">sub-program</span> — the Treg-suppressive, high-cytokine wiring — <span style="border-bottom:3px solid #E8A33D;padding-bottom:1px">not the CD4 lineage</span>.</p>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:9px;padding-top:22px">
+          <div style="font-size:15px;line-height:1.35;color:#4A4438"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C0392B;letter-spacing:.1em">CRS</span> &nbsp;CD4 helpers drive IFN-γ / TNF / IL-2 → myeloid IL-6.</div>
+          <div style="font-size:15px;line-height:1.35;color:#4A4438"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C0392B;letter-spacing:.1em">TREG</span> &nbsp;Tregs are CD4⁺, CD28/4-1BB-high — costim expands the brakes.</div>
+          <div style="font-size:15px;line-height:1.35;color:#4A4438"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C0392B;letter-spacing:.1em">PRECEDENT</span> &nbsp;TGN1412 → near-fatal CRS; 4-1BB agonists → hepatotoxicity.</div>
+        </div>
+      </div>
+      <div data-rise="" data-step="3" style="flex:1;background:#FBF9F3;border:1px solid #E2DBCB;border-radius:14px;padding:30px 32px;display:flex;flex-direction:column">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:0.14em;color:#C0392B">LIABILITY — WANT LOW</div>
+        <div style="font-family:'Newsreader',serif;font-size:27px;font-weight:500;margin:10px 0 4px">CD4⁺ CRISPRi Perturb-seq</div>
+        <div style="font-size:15px;color:#8A8172;margin-bottom:18px">Marson / Pritchard · Zhu et al. 2025</div>
+        <div style="display:flex;flex-wrap:wrap;gap:9px;margin-top:auto"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:6px 11px;background:#F0E7D8;border-radius:7px;color:#5A5346">CRS</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:6px 11px;background:#F0E7D8;border-radius:7px;color:#5A5346">Treg-suppression</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:6px 11px;background:#F0E7D8;border-radius:7px;color:#5A5346">help-erosion</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:6px 11px;background:#F0E7D8;border-radius:7px;color:#5A5346">exhaustion</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:6px 11px;background:#F0E7D8;border-radius:7px;color:#5A5346">proliferation</span></div>
+      </div>
+      <div data-rise="" data-step="4" style="flex:1;background:#17150F;color:#F3EFE6;border-radius:14px;padding:30px 32px;display:flex;flex-direction:column">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:0.14em;color:#E8A33D">BENEFIT — WANT HIGH</div>
+        <div style="font-family:'Newsreader',serif;font-size:27px;font-weight:500;margin:10px 0 4px">CD8⁺ CRISPRa effector</div>
+        <div style="font-size:15px;color:rgba(243,239,230,0.55);margin-bottom:18px">Schmidt et al. 2022 · IFN-γ · gain-of-function</div>
+        <div style="margin-top:auto;font-size:19px;line-height:1.4;color:rgba(243,239,230,0.85)">The killing is done by CD8. The toxicity is written in CD4. Score them on <span style="color:#E8A33D">separate axes</span>.</div>
+      </div>
+    </div>
+    <div data-rise="" data-step="5" style="font-family:'IBM Plex Mono',monospace;font-size:13.5px;line-height:1.5;color:#938A7B;margin-top:18px;max-width:1620px">CAVEAT — CRISPRi is loss-of-function; an engager arm is gain-of-function. Agonism = −1 × knockdown is a mechanistic prior, corroborated by an independent gain-of-function ORF screen.</div>
+    <div style="position:absolute;left:100px;right:100px;bottom:52px" data-fade="">
+      <dc-import name="PipelineBar" lit="1,2" hint-size="100%,58px"></dc-import>
+    </div>
+  </section>
+
+  <section data-label="The veto" data-speaker-notes="This is the principal result. Eleven costimulatory arms were evaluated against a six-axis liability veto, under which any toxicity signal is disqualifying and effector benefit cannot compensate. The eleven reduce to two that clear it: 4-1BB and CD27. The most informative case is CD28, which carries the highest effector score yet is vetoed on cytokine release and suppression, demonstrating that the counter-screen, not raw potency, governs the nomination." style="background:#F3EFE6;color:#1C1A16;font-family:'Hanken Grotesk',system-ui,sans-serif;padding:72px 100px 128px;display:flex;flex-direction:column;box-sizing:border-box">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:#B87A22">03 · The Nomination</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#938A7B">6-axis liability veto</div>
+    </div>
+    <h2 data-rise="" data-step="1" style="font-family:'Newsreader',serif;font-weight:500;font-size:46px;line-height:1.08;letter-spacing:-0.01em;margin:24px 0 0;max-width:1500px;text-wrap:balance">A liability veto collapses 11 costim arms to two — and the <span style="font-style:italic;color:#C0392B">strongest effector arm is the one you reject</span>.</h2>
+    <div style="flex:1;display:flex;gap:56px;margin-top:36px;align-items:stretch">
+      <div style="flex:1.42;display:flex;flex-direction:column;gap:9px">
+        <div style="display:flex;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;color:#938A7B;margin-bottom:4px">
+          <div style="width:80px;text-align:right">ARM</div>
+          <div style="flex:1;padding-left:16px">CD8 EFFECTOR BENEFIT — Schmidt z</div>
+          <div style="width:210px">GATE STATUS</div>
+        </div>
+        <div style="display:flex;align-items:center;height:37px;background:rgba(28,26,22,0.03);border-radius:8px">
+          <div style="width:80px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;color:#1C1A16">CD28</div>
+          <div style="flex:1;display:flex;align-items:center;gap:14px;padding-left:16px">
+            <div style="flex:1;position:relative;height:22px;background:rgba(28,26,22,0.05);border-radius:4px"><div data-grow="" data-step="1" style="position:absolute;left:0;top:0;bottom:0;width:100%;background:#9E978A;border-radius:4px"></div></div>
+            <div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#1C1A16;font-weight:600">12.11</div>
+          </div>
+          <div style="width:210px;padding-left:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#5A5346">GATED · CRS SUPP PROLIF</div>
+        </div>
+        <div style="display:flex;align-items:center;height:37px;background:rgba(192,57,43,0.07);border-radius:8px">
+          <div style="width:80px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;color:#C0392B">CD27</div>
+          <div style="flex:1;display:flex;align-items:center;gap:14px;padding-left:16px">
+            <div style="flex:1;position:relative;height:22px;background:rgba(28,26,22,0.05);border-radius:4px"><div data-grow="" data-step="2" style="position:absolute;left:0;top:0;bottom:0;width:35.3%;background:#C0392B;border-radius:4px"></div></div>
+            <div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#C0392B;font-weight:600">4.28</div>
+          </div>
+          <div style="width:210px;padding-left:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;color:#C0392B;font-weight:600">◆ CLEAN</div>
+        </div>
+        <div style="display:flex;align-items:center;height:37px;background:rgba(192,57,43,0.07);border-radius:8px">
+          <div style="width:80px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;color:#C0392B">4-1BB</div>
+          <div style="flex:1;display:flex;align-items:center;gap:14px;padding-left:16px">
+            <div style="flex:1;position:relative;height:22px;background:rgba(28,26,22,0.05);border-radius:4px"><div data-grow="" data-step="3" style="position:absolute;left:0;top:0;bottom:0;width:30.9%;background:#C0392B;border-radius:4px"></div></div>
+            <div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#C0392B;font-weight:600">3.74</div>
+          </div>
+          <div style="width:210px;padding-left:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;color:#C0392B;font-weight:600">◆ CLEAN</div>
+        </div>
+        <div style="display:flex;align-items:center;height:37px">
+          <div style="width:80px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#6B6459">CD30</div>
+          <div style="flex:1;display:flex;align-items:center;gap:14px;padding-left:16px">
+            <div style="flex:1;position:relative;height:22px;background:rgba(28,26,22,0.05);border-radius:4px"><div data-grow="" data-step="4" style="position:absolute;left:0;top:0;bottom:0;width:26.6%;background:#C7C0B2;border-radius:4px"></div></div>
+            <div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#6B6459">3.22</div>
+          </div>
+          <div style="width:210px;padding-left:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#A39B8C">GATED · HELP PROLIF</div>
+        </div>
+        <div style="display:flex;align-items:center;height:37px">
+          <div style="width:80px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#6B6459">CD40</div>
+          <div style="flex:1;display:flex;align-items:center;gap:14px;padding-left:16px">
+            <div style="flex:1;position:relative;height:22px;background:rgba(28,26,22,0.05);border-radius:4px"><div data-grow="" data-step="5" style="position:absolute;left:0;top:0;bottom:0;width:21.9%;background:#C7C0B2;border-radius:4px"></div></div>
+            <div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#6B6459">2.65</div>
+          </div>
+          <div style="width:210px;padding-left:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#A39B8C">GATED · HELP PROLIF</div>
+        </div>
+        <div style="display:flex;align-items:center;height:37px">
+          <div style="width:80px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#6B6459">OX40</div>
+          <div style="flex:1;display:flex;align-items:center;gap:14px;padding-left:16px">
+            <div style="flex:1;position:relative;height:22px;background:rgba(28,26,22,0.05);border-radius:4px"><div data-grow="" data-step="6" style="position:absolute;left:0;top:0;bottom:0;width:17.1%;background:#C7C0B2;border-radius:4px"></div></div>
+            <div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#6B6459">2.07</div>
+          </div>
+          <div style="width:210px;padding-left:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#A39B8C">GATED · SUPP EXH</div>
+        </div>
+        <div style="display:flex;align-items:center;height:37px">
+          <div style="width:80px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#6B6459">DR3</div>
+          <div style="flex:1;display:flex;align-items:center;gap:14px;padding-left:16px">
+            <div style="flex:1;position:relative;height:22px;background:rgba(28,26,22,0.05);border-radius:4px"><div data-grow="" data-step="7" style="position:absolute;left:0;top:0;bottom:0;width:13.0%;background:#C7C0B2;border-radius:4px"></div></div>
+            <div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#6B6459">1.58</div>
+          </div>
+          <div style="width:210px;padding-left:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#A39B8C">GATED · SUPP EXH</div>
+        </div>
+        <div style="display:flex;align-items:center;height:37px">
+          <div style="width:80px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#6B6459">DNAM1</div>
+          <div style="flex:1;display:flex;align-items:center;gap:14px;padding-left:16px">
+            <div style="flex:1;position:relative;height:22px;background:rgba(28,26,22,0.05);border-radius:4px"><div data-grow="" data-step="8" style="position:absolute;left:0;top:0;bottom:0;width:5.3%;background:#C7C0B2;border-radius:4px"></div></div>
+            <div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#6B6459">0.64</div>
+          </div>
+          <div style="width:210px;padding-left:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#A39B8C">GATED · SUPP EXH</div>
+        </div>
+        <div style="display:flex;align-items:center;height:37px">
+          <div style="width:80px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#6B6459">GITR</div>
+          <div style="flex:1;display:flex;align-items:center;gap:14px;padding-left:16px">
+            <div style="flex:1;position:relative;height:22px;background:rgba(28,26,22,0.05);border-radius:4px"><div data-grow="" data-step="9" style="position:absolute;left:0;top:0;bottom:0;width:0.8%;background:#C7C0B2;border-radius:4px"></div></div>
+            <div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#6B6459">0.09</div>
+          </div>
+          <div style="width:210px;padding-left:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#A39B8C">GATED · SUPP</div>
+        </div>
+        <div style="display:flex;align-items:center;height:37px">
+          <div style="width:80px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#6B6459">HVEM</div>
+          <div style="flex:1;display:flex;align-items:center;gap:14px;padding-left:16px">
+            <div style="flex:1;position:relative;height:22px;background:rgba(28,26,22,0.05);border-radius:4px"><div data-grow="" data-step="10" style="position:absolute;left:0;top:0;bottom:0;width:0.8%;background:#C7C0B2;border-radius:4px"></div></div>
+            <div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#6B6459">0.02</div>
+          </div>
+          <div style="width:210px;padding-left:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#A39B8C">GATED · SUPP EXH</div>
+        </div>
+        <div style="display:flex;align-items:center;height:37px">
+          <div style="width:80px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#6B6459">ICOS</div>
+          <div style="flex:1;display:flex;align-items:center;gap:14px;padding-left:16px">
+            <div style="flex:1;position:relative;height:22px;background:rgba(28,26,22,0.05);border-radius:4px"><div data-grow="" data-step="11" style="position:absolute;left:0;top:0;bottom:0;width:0.8%;background:#C7C0B2;border-radius:4px"></div></div>
+            <div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#6B6459">−0.39</div>
+          </div>
+          <div style="width:210px;padding-left:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#A39B8C">GATED · HELP PROLIF</div>
+        </div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;border-left:1px solid #E2DBCB;padding-left:52px">
+        <div data-pop="" data-step="7" style="display:flex;align-items:baseline;gap:22px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:96px;font-weight:600;line-height:0.9;color:#1C1A16">11</span>
+          <span style="font-family:'Newsreader',serif;font-size:52px;color:#B0A99B">→</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:96px;font-weight:600;line-height:0.9;color:#C0392B">2</span>
+        </div>
+        <div data-rise="" data-step="8" style="margin-top:30px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.16em;color:#938A7B;text-transform:uppercase;margin-bottom:12px">Clean co-leads</div>
+          <div style="font-family:'Newsreader',serif;font-size:34px;font-weight:500;color:#C0392B;line-height:1.25">4-1BB <span style="font-size:22px;color:#8A8172">(TNFRSF9)</span> · CD27</div>
+        </div>
+        <div data-rise="" data-step="9" style="margin-top:26px;padding-top:22px;border-top:1px solid #E2DBCB">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.16em;color:#938A7B;text-transform:uppercase;margin-bottom:10px">Monte-Carlo nomination</div>
+          <div style="font-size:19px;line-height:1.5;color:#413B32">P(both co-leads top-2) = <span style="font-family:'IBM Plex Mono',monospace;color:#1C1A16;font-weight:600">0.84</span> · P(CD27 top-1) = <span style="font-family:'IBM Plex Mono',monospace;color:#1C1A16;font-weight:600">0.74</span><br><span style="font-size:15px;color:#938A7B">expression-weighted, 20,000 draws</span></div>
+        </div>
+      </div>
+    </div>
+    <div data-rise="" data-step="9" style="font-family:'IBM Plex Mono',monospace;font-size:14px;line-height:1.5;color:#938A7B;margin-top:16px;max-width:1500px">Any liability is disqualifying — effector benefit never offsets a measured toxicity. &nbsp;·&nbsp; Source: COSTIM_FINAL_3AXIS_SCORE (v7).</div>
+    <div style="position:absolute;left:100px;right:100px;bottom:52px" data-fade="">
+      <dc-import name="PipelineBar" lit="1,2" hint-size="100%,58px"></dc-import>
+    </div>
+  </section>
+
+  <section data-label="Confirmation" data-speaker-notes="To test robustness, the candidate panel was discarded entirely. Ranking all eighteen thousand-plus genes genome-wide by CD8 effector benefit and applying the same veto re-derives the same two arms; every novel hit deselects on mechanism, and CD28 is again gated. The conclusion does not depend on the initial candidate list." style="background:#F3EFE6;color:#1C1A16;font-family:'Hanken Grotesk',system-ui,sans-serif;padding:72px 100px 128px;display:flex;flex-direction:column;box-sizing:border-box">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:#B87A22">04 · Unbiased Confirmation</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#938A7B">Genome-wide effector-first scan</div>
+    </div>
+    <h2 data-rise="" data-step="1" style="font-family:'Newsreader',serif;font-weight:500;font-size:47px;line-height:1.08;letter-spacing:-0.01em;margin:24px 0 0;max-width:1480px;text-wrap:balance">Start over with <span style="font-style:italic">no panel at all</span> — a genome-wide, effector-first scan re-derives the same two arms.</h2>
+    <div style="flex:1;display:flex;gap:72px;margin-top:44px;align-items:center">
+      <div style="flex:1.15;display:flex;flex-direction:column;gap:22px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.16em;color:#938A7B;text-transform:uppercase">Genome-wide → nomination</div>
+        <div data-rise="" data-step="2" style="display:flex;align-items:center;gap:22px">
+          <div style="width:108px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:27px;font-weight:600;color:#1C1A16">18,875</div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:7px"><div style="font-size:16px;color:#4A4438">genes ranked by CD8 effector benefit</div><div style="height:11px;background:rgba(28,26,22,0.06);border-radius:6px;position:relative"><div data-grow="" data-step="1" style="position:absolute;left:0;top:0;bottom:0;width:100%;background:#C7C0B2;border-radius:6px"></div></div></div>
+        </div>
+        <div data-rise="" data-step="3" style="display:flex;align-items:center;gap:22px">
+          <div style="width:108px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:27px;font-weight:600;color:#1C1A16">496</div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:7px"><div style="font-size:16px;color:#4A4438">pass the effector threshold</div><div style="height:11px;background:rgba(28,26,22,0.06);border-radius:6px;position:relative"><div data-grow="" data-step="2" style="position:absolute;left:0;top:0;bottom:0;width:47%;background:#C7C0B2;border-radius:6px"></div></div></div>
+        </div>
+        <div data-rise="" data-step="4" style="display:flex;align-items:center;gap:22px">
+          <div style="width:108px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:27px;font-weight:600;color:#1C1A16">328</div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:7px"><div style="font-size:16px;color:#4A4438">clean after the CD4 liability veto</div><div style="height:11px;background:rgba(28,26,22,0.06);border-radius:6px;position:relative"><div data-grow="" data-step="3" style="position:absolute;left:0;top:0;bottom:0;width:35%;background:#C7C0B2;border-radius:6px"></div></div></div>
+        </div>
+        <div data-rise="" data-step="5" style="display:flex;align-items:center;gap:22px">
+          <div style="width:108px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:27px;font-weight:600;color:#1C1A16">11</div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:7px"><div style="font-size:16px;color:#4A4438">clean <em>and</em> surface-bindable</div><div style="height:11px;background:rgba(28,26,22,0.06);border-radius:6px;position:relative"><div data-grow="" data-step="4" style="position:absolute;left:0;top:0;bottom:0;width:15%;background:#C7C0B2;border-radius:6px"></div></div></div>
+        </div>
+        <div data-rise="" data-step="6" style="display:flex;align-items:center;gap:22px">
+          <div style="width:108px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:27px;font-weight:600;color:#C0392B">2</div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:7px"><div style="font-size:16px;color:#C0392B;font-weight:500">cis-costim T-cell receptors → 4-1BB + CD27</div><div style="height:11px;background:rgba(28,26,22,0.06);border-radius:6px;position:relative"><div data-grow="" data-step="5" style="position:absolute;left:0;top:0;bottom:0;width:7%;background:#C0392B;border-radius:6px"></div></div></div>
+        </div>
+      </div>
+      <div style="flex:0.85;display:flex;flex-direction:column;gap:24px">
+        <p data-rise="" data-step="6" style="font-size:23px;line-height:1.5;color:#413B32;margin:0">The known leads survive an unbiased start. Every <span style="font-weight:600;color:#1C1A16">novel</span> genome-wide hit deselects on mechanism — a CRS / off-lineage trap, or a wrong-side ligand gene.</p>
+        <p data-rise="" data-step="7" style="font-size:20px;line-height:1.5;color:#6B6459;margin:0">CD28 is gated <em>again</em> — despite the top effector score (z = 11.94) in this independent scan.</p>
+        <div data-rise="" data-step="8" style="margin-top:2px;background:#FFFFFF;border:1px solid #E2DBCB;border-radius:10px;padding:12px 15px 8px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#938A7B;margin-bottom:4px">Every arm placed by effector × liability</div><svg viewBox="0 0 520 268" style="width:100%;display:block"><rect x="44" y="14" width="462" height="119" fill="#C0392B" opacity="0.05"></rect><rect x="252" y="133" width="254" height="97" fill="#0E7C5F" opacity="0.07"></rect><line x1="44" y1="14" x2="44" y2="230" stroke="#D8D0BF"></line><line x1="44" y1="230" x2="506" y2="230" stroke="#D8D0BF"></line><line x1="44" y1="133" x2="506" y2="133" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="5 4"></line><text x="502" y="127" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#C0392B">CD4 liability veto</text><line x1="252" y1="133" x2="252" y2="230" stroke="#C7C0B2" stroke-dasharray="4 4"></line><text x="379" y="222" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#0B5E48" font-weight="600">clean + surface</text><text x="50" y="28" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#C0392B" opacity="0.8">gated — toxic</text><circle cx="330" cy="75" r="3.4" fill="#B8B0A0" opacity="0.5"><title>novel genome-wide hit · deselected on mechanism</title></circle><circle cx="298" cy="53" r="3.4" fill="#B8B0A0" opacity="0.5"><title>novel genome-wide hit · deselected on mechanism</title></circle><circle cx="367" cy="100" r="3.4" fill="#B8B0A0" opacity="0.5"><title>novel genome-wide hit · deselected on mechanism</title></circle><circle cx="261" cy="36" r="3.4" fill="#B8B0A0" opacity="0.5"><title>novel genome-wide hit · deselected on mechanism</title></circle><circle cx="414" cy="79" r="3.4" fill="#B8B0A0" opacity="0.5"><title>novel genome-wide hit · deselected on mechanism</title></circle><circle cx="201" cy="111" r="3.4" fill="#B8B0A0" opacity="0.5"><title>novel genome-wide hit · deselected on mechanism</title></circle><circle cx="169" cy="139" r="3.4" fill="#B8B0A0" opacity="0.5"><title>novel genome-wide hit · deselected on mechanism</title></circle><circle cx="233" cy="83" r="3.4" fill="#B8B0A0" opacity="0.5"><title>novel genome-wide hit · deselected on mechanism</title></circle><circle cx="349" cy="44" r="3.4" fill="#B8B0A0" opacity="0.5"><title>novel genome-wide hit · deselected on mechanism</title></circle><circle cx="284" cy="100" r="3.4" fill="#B8B0A0" opacity="0.5"><title>novel genome-wide hit · deselected on mechanism</title></circle><circle cx="395" cy="57" r="3.4" fill="#B8B0A0" opacity="0.5"><title>novel genome-wide hit · deselected on mechanism</title></circle><circle cx="187" cy="70" r="3.4" fill="#B8B0A0" opacity="0.5"><title>novel genome-wide hit · deselected on mechanism</title></circle><circle cx="275" cy="165" r="3.4" fill="#B8B0A0" opacity="0.5"><title>clean but not surface-bindable · deselected</title></circle><circle cx="312" cy="174" r="3.4" fill="#B8B0A0" opacity="0.5"><title>clean but not surface-bindable · deselected</title></circle><circle cx="247" cy="126" r="3.4" fill="#B8B0A0" opacity="0.5"><title>novel genome-wide hit · deselected on mechanism</title></circle><circle cx="460" cy="96" r="6" fill="#B0A99B"></circle><line x1="456" y1="92" x2="464" y2="100" stroke="#8A8172" stroke-width="1.5"></line><line x1="464" y1="92" x2="456" y2="100" stroke="#8A8172" stroke-width="1.5"></line><text x="450" y="90" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11" fill="#6B6459" font-weight="600">CD28 · top effector, gated</text><circle cx="376" cy="196" r="6.5" fill="#C0392B" stroke="#fff" stroke-width="1.5"></circle><text x="387" y="200" font-family="IBM Plex Mono,monospace" font-size="12" fill="#C0392B" font-weight="600">4-1BB</text><circle cx="321" cy="187" r="6.5" fill="#C0392B" stroke="#fff" stroke-width="1.5"></circle><text x="315" y="177" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="12" fill="#C0392B" font-weight="600">CD27</text><text x="275" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" fill="#6B6459">CD8 effector benefit →</text><text x="15" y="122" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" fill="#6B6459" transform="rotate(-90 15 122)">CD4 liability →</text></svg></div>
+      </div>
+    </div>
+    <div style="position:absolute;left:100px;right:100px;bottom:52px" data-fade="">
+      <dc-import name="PipelineBar" lit="1,2,3" hint-size="100%,58px"></dc-import>
+    </div>
+  </section>
+
+  <section data-label="Mechanism · GRN" data-speaker-notes="The basis for 4-1BB's selectivity is topological. Within an inferred signed regulatory network of 1.65 million edges, 4-1BB is a CD8-selective effector hub, driving the cytotoxic program roughly nineteen-fold more strongly in CD8 than in CD4. The costimulatory benefit is therefore directed toward cytotoxic effectors rather than suppressive populations." style="background:#F3EFE6;color:#1C1A16;font-family:'Hanken Grotesk',system-ui,sans-serif;padding:72px 100px 128px;display:flex;flex-direction:column;box-sizing:border-box">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:#B87A22">05 · Mechanism</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#938A7B">Signed gene-regulatory network</div>
+    </div>
+    <h2 data-rise="" data-step="1" style="font-family:'Newsreader',serif;font-weight:500;font-size:47px;line-height:1.08;letter-spacing:-0.01em;margin:24px 0 0;max-width:1480px;text-wrap:balance">Why 4-1BB is clean: network topology shows it's a <span style="font-style:italic;color:#C0392B">CD8-selective effector hub</span>.</h2>
+    <div style="flex:1;display:flex;gap:40px;margin-top:30px;align-items:stretch">
+      <div style="flex:0.66;display:flex;flex-direction:column;justify-content:center">
+        <div data-rise="" data-step="2" style="font-family:'IBM Plex Mono',monospace;font-size:74px;font-weight:600;letter-spacing:-0.02em;line-height:0.95;color:#1C1A16">1,653,594</div>
+        <div data-rise="" data-step="2" style="font-size:22px;color:#413B32;margin-top:8px">signed regulatory edges</div>
+        <div data-rise="" data-step="3" style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#938A7B;margin-top:6px">coefficients −22.9 … +44.7 · 41% negative</div>
+        <div data-rise="" data-step="4" style="margin-top:38px;padding-top:30px;border-top:1px solid #E2DBCB">
+          <div style="font-size:21px;color:#413B32;line-height:1.4">4-1BB drives the CD8 effector program</div>
+          <div style="display:flex;align-items:baseline;gap:14px;margin:10px 0 20px"><span style="font-family:'IBM Plex Mono',monospace;font-size:60px;font-weight:600;color:#C0392B">≈19×</span><span style="font-size:21px;color:#413B32">harder than CD4</span></div>
+          <div style="display:flex;flex-direction:column;gap:12px;max-width:440px">
+            <div style="display:flex;align-items:center;gap:14px"><span style="width:52px;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#6B6459">CD8</span><div style="flex:1;height:20px;background:rgba(28,26,22,0.05);border-radius:4px;position:relative"><div data-grow="" data-step="5" style="position:absolute;left:0;top:0;bottom:0;width:100%;background:#C0392B;border-radius:4px"></div></div><span style="width:44px;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#C0392B;font-weight:600">57.4</span></div>
+            <div style="display:flex;align-items:center;gap:14px"><span style="width:52px;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#6B6459">CD4</span><div style="flex:1;height:20px;background:rgba(28,26,22,0.05);border-radius:4px;position:relative"><div data-grow="" data-step="6" style="position:absolute;left:0;top:0;bottom:0;width:5.3%;background:#B0A99B;border-radius:4px"></div></div><span style="width:44px;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#6B6459">3.0</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1.55;display:flex;flex-direction:column;gap:16px">
+        <div data-rise="" data-step="5" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:0.14em;color:#938A7B;text-transform:uppercase">Net effector-hub selectivity · per arm</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#A39B8C">CD8 − CD4 DRIVE</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#A39B8C;margin-bottom:8px;padding:0 52px 0 66px"><span>← CD4-biased</span><span style="color:#B87A22">CD8-selective →</span></div>
+          <div style="display:flex;flex-direction:column">
+            <div style="display:flex;align-items:center;gap:12px;height:47px"><div style="width:66px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:20px;color:#C0392B;font-weight:600">4-1BB</div><div style="flex:1;position:relative;height:47px"><div style="position:absolute;left:19.44%;top:3px;bottom:3px;width:1px;background:#D8D0BF"></div><div style="position:absolute;left:19.44%;width:75.5%;top:50%;transform:translateY(-50%);height:3px;background:#C0392B"></div><div style="position:absolute;left:94.9%;top:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:#C0392B"></div></div><div style="width:60px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:18px;color:#C0392B;font-weight:600">+54.4</div></div>
+            <div style="display:flex;align-items:center;gap:12px;height:42px"><div style="width:66px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:19px;color:#6B6459">ICOS</div><div style="flex:1;position:relative;height:42px"><div style="position:absolute;left:19.44%;top:3px;bottom:3px;width:1px;background:#D8D0BF"></div><div style="position:absolute;left:19.44%;width:11.6%;top:50%;transform:translateY(-50%);height:2px;background:#B0A99B"></div><div style="position:absolute;left:31.0%;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:#B0A99B"></div></div><div style="width:60px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:18px;color:#8A8172">+8.3</div></div>
+            <div style="display:flex;align-items:center;gap:12px;height:42px"><div style="width:66px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:19px;color:#6B6459">CD30</div><div style="flex:1;position:relative;height:42px"><div style="position:absolute;left:19.44%;top:3px;bottom:3px;width:1px;background:#D8D0BF"></div><div style="position:absolute;left:19.44%;width:3.8%;top:50%;transform:translateY(-50%);height:2px;background:#B0A99B"></div><div style="position:absolute;left:23.2%;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:#B0A99B"></div></div><div style="width:60px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:18px;color:#8A8172">+2.7</div></div>
+            <div style="display:flex;align-items:center;gap:12px;height:42px"><div style="width:66px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:19px;color:#6B6459">CD2</div><div style="flex:1;position:relative;height:42px"><div style="position:absolute;left:19.44%;top:3px;bottom:3px;width:1px;background:#D8D0BF"></div><div style="position:absolute;left:19.44%;width:3.3%;top:50%;transform:translateY(-50%);height:2px;background:#B0A99B"></div><div style="position:absolute;left:22.7%;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:#B0A99B"></div></div><div style="width:60px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:18px;color:#8A8172">+2.3</div></div>
+            <div style="display:flex;align-items:center;gap:12px;height:42px"><div style="width:66px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:19px;color:#6B6459">HVEM</div><div style="flex:1;position:relative;height:42px"><div style="position:absolute;left:19.44%;top:3px;bottom:3px;width:1px;background:#D8D0BF"></div><div style="position:absolute;left:19.44%;width:1.0%;top:50%;transform:translateY(-50%);height:2px;background:#B0A99B"></div><div style="position:absolute;left:20.4%;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:#B0A99B"></div></div><div style="width:60px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:18px;color:#8A8172">+0.7</div></div>
+            <div style="display:flex;align-items:center;gap:12px;height:42px"><div style="width:66px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:19px;color:#C0392B;font-weight:600">CD27</div><div style="flex:1;position:relative;height:42px"><div style="position:absolute;left:19.44%;top:3px;bottom:3px;width:1px;background:#D8D0BF"></div><div style="position:absolute;left:19.44%;width:0.7%;top:50%;transform:translateY(-50%);height:2px;background:#B0A99B"></div><div style="position:absolute;left:20.1%;top:50%;transform:translate(-50%,-50%);width:15px;height:15px;border-radius:50%;background:#C0392B;opacity:0.55"></div><div style="position:absolute;left:calc(20.1% + 12px);top:50%;transform:translateY(-50%);white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B87A22">selective on expression, not network</div></div><div style="width:60px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:18px;color:#8A8172">+0.5</div></div>
+            <div style="display:flex;align-items:center;gap:12px;height:42px"><div style="width:66px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:19px;color:#6B6459">CD28</div><div style="flex:1;position:relative;height:42px"><div style="position:absolute;left:19.44%;top:3px;bottom:3px;width:1px;background:#D8D0BF"></div><div style="position:absolute;left:19.83%;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:#B0A99B"></div></div><div style="width:60px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:18px;color:#8A8172">+0.3</div></div>
+            <div style="display:flex;align-items:center;gap:12px;height:42px"><div style="width:66px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:19px;color:#6B6459">DR3</div><div style="flex:1;position:relative;height:42px"><div style="position:absolute;left:19.44%;top:3px;bottom:3px;width:1px;background:#D8D0BF"></div><div style="position:absolute;left:19.53%;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:#B0A99B"></div></div><div style="width:60px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:18px;color:#8A8172">+0.1</div></div>
+            <div style="display:flex;align-items:center;gap:12px;height:42px"><div style="width:66px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:19px;color:#6B6459">CD40</div><div style="flex:1;position:relative;height:42px"><div style="position:absolute;left:19.44%;top:3px;bottom:3px;width:1px;background:#D8D0BF"></div><div style="position:absolute;left:19.46%;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:#B0A99B"></div></div><div style="width:60px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:18px;color:#8A8172">+0.0</div></div>
+            <div style="display:flex;align-items:center;gap:12px;height:42px"><div style="width:66px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:19px;color:#6B6459">DNAM1</div><div style="flex:1;position:relative;height:42px"><div style="position:absolute;left:19.44%;top:3px;bottom:3px;width:1px;background:#D8D0BF"></div><div style="position:absolute;left:16.46%;width:2.98%;top:50%;transform:translateY(-50%);height:2px;background:#6B8CA3"></div><div style="position:absolute;left:16.46%;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:#6B8CA3"></div></div><div style="width:60px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:18px;color:#6B8CA3">−2.2</div></div>
+            <div style="display:flex;align-items:center;gap:12px;height:42px"><div style="width:66px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:19px;color:#6B6459">OX40</div><div style="flex:1;position:relative;height:42px"><div style="position:absolute;left:19.44%;top:3px;bottom:3px;width:1px;background:#D8D0BF"></div><div style="position:absolute;left:12.71%;width:6.73%;top:50%;transform:translateY(-50%);height:2px;background:#6B8CA3"></div><div style="position:absolute;left:12.71%;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:#6B8CA3"></div></div><div style="width:60px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:18px;color:#6B8CA3">−4.9</div></div>
+            <div style="display:flex;align-items:center;gap:12px;height:42px"><div style="width:66px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:19px;color:#6B6459">GITR</div><div style="flex:1;position:relative;height:42px"><div style="position:absolute;left:19.44%;top:3px;bottom:3px;width:1px;background:#D8D0BF"></div><div style="position:absolute;left:3.86%;width:15.58%;top:50%;transform:translateY(-50%);height:2px;background:#6B8CA3"></div><div style="position:absolute;left:3.86%;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:#6B8CA3"></div><div style="position:absolute;left:calc(3.86% + 12px);top:50%;transform:translateY(-50%);white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6B8CA3">CD4-biased → feeds toxicity</div></div><div style="width:60px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:18px;color:#6B8CA3">−11.2</div></div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.5;color:#938A7B;margin-top:12px">One arm is a lone CD8 effector hub. The arms that lean CD4 are the ones that feed the toxic program. Source: A29 signed GRN.</div>
+        </div>
+        <div data-rise="" data-step="7" style="font-size:17px;line-height:1.5;color:#6B6459">4-1BB is expression-neutral on its own (CD8−CD4conv ≈ +0.04) — its selectivity is <span style="color:#1C1A16">wired in the network</span>. CD27 carries it on expression instead (+0.46, CD8-selective).</div>
+      </div>
+    </div>
+    <div style="position:absolute;left:100px;right:100px;bottom:52px" data-fade="">
+      <dc-import name="PipelineBar" lit="1,2,3,4" hint-size="100%,58px"></dc-import>
+    </div>
+  </section>
+
+  <section data-label="QSP · Window" data-speaker-notes="To assess translation, I built a whole-body mechanistic PBPK-QSP model with 426 provenance-locked parameters that returns a single predicted therapeutic-window value per arm. 4-1BB is favorable under both parameterizations, whereas CD28 is eliminated by a hepatic and cytokine-driven cap. The model is not merely illustrative: the same engine reproduces the behavior of nineteen clinical T-cell engagers, and it can be examined interactively." style="background:#F3EFE6;color:#1C1A16;font-family:'Hanken Grotesk',system-ui,sans-serif;padding:72px 100px 128px;display:flex;flex-direction:column;box-sizing:border-box">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:#B87A22">06 · Translation — The Window</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#938A7B">Whole-body PBPK-QSP · validated on 19 clinical drugs · reproduces TGN1412 + CEACAM tox</div>
+    </div>
+    <h2 data-rise="" data-step="1" style="font-family:'Newsreader',serif;font-weight:500;font-size:46px;line-height:1.08;letter-spacing:-0.01em;margin:22px 0 0;max-width:1560px;text-wrap:balance">One number per arm — the predicted therapeutic window from the whole-body model. The <span style="color:#C0392B">Treg-aware arm is robust</span>; pan-costim CD28 is erased.</h2>
+    <div style="flex:1;display:flex;gap:56px;margin-top:28px;align-items:center">
+      <div style="flex:1.5;display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;margin-left:114px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:#A39B8C"><div style="flex:1;text-align:center">← OUT OF WINDOW</div><div style="flex:1;text-align:center;color:#B87A22">IN WINDOW →</div></div>
+        <div data-rise="" data-step="2" style="display:flex;align-items:center;height:56px">
+          <div style="width:98px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:600;color:#C0392B">4-1BB</div>
+          <div style="flex:1;display:flex;margin-left:16px;position:relative;height:30px">
+            <div style="position:absolute;left:50%;top:-6px;bottom:-6px;width:2px;background:#1C1A16;transform:translateX(-1px);z-index:2"></div>
+            <div style="flex:1;background:rgba(28,26,22,0.03);border-radius:5px 0 0 5px"></div>
+            <div style="flex:1;background:rgba(232,163,61,0.1);border-radius:0 5px 5px 0;display:flex;justify-content:flex-start;align-items:center"><div data-grow="" style="height:30px;width:49%;background:#C0392B;border-radius:0 5px 5px 0;display:flex;align-items:center;justify-content:flex-end;padding-right:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#fff;font-weight:600">+1.57</span></div></div>
+          </div>
+          <div style="width:196px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6B6459;padding-left:16px;line-height:1.35">robust · both drive models · uncapped</div>
+        </div>
+        <div data-rise="" data-step="3" style="display:flex;align-items:center;height:56px">
+          <div style="width:98px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:600;color:#B0A99B">CD28</div>
+          <div style="flex:1;display:flex;margin-left:16px;position:relative;height:30px">
+            <div style="position:absolute;left:50%;top:-6px;bottom:-6px;width:2px;background:#1C1A16;transform:translateX(-1px);z-index:2"></div>
+            <div style="flex:1;background:rgba(28,26,22,0.03);border-radius:5px 0 0 5px;display:flex;justify-content:flex-end;align-items:center"><div data-growr="" style="height:30px;width:83%;background:#9E978A;border-radius:5px 0 0 5px;display:flex;align-items:center;padding-left:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#fff;font-weight:600">−2.66</span></div></div>
+            <div style="flex:1;background:rgba(232,163,61,0.1);border-radius:0 5px 5px 0"></div>
+          </div>
+          <div style="width:196px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6B6459;padding-left:16px;line-height:1.35">best effector, erased · liver/CRS cap (−3.03 GRN)</div>
+        </div>
+        <div data-rise="" data-step="4" style="display:flex;align-items:center;height:56px">
+          <div style="width:98px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:600;color:#D98B80">CD27</div>
+          <div style="flex:1;display:flex;margin-left:16px;position:relative;height:30px">
+            <div style="position:absolute;left:50%;top:-6px;bottom:-6px;width:2px;background:#1C1A16;transform:translateX(-1px);z-index:2"></div>
+            <div style="flex:1;background:rgba(28,26,22,0.03);border-radius:5px 0 0 5px;display:flex;justify-content:flex-end;align-items:center"><div data-growr="" style="height:30px;width:74%;background:#D98B80;border-radius:5px 0 0 5px;display:flex;align-items:center;padding-left:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#fff;font-weight:600">−2.37</span></div></div>
+            <div style="flex:1;background:rgba(232,163,61,0.1);border-radius:0 5px 5px 0"></div>
+          </div>
+          <div style="width:196px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6B6459;padding-left:16px;line-height:1.35">drive-dependent → +1.27 (GRN) · CRS-capped</div>
+        </div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;border-left:1px solid #E2DBCB;padding-left:52px">
+        <div data-pop="" data-step="5" style="font-family:'IBM Plex Mono',monospace;font-size:82px;font-weight:600;line-height:0.9;color:#C0392B">+4</div>
+        <div data-rise="" data-step="6" style="font-size:23px;line-height:1.4;color:#1C1A16;margin-top:14px;max-width:360px">window units gained by swapping pan-costim <span style="color:#B0A99B;font-weight:600">CD28</span> for the Treg-aware <span style="color:#C0392B;font-weight:600">4-1BB</span>.</div>
+        <div data-rise="" data-step="7" style="font-size:18px;line-height:1.5;color:#6B6459;margin-top:20px;padding-top:20px;border-top:1px solid #E2DBCB">The screen <span style="color:#1C1A16">nominates</span>; the model <span style="color:#1C1A16">discriminates</span>.</div>
+      </div>
+    </div>
+    <div data-rise="" data-step="8" style="display:flex;margin-top:18px;border-top:1px solid #E2DBCB;padding-top:16px;align-items:stretch">
+      <div style="flex:1;padding-right:26px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#938A7B">The engine</div>
+        <div style="font-size:15.5px;color:#413B32;margin-top:5px;line-height:1.4">15-tissue PBPK · emergent TMDD · Schropp ternary-complex PD · per-cell tumor model — <strong style="color:#1C1A16">426 provenance-locked parameters</strong>.</div>
+      </div>
+      <div style="flex:1.05;padding:0 26px;border-left:1px solid #E2DBCB">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#938A7B">Validated on the clinic</div>
+        <div style="font-size:15.5px;color:#413B32;margin-top:5px;line-height:1.4"><strong style="color:#C0392B">19 approved engagers</strong> reproduced per-organ · 76 drugs / 183 digitized PK–PD curves · 12 organs on Xenium maps.</div>
+      </div>
+      <div style="flex:0.72;padding-left:26px;border-left:1px solid #E2DBCB;display:flex;flex-direction:column;justify-content:center">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#B87A22">▶ See it live</div>
+        <div style="font-size:14.5px;color:#6B6459;margin-top:5px;line-height:1.4">the PBPK runner replays any drug — PK, CRS, per-organ kill.</div>
+      </div>
+    </div>
+    <div style="position:absolute;left:100px;right:100px;bottom:52px" data-fade="">
+      <dc-import name="PipelineBar" lit="1,2,3,4,5" hint-size="100%,58px"></dc-import>
+    </div>
+  </section>
+
+  <section data-label="Delivery target" data-speaker-notes="Conditional delivery requires a tumor-restricted antigen. A genome-wide restriction screen nominates CEACAM5, with the binder directed at a single B3 immunoglobulin domain." style="background:#F3EFE6;color:#1C1A16;font-family:'Hanken Grotesk',system-ui,sans-serif;padding:72px 100px 128px;display:flex;flex-direction:column;box-sizing:border-box">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:#B87A22">07 · The Delivery Arm</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#938A7B">Tumor-antigen restriction screen</div>
+    </div>
+    <h2 data-rise="" data-step="1" style="font-family:'Newsreader',serif;font-weight:500;font-size:47px;line-height:1.08;letter-spacing:-0.01em;margin:24px 0 0;max-width:1480px;text-wrap:balance">Where to point it: a <span style="font-style:italic">tumor-restricted antigen</span> for conditional delivery.</h2>
+    <div style="flex:1;display:flex;gap:64px;margin-top:40px;align-items:center">
+      <div style="flex:0.92;display:flex;flex-direction:column;gap:32px">
+        <div data-rise="" data-step="2" style="display:flex;align-items:center;gap:26px">
+          <div><div style="font-family:'IBM Plex Mono',monospace;font-size:40px;font-weight:600;color:#1C1A16">33,694</div><div style="font-size:15px;color:#6B6459;margin-top:2px">genes screened</div></div>
+          <div style="font-family:'Newsreader',serif;font-size:34px;color:#B0A99B">→</div>
+          <div><div style="font-family:'IBM Plex Mono',monospace;font-size:40px;font-weight:600;color:#1C1A16">15</div><div style="font-size:15px;color:#6B6459;margin-top:2px">surface-valid slate</div></div>
+          <div style="font-family:'Newsreader',serif;font-size:34px;color:#B0A99B">→</div>
+          <div><div style="font-family:'IBM Plex Mono',monospace;font-size:40px;font-weight:600;color:#C0392B">6</div><div style="font-size:15px;color:#C0392B;margin-top:2px">selected finalists</div></div>
+        </div>
+        <div data-rise="" data-step="3" style="font-size:20px;line-height:1.5;color:#413B32;max-width:620px">A genome-wide <span style="color:#1C1A16">tumor-vs-healthy restriction</span> screen ranks every surface gene; a surface-QC gate caught ER-retained decoys before they reached the slate. <span style="color:#1C1A16;font-weight:500">CEACAM5 &amp; CEACAM6 lead</span> — both clinically precedented.</div>
+        <div data-rise="" data-step="4" style="padding-top:24px;border-top:1px solid #E2DBCB;max-width:640px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.14em;color:#938A7B;text-transform:uppercase;margin-bottom:8px">Binder target</div>
+          <div style="font-size:23px;color:#1C1A16">CEACAM5 — single <span style="color:#C0392B;font-weight:600">B3 Ig-domain</span> <span style="font-family:'IBM Plex Mono',monospace;font-size:16px;color:#8A8172">(res 593–675)</span></div>
+        </div>
+      </div>
+      <div data-rise="" data-step="4" style="flex:1.08;display:flex;flex-direction:column;justify-content:center">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;color:#938A7B;text-transform:uppercase;margin-bottom:22px">Tumor-restriction z · 6 selected finalists</div>
+        <div style="display:flex;flex-direction:column;gap:15px">
+          <div style="display:flex;align-items:center;gap:14px"><div style="width:100px;text-align:right;font-size:16px;font-weight:600;color:#C0392B">CEACAM5</div><div style="flex:1;position:relative;height:28px;background:rgba(28,26,22,0.04);border-radius:5px"><div style="position:absolute;left:13.8%;top:-5px;bottom:-5px;width:1.5px;background:#B0A99B;z-index:2"></div><div data-grow="" data-step="2" style="position:absolute;left:13.8%;top:0;bottom:0;width:82.4%;background:#C0392B;border-radius:0 5px 5px 0;display:flex;align-items:center;justify-content:flex-end;padding-right:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#fff;font-weight:600">2.39</span></div></div><div style="width:170px;font-size:12px;color:#8A8172;line-height:1.3">clinical TCE + ADC</div></div>
+          <div style="display:flex;align-items:center;gap:14px"><div style="width:100px;text-align:right;font-size:16px;font-weight:600;color:#C0392B">CEACAM6</div><div style="flex:1;position:relative;height:28px;background:rgba(28,26,22,0.04);border-radius:5px"><div style="position:absolute;left:13.8%;top:-5px;bottom:-5px;width:1.5px;background:#B0A99B;z-index:2"></div><div data-grow="" data-step="3" style="position:absolute;left:13.8%;top:0;bottom:0;width:81.7%;background:#C0392B;border-radius:0 5px 5px 0;display:flex;align-items:center;justify-content:flex-end;padding-right:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#fff;font-weight:600">2.37</span></div></div><div style="width:170px;font-size:12px;color:#8A8172;line-height:1.3">dual-CEACAM ADC (FDA FT)</div></div>
+          <div style="display:flex;align-items:center;gap:14px"><div style="width:100px;text-align:right;font-size:16px;color:#4A4438">DPEP1</div><div style="flex:1;position:relative;height:28px;background:rgba(28,26,22,0.04);border-radius:5px"><div style="position:absolute;left:13.8%;top:-5px;bottom:-5px;width:1.5px;background:#B0A99B;z-index:2"></div><div data-grow="" data-step="4" style="position:absolute;left:13.8%;top:0;bottom:0;width:67.9%;background:#C7C0B2;border-radius:0 5px 5px 0;display:flex;align-items:center;justify-content:flex-end;padding-right:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A5346;font-weight:600">1.97</span></div></div><div style="width:170px;font-size:12px;color:#8A8172;line-height:1.3">3rd-highest restriction</div></div>
+          <div style="display:flex;align-items:center;gap:14px"><div style="width:100px;text-align:right;font-size:16px;color:#4A4438">ITGB4</div><div style="flex:1;position:relative;height:28px;background:rgba(28,26,22,0.04);border-radius:5px"><div style="position:absolute;left:13.8%;top:-5px;bottom:-5px;width:1.5px;background:#B0A99B;z-index:2"></div><div data-grow="" data-step="5" style="position:absolute;left:13.8%;top:0;bottom:0;width:47.9%;background:#C7C0B2;border-radius:0 5px 5px 0;display:flex;align-items:center;justify-content:flex-end;padding-right:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A5346;font-weight:600">1.39</span></div></div><div style="width:170px;font-size:12px;color:#8A8172;line-height:1.3">large integrin ECD</div></div>
+          <div style="display:flex;align-items:center;gap:14px"><div style="width:100px;text-align:right;font-size:16px;color:#4A4438">TSPAN6</div><div style="flex:1;position:relative;height:28px;background:rgba(28,26,22,0.04);border-radius:5px"><div style="position:absolute;left:13.8%;top:-5px;bottom:-5px;width:1.5px;background:#B0A99B;z-index:2"></div><div data-grow="" data-step="6" style="position:absolute;left:13.8%;top:0;bottom:0;width:36.2%;background:#C7C0B2;border-radius:0 5px 5px 0;display:flex;align-items:center;justify-content:flex-end;padding-right:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A5346;font-weight:600">1.05</span></div></div><div style="width:170px;font-size:12px;color:#8A8172;line-height:1.3">single-cohort (retained)</div></div>
+          <div style="display:flex;align-items:center;gap:14px"><div style="width:100px;text-align:right;font-size:16px;color:#6B6459">LY6E</div><div style="flex:1;position:relative;height:28px;background:rgba(28,26,22,0.04);border-radius:5px"><div style="position:absolute;left:13.8%;top:-5px;bottom:-5px;width:1.5px;background:#B0A99B;z-index:2"></div><div data-growr="" data-step="7" style="position:absolute;right:86.2%;top:0;bottom:0;width:6.9%;background:#9E978A;border-radius:5px 0 0 5px"></div></div><div style="width:170px;font-size:12px;color:#8A8172;line-height:1.3"><span style="font-family:'IBM Plex Mono',monospace;color:#6B6459">−0.20</span> · clinical precedent, not restricted</div></div>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5;color:#938A7B;margin-top:22px">z = tumor-vs-healthy restriction (Lee 2020, 2 CRC cohorts). “6 selected finalists,” not top-6.</div>
+      </div>
+    </div>
+    <div style="position:absolute;left:100px;right:100px;bottom:52px" data-fade="">
+      <dc-import name="PipelineBar" lit="1,2,3,4,5" hint-size="100%,58px"></dc-import>
+    </div>
+  </section>
+
+  <section data-label="Molecule" data-speaker-notes="The nomination was then advanced to a molecule through a complete de novo design campaign: 3,964 AlphaFold-3-screened designs across all four arms of the therapeutic, reduced to 39 interface-confirmed finalists, including binders for both costimulatory co-leads." style="background:#F3EFE6;color:#1C1A16;font-family:'Hanken Grotesk',system-ui,sans-serif;padding:72px 100px 128px;display:flex;flex-direction:column;box-sizing:border-box">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:#B87A22">07 · The Molecule</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#938A7B">RFdiffusion → ProteinMPNN → AlphaFold-3</div>
+    </div>
+    <h2 data-rise="" data-step="1" style="font-family:'Newsreader',serif;font-weight:500;font-size:46px;line-height:1.08;letter-spacing:-0.01em;margin:22px 0 0;max-width:1580px;text-wrap:balance">The nomination becomes a molecule — <span style="color:#C0392B">3,964 de novo designs, 39 interface-confirmed</span>, and built to agonize.</h2>
+    <div style="flex:1;display:flex;gap:48px;margin-top:34px;align-items:stretch">
+      <div data-rise="" data-step="2" style="flex:1.15;display:flex;flex-direction:column">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:0.14em;color:#938A7B;text-transform:uppercase">AF3 campaign · attrition</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:18px">
+          <div style="display:flex;align-items:center;gap:14px"><div style="width:132px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172">screened</div><div style="flex:1;height:26px;background:rgba(28,26,22,0.04);border-radius:5px"><div style="width:100%;height:100%;background:#C7A15A;opacity:0.7;border-radius:5px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#fff">3,964</span></div></div></div>
+          <div style="display:flex;align-items:center;gap:14px"><div style="width:132px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172">3 orthogonal gates</div><div style="flex:1;height:26px;background:rgba(28,26,22,0.04);border-radius:5px"><div style="width:46%;height:100%;background:#C7A15A;opacity:0.7;border-radius:5px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#fff">interface · refold · 10-seed</span></div></div></div>
+          <div style="display:flex;align-items:center;gap:14px"><div style="width:132px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172">finalists</div><div style="flex:1;height:26px;background:rgba(28,26,22,0.04);border-radius:5px"><div style="width:11%;height:100%;background:#C0392B;opacity:1;border-radius:5px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#fff">39</span></div></div></div>
+        </div>
+        <div style="font-size:17px;line-height:1.45;color:#413B32;margin-top:22px">Across <strong>all four arms</strong> — both costim co-leads, the CD3 redirector, the CEACAM5 anchor. Unbiased: AF3 separates keepers from rejects on <strong>interface physics ≈90 orders of magnitude</strong> more than on sequence.</div>
+        <div style="display:flex;gap:10px;margin-top:auto;padding-top:22px">
+          <div style="flex:1;background:#FBF9F3;border:1px solid #E2DBCB;border-top:3px solid #C0392B;border-radius:9px;padding:12px 4px;text-align:center"><div style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:#1C1A16">4-1BB</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-top:3px">ipSAE 0.49</div></div><div style="flex:1;background:#FBF9F3;border:1px solid #E2DBCB;border-top:3px solid #C0392B;border-radius:9px;padding:12px 4px;text-align:center"><div style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:#1C1A16">CD27</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-top:3px">ipSAE 0.55</div></div><div style="flex:1;background:#FBF9F3;border:1px solid #E2DBCB;border-top:3px solid #2E6FA8;border-radius:9px;padding:12px 4px;text-align:center"><div style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:#1C1A16">CD3</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-top:3px">ipSAE 0.49</div></div><div style="flex:1;background:#FBF9F3;border:1px solid #E2DBCB;border-top:3px solid #B0741C;border-radius:9px;padding:12px 4px;text-align:center"><div style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:#1C1A16">CEACAM5</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-top:3px">ipSAE 0.65</div></div>
+        </div>
+      </div>
+      <div data-rise="" data-step="3" style="flex:0.85;background:radial-gradient(120% 130% at 80% 10%, #211d14 0%, #17150F 60%, #100E09 100%);color:#F3EFE6;border-radius:16px;padding:34px 36px;display:flex;flex-direction:column">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:0.14em;color:#E8A33D;text-transform:uppercase">Designed to agonize</div>
+        <div style="font-family:'Newsreader',serif;font-size:29px;font-weight:500;line-height:1.15;margin:14px 0 0">The binder independently recapitulates the <span style="color:#E8A33D">urelumab-class agonist epitope</span>.</div>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-top:26px">
+          <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid rgba(243,239,230,0.12);padding-bottom:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:#F3EFE6;width:82px">14</span><span style="font-size:16px;color:rgba(243,239,230,0.75)">residue footprint — matches the non-blocking agonist site</span></div>
+          <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid rgba(243,239,230,0.12);padding-bottom:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:#F3EFE6;width:82px">8.9 Å</span><span style="font-size:16px;color:rgba(243,239,230,0.75)">from the 4-1BBL trimer — clustering-compatible</span></div>
+          <div style="display:flex;align-items:baseline;gap:14px"><span style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:#F3EFE6;width:82px">0</span><span style="font-size:16px;color:rgba(243,239,230,0.75)">steric clashes with the ligand — the agonism rationale</span></div>
+        </div>
+        <div style="margin-top:auto;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#E8A33D;padding-top:22px">▶ all four docked, live in the 3D viewer</div>
+      </div>
+    </div>
+    <div style="position:absolute;left:100px;right:100px;bottom:52px" data-fade="">
+      <dc-import name="PipelineBar" lit="1,2,3,4,5" hint-size="100%,58px"></dc-import>
+    </div>
+  </section>
+
+  <section data-label="See it live" data-speaker-notes="Each result is provided as an interactive tool rather than a static figure. I will demonstrate the whole-body runner: selecting an antibody and an organ updates the plasma pharmacokinetics, cytokine kinetics, per-organ target-cell kill, and the corresponding single-cell spatial distribution in real time." style="background:radial-gradient(120% 130% at 78% 8%, #241f15 0%, #17150F 58%, #100E09 100%);color:#F3EFE6;font-family:'Hanken Grotesk',system-ui,sans-serif;padding:72px 100px 128px;display:flex;flex-direction:column;box-sizing:border-box">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:#E8A33D">▶ Live demo</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(243,239,230,0.5)">Interactive · in the browser</div>
+    </div>
+    <h2 data-rise="" data-step="1" style="font-family:'Newsreader',serif;font-weight:500;font-size:58px;line-height:1.04;letter-spacing:-0.015em;margin:26px 0 0;max-width:1440px;text-wrap:balance">Don't take the slides' word for it — <span style="font-style:italic;color:#E8A33D">run the campaign yourself.</span></h2>
+    <p data-rise="" data-step="2" style="font-size:22px;line-height:1.45;color:rgba(243,239,230,0.72);margin:18px 0 0;max-width:1180px">Every number you've seen is a live, interactive tool. Switching to the dashboard now —</p>
+    <div style="flex:1;display:flex;gap:24px;margin-top:40px;align-items:stretch">
+      <div data-rise="" data-step="3" style="flex:1;background:rgba(243,239,230,0.04);border:1px solid rgba(243,239,230,0.14);border-left:3px solid #E8A33D;border-radius:14px;padding:28px 26px;display:flex;flex-direction:column"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#E8A33D;letter-spacing:0.14em">01</div><div style="font-family:'Newsreader',serif;font-size:29px;font-weight:500;color:#F3EFE6;margin-top:10px;line-height:1.1">PBPK runner</div><div style="font-size:17px;line-height:1.5;color:rgba(243,239,230,0.72);margin-top:12px;flex:1">Replay 19 clinical engagers — live plasma PK, systemic CRS, and per-organ target-cell kill.</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(243,239,230,0.45);margin-top:14px">whole-body engine · 426 params</div></div>
+      <div data-rise="" data-step="4" style="flex:1;background:rgba(243,239,230,0.04);border:1px solid rgba(243,239,230,0.14);border-left:3px solid #E8A33D;border-radius:14px;padding:28px 26px;display:flex;flex-direction:column"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#E8A33D;letter-spacing:0.14em">02</div><div style="font-family:'Newsreader',serif;font-size:29px;font-weight:500;color:#F3EFE6;margin-top:10px;line-height:1.1">3D binder viewer</div><div style="font-size:17px;line-height:1.5;color:rgba(243,239,230,0.72);margin-top:12px;flex:1">All four de novo binders docked on their targets — drag, spin, click any residue for CDRs and the epitope.</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(243,239,230,0.45);margin-top:14px">4-1BB · CD27 · CD3 · CEACAM5</div></div>
+      <div data-rise="" data-step="5" style="flex:1;background:rgba(243,239,230,0.04);border:1px solid rgba(243,239,230,0.14);border-left:3px solid #E8A33D;border-radius:14px;padding:28px 26px;display:flex;flex-direction:column"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#E8A33D;letter-spacing:0.14em">03</div><div style="font-family:'Newsreader',serif;font-size:29px;font-weight:500;color:#F3EFE6;margin-top:10px;line-height:1.1">Model explorer</div><div style="font-size:17px;line-height:1.5;color:rgba(243,239,230,0.72);margin-top:12px;flex:1">Walk the whole-body compartments and the efficacy–toxicity landscape on real single-cell spatial maps.</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(243,239,230,0.45);margin-top:14px">12 organs · Xenium single-cell</div></div>
+    </div>
+    <div data-rise="" data-step="6" style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:rgba(243,239,230,0.55);margin-top:22px">All linked from the Start-Here hub — openable mid-talk, no setup.</div>
+    <div style="position:absolute;left:100px;right:100px;bottom:52px" data-fade="">
+      <dc-import name="PipelineBar" lit="1,2,3,4,5" hint-size="100%,58px"></dc-import>
+    </div>
+  </section>
+
+  <section data-label="Live · Counter-screen" data-speaker-notes="The live counter-screen. This is the three-axis efficacy-toxicity space: eleven costimulatory arms scored on CD8 benefit against the CD4 liability axes. As the suppression and cytokine axes fold in, only 4-1BB and CD27 remain in the clean therapeutic window; CD28 and OX40 fall into the dual-liability corner." style="background:radial-gradient(120% 120% at 50% 18%, #17150F 0%, #100E09 72%);display:flex;flex-direction:column;box-sizing:border-box;padding:0;align-items:center;justify-content:center">
+    <div style="width:1280px;height:780px;border-radius:16px;overflow:hidden;box-shadow:0 34px 90px -34px rgba(0,0,0,0.65)">
+      <dc-import name="Costim Landscape" hint-size="1280px,780px" style="display:block;width:1280px;height:780px"></dc-import>
+    </div>
+  </section>
+
+  <section data-label="Built with Claude" data-speaker-notes="As to method: each discipline represented here is ordinarily staffed as a separate team. I conducted the entire program as a single investigator directing Claude as a coordinated agent fleet, on the order of sixteen thousand executed code cells, continuously self-audited. Work that typically spans one to two years was completed in approximately six days." style="background:radial-gradient(120% 130% at 78% 8%, #241f15 0%, #17150F 58%, #100E09 100%);color:#F3EFE6;font-family:'Hanken Grotesk',system-ui,sans-serif;padding:72px 100px 128px;display:flex;flex-direction:column;box-sizing:border-box">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:#E8A33D">08 · Built with Claude</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(243,239,230,0.5)">Expert-directed · 215-frame fleet</div>
+    </div>
+    <h2 data-rise="" data-step="1" style="font-family:'Newsreader',serif;font-weight:500;font-size:48px;line-height:1.06;letter-spacing:-0.01em;margin:24px 0 0;max-width:1520px;text-wrap:balance">Every discipline a company staffs as a separate team — run by <span style="font-style:italic;color:#E8A33D">one scientist directing Claude</span>, in 6.1 days.</h2>
+    <div style="flex:1;display:flex;gap:52px;margin-top:40px;align-items:stretch">
+      <div data-rise="" data-step="2" style="flex:1;display:flex;flex-direction:column;border-right:1px solid rgba(243,239,230,0.14);padding-right:52px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:0.14em;color:#E8A33D;text-transform:uppercase">The multiplier</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:104px;font-weight:600;line-height:0.9;color:#F3EFE6;margin-top:14px">≈60–270×</div>
+        <div style="font-size:24px;line-height:1.35;color:rgba(243,239,230,0.82);margin-top:14px">the full discovery arc — <strong style="color:#fff">1–4.5 years → 6.1 days</strong>.</div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:26px"><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;padding:8px 14px;background:rgba(243,239,230,0.06);border:1px solid rgba(243,239,230,0.14);border-radius:7px;color:rgba(243,239,230,0.85)">215 agent-frames</span><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;padding:8px 14px;background:rgba(243,239,230,0.06);border:1px solid rgba(243,239,230,0.14);border-radius:7px;color:rgba(243,239,230,0.85)">16,327 code cells</span><span style="font-family:'IBM Plex Mono',monospace;font-size:14px;padding:8px 14px;background:rgba(243,239,230,0.06);border:1px solid rgba(243,239,230,0.14);border-radius:7px;color:rgba(243,239,230,0.85)">2,445 grounding calls</span></div>
+      </div>
+      <div data-rise="" data-step="3" style="flex:1;display:flex;flex-direction:column;padding-left:0">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:0.14em;color:#E8A33D;text-transform:uppercase">Audited by itself</div>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-top:20px">
+          <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid rgba(243,239,230,0.12);padding-bottom:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#F3EFE6;width:96px">1,155</span><span style="font-size:16px;color:rgba(243,239,230,0.75);line-height:1.35">independent checks · 749 reviewer frames</span></div>
+          <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid rgba(243,239,230,0.12);padding-bottom:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#F3EFE6;width:96px">337</span><span style="font-size:16px;color:rgba(243,239,230,0.75);line-height:1.35">real errors caught before they reached the page</span></div>
+          <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1px solid rgba(243,239,230,0.12);padding-bottom:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#F3EFE6;width:96px">0</span><span style="font-size:16px;color:rgba(243,239,230,0.75);line-height:1.35">self-reviews — producer never reviews itself</span></div>
+        </div>
+        <div style="font-size:16px;line-height:1.5;color:rgba(243,239,230,0.7);margin-top:20px">30/30 engineering ledger · 25 adversarial hypotheses, <strong style="color:#fff">0 refuted</strong> · it self-retracted its own inflated 4-1BB number (z 37 → 11.2).</div>
+      </div>
+    </div>
+    <div data-rise="" data-step="4" style="font-family:'IBM Plex Mono',monospace;font-size:14px;line-height:1.5;color:rgba(243,239,230,0.6);margin-top:22px;max-width:1560px">Expert-directed augmentation, not autonomous AI — the scientist made every scientific decision; Claude did the team-scale execution. Full telemetry in the "Built with Claude" page.</div>
+    <div style="position:absolute;left:100px;right:100px;bottom:52px" data-fade="">
+      <dc-import name="PipelineBar" lit="1,2,3,4,5" hint-size="100%,58px"></dc-import>
+    </div>
+  </section>
+
+  <section data-label="Payoff" data-speaker-notes="In summary: target, mechanism, a predicted therapeutic window, and a confirmed binder, a complete discovery campaign executed in one week by a single investigator working with Claude." style="background:radial-gradient(125% 120% at 80% 6%, #241f15 0%, #17150F 52%, #100E09 100%);color:#F3EFE6;font-family:'Hanken Grotesk',system-ui,sans-serif;padding:76px 100px 96px;display:flex;flex-direction:column;box-sizing:border-box">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:#E8A33D">The campaign, complete</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(243,239,230,0.5)">Built with Claude · Life Sciences</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;max-width:1560px">
+      <h1 data-rise="" data-step="1" style="font-family:'Newsreader',serif;font-weight:500;font-size:62px;line-height:1.08;letter-spacing:-0.015em;margin:0;text-wrap:balance">Target <span style="color:#E8A33D">→</span> mechanism <span style="color:#E8A33D">→</span> therapeutic window <span style="color:#E8A33D">→</span> confirmed binder. <span style="font-style:italic">One week.</span></h1>
+      <p data-rise="" data-step="2" style="font-size:25px;line-height:1.5;color:rgba(243,239,230,0.78);margin:28px 0 0;max-width:1240px">Normally a multidisciplinary team over months. Here the expert made every scientific call; Claude carried the execution — the analyses, the 1.65M-edge network, the whole-body model, the 3,964-design binder campaign, and the self-audit.</p>
+      <div data-rise="" data-step="3" style="margin-top:30px;padding-top:26px;border-top:1px solid rgba(243,239,230,0.16);display:flex;align-items:baseline;gap:18px;flex-wrap:wrap">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:0.16em;color:rgba(243,239,230,0.55);text-transform:uppercase">Nomination</span>
+        <span style="font-family:'Newsreader',serif;font-size:32px;color:#F3EFE6">4-1BB <span style="font-size:20px;color:rgba(243,239,230,0.55)">(TNFRSF9)</span> + CD27</span>
+        <span style="font-size:18px;color:rgba(243,239,230,0.6)">— high CD8 effector, clean on every CD4 toxicity axis, robust to a genome-wide adversarial audit, and now with de novo binders designed and in-silico confirmed.</span>
+      </div>
+    </div>
+    <div style="margin-top:auto">
+      <div data-fade="" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(232,163,61,0.85);margin-bottom:16px">Every stage — expert-directed, Claude-executed</div>
+      <div data-fade="">
+        <dc-import name="PipelineBar" lit="1,2,3,4,5,6,7" glow="true" dark="true" hint-size="100%,58px"></dc-import>
+      </div>
+    </div>
+  </section>
+</x-import>
+</x-dc>
+</body>
+</html>

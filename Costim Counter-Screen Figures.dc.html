@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=IBM+Plex+Sans:wght@400;450;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{background:#F3ECE0;color:#1A1712;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    html{scroll-behavior:smooth;scroll-padding-top:60px}
+    a{color:#0E7C5F;text-decoration:none}
+    a:hover{text-decoration:underline}
+    ::selection{background:rgba(14,124,95,0.16)}
+    @keyframes tipin{from{opacity:0;transform:translateY(4px) scale(.98)}to{opacity:1;transform:none}}
+  </style>
+  <script src="figdata.js"></script>
+  <script src="struct_data.js"></script>
+  <script src="spatial_data.js"></script>
+  <script>
+  (function(){
+    if(!/[?&]demo=1/.test(location.search)) return;
+    var done=false;
+    function run(){
+      var el=document.getElementById('fig4');
+      if(!el){ return setTimeout(run,150); }
+      var y=el.getBoundingClientRect().top+window.pageYOffset-70;
+      window.scrollTo({top:Math.max(0,y),behavior:'smooth'});
+      setTimeout(function(){ if(done)return; done=true; location.href='Costim PBPK Runner.dc.html?demo=1'; }, 9000);
+    }
+    if(document.readyState!=='loading') setTimeout(run,800); else document.addEventListener('DOMContentLoaded',function(){ setTimeout(run,800); });
+  })();
+  </script>
+</helmet>
+<a href="Costim - Start Here.dc.html" style="position:fixed;left:14px;top:14px;z-index:9999;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.04em;color:#1A1712;background:rgba(252,250,245,0.95);border:1px solid #C9BFAE;border-radius:20px;padding:7px 14px;text-decoration:none;box-shadow:0 3px 12px rgba(26,23,18,0.18)">&larr; Start here</a>
+<div style="max-width:1180px;margin:0 auto;padding:52px 34px 120px;background:#F3ECE0">
+
+  <header style="border-bottom:1.5px solid #1A1712;padding-bottom:30px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#0E7C5F;font-weight:600">Max&nbsp;Goulazian &nbsp;&middot;&nbsp; CD4&#8314; Perturb-seq counter-screen &nbsp;&middot;&nbsp; pre-QSP target &amp; arm nomination</div>
+    <h1 style="font-family:'Newsreader',serif;font-weight:600;font-size:53px;line-height:1.04;letter-spacing:-.014em;margin:20px 0 0;max-width:20ch">A toxicity counter-screen for costimulatory T-cell engagers</h1>
+    <p style="font-family:'Newsreader',serif;font-size:20.5px;line-height:1.5;color:#3A342B;max-width:70ch;margin:20px 0 0;font-weight:400">CD3-only engagers deliver signal&#8201;1 but no signal&#8201;2, so recruited T&nbsp;cells activate without costimulation and exhaust. Adding a costim arm restores durability &mdash; but because the engaging arm hits every CD4&#8314; cell, it amplifies the same wiring that drives cytokine-release syndrome and Treg expansion. We score every candidate costim receptor on three axes to find one that <em style="font-style:italic;color:#0E7C5F">amplifies the killers while sparing the CD4 suppressive and CRS programs</em>, then rank tumor-conditional targets to carry it.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:34px;margin-top:30px">
+      <div style="min-width:0"><div style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#1A1712">11</div><div style="font-size:12.5px;color:#6E6656;margin-top:3px;line-height:1.3">costim receptors<br>&times; 3 axes + help</div></div>
+      <div style="width:1px;background:#D8CFC0"></div>
+      <div><div style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#1A1712">33,694</div><div style="font-size:12.5px;color:#6E6656;margin-top:3px;line-height:1.3">genes ranked<br>genome-wide (TAA)</div></div>
+      <div style="width:1px;background:#D8CFC0"></div>
+      <div><div style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#1A1712">4</div><div style="font-size:12.5px;color:#6E6656;margin-top:3px;line-height:1.3">donors &middot; Mantel&ndash;<br>Haenszel pooled</div></div>
+      <div style="width:1px;background:#D8CFC0"></div>
+      <div><div style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#1A1712">3</div><div style="font-size:12.5px;color:#6E6656;margin-top:3px;line-height:1.3">effector-hit arms<br>nominated, non-liability</div></div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8C8474;margin-top:26px;line-height:1.7;letter-spacing:.01em">DATA &nbsp;Zhu&nbsp;et&nbsp;al.&nbsp;2025 CD4&#8314; Perturb-seq (CRISPRi) &middot; Schmidt&nbsp;et&nbsp;al.&nbsp;2022 CD8 CRISPRa IFN-&gamma; &middot; Tabula&nbsp;Sapiens&nbsp;v2 &middot; CRC scRNA GSE132465&nbsp;(SMC)&nbsp;+&nbsp;GSE144735&nbsp;(KUL3). &nbsp;All values traced to verified module CSVs (A8&nbsp;/&nbsp;A2c&nbsp;/&nbsp;B6v2&nbsp;/&nbsp;B8&nbsp;/&nbsp;B3v2).</div>
+  </header>
+
+  <nav style="position:sticky;top:0;z-index:50;background:#F3ECE0;border-bottom:1px solid #D8CFC0;box-shadow:0 6px 16px -12px rgba(26,23,18,0.4);margin:22px 0 0;padding:11px 2px;display:flex;flex-wrap:wrap;gap:7px">
+    <a href="#fig1" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;color:#6E6656;padding:5px 10px;border:1px solid #E0D6C6;border-radius:6px;background:#FFF">01 Trade-off</a>
+    <a href="#fig2" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;color:#6E6656;padding:5px 10px;border:1px solid #E0D6C6;border-radius:6px;background:#FFF">02 Scorecard</a>
+    <a href="#fig3" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;color:#6E6656;padding:5px 10px;border:1px solid #E0D6C6;border-radius:6px;background:#FFF">03 Treg</a>
+    <a href="#fig4" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;color:#6E6656;padding:5px 10px;border:1px solid #E0D6C6;border-radius:6px;background:#FFF">04 TAA</a>
+    <a href="#fig5" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;color:#6E6656;padding:5px 10px;border:1px solid #E0D6C6;border-radius:6px;background:#FFF">05 Breadth</a>
+    <a href="#fig6" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;color:#0B5E48;padding:5px 10px;border:1px solid #B7D8CC;border-radius:6px;background:#EAF4EF">06 Mechanism</a>
+    <a href="#fig7" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;color:#0B5E48;padding:5px 10px;border:1px solid #B7D8CC;border-radius:6px;background:#EAF4EF">07 QSP window</a>
+    <a href="#fig8" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;color:#0B5E48;padding:5px 10px;border:1px solid #B7D8CC;border-radius:6px;background:#EAF4EF">08 Binders</a>
+    <a href="#fig9" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;color:#0B5E48;padding:5px 10px;border:1px solid #B7D8CC;border-radius:6px;background:#EAF4EF">09 Rigor</a>
+    <a href="#fig10" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;color:#0B5E48;padding:5px 10px;border:1px solid #B7D8CC;border-radius:6px;background:#EAF4EF">10 Selectivity</a>
+    <a href="#fig11" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;color:#0B5E48;padding:5px 10px;border:1px solid #B7D8CC;border-radius:6px;background:#EAF4EF">11 Co-agonism</a>
+    <a href="#fig12" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;color:#0B5E48;padding:5px 10px;border:1px solid #B7D8CC;border-radius:6px;background:#EAF4EF">12 Developability</a>
+    <a href="#fig13" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;color:#0B5E48;padding:5px 10px;border:1px solid #B7D8CC;border-radius:6px;background:#EAF4EF">13 Structure 3D</a>
+    <a href="#fig14" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;color:#0B5E48;padding:5px 10px;border:1px solid #B7D8CC;border-radius:6px;background:#EAF4EF">14 QSP model</a>
+    <a href="#fig15" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;color:#0B5E48;padding:5px 10px;border:1px solid #B7D8CC;border-radius:6px;background:#EAF4EF">15 Off-tumor sweep</a>
+    
+    
+    
+    
+    
+  </nav>
+
+  <main>
+
+    <!-- ===================== FIGURE 1 ===================== -->
+    <section id="fig1" style="margin-top:70px;scroll-margin-top:24px">
+      <div style="display:flex;align-items:baseline;gap:16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#0E7C5F;letter-spacing:.1em">FIG&nbsp;1</div>
+        <h2 style="font-family:'Newsreader',serif;font-weight:600;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin:0">The effector&ndash;toxicity trade-off map</h2>
+      </div>
+      <p style="font-size:16px;line-height:1.55;color:#4A4438;max-width:75ch;margin:12px 0 0">Every costim receptor placed by the benefit it adds to CD8 killing (x) against the CD4 liability it feeds (y). The window we want is bottom-right: past the effector gate, below the suppression line. CD28 &mdash; the strongest effector in the panel &mdash; sits alone in the danger zone.</p>
+      <div style="display:flex;gap:7px;margin-top:18px;flex-wrap:wrap">
+        <sc-for list="{{ f1views }}" as="v" hint-placeholder-count="3">
+          <button style="{{ v.style }}" onClick="{{ v.onClick }}">{{ v.label }}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ f1yShow }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;gap:7px;margin-top:9px;align-items:center;flex-wrap:wrap">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:#8C8474;margin-right:3px">Y axis</span>
+          <sc-for list="{{ f1yviews }}" as="v" hint-placeholder-count="3">
+            <button style="{{ v.style }}" onClick="{{ v.onClick }}">{{ v.label }}</button>
+          </sc-for>
+        </div>
+      </sc-if>
+      <div style="position:relative;margin-top:14px;background:#FFFFFF;border:1px solid #E7DECF;border-radius:6px;padding:12px 12px 6px;box-shadow:0 1px 0 rgba(26,23,18,0.03)">
+        {{ fig1El }}
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:18px 26px;margin-top:16px;align-items:center">
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:13px;height:13px;border-radius:50%;background:#0E7C5F;display:inline-block"></span><span style="font-size:13px;color:#3A342B">Nominated finalist &mdash; clean</span></div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:13px;height:13px;border-radius:50%;background:#E0870D;display:inline-block"></span><span style="font-size:13px;color:#3A342B">Nominated &mdash; conditional</span></div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:13px;height:13px;border-radius:50%;background:#DB3B22;display:inline-block"></span><span style="font-size:13px;color:#3A342B">Eliminated &mdash; liability</span></div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:13px;height:13px;border-radius:50%;background:#3C4FD1;display:inline-block"></span><span style="font-size:13px;color:#3A342B">Gated &mdash; APC-side</span></div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:13px;height:13px;border-radius:50%;background:#AEA492;display:inline-block"></span><span style="font-size:13px;color:#3A342B">Below effector gate</span></div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8C8474;margin-top:16px;line-height:1.7;border-top:1px solid #E7DECF;padding-top:12px">EFFECTOR&nbsp;(x) Schmidt&nbsp;2022 CD8 CRISPRa IFN-&gamma; screen, z. &nbsp;LIABILITY&nbsp;(y) Zhu&nbsp;2025 CD4 Perturb-seq &mdash; within-donor Cliff's&nbsp;&delta; agonism (=&minus;1&times;KD), 4&nbsp;donors, Stim&nbsp;48&#8201;h, BH-FDR. &nbsp;Hover a point for all axes. &nbsp;Source&nbsp;COSTIM_FINAL_3AXIS_SCORE.csv&nbsp;(module&nbsp;A8).</div>
+    </section>
+
+    <!-- ===================== FIGURE 2 ===================== -->
+    <section id="fig2" style="margin-top:78px;scroll-margin-top:24px">
+      <div style="display:flex;align-items:baseline;gap:16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#0E7C5F;letter-spacing:.1em">FIG&nbsp;2</div>
+        <h2 style="font-family:'Newsreader',serif;font-weight:600;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin:0">Four-axis receptor scorecard</h2>
+      </div>
+      <p style="font-size:16px;line-height:1.55;color:#4A4438;max-width:75ch;margin:12px 0 0">The full panel, one row per receptor, sorted by tier. Effector benefit should be high; CRS and suppression should be low (blue); help should be preserved. Rings mark statistically significant agonism (BH&nbsp;q&#8201;&lt;&#8201;0.05).</p>
+      <div style="position:relative;margin-top:22px;background:#FFFFFF;border:1px solid #E7DECF;border-radius:6px;padding:14px 12px 8px;box-shadow:0 1px 0 rgba(26,23,18,0.03)">
+        {{ fig2El }}
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8C8474;margin-top:16px;line-height:1.7;border-top:1px solid #E7DECF;padding-top:12px">Cell = signed agonism (Cliff's&nbsp;&delta;), diverging scale. Effector column is Schmidt&nbsp;z (own scale). &nbsp;Ring&nbsp;=&nbsp;BH&nbsp;q&#8201;&lt;&#8201;0.05. &nbsp;Source&nbsp;COSTIM_FINAL_3AXIS_SCORE.csv&nbsp;(A8&nbsp;/&nbsp;A2).</div>
+    </section>
+
+    <!-- ===================== FIGURE 3 ===================== -->
+    <section id="fig3" style="margin-top:78px;scroll-margin-top:24px">
+      <div style="display:flex;align-items:baseline;gap:16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#0E7C5F;letter-spacing:.1em">FIG&nbsp;3</div>
+        <h2 style="font-family:'Newsreader',serif;font-weight:600;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin:0">Does the arm move the Treg compartment?</h2>
+      </div>
+      <p style="font-size:16px;line-height:1.55;color:#4A4438;max-width:75ch;margin:12px 0 0">Per-donor and pooled Treg-fraction odds ratios, in the agonism frame. Left of the line, agonism <em style="font-style:italic">expands</em> Tregs (a liability); right, it <em style="font-style:italic">depletes</em> them. CD27 sits on the line &mdash; suppression-negating yet Treg-neutral, exactly what a clean arm should do.</p>
+      <div style="position:relative;margin-top:22px;background:#FFFFFF;border:1px solid #E7DECF;border-radius:6px;padding:14px 12px 8px;box-shadow:0 1px 0 rgba(26,23,18,0.03)">
+        {{ fig3El }}
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8C8474;margin-top:16px;line-height:1.7;border-top:1px solid #E7DECF;padding-top:12px">Treg-fraction odds ratio, log&#8322;, knockdown frame (agonism = mirror). Diamond&nbsp;=&nbsp;4-donor Mantel&ndash;Haenszel pooled OR + 95% CI; dots = per-donor OR. &nbsp;*&nbsp;q&#8201;&lt;&#8201;0.05 (CMH, BH). &nbsp;Source&nbsp;A2c_treg_wiring_D1234.csv.</div>
+    </section>
+
+    <!-- ===================== FIGURE 4 ===================== -->
+    <section id="fig4" style="margin-top:78px;scroll-margin-top:24px">
+      <div style="display:flex;align-items:baseline;gap:16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#0E7C5F;letter-spacing:.1em">FIG&nbsp;4</div>
+        <h2 style="font-family:'Newsreader',serif;font-weight:600;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin:0">Tumor-conditional target selectivity</h2>
+      </div>
+      <p style="font-size:16px;line-height:1.55;color:#4A4438;max-width:75ch;margin:12px 0 0">Genome-wide TAA ranking for the arm to ride on. Restriction to malignant epithelium (x) against a per-cell-type safety score (y). CEACAM6 and CEACAM5 top the ranking; targets that look strong until you resolve where they leak &mdash; LY6E, CXCL16 &mdash; fall out of the window.</p>
+      <div style="position:relative;margin-top:22px;background:#FFFFFF;border:1px solid #E7DECF;border-radius:6px;padding:14px 12px 8px;box-shadow:0 1px 0 rgba(26,23,18,0.03)">
+        {{ fig4El }}
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8C8474;margin-top:16px;line-height:1.7;border-top:1px solid #E7DECF;padding-top:12px">x&nbsp;=&nbsp;tumor-cell restriction z (B8, 2 CRC cohorts). y&nbsp;=&nbsp;per-cell-type safety score v2 (B6v2). &nbsp;Ringed&nbsp;=&nbsp;surface-QC excluded (internal/secreted topology). &nbsp;Source&nbsp;B6_taa_ranked_genomewide_v2.csv&nbsp;+&nbsp;B8_taa_restriction_scores.csv.</div>
+    </section>
+
+    <!-- ===================== FIGURE 5 ===================== -->
+    <section id="fig5" style="margin-top:78px;scroll-margin-top:24px">
+      <div style="display:flex;align-items:baseline;gap:16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#0E7C5F;letter-spacing:.1em">FIG&nbsp;5</div>
+        <h2 style="font-family:'Newsreader',serif;font-weight:600;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin:0">Where the finalists still show up in healthy tissue</h2>
+      </div>
+      <p style="font-size:16px;line-height:1.55;color:#4A4438;max-width:75ch;margin:12px 0 0">Maximum expression across healthy compartments in Tabula&nbsp;Sapiens. CEACAM6/CEACAM5 are tumor-enriched, not tumor-specific &mdash; low but non-zero off-tumor, so tumor-conditional gating is still required. The demoted targets light up broadly.</p>
+      <div style="position:relative;margin-top:22px;background:#FFFFFF;border:1px solid #E7DECF;border-radius:6px;padding:16px 14px 10px;box-shadow:0 1px 0 rgba(26,23,18,0.03)">
+        {{ fig5El }}
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:18px 26px;margin-top:16px;align-items:center">
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:13px;height:13px;border-radius:3px;background:#28357E;display:inline-block"></span><span style="font-size:13px;color:#3A342B">Vital-organ compartments</span></div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:13px;height:13px;border-radius:3px;background:#7C8598;display:inline-block"></span><span style="font-size:13px;color:#3A342B">Immune</span></div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:13px;height:13px;border-radius:3px;background:#D99A1C;display:inline-block"></span><span style="font-size:13px;color:#3A342B">Myeloid</span></div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8C8474;margin-top:14px;line-height:1.7;border-top:1px solid #E7DECF;padding-top:12px">Per-cell-type maximum mean expression across healthy Tabula&nbsp;Sapiens&nbsp;v2 compartments. &nbsp;Source&nbsp;B3v2_tabula_sapiens_healthy_breadth.csv&nbsp;(via&nbsp;B6v2).</div>
+    </section>
+
+    <!-- ===================== FIGURE 6 ===================== -->
+    <section id="fig6" style="margin-top:78px;scroll-margin-top:70px">
+      <div style="display:flex;align-items:baseline;gap:16px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#0E7C5F;letter-spacing:.1em">FIG&nbsp;6</div><h2 style="font-family:'Newsreader',serif;font-weight:600;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin:0">Why 4-1BB is clean: a CD8-selective effector hub</h2></div>
+      <p style="font-size:16px;line-height:1.55;color:#4A4438;max-width:75ch;margin:12px 0 0">A genome-scale signed regulatory network scores how hard each arm drives the CD8 cytotoxic-effector program versus CD4. 4-1BB is a lone hub &mdash; ~19&times; more CD8 than CD4 drive. The arms that lean CD4 (negative) are exactly the ones that feed toxicity; CD27 sits near zero because its selectivity lives in expression, not the network.</p>
+      <div style="margin-top:22px;background:#FFFFFF;border:1px solid #E7DECF;border-radius:6px;padding:24px 28px;box-shadow:0 1px 0 rgba(26,23,18,0.03)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:16px"><div><div style="font-family:'IBM Plex Mono',monospace;font-size:30px;font-weight:600;color:#1A1712">1,653,594</div><div style="font-size:12.5px;color:#6E6656;margin-top:2px">signed regulatory edges &middot; coef &minus;22.9&hellip;+44.7 &middot; 41% negative</div></div><div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:#8C8474;width:300px"><span>&larr; CD4-biased</span><span style="color:#0B5E48">CD8-selective &rarr;</span></div></div>
+        <div style="display:flex;flex-direction:column">
+          <div style="display:flex;align-items:center;gap:12px;height:25px"><div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#0E7C5F;font-weight:700">4-1BB</div><div style="flex:1;position:relative;height:25px"><div style="position:absolute;left:19.4%;top:3px;bottom:3px;width:1px;background:#D8CFC0"></div><div style="position:absolute;left:19.4%;width:75.5%;top:50%;transform:translateY(-50%);height:3px;background:#0E7C5F"></div><div style="position:absolute;left:94.9%;top:50%;transform:translate(-50%,-50%);width:12px;height:12px;border-radius:50%;background:#0E7C5F"></div></div><div style="width:46px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#0E7C5F;font-weight:700">+54.4</div></div>
+          <div style="display:flex;align-items:center;gap:12px;height:23px"><div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#6E6656">ICOS</div><div style="flex:1;position:relative;height:23px"><div style="position:absolute;left:19.4%;top:3px;bottom:3px;width:1px;background:#D8CFC0"></div><div style="position:absolute;left:19.4%;width:11.6%;top:50%;transform:translateY(-50%);height:2px;background:#AEA492"></div><div style="position:absolute;left:31.0%;top:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;background:#AEA492"></div></div><div style="width:46px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8C8474">+8.3</div></div>
+          <div style="display:flex;align-items:center;gap:12px;height:23px"><div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#6E6656">CD30</div><div style="flex:1;position:relative;height:23px"><div style="position:absolute;left:19.4%;top:3px;bottom:3px;width:1px;background:#D8CFC0"></div><div style="position:absolute;left:19.4%;width:3.8%;top:50%;transform:translateY(-50%);height:2px;background:#AEA492"></div><div style="position:absolute;left:23.2%;top:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;background:#AEA492"></div></div><div style="width:46px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8C8474">+2.7</div></div>
+          <div style="display:flex;align-items:center;gap:12px;height:23px"><div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#6E6656">CD2</div><div style="flex:1;position:relative;height:23px"><div style="position:absolute;left:19.4%;top:3px;bottom:3px;width:1px;background:#D8CFC0"></div><div style="position:absolute;left:19.4%;width:3.3%;top:50%;transform:translateY(-50%);height:2px;background:#AEA492"></div><div style="position:absolute;left:22.7%;top:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;background:#AEA492"></div></div><div style="width:46px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8C8474">+2.3</div></div>
+          <div style="display:flex;align-items:center;gap:12px;height:23px"><div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#0E7C5F;font-weight:600">CD27</div><div style="flex:1;position:relative;height:23px"><div style="position:absolute;left:19.4%;top:3px;bottom:3px;width:1px;background:#D8CFC0"></div><div style="position:absolute;left:19.4%;width:0.7%;top:50%;transform:translateY(-50%);height:2px;background:#AEA492"></div><div style="position:absolute;left:20.1%;top:50%;transform:translate(-50%,-50%);width:9px;height:9px;border-radius:50%;background:#0E7C5F;opacity:.5"></div><div style="position:absolute;left:calc(20.1% + 13px);top:50%;transform:translateY(-50%);white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8C8474">selectivity is in expression, not network</div></div><div style="width:46px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8C8474">+0.5</div></div>
+          <div style="display:flex;align-items:center;gap:12px;height:23px"><div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#6E6656">CD28</div><div style="flex:1;position:relative;height:23px"><div style="position:absolute;left:19.4%;top:3px;bottom:3px;width:1px;background:#D8CFC0"></div><div style="position:absolute;left:19.8%;top:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;background:#AEA492"></div></div><div style="width:46px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8C8474">+0.3</div></div>
+          <div style="display:flex;align-items:center;gap:12px;height:23px"><div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#6E6656">DNAM1</div><div style="flex:1;position:relative;height:23px"><div style="position:absolute;left:19.4%;top:3px;bottom:3px;width:1px;background:#D8CFC0"></div><div style="position:absolute;left:16.4%;width:3.0%;top:50%;transform:translateY(-50%);height:2px;background:#DB3B22"></div><div style="position:absolute;left:16.4%;top:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;background:#DB3B22"></div></div><div style="width:46px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#DB3B22">&minus;2.2</div></div>
+          <div style="display:flex;align-items:center;gap:12px;height:23px"><div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#6E6656">OX40</div><div style="flex:1;position:relative;height:23px"><div style="position:absolute;left:19.4%;top:3px;bottom:3px;width:1px;background:#D8CFC0"></div><div style="position:absolute;left:12.6%;width:6.8%;top:50%;transform:translateY(-50%);height:2px;background:#DB3B22"></div><div style="position:absolute;left:12.6%;top:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;background:#DB3B22"></div></div><div style="width:46px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#DB3B22">&minus;4.9</div></div>
+          <div style="display:flex;align-items:center;gap:12px;height:23px"><div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#6E6656">GITR</div><div style="flex:1;position:relative;height:23px"><div style="position:absolute;left:19.4%;top:3px;bottom:3px;width:1px;background:#D8CFC0"></div><div style="position:absolute;left:3.9%;width:15.5%;top:50%;transform:translateY(-50%);height:2px;background:#DB3B22"></div><div style="position:absolute;left:3.9%;top:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;background:#DB3B22"></div><div style="position:absolute;left:calc(3.9% + 13px);top:50%;transform:translateY(-50%);white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#DB3B22">most CD4-biased &mdash; feeds toxicity</div></div><div style="width:46px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#DB3B22">&minus;11.2</div></div>
+        </div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8C8474;margin-top:16px;line-height:1.7;border-top:1px solid #E7DECF;padding-top:12px">Net effector-hub selectivity = CD8 &minus; CD4 GRNBoost2 drive onto the cytotoxic gene set (GZMB/PRF1/IFNG&hellip;). 4-1BB CD8 57.4 vs CD4 3.0. &nbsp;Source&nbsp;A29_network_effector_selectivity.csv.</div>
+    </section>
+
+    <!-- ===================== FIGURE 7 ===================== -->
+    <section id="fig7" style="margin-top:78px;scroll-margin-top:70px">
+      <div style="display:flex;align-items:baseline;gap:16px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#0E7C5F;letter-spacing:.1em">FIG&nbsp;7</div><h2 style="font-family:'Newsreader',serif;font-weight:600;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin:0">The whole-body model turns three axes into one number</h2></div>
+      <p style="font-size:16px;line-height:1.55;color:#4A4438;max-width:75ch;margin:12px 0 0">A PBPK-QSP model translates the benefit and liability axes into a predicted therapeutic window per arm. 4-1BB is positive under both drive parameterizations; CD28&rsquo;s best-in-class effector is erased by a liver/CRS cap. The screen nominates; the model discriminates.</p>
+      <div style="margin-top:22px;background:#FFFFFF;border:1px solid #E7DECF;border-radius:6px;padding:22px 28px 18px;box-shadow:0 1px 0 rgba(26,23,18,0.03)">
+        <div style="display:flex;margin-left:96px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#8C8474;margin-bottom:12px"><div style="flex:1;text-align:center">&larr; OUT OF WINDOW</div><div style="flex:1;text-align:center;color:#0B5E48">IN WINDOW &rarr;</div></div>
+        <div style="display:flex;align-items:center;height:46px"><div style="width:84px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;color:#0E7C5F">4-1BB</div><div style="flex:1;position:relative;height:28px;margin-left:12px"><div style="position:absolute;left:61.5%;top:-5px;bottom:-5px;width:2px;background:#1A1712;z-index:2"></div><div style="position:absolute;left:61.5%;width:30.2%;top:0;bottom:0;background:#0E7C5F;border-radius:0 5px 5px 0;display:flex;align-items:center;justify-content:flex-end;padding-right:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#fff;font-weight:600">+1.57</span></div></div><div style="width:188px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6E6656;padding-left:14px;line-height:1.35">robust &middot; both drive models &middot; uncapped</div></div>
+        <div style="display:flex;align-items:center;height:46px"><div style="width:84px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;color:#E0870D">CD27</div><div style="flex:1;position:relative;height:28px;margin-left:12px"><div style="position:absolute;left:61.5%;top:-5px;bottom:-5px;width:2px;background:#1A1712;z-index:2"></div><div style="position:absolute;right:38.5%;width:45.5%;top:0;bottom:0;background:#E0A24C;border-radius:5px 0 0 5px;display:flex;align-items:center;padding-left:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#fff;font-weight:600">&minus;2.37</span></div></div><div style="width:188px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6E6656;padding-left:14px;line-height:1.35">drive-dependent &rarr; +1.27 (GRN)</div></div>
+        <div style="display:flex;align-items:center;height:46px"><div style="width:84px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;color:#DB3B22">CD28</div><div style="flex:1;position:relative;height:28px;margin-left:12px"><div style="position:absolute;left:61.5%;top:-5px;bottom:-5px;width:2px;background:#1A1712;z-index:2"></div><div style="position:absolute;right:38.5%;width:51.1%;top:0;bottom:0;background:#DB3B22;border-radius:5px 0 0 5px;display:flex;align-items:center;padding-left:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#fff;font-weight:600">&minus;2.66</span></div></div><div style="width:188px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6E6656;padding-left:14px;line-height:1.35">best effector, erased &middot; liver/CRS cap</div></div>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid #EFE7D9;display:flex;align-items:baseline;gap:14px"><span style="font-family:'IBM Plex Mono',monospace;font-size:34px;font-weight:600;color:#0E7C5F">+4</span><span style="font-size:15px;color:#3A342B;max-width:60ch">window units gained by swapping pan-costim <strong>CD28</strong> for the Treg-aware <strong style="color:#0B5E48">4-1BB</strong> &mdash; the payoff of scoring liability, not just effector.</span></div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8C8474;margin-top:16px;line-height:1.7;border-top:1px solid #E7DECF;padding-top:12px">Predicted therapeutic window (arb. units), A31b QSP rerun (DE drive shown). CD27 is drive-dependent (&minus;2.37 DE &rarr; +1.27 GRN); 4-1BB positive under both. &nbsp;Source&nbsp;A31b_QSP_rerun_GRN_vs_DE.csv.</div>
+    </section>
+
+    <!-- ===================== FIGURE 8 ===================== -->
+    <section id="fig8" style="margin-top:78px;scroll-margin-top:70px">
+      <div style="display:flex;align-items:baseline;gap:16px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#0E7C5F;letter-spacing:.1em">FIG&nbsp;8</div><h2 style="font-family:'Newsreader',serif;font-weight:600;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin:0">De novo binders, designed and interface-confirmed</h2></div>
+      <p style="font-size:16px;line-height:1.55;color:#4A4438;max-width:75ch;margin:12px 0 0">A complete AlphaFold-3 campaign across all four arms of the therapeutic. Three orthogonal gates &mdash; interface ipSAE, fold self-consistency (&lt;2&#8201;&Aring;), and 10-seed reproducibility &mdash; narrow 3,964 designs to 39 confirmed finalists, including binders for both costim co-leads.</p>
+      <div style="margin-top:22px;background:#FFFFFF;border:1px solid #E7DECF;border-radius:6px;padding:24px 28px;box-shadow:0 1px 0 rgba(26,23,18,0.03)">
+        <div style="display:flex;align-items:center;gap:0;flex-wrap:wrap">
+          <div><div style="font-family:'IBM Plex Mono',monospace;font-size:38px;font-weight:600;color:#1A1712;line-height:.9">3,964</div><div style="font-size:13px;color:#4A4438;margin-top:8px">designs AF3-screened</div></div>
+          <div style="flex:0 0 auto;padding:0 20px;text-align:center"><div style="font-family:'Newsreader',serif;font-size:26px;color:#B0A99B">&rarr;</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8C8474">refold &lt;2&Aring;</div></div>
+          <div><div style="font-family:'IBM Plex Mono',monospace;font-size:38px;font-weight:600;color:#1A1712;line-height:.9">152</div><div style="font-size:13px;color:#4A4438;margin-top:8px">fold-passing</div></div>
+          <div style="flex:0 0 auto;padding:0 20px;text-align:center"><div style="font-family:'Newsreader',serif;font-size:26px;color:#B0A99B">&rarr;</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8C8474">10-seed</div></div>
+          <div><div style="font-family:'IBM Plex Mono',monospace;font-size:38px;font-weight:600;color:#0E7C5F;line-height:.9">39</div><div style="font-size:13px;color:#1A1712;margin-top:8px;font-weight:500">confirmed finalists</div></div>
+          <div style="flex:1;min-width:200px;display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap">
+            <div style="text-align:center;background:#EAF4EF;border:1px solid #B7D8CC;border-radius:8px;padding:8px 12px"><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#0B5E48;font-weight:600">4-1BB</div><div style="font-family:'Newsreader',serif;font-size:22px;color:#1A1712">2</div></div>
+            <div style="text-align:center;background:#EAF4EF;border:1px solid #B7D8CC;border-radius:8px;padding:8px 12px"><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#0B5E48;font-weight:600">CD27</div><div style="font-family:'Newsreader',serif;font-size:22px;color:#1A1712">5</div></div>
+            <div style="text-align:center;background:#F4EFE6;border:1px solid #E0D6C6;border-radius:8px;padding:8px 12px"><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6E6656;font-weight:600">CD3</div><div style="font-family:'Newsreader',serif;font-size:22px;color:#1A1712">8</div></div>
+            <div style="text-align:center;background:#F4EFE6;border:1px solid #E0D6C6;border-radius:8px;padding:8px 12px"><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6E6656;font-weight:600">CEA5</div><div style="font-family:'Newsreader',serif;font-size:22px;color:#1A1712">12</div></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;margin-top:22px;flex-wrap:wrap">
+          <div style="flex:1;min-width:220px;background:#FBF9F3;border:1px solid #E7DECF;border-radius:10px;padding:15px 18px"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'Newsreader',serif;font-size:22px;color:#0B5E48;font-weight:600">4-1BB</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8C8474">41bb_r0867 &middot; VHH</span></div><div style="display:flex;gap:26px;margin-top:10px"><div><div style="font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;color:#1A1712">0.49</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8C8474">ipSAE</div></div><div><div style="font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;color:#1A1712">0.86&#8201;&Aring;</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8C8474">FOLD-scRMSD</div></div></div></div>
+          <div style="flex:1;min-width:220px;background:#FBF9F3;border:1px solid #E7DECF;border-radius:10px;padding:15px 18px"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'Newsreader',serif;font-size:22px;color:#0B5E48;font-weight:600">CD27</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8C8474">cd27_r0011 &middot; VHH</span></div><div style="display:flex;gap:26px;margin-top:10px"><div><div style="font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;color:#1A1712">0.55</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8C8474">ipSAE</div></div><div><div style="font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;color:#1A1712">0.60&#8201;&Aring;</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8C8474">FOLD-scRMSD</div></div></div></div>
+          <div style="flex:1.1;min-width:230px;background:#17150F;border-radius:10px;padding:15px 18px;color:#F3EFE6"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#7FD8BC;text-transform:uppercase;margin-bottom:8px">Selection is unbiased</div><div style="font-size:14px;line-height:1.4;color:rgba(243,239,230,0.9)">AF3 separates keepers on <span style="color:#7FD8BC">interface physics</span>, not sequence.</div><div style="display:flex;gap:22px;margin-top:11px"><div><div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#F3EFE6">p=10&#8315;&#8313;&#8311;</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(243,239,230,0.5)">INTERFACE iPTM</div></div><div><div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:rgba(243,239,230,0.55)">p=0.78</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(243,239,230,0.5)">MPNN SEQUENCE</div></div></div></div>
+        </div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8C8474;margin-top:16px;line-height:1.7;border-top:1px solid #E7DECF;padding-top:12px">Testable panel (LEAD+CONFIRM, fold&lt;2&Aring;): 4-1BB 2 &middot; CD27 5 &middot; CD3 8 &middot; CEA5 12 = 27. Developability clean (0 unpaired cysteines; net-negative paratopes). Bench next: SPR/BLI affinity. &nbsp;Source&nbsp;panel39_final.csv&nbsp;+&nbsp;T1/T2.</div>
+    </section>
+
+    <!-- ===================== FIGURE 9 ===================== -->
+    <section id="fig9" style="margin-top:78px;scroll-margin-top:70px">
+      <div style="display:flex;align-items:baseline;gap:16px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#0E7C5F;letter-spacing:.1em">FIG&nbsp;9</div><h2 style="font-family:'Newsreader',serif;font-weight:600;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin:0">Every number was attacked &mdash; and it held</h2></div>
+      <p style="font-size:16px;line-height:1.55;color:#4A4438;max-width:75ch;margin:12px 0 0">Three verification layers and a six-front adversarial audit. Zero findings changed the co-lead nomination &mdash; and the pipeline overturned its own most impressive number when the audit caught a circular stratifier.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px">
+        <div style="background:#FFFFFF;border:1px solid #E7DECF;border-radius:8px;padding:20px 22px"><div style="font-family:'IBM Plex Mono',monospace;font-size:30px;font-weight:600;color:#1A1712">30 / 30</div><div style="font-size:13px;color:#4A4438;margin-top:5px">engineering ledger &mdash; PASS</div></div>
+        <div style="background:#FFFFFF;border:1px solid #E7DECF;border-radius:8px;padding:20px 22px"><div style="font-family:'IBM Plex Mono',monospace;font-size:30px;font-weight:600;color:#1A1712">0 <span style="font-size:17px;color:#0B5E48">refuted</span></div><div style="font-size:13px;color:#4A4438;margin-top:5px">25-hypothesis register &middot; 22 supported</div></div>
+        <div style="background:#FFFFFF;border:1px solid #E7DECF;border-radius:8px;padding:20px 22px"><div style="font-family:'IBM Plex Mono',monospace;font-size:30px;font-weight:600;color:#1A1712">10 / 10</div><div style="font-size:13px;color:#4A4438;margin-top:5px">primary-source re-derivation</div></div>
+      </div>
+      <div style="margin-top:14px;background:#17150F;border-radius:10px;padding:22px 26px;color:#F3EFE6;display:flex;gap:28px;align-items:center;flex-wrap:wrap">
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#E8A33D;text-transform:uppercase;margin-bottom:10px">The self-correction</div><div style="display:flex;align-items:baseline;gap:16px"><span style="font-family:'IBM Plex Mono',monospace;font-size:30px;font-weight:600;color:#8A8172;text-decoration:line-through">z = 37.28</span><span style="font-family:'Newsreader',serif;font-size:26px;color:#E8A33D">&rarr;</span><span style="font-family:'IBM Plex Mono',monospace;font-size:30px;font-weight:600;color:#F3EFE6">z = 11.2</span></div></div>
+        <div style="flex:1;min-width:260px;font-size:14px;line-height:1.5;color:rgba(243,239,230,0.82)">The pipeline&rsquo;s most impressive number was traced to a <span style="color:#E8A33D">circular stratifier</span> and retracted mid-build. The clean replacement still supports the finding &mdash; the auditor caught it while the work was live.</div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8C8474;margin-top:16px;line-height:1.7;border-top:1px solid #E7DECF;padding-top:12px">Six-front coverage audit: 18 findings, 0 changed the nomination. Every &lsquo;fail&rsquo; was a coverage/labeling defect in a supporting claim, never a value error in the ranking. &nbsp;Source&nbsp;MASTER_AUDIT.md&nbsp;+&nbsp;V7_VERIFICATION_LEDGER.csv.</div>
+    </section>
+
+    <!-- ===================== FIGURE 10 ===================== -->
+    <section id="fig10" style="margin-top:78px;scroll-margin-top:70px">
+      <div style="display:flex;align-items:baseline;gap:16px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#0E7C5F;letter-spacing:.1em">FIG&nbsp;10</div><h2 style="font-family:'Newsreader',serif;font-weight:600;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin:0">Two co-leads, two routes to CD8-selectivity</h2></div>
+      <p style="font-size:16px;line-height:1.55;color:#4A4438;max-width:75ch;margin:12px 0 0">Both co-leads spare CD4 &mdash; but by different mechanisms. CD27 is CD8-selective on <em style="font-style:italic">expression</em> (it is simply higher on CD8 cells); 4-1BB is expression-neutral but a dominant <em style="font-style:italic">network</em> hub. Nominating both means the pair does not share a single point of failure.</p>
+      <div style="margin-top:22px;background:#FFFFFF;border:1px solid #E7DECF;border-radius:6px;padding:24px 28px;box-shadow:0 1px 0 rgba(26,23,18,0.03);display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+        <div style="flex:1;min-width:230px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#8C8474;text-transform:uppercase;margin-bottom:14px">Expression selectivity &middot; CD8 &minus; CD4conv</div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:11px"><div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#0B5E48;font-weight:700">CD27</div><div style="flex:1;height:22px;background:#EFE8DB;border-radius:4px;position:relative"><div style="position:absolute;left:0;top:0;bottom:0;width:92%;background:#0E7C5F;border-radius:4px"></div></div><div style="width:42px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#0B5E48;font-weight:700">+0.46</div></div>
+          <div style="display:flex;align-items:center;gap:12px"><div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#6E6656">4-1BB</div><div style="flex:1;height:22px;background:#EFE8DB;border-radius:4px;position:relative"><div style="position:absolute;left:0;top:0;bottom:0;width:8%;background:#AEA492;border-radius:4px"></div></div><div style="width:42px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#8C8474">+0.04</div></div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#0B5E48;margin-top:9px">CD27 leads on expression</div>
+        </div>
+        <div style="flex:0 0 auto;text-align:center;color:#B0A99B"><div style="font-family:'Newsreader',serif;font-size:34px">&rlarr;</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.06em;color:#8C8474;max-width:96px;line-height:1.3">complementary &mdash; no shared failure mode</div></div>
+        <div style="flex:1;min-width:230px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#8C8474;text-transform:uppercase;margin-bottom:14px">Network selectivity &middot; GRN effector-hub drive</div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:11px"><div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#0B5E48;font-weight:700">4-1BB</div><div style="flex:1;height:22px;background:#EFE8DB;border-radius:4px;position:relative"><div style="position:absolute;left:0;top:0;bottom:0;width:99%;background:#0E7C5F;border-radius:4px"></div></div><div style="width:42px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#0B5E48;font-weight:700">+54.4</div></div>
+          <div style="display:flex;align-items:center;gap:12px"><div style="width:52px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#6E6656">CD27</div><div style="flex:1;height:22px;background:#EFE8DB;border-radius:4px;position:relative"><div style="position:absolute;left:0;top:0;bottom:0;width:2%;background:#AEA492;border-radius:4px"></div></div><div style="width:42px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#8C8474">+0.5</div></div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#0B5E48;margin-top:9px">4-1BB leads on network</div>
+        </div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8C8474;margin-top:16px;line-height:1.7;border-top:1px solid #E7DECF;padding-top:12px">Expression selectivity = CD8 &minus; CD4conv mean expression (RTCC GSE292621, 25,348 cells). Network selectivity = A29 net effector-hub drive. &nbsp;Source&nbsp;A34_expression_selectivity_CD8vsCD4.csv&nbsp;+&nbsp;A21.</div>
+    </section>
+
+    <!-- ===================== FIGURE 11 ===================== -->
+    <section id="fig11" style="margin-top:78px;scroll-margin-top:70px">
+      <div style="display:flex;align-items:baseline;gap:16px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#0E7C5F;letter-spacing:.1em">FIG&nbsp;11</div><h2 style="font-family:'Newsreader',serif;font-weight:600;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin:0">Predicted co-agonism: which pairs stay clean together</h2></div>
+      <p style="font-size:16px;line-height:1.55;color:#4A4438;max-width:75ch;margin:12px 0 0">The tier-2 GRN predicts what each two-arm combination does to the CD4 programs. Green is favourable (CRS/suppression down, help preserved). Only <strong>4-1BB + CD27</strong> is favourable on all three axes &mdash; a rational, doubly-safe pairing rather than a single arm.</p>
+      <div style="margin-top:22px;background:#FFFFFF;border:1px solid #E7DECF;border-radius:6px;padding:18px 20px;box-shadow:0 1px 0 rgba(26,23,18,0.03)">
+        <div style="display:flex;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#8C8474;text-transform:uppercase;padding:0 0 8px 148px"><div style="flex:1;text-align:center">CRS &darr;</div><div style="flex:1;text-align:center">Suppression &darr;</div><div style="flex:1;text-align:center">Help &uarr;</div></div>
+        <div style="display:flex;align-items:center;gap:8px;padding:6px 8px;margin:2px -8px;background:#F2FAF6;border:1px solid #B7D8CC;border-radius:7px"><div style="width:132px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#0B5E48;font-weight:700">4-1BB + CD27 &#9733;</div><div style="flex:1;display:flex;gap:8px"><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#DCEFE7;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#0B5E48">&minus;1.38</div><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#DCEFE7;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#0B5E48">&minus;1.38</div><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#DCEFE7;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#0B5E48">+1.14</div></div></div>
+        <div style="display:flex;align-items:center;gap:8px;padding:4px 8px;margin:0 -8px"><div style="width:132px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#4A4438">4-1BB + CD2</div><div style="flex:1;display:flex;gap:8px"><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#FBEEEA;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#C0503A">+0.23</div><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#DCEFE7;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#0B5E48">&minus;1.53</div><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#DCEFE7;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#0B5E48">+3.16</div></div></div>
+        <div style="display:flex;align-items:center;gap:8px;padding:4px 8px;margin:0 -8px"><div style="width:132px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#4A4438">CD27 + CD2</div><div style="flex:1;display:flex;gap:8px"><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#F7DDD7;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#A82814">+2.09</div><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#DCEFE7;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#0B5E48">&minus;1.31</div><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#DCEFE7;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#0B5E48">+3.36</div></div></div>
+        <div style="display:flex;align-items:center;gap:8px;padding:4px 8px;margin:0 -8px"><div style="width:132px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#4A4438">4-1BB + CD28</div><div style="flex:1;display:flex;gap:8px"><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#EAF4EF;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#0B7A57">&minus;0.14</div><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#EAF4EF;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#0B7A57">&minus;0.75</div><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#DCEFE7;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#0B5E48">+1.74</div></div></div>
+        <div style="display:flex;align-items:center;gap:8px;padding:4px 8px;margin:0 -8px"><div style="width:132px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#4A4438">CD27 + CD28</div><div style="flex:1;display:flex;gap:8px"><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#F7DDD7;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#A82814">+1.73</div><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#EAF4EF;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#0B7A57">&minus;0.53</div><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#DCEFE7;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#0B5E48">+1.94</div></div></div>
+        <div style="display:flex;align-items:center;gap:8px;padding:4px 8px;margin:0 -8px"><div style="width:132px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#4A4438">4-1BB + DR3</div><div style="flex:1;display:flex;gap:8px"><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#DCEFE7;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#0B5E48">&minus;2.37</div><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#EAF4EF;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#0B7A57">&minus;0.60</div><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#FBEEEA;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#C0503A">&minus;0.25</div></div></div>
+        <div style="display:flex;align-items:center;gap:8px;padding:4px 8px;margin:0 -8px"><div style="width:132px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#4A4438">CD27 + DR3</div><div style="flex:1;display:flex;gap:8px"><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#EAF4EF;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#0B7A57">&minus;0.51</div><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#EAF4EF;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#0B7A57">&minus;0.38</div><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#F4EFE6;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#8C8474">&minus;0.06</div></div></div>
+        <div style="display:flex;align-items:center;gap:8px;padding:4px 8px;margin:0 -8px"><div style="width:132px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#4A4438">4-1BB + HVEM</div><div style="flex:1;display:flex;gap:8px"><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#DCEFE7;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#0B5E48">&minus;1.43</div><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#FBEEEA;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#C0503A">+0.34</div><div style="flex:1;text-align:center;padding:6px 0;border-radius:5px;background:#EAF4EF;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#0B7A57">+0.73</div></div></div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8C8474;margin-top:16px;line-height:1.7;border-top:1px solid #E7DECF;padding-top:12px">Predicted combination effect on each CD4 program (signed z; CRS/SUPP favourable when negative, help favourable when positive). &nbsp;Source&nbsp;A26_grn_coagonism_prediction.csv (tier-2 costim GRN).</div>
+    </section>
+
+
+    <!-- ===================== FIGURE 12 ===================== -->
+    <section id="fig12" style="margin-top:78px;scroll-margin-top:70px">
+      <div style="display:flex;align-items:baseline;gap:16px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#0E7C5F;letter-spacing:.1em">FIG&nbsp;12</div><h2 style="font-family:'Newsreader',serif;font-weight:600;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin:0">The 39 finalists are real, buildable molecules</h2></div>
+      <p style="font-size:16px;line-height:1.55;color:#4A4438;max-width:75ch;margin:12px 0 0">Every finalist plotted by AlphaFold-3 interface confidence (ipSAE) against how well the designed binder refolds on its own (scRMSD). Points below the 2&#8201;&#8491; line passed the fold gate; both costim co-leads land in the high-confidence, low-RMSD corner. Developability is clean &mdash; net-negative CDR charge, zero unpaired cysteines.</p>
+      <div style="margin-top:22px;background:#FFFFFF;border:1px solid #E7DECF;border-radius:6px;padding:20px 24px 14px;box-shadow:0 1px 0 rgba(26,23,18,0.03)">
+        <svg viewBox="0 0 680 352" style="width:100%;display:block"><line x1="74" y1="300" x2="612" y2="300" stroke="#EFE7D9" stroke-width="1"/><text x="66" y="303.5" text-anchor="end" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#8C8474">0</text><line x1="74" y1="232" x2="612" y2="232" stroke="#EFE7D9" stroke-width="1"/><text x="66" y="235.5" text-anchor="end" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#8C8474">2</text><line x1="74" y1="164" x2="612" y2="164" stroke="#EFE7D9" stroke-width="1"/><text x="66" y="167.5" text-anchor="end" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#8C8474">4</text><line x1="74" y1="96" x2="612" y2="96" stroke="#EFE7D9" stroke-width="1"/><text x="66" y="99.5" text-anchor="end" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#8C8474">6</text><line x1="74" y1="28" x2="612" y2="28" stroke="#EFE7D9" stroke-width="1"/><text x="66" y="31.5" text-anchor="end" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#8C8474">8</text><text x="78" y="318" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#8C8474">0</text><text x="230.6" y="318" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#8C8474">0.2</text><text x="383.1" y="318" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#8C8474">0.4</text><text x="535.7" y="318" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#8C8474">0.6</text><line x1="78" y1="232" x2="612" y2="232" stroke="#C0392B" stroke-width="1.3" stroke-dasharray="5 4" opacity="0.8"/><text x="608" y="226" text-anchor="end" font-family="'IBM Plex Mono',monospace" font-size="10.5" fill="#C0392B" font-weight="600">2 &#8491; refold gate &#183; fold-fails above are dropped</text><text x="600" y="292" text-anchor="end" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#0B5E48" opacity="0.8">high ipSAE &middot; low RMSD = best</text><circle cx="422.0" cy="285.0" r="5.5" fill="#2E86C1" fill-opacity="0.62" stroke="#2E86C1" stroke-width="1"/><circle cx="235.1" cy="282.4" r="5.5" fill="#0E7C5F" fill-opacity="0.62" stroke="#0E7C5F" stroke-width="1"/><circle cx="499.5" cy="279.6" r="9" fill="none" stroke="#2E86C1" stroke-width="1.5" opacity="0.5"/><circle cx="499.5" cy="279.6" r="6" fill="#2E86C1"/><circle cx="292.5" cy="275.4" r="5.5" fill="#2E86C1" fill-opacity="0.62" stroke="#2E86C1" stroke-width="1"/><circle cx="343.0" cy="273.7" r="5.5" fill="#2E86C1" fill-opacity="0.62" stroke="#2E86C1" stroke-width="1"/><circle cx="327.7" cy="273.0" r="5.5" fill="#E0870D" fill-opacity="0.62" stroke="#E0870D" stroke-width="1"/><circle cx="210.6" cy="272.8" r="5.5" fill="#0E7C5F" fill-opacity="0.62" stroke="#0E7C5F" stroke-width="1"/><circle cx="430.1" cy="272.5" r="5.5" fill="#8E7CC3" fill-opacity="0.62" stroke="#8E7CC3" stroke-width="1"/><circle cx="453.3" cy="270.7" r="9" fill="none" stroke="#0E7C5F" stroke-width="1.5" opacity="0.5"/><circle cx="453.3" cy="270.7" r="6" fill="#0E7C5F"/><circle cx="253.5" cy="270.5" r="5.5" fill="#E0870D" fill-opacity="0.62" stroke="#E0870D" stroke-width="1"/><circle cx="168.4" cy="270.2" r="5.5" fill="#0E7C5F" fill-opacity="0.62" stroke="#0E7C5F" stroke-width="1"/><circle cx="263.5" cy="269.4" r="5.5" fill="#E0870D" fill-opacity="0.62" stroke="#E0870D" stroke-width="1"/><circle cx="301.0" cy="269.2" r="5.5" fill="#2E86C1" fill-opacity="0.62" stroke="#2E86C1" stroke-width="1"/><circle cx="309.5" cy="268.6" r="5.5" fill="#0E7C5F" fill-opacity="0.62" stroke="#0E7C5F" stroke-width="1"/><circle cx="488.3" cy="268.5" r="5.5" fill="#8E7CC3" fill-opacity="0.62" stroke="#8E7CC3" stroke-width="1"/><circle cx="403.1" cy="267.8" r="5.5" fill="#E0870D" fill-opacity="0.62" stroke="#E0870D" stroke-width="1"/><circle cx="385.9" cy="267.6" r="5.5" fill="#E0870D" fill-opacity="0.62" stroke="#E0870D" stroke-width="1"/><circle cx="498.9" cy="267.5" r="5.5" fill="#8E7CC3" fill-opacity="0.62" stroke="#8E7CC3" stroke-width="1"/><circle cx="452.6" cy="266.1" r="5.5" fill="#E0870D" fill-opacity="0.62" stroke="#E0870D" stroke-width="1"/><circle cx="248.5" cy="265.1" r="5.5" fill="#0E7C5F" fill-opacity="0.62" stroke="#0E7C5F" stroke-width="1"/><circle cx="525.9" cy="265.1" r="5.5" fill="#8E7CC3" fill-opacity="0.62" stroke="#8E7CC3" stroke-width="1"/><circle cx="255.1" cy="264.7" r="5.5" fill="#E0870D" fill-opacity="0.62" stroke="#E0870D" stroke-width="1"/><circle cx="575.4" cy="264.5" r="5.5" fill="#8E7CC3" fill-opacity="0.62" stroke="#8E7CC3" stroke-width="1"/><circle cx="470.3" cy="263.1" r="5.5" fill="#8E7CC3" fill-opacity="0.62" stroke="#8E7CC3" stroke-width="1"/><circle cx="434.6" cy="262.3" r="5.5" fill="#8E7CC3" fill-opacity="0.62" stroke="#8E7CC3" stroke-width="1"/><circle cx="307.9" cy="261.9" r="5.5" fill="#E0870D" fill-opacity="0.62" stroke="#E0870D" stroke-width="1"/><circle cx="479.9" cy="261.8" r="5.5" fill="#8E7CC3" fill-opacity="0.62" stroke="#8E7CC3" stroke-width="1"/><circle cx="290.6" cy="261.4" r="5.5" fill="#E0870D" fill-opacity="0.62" stroke="#E0870D" stroke-width="1"/><circle cx="427.2" cy="261.3" r="5.5" fill="#8E7CC3" fill-opacity="0.62" stroke="#8E7CC3" stroke-width="1"/><circle cx="332.6" cy="260.9" r="5.5" fill="#E0870D" fill-opacity="0.62" stroke="#E0870D" stroke-width="1"/><circle cx="446.5" cy="260.2" r="5.5" fill="#8E7CC3" fill-opacity="0.62" stroke="#8E7CC3" stroke-width="1"/><circle cx="493.2" cy="259.3" r="5.5" fill="#8E7CC3" fill-opacity="0.62" stroke="#8E7CC3" stroke-width="1"/><circle cx="423.9" cy="255.0" r="5.5" fill="#8E7CC3" fill-opacity="0.62" stroke="#8E7CC3" stroke-width="1"/><circle cx="259.2" cy="253.2" r="5.5" fill="#E0870D" fill-opacity="0.62" stroke="#E0870D" stroke-width="1"/><circle cx="335.0" cy="246.7" r="5.5" fill="#E0870D" fill-opacity="0.62" stroke="#E0870D" stroke-width="1"/><circle cx="272.5" cy="174.3" r="5" fill="none" stroke="#B0A99B" stroke-width="1.4"/><line x1="269.5" y1="171.3" x2="275.5" y2="177.3" stroke="#B0A99B" stroke-width="1.2"/><line x1="269.5" y1="177.3" x2="275.5" y2="171.3" stroke="#B0A99B" stroke-width="1.2"/><circle cx="357.1" cy="116.3" r="5" fill="none" stroke="#B0A99B" stroke-width="1.4"/><line x1="354.1" y1="113.3" x2="360.1" y2="119.3" stroke="#B0A99B" stroke-width="1.2"/><line x1="354.1" y1="119.3" x2="360.1" y2="113.3" stroke="#B0A99B" stroke-width="1.2"/><circle cx="88.5" cy="58.4" r="5" fill="none" stroke="#B0A99B" stroke-width="1.4"/><line x1="85.5" y1="55.4" x2="91.5" y2="61.4" stroke="#B0A99B" stroke-width="1.2"/><line x1="85.5" y1="61.4" x2="91.5" y2="55.4" stroke="#B0A99B" stroke-width="1.2"/><circle cx="447.8" cy="36.0" r="5" fill="none" stroke="#B0A99B" stroke-width="1.4"/><line x1="444.8" y1="33.0" x2="450.8" y2="39.0" stroke="#B0A99B" stroke-width="1.2"/><line x1="444.8" y1="39.0" x2="450.8" y2="33.0" stroke="#B0A99B" stroke-width="1.2"/>
+<line x1="453.3" y1="270.7" x2="470" y2="250" stroke="#0E7C5F" stroke-width="0.9"/><text x="473" y="248" font-family="'IBM Plex Mono',monospace" font-size="10.5" fill="#0B5E48" font-weight="600">4-1BB lead &#183; r0867</text>
+<line x1="499.5" y1="279.6" x2="512" y2="296" stroke="#2E86C1" stroke-width="0.9"/><text x="515" y="299" font-family="'IBM Plex Mono',monospace" font-size="10.5" fill="#1F6FA8" font-weight="600">CD27 lead &#183; r0011</text>
+<text x="575.4" y="258" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="10" fill="#6E6656">CEA5 (deepest panel)</text><text x="345" y="342" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="11" fill="#4A4438" letter-spacing="0.04em">INTERFACE ipSAE &#8594;</text><text x="20" y="164" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="11" fill="#4A4438" letter-spacing="0.04em" transform="rotate(-90 20 164)">FOLD-scRMSD (&#8491;)</text></svg>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px 24px;margin-top:16px;align-items:center">
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:13px;height:13px;border-radius:50%;background:#0E7C5F;display:inline-block"></span><span style="font-size:13px;color:#3A342B">4-1BB</span></div><div style="display:flex;align-items:center;gap:8px"><span style="width:13px;height:13px;border-radius:50%;background:#2E86C1;display:inline-block"></span><span style="font-size:13px;color:#3A342B">CD27</span></div><div style="display:flex;align-items:center;gap:8px"><span style="width:13px;height:13px;border-radius:50%;background:#E0870D;display:inline-block"></span><span style="font-size:13px;color:#3A342B">CD3</span></div><div style="display:flex;align-items:center;gap:8px"><span style="width:13px;height:13px;border-radius:50%;background:#8E7CC3;display:inline-block"></span><span style="font-size:13px;color:#3A342B">CEACAM5</span></div><div style="display:flex;align-items:center;gap:8px"><span style="width:13px;height:13px;border-radius:50%;border:2px solid #0E7C5F;display:inline-block"></span><span style="font-size:13px;color:#3A342B">co-lead</span></div><div style="display:flex;align-items:center;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;color:#B0A99B;font-size:14px;line-height:1">&#10005;</span><span style="font-size:13px;color:#3A342B">fold-fail (dropped)</span></div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8C8474;margin-top:14px;line-height:1.7;border-top:1px solid #E7DECF;padding-top:12px">x = AF3 interface ipSAE (higher = tighter interface); y = binder-alone AF3 refold scRMSD (lower = more designable). Representative fold-fails (&#10005;) shown to mark the gate. &nbsp;Source&nbsp;T3_finalist_headtohead.csv.</div>
+    </section>
+
+    <!-- ===================== FIGURE 13 ===================== -->
+    <section id="fig13" style="margin-top:78px;scroll-margin-top:70px">
+      <div style="display:flex;align-items:baseline;gap:16px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#0E7C5F;letter-spacing:.1em">FIG&nbsp;13</div><h2 style="font-family:'Newsreader',serif;font-weight:600;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin:0">Fly around the confirmed interface</h2></div>
+      <p style="font-size:16px;line-height:1.55;color:#4A4438;max-width:75ch;margin:12px 0 0">The AlphaFold-3 complex for each costim co-lead, live. Drag to rotate, scroll to zoom, and click any residue to label it &mdash; or toggle the designed CDR loops and the target epitope. The 4-1BB binder&rsquo;s 14-residue footprint recapitulates the urelumab-class CRD1 agonist site.</p>
+      <div style="margin:22px -34px 0;padding:0 30px;overflow-x:auto">
+        <div style="border:1px solid #E7DECF;border-radius:12px;overflow:hidden;box-shadow:0 16px 40px -22px rgba(26,23,18,0.55);width:1120px;max-width:1120px;margin:0 auto">
+          <dc-import name="Costim Binder Structure" hint-size="1120px,660px" style="display:block"></dc-import>
+        </div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8C8474;margin-top:16px;line-height:1.7;border-top:1px solid #E7DECF;padding-top:12px">Interactive AlphaFold-3 complexes rendered with 3Dmol.js. Epitope = target residues within 4.5&#8201;&#8491; of the binder. &nbsp;Source&nbsp;41bb_r0867_41bb_62.cif&nbsp;&middot;&nbsp;cd27_r0011_cd27_24.cif.</div>
+    </section>
+
+
+
+    <!-- ===================== FIGURE 14 (QSP model) ===================== -->
+    <section id="fig14" style="margin-top:78px;scroll-margin-top:70px">
+      <div style="display:flex;align-items:baseline;gap:16px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#0E7C5F;letter-spacing:.1em">FIG&nbsp;14</div><h2 style="font-family:'Newsreader',serif;font-weight:600;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin:0">Explore the whole-body model</h2></div>
+      <p style="font-size:16px;line-height:1.55;color:#4A4438;max-width:75ch;margin:12px 0 0">The PBPK/QSP compartment model, live. Click any of the 15 tissues to read its role and the model&rsquo;s per-T-cell-type receptor-expression prior; the spatial-overlay and validation-molecule panels wire in the Xenium tissue and PK/PD curves as they land.</p>
+      <div style="margin:22px -34px 0;padding:0 30px;overflow-x:auto">
+        <div style="border:1px solid #E7DECF;border-radius:12px;overflow:hidden;width:1180px;max-width:1180px;margin:0 auto">
+          <dc-import name="QSP Model Explorer" hint-size="1180px,900px" style="display:block"></dc-import>
+        </div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8C8474;margin-top:14px;line-height:1.7;border-top:1px solid #E7DECF;padding-top:12px">Shah&ndash;Betts 15-tissue PBPK backbone; per-cell receptor-expression prior from A21 (RTCC 25,348 cells). &nbsp;Source&nbsp;A21 &middot; QSP engine (qsp_costim_window_v2).</div>
+    </section>
+
+  </main>
+
+
+    <!-- ===================== FIGURE 15 (off-tumor sweep) ===================== -->
+    <section id="fig15" style="margin-top:78px;scroll-margin-top:70px">
+      <div style="display:flex;align-items:baseline;gap:16px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:#0E7C5F;letter-spacing:.1em">FIG&nbsp;15</div><h2 style="font-family:'Newsreader',serif;font-weight:600;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin:0">The window is a toxicity problem &mdash; and the model proves it</h2></div>
+      <p style="font-size:16px;line-height:1.55;color:#4A4438;max-width:78ch;margin:12px 0 0">A whole-body sweep across three solid-tumor antigens &times; every costim arm. Tumor kill is <strong>arm-invariant</strong> (no-costim &asymp; armed) &mdash; so choosing the arm is a pure toxicity-minimization problem. <strong style="color:#C0392B">CD28</strong> is the worst offender on every antigen, raising off-tumor kill <strong>+40&ndash;57%</strong> with no tumor benefit &mdash; quantitatively reproducing the <strong>TGN1412</strong> and <strong>CEACAM gut-toxicity</strong> liabilities from expression and geometry alone. The two co-leads stay at near-baseline (+4&ndash;8%).</p>
+      <div style="margin-top:22px;background:#FFFFFF;border:1px solid #E7DECF;border-radius:6px;padding:22px 26px 16px;box-shadow:0 1px 0 rgba(26,23,18,0.03)"><svg viewBox="0 0 1080 330" style="width:100%;display:block;font-family:'IBM Plex Mono',monospace"><text x="0" y="16" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="600" fill="#1A1712">A &middot; Off-tumor kill amplification vs no-costim</text><line x1="150" y1="34" x2="150" y2="288" stroke="#D8D0BF"/><line x1="150" y1="34" x2="150" y2="288" stroke="#EFE7D9"/><text x="150" y="303" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#A89F8E">+0%</text><line x1="250" y1="34" x2="250" y2="288" stroke="#EFE7D9"/><text x="250" y="303" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#A89F8E">+20%</text><line x1="350" y1="34" x2="350" y2="288" stroke="#EFE7D9"/><text x="350" y="303" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#A89F8E">+40%</text><line x1="450" y1="34" x2="450" y2="288" stroke="#EFE7D9"/><text x="450" y="303" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#A89F8E">+60%</text><text x="0" y="55" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" fill="#4A4438">EGFR</text><rect x="150" y="62" width="285.0" height="15" rx="2" fill="#C0392B" opacity="1"><title>EGFR &middot; CD28: off-tumor +57% (off_sum 0.285 vs no-costim 0.182)</title></rect><text x="144" y="73" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#C0392B">CD28</text><text x="441" y="73" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#C0392B">+57%</text><rect x="150" y="81" width="40.0" height="15" rx="2" fill="#0E7C5F" opacity="0.85"><title>EGFR &middot; 4-1BB: off-tumor +8% (off_sum 0.197 vs no-costim 0.182)</title></rect><text x="144" y="92" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5A7F70">4-1BB</text><text x="196" y="92" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#3E8E74">+8%</text><rect x="150" y="100" width="35.0" height="15" rx="2" fill="#2E8B6F" opacity="0.85"><title>EGFR &middot; CD27: off-tumor +7% (off_sum 0.194 vs no-costim 0.182)</title></rect><text x="144" y="111" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5A7F70">CD27</text><text x="191" y="111" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#3E8E74">+7%</text><text x="0" y="136" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" fill="#4A4438">CEACAM6</text><rect x="150" y="143" width="245.0" height="15" rx="2" fill="#C0392B" opacity="1"><title>CEACAM6 &middot; CD28: off-tumor +49% (off_sum 0.292 vs no-costim 0.197)</title></rect><text x="144" y="154" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#C0392B">CD28</text><text x="401" y="154" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#C0392B">+49%</text><rect x="150" y="162" width="35.0" height="15" rx="2" fill="#0E7C5F" opacity="0.85"><title>CEACAM6 &middot; 4-1BB: off-tumor +7% (off_sum 0.211 vs no-costim 0.197)</title></rect><text x="144" y="173" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5A7F70">4-1BB</text><text x="191" y="173" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#3E8E74">+7%</text><rect x="150" y="181" width="25.0" height="15" rx="2" fill="#2E8B6F" opacity="0.85"><title>CEACAM6 &middot; CD27: off-tumor +5% (off_sum 0.207 vs no-costim 0.197)</title></rect><text x="144" y="192" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5A7F70">CD27</text><text x="181" y="192" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#3E8E74">+5%</text><text x="0" y="217" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" fill="#4A4438">CEACAM5</text><rect x="150" y="224" width="200.0" height="15" rx="2" fill="#C0392B" opacity="1"><title>CEACAM5 &middot; CD28: off-tumor +40% (off_sum 0.286 vs no-costim 0.204)</title></rect><text x="144" y="235" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#C0392B">CD28</text><text x="356" y="235" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#C0392B">+40%</text><rect x="150" y="243" width="30.0" height="15" rx="2" fill="#0E7C5F" opacity="0.85"><title>CEACAM5 &middot; 4-1BB: off-tumor +6% (off_sum 0.217 vs no-costim 0.204)</title></rect><text x="144" y="254" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5A7F70">4-1BB</text><text x="186" y="254" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#3E8E74">+6%</text><rect x="150" y="262" width="20.0" height="15" rx="2" fill="#2E8B6F" opacity="0.85"><title>CEACAM5 &middot; CD27: off-tumor +4% (off_sum 0.214 vs no-costim 0.204)</title></rect><text x="144" y="273" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5A7F70">CD27</text><text x="176" y="273" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#3E8E74">+4%</text><text x="0" y="318" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8C8474">Tumor kill is arm-invariant (&plusmn;&le;2% incl. no-costim) &mdash; CD28's gain is pure off-tumor.</text><text x="560" y="16" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="600" fill="#1A1712">B &middot; Therapeutic index (tumor &divide; off-tumor)</text><rect x="700" y="32" width="225.8" height="238" fill="#C0392B" opacity="0.05"/><rect x="925.8064516129032" y="32" width="124.2" height="238" fill="#0E7C5F" opacity="0.06"/><line x1="925.8064516129032" y1="32" x2="925.8064516129032" y2="270" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="5 4"/><text x="925.8064516129032" y="286" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#C0392B">TI = 1 &middot; off-tumor = on-tumor</text><text x="696" y="286" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#B08A8A">&larr; off-tumor worse</text><text x="560" y="56" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" fill="#4A4438">CD19 (heme)</text><rect x="700" y="43" width="350.0" height="15" rx="2" fill="#0E7C5F" opacity="0.85"/><text x="1042" y="54" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#0B5E48">&raquo; 1</text><title>CD19 (heme): tumor-restricted, off-tumor negligible &rarr; TI far above 1</title><text x="560" y="110" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" fill="#4A4438">EGFR</text><rect x="700" y="97" width="291.3" height="15" rx="2" fill="#0E7C5F" opacity="0.8"><title>EGFR: baseline TI 1.29 (no-costim)</title></rect><text x="998.2903225806451" y="108" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#0B5E48">1.29</text><line x1="900.9677419354839" y1="94" x2="900.9677419354839" y2="115" stroke="#7A241A" stroke-width="1.5"/><circle cx="900.9677419354839" cy="104" r="3.5" fill="#fff" stroke="#7A241A" stroke-width="1.5"><title>EGFR + CD28: TI falls to 0.89</title></circle><text x="560" y="164" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" fill="#4A4438">CEACAM6</text><rect x="700" y="151" width="133.2" height="15" rx="2" fill="#C0392B" opacity="0.8"><title>CEACAM6: baseline TI 0.59 (no-costim)</title></rect><text x="840.2258064516129" y="162" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#C0392B">0.59</text><line x1="792.5806451612904" y1="148" x2="792.5806451612904" y2="169" stroke="#7A241A" stroke-width="1.5"/><circle cx="792.5806451612904" cy="158" r="3.5" fill="#fff" stroke="#7A241A" stroke-width="1.5"><title>CEACAM6 + CD28: TI falls to 0.41</title></circle><text x="560" y="218" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" fill="#4A4438">CEACAM5</text><rect x="700" y="205" width="121.9" height="15" rx="2" fill="#C0392B" opacity="0.8"><title>CEACAM5: baseline TI 0.54 (no-costim)</title></rect><text x="828.9354838709678" y="216" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#C0392B">0.54</text><line x1="790.3225806451613" y1="202" x2="790.3225806451613" y2="223" stroke="#7A241A" stroke-width="1.5"/><circle cx="790.3225806451613" cy="212" r="3.5" fill="#fff" stroke="#7A241A" stroke-width="1.5"><title>CEACAM5 + CD28: TI falls to 0.4</title></circle><text x="560" y="304" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8C8474">Bars = baseline TI; <tspan fill="#7A241A">&#9679;</tspan> = TI with CD28. Both CEACAMs sit below 1 &mdash; the known gut-tox liability.</text></svg></div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8C8474;margin-top:14px;line-height:1.7;border-top:1px solid #E7DECF;padding-top:12px">Whole-body PBPK/QSP off-tumor sweep &middot; source COSTIM_OFFTOX_ANALYSIS_2026-07-14.csv (3 antigens &times; 12 arms). The framework doubles as an <strong>antigen&times;arm co-selector</strong>: CD19-heme &raquo; EGFR (TI&nbsp;1.3) &gt; CEACAM6 (0.6) &gt; CEACAM5 (0.5). Hover any bar for exact values.</div>
+
+      <div style="margin-top:16px;background:#FFFFFF;border:1px solid #E7DECF;border-left:3px solid #0E7C5F;border-radius:6px;padding:20px 26px 14px" id="fig15c"><svg viewBox="0 0 1080 300" style="width:100%;display:block;font-family:'IBM Plex Mono',monospace"><text x="0" y="16" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="600" fill="#1A1712">C &middot; Off-tumor amplification ranked by arm &mdash; CD28 is a singular outlier</text><rect x="0" y="30" width="12" height="12" rx="2" fill="#C0392B"/><text x="17" y="40" font-family="IBM Plex Mono,monospace" font-size="10" fill="#4A4438">CD28</text><rect x="90" y="30" width="12" height="12" rx="2" fill="#B0741C"/><text x="107" y="40" font-family="IBM Plex Mono,monospace" font-size="10" fill="#4A4438">constitutive (CD2 / CD226)</text><rect x="320" y="30" width="12" height="12" rx="2" fill="#0E7C5F"/><text x="337" y="40" font-family="IBM Plex Mono,monospace" font-size="10" fill="#4A4438">activation-induced</text><line x1="250.0" y1="54" x2="250.0" y2="278" stroke="#EFE7D9"/><text x="250.0" y="292" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#A89F8E">+0.00</text><line x1="637.1" y1="54" x2="637.1" y2="278" stroke="#EFE7D9"/><text x="637.1" y="292" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#A89F8E">+0.05</text><line x1="250" y1="54" x2="250" y2="278" stroke="#1C1A16" stroke-width="1.2"/><text x="250" y="292" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6B6459">no-costim</text><text x="0" y="76" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" fill="#4A4438">CD28</text><rect x="250.0" y="64" width="720.0" height="16" rx="2" fill="#C0392B"><title>CD28: mean off-tumor Δ +0.093 vs no-costim</title></rect><text x="977.0" y="76" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#C0392B">+0.093</text><text x="1022.0" y="76" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#C0392B">singular · ~5× next arm</text><text x="0" y="106" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" fill="#4A4438">CD2</text><rect x="250.0" y="94" width="139.4" height="16" rx="2" fill="#B0741C"><title>CD2: mean off-tumor Δ +0.018 vs no-costim</title></rect><text x="396.4" y="106" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#B0741C">+0.018</text><text x="0" y="136" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" fill="#4A4438">4-1BB</text><rect x="250.0" y="124" width="108.4" height="16" rx="2" fill="#0E7C5F"><title>4-1BB: mean off-tumor Δ +0.014 vs no-costim</title></rect><text x="365.4" y="136" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#0E7C5F">+0.014</text><text x="0" y="166" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" fill="#4A4438">CD27</text><rect x="250.0" y="154" width="85.2" height="16" rx="2" fill="#0E7C5F"><title>CD27: mean off-tumor Δ +0.011 vs no-costim</title></rect><text x="342.2" y="166" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#0E7C5F">+0.011</text><text x="0" y="196" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" fill="#4A4438">CD40</text><rect x="250.0" y="184" width="54.2" height="16" rx="2" fill="#0E7C5F"><title>CD40: mean off-tumor Δ +0.007 vs no-costim</title></rect><text x="311.2" y="196" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#0E7C5F">+0.007</text><text x="0" y="226" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" fill="#4A4438">OX40 / GITR / ICOS / DR3</text><rect x="250.0" y="214" width="7.7" height="16" rx="2" fill="#0E7C5F"><title>OX40 / GITR / ICOS / DR3: mean off-tumor Δ +0.001 vs no-costim</title></rect><text x="264.7" y="226" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#0E7C5F">+0.001</text><text x="0" y="256" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" fill="#4A4438">CD226</text><rect x="203.5" y="244" width="46.5" height="16" rx="2" fill="#B0741C"><title>CD226: mean off-tumor Δ -0.006 vs no-costim</title></rect><text x="196.5" y="256" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#B0741C">-0.006</text></svg>
+        <div style="font-size:13px;line-height:1.55;color:#4A4438;margin-top:10px;max-width:82ch"><strong>CD28 is a singular off-tumor amplifier</strong> &mdash; ~5&times; the next arm, with zero on-tumor benefit &mdash; reproducing the TGN1412 superagonist signature from expression alone. The activation-induced arms (including co-lead <strong>4-1BB</strong>) sit at or below the no-costim baseline. <em style="font-style:italic">Caveat:</em> this is a CD28-singular effect, not a strict constitutive-vs-induced law &mdash; CD226 is constitutive yet the lowest (net-negative) arm.</div>
+      </div>
+    </section>
+
+  <footer style="margin-top:80px;border-top:1.5px solid #1A1712;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8C8474;letter-spacing:.02em">costim_engager_counterscreen &middot; target &rarr; mechanism &rarr; window &rarr; de novo binder &middot; C3 verified</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8C8474;letter-spacing:.02em">the synthesis names no winner &mdash; QSP is the discriminator</div>
+  </footer>
+
+  <sc-if value="{{ tipShow }}" hint-placeholder-val="{{ false }}">
+    <div style="{{ tipStyle }}">
+      <div style="{{ tipBarStyle }}"></div>
+      <div style="padding:10px 13px 11px">
+        <div style="display:flex;align-items:baseline;gap:8px">
+          <span style="font-family:'Newsreader',serif;font-weight:600;font-size:17px;color:#1A1712">{{ tipTitle }}</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8C8474">{{ tipSub }}</span>
+        </div>
+        <div style="margin-top:8px;display:flex;flex-direction:column;gap:4px">
+          <sc-for list="{{ tipRows }}" as="r" hint-placeholder-count="5">
+            <div style="display:flex;justify-content:space-between;gap:22px;align-items:baseline">
+              <span style="font-size:12px;color:#6E6656">{{ r.k }}</span>
+              <span style="{{ r.vStyle }}">{{ r.v }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <sc-if value="{{ tipNote }}" hint-placeholder-val="">
+          <div style="margin-top:9px;padding-top:8px;border-top:1px solid #EFE7D9;font-size:11.5px;line-height:1.4;color:#4A4438;max-width:34ch">{{ tipNote }}</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1180,&quot;height&quot;:900},&quot;fig1_yaxis&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Suppression (IL-10 / Treg)&quot;,&quot;Cytokine release (CRS)&quot;,&quot;Combined liability&quot;],&quot;default&quot;:&quot;Suppression (IL-10 / Treg)&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Figure 1&quot;},&quot;show_annotations&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Figure 1&quot;},&quot;show_qc_excluded&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Figure 4&quot;},&quot;treg_show_donors&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Figure 3&quot;}}">
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.state = { data: (typeof window!=='undefined' && window.FIGDATA) || null, hover:null, fig1view:'scatter', fig1y:'Suppression (IL-10 / Treg)', yaw:0.72, pitch:0.40, drag:null };
+    this.pal = {
+      ink:'#1A1712', sub:'#6E6656', faint:'#B8AF9F', line:'#E7DECF', grid:'#EFE8DB',
+      finalist:'#0E7C5F', conditional:'#E0870D', liability:'#DB3B22', gated:'#3C4FD1', neutral:'#AEA492',
+      vital:'#28357E', immune:'#7C8598', myeloid:'#D99A1C',
+      posHot:'#DB3B22', negCool:'#2F6DB0'
+    };
+  }
+  componentDidMount(){
+    if(!this.state.data){
+      this._t = setInterval(()=>{ if(typeof window!=='undefined' && window.FIGDATA){ clearInterval(this._t); this.setState({data:window.FIGDATA}); } }, 60);
+      setTimeout(()=>{ if(this._t) clearInterval(this._t); }, 4000);
+    }
+  }
+  componentWillUnmount(){ if(this._t) clearInterval(this._t); }
+
+  // ---------- helpers ----------
+  groupOf(a){
+    if(a==='CD27'||a==='4-1BB') return 'finalist';
+    if(a==='CD30') return 'conditional';
+    if(a==='CD28'||a==='OX40') return 'liability';
+    if(a==='CD40') return 'gated';
+    return 'neutral';
+  }
+  colorOf(g){ return this.pal[g] || this.pal.neutral; }
+  fmt(x,d){ if(x===null||x===undefined||isNaN(x)) return '\u2014'; return (d===0)? Math.round(x).toString() : x.toFixed(d===undefined?2:d); }
+  fmtSigned(x,d){ if(x===null||x===undefined||isNaN(x)) return '\u2014'; const s=x.toFixed(d===undefined?3:d); return (x>0?'+':'')+s; }
+  fmtQ(q){ if(q===null||q===undefined||isNaN(q)) return 'n/a'; if(q===0) return '<1e-16'; if(q<0.001) return q.toExponential(1); return q.toFixed(3); }
+  qStar(q){ return (q!==null && q!==undefined && !isNaN(q) && q<0.05) ? '*' : ''; }
+
+  setHover(e, o){
+    const cx = e.clientX, cy = e.clientY;
+    this.setState({ hover: Object.assign({cx,cy}, o) });
+  }
+  moveHover(e){
+    if(!this.state.hover) return;
+    this.setState({ hover: Object.assign({}, this.state.hover, {cx:e.clientX, cy:e.clientY}) });
+  }
+  clearHover(){ if(this.state.hover) this.setState({hover:null}); }
+
+  txt(x,y,s,o){ o=o||{}; return React.createElement('text',{x,y,fill:o.fill||this.pal.ink,fontSize:o.size||12,fontFamily:o.mono?"'IBM Plex Mono',monospace":"'IBM Plex Sans',sans-serif",fontWeight:o.weight||400,textAnchor:o.anchor||'start',letterSpacing:o.ls||0,opacity:o.opacity===undefined?1:o.opacity,style:o.style,transform:o.transform,dominantBaseline:o.baseline}, s); }
+
+  segStyle(active){ return 'appearance:none;border:1px solid '+(active?'#1A1712':'#D8CFC0')+';background:'+(active?'#1A1712':'#FFFFFF')+';color:'+(active?'#FFFFFF':'#4A4438')+";font-family:'IBM Plex Sans',sans-serif;font-size:12.5px;font-weight:500;padding:6px 14px;border-radius:7px;cursor:pointer;transition:background .12s,color .12s,border-color .12s"; }
+  segStyleSm(active){ return 'appearance:none;border:1px solid '+(active?'#0E7C5F':'#E0D6C6')+';background:'+(active?'rgba(14,124,95,0.10)':'#FFFFFF')+';color:'+(active?'#0B5E48':'#6E6656')+";font-family:'IBM Plex Sans',sans-serif;font-size:11.5px;font-weight:500;padding:4px 11px;border-radius:6px;cursor:pointer;transition:all .12s"; }
+
+  // ---------- FIGURE 1 : effector vs liability ----------
+  fig1(view){
+    const d = this.state.data; if(!d) return null;
+    const multi = view==='multi';
+    const h = React.createElement, P = this.pal;
+    const W=780,H=548, padL=64,padR=30,padT=52,padB=74;
+    const plotW=W-padL-padR, plotH=H-padT-padB;
+    const mainFrac=0.80, gapFrac=0.055, farFrac=0.145;
+    const mainW=plotW*mainFrac, gapW=plotW*gapFrac, farW=plotW*farFrac;
+    const sMainX0=padL, sMainX1=padL+mainW, sFarX0=padL+mainW+gapW, sFarX1=padL+plotW;
+    const xMin=-1, xMax=5, xFarMin=11.4, xFarMax=12.7;
+    const xS = z => (z<=6) ? sMainX0 + (z-xMin)/(xMax-xMin)*(sMainX1-sMainX0)
+                           : sFarX0 + (z-xFarMin)/(xFarMax-xFarMin)*(sFarX1-sFarX0);
+
+    // y metric
+    const metricSel = this.state.fig1y || this.props.fig1_yaxis || 'Suppression (IL-10 / Treg)';
+    let key, yTitle;
+    if(/cytokine|CRS/i.test(metricSel)){ key='CRS'; yTitle='CRS agonism  \u2014  cytokine release'; }
+    else if(/combined/i.test(metricSel)){ key='COMBO'; yTitle='Combined CD4 liability  (SUPP + CRS)'; }
+    else { key='SUPP'; yTitle='Suppression agonism  (IL-10 / Treg)'; }
+    if(multi){ key='SUPP'; yTitle='Suppression agonism  \u00b7  ring = CRS  \u00b7  \u25b2\u25bc help'; }
+    const yval = c => key==='COMBO' ? (c.SUPP + c.CRS) : c[key];
+
+    const vals = d.costim.map(yval);
+    let yLo=Math.min(...vals), yHi=Math.max(...vals);
+    const pad=(yHi-yLo)*0.12; yLo-=pad; yHi+=pad;
+    const yS = v => padT + (yHi - v)/(yHi-yLo)*plotH;
+
+    const gateX = xS(1.8), zeroY = yS(0);
+    const els=[];
+
+    // region washes
+    els.push(h('rect',{key:'wl',x:padL,y:padT,width:gateX-padL,height:plotH,fill:'rgba(120,110,90,0.045)'}));
+    els.push(h('rect',{key:'wgood',x:gateX,y:zeroY,width:(sMainX1)-gateX,height:(padT+plotH)-zeroY,fill:'rgba(14,124,95,0.08)'}));
+    els.push(h('rect',{key:'wbad',x:gateX,y:padT,width:(padL+plotW)-gateX,height:zeroY-padT,fill:'rgba(219,59,34,0.06)'}));
+
+    // grid + y ticks
+    const yticks=[]; const step = (yHi-yLo)>0.5?0.1:0.05;
+    for(let v=Math.ceil(yLo/step)*step; v<=yHi; v+=step){ yticks.push(Math.round(v*1000)/1000); }
+    yticks.forEach((v,i)=>{ const yy=yS(v);
+      els.push(h('line',{key:'yg'+i,x1:padL,y1:yy,x2:padL+plotW,y2:yy,stroke:P.grid,strokeWidth:1}));
+      els.push(this.txt(padL-9,yy,this.fmtSigned(v,2),{anchor:'end',baseline:'middle',size:10.5,mono:true,fill:P.sub}));
+    });
+    // zero line emphasised
+    els.push(h('line',{key:'zl',x1:padL,y1:zeroY,x2:padL+plotW,y2:zeroY,stroke:'#C9BFAE',strokeWidth:1.4,strokeDasharray:'2 3'}));
+
+    // x ticks main
+    [0,1,2,3,4,5].forEach(z=>{ const xx=xS(z);
+      els.push(h('line',{key:'xg'+z,x1:xx,y1:padT,x2:xx,y2:padT+plotH,stroke:P.grid,strokeWidth:1}));
+      els.push(this.txt(xx,padT+plotH+18,z.toString(),{anchor:'middle',size:10.5,mono:true,fill:P.sub}));
+    });
+    // far tick 12
+    els.push(this.txt(xS(12.11),padT+plotH+18,'12',{anchor:'middle',size:10.5,mono:true,fill:P.sub}));
+    // axis break slashes
+    const bx=sMainX1+gapW/2, by=padT+plotH;
+    els.push(h('path',{key:'brk1',d:`M ${bx-5} ${by+3} l 7 -8`,stroke:P.sub,strokeWidth:1.3,fill:'none'}));
+    els.push(h('path',{key:'brk2',d:`M ${bx-1} ${by+3} l 7 -8`,stroke:P.sub,strokeWidth:1.3,fill:'none'}));
+
+    // effector gate line
+    els.push(h('line',{key:'gate',x1:gateX,y1:padT-6,x2:gateX,y2:padT+plotH,stroke:'#0E7C5F',strokeWidth:1.4,strokeDasharray:'5 4',opacity:0.8}));
+    els.push(this.txt(gateX+6,padT+6,'EFFECTOR GATE',{size:9.5,mono:true,fill:'#0E7C5F',weight:600,ls:0.8}));
+
+    // axis frame
+    els.push(h('line',{key:'ax',x1:padL,y1:padT+plotH,x2:padL+plotW,y2:padT+plotH,stroke:P.ink,strokeWidth:1.4}));
+    els.push(h('line',{key:'ay',x1:padL,y1:padT,x2:padL,y2:padT+plotH,stroke:P.ink,strokeWidth:1.4}));
+
+    // axis titles
+    els.push(this.txt(padL+plotW/2,H-14,'CD8 effector benefit  \u2014  Schmidt IFN-\u03b3 (z)',{anchor:'middle',size:12.5,weight:600,fill:P.ink}));
+    els.push(this.txt(0,0,yTitle,{anchor:'middle',size:12.5,weight:600,fill:P.ink,transform:`translate(16 ${padT+plotH/2}) rotate(-90)`}));
+    els.push(this.txt(padL+plotW,padT-30,'\u2191 feeds liability',{anchor:'end',size:10,mono:true,fill:P.liability,opacity:0.85}));
+    els.push(this.txt(padL+plotW,padT+plotH-8,'\u2193 negates / safe',{anchor:'end',size:10,mono:true,fill:P.finalist,opacity:0.85}));
+
+    // region labels
+    els.push(this.txt(gateX+(sMainX1-gateX)/2,padT+plotH-14,'FAVOURABLE WINDOW',{anchor:'middle',size:10,mono:true,fill:'#0E7C5F',weight:600,ls:1,opacity:0.6}));
+    els.push(this.txt(gateX+12,padT+20,'DUAL-LIABILITY ZONE',{anchor:'start',size:10,mono:true,fill:'#DB3B22',weight:600,ls:1,opacity:0.6}));
+
+    // bubbles
+    const nudge={'CD28':[-12,-16,'end'],'CD27':[12,-8,'start'],'4-1BB':[12,13,'start'],'CD30':[13,-4,'start'],'OX40':[-11,-13,'end'],'CD40':[13,4,'start'],'ICOS':[-9,15,'end'],'DNAM1':[12,3,'start'],'GITR':[12,-3,'start'],'HVEM':[12,11,'start'],'DR3':[12,-5,'start']};
+    const hv=this.state.hover;
+    d.costim.forEach(c=>{
+      const g=this.groupOf(c.alias), col=this.colorOf(g);
+      const cx=xS(c.E), cy=yS(yval(c));
+      const isFin = g==='finalist';
+      const active = hv && hv.fig==='f1' && hv.id===c.alias;
+      const dim = hv && hv.fig==='f1' && hv.id!==c.alias;
+      const r = isFin?9:8;
+      const nd=nudge[c.alias]||[12,0,'start'];
+      const grp=[];
+      if(multi){
+        const crsMag=Math.min(1,Math.abs(c.CRS)/0.14); const rw=1.2+crsMag*4.5;
+        const rcol=Math.abs(c.CRS)<0.012?'#C9BFAE':(c.CRS>0?P.liability:P.negCool);
+        grp.push(h('circle',{key:'crs',cx,cy,r:r+5,fill:'none',stroke:rcol,strokeWidth:rw,opacity:0.9}));
+      } else {
+        if(isFin) grp.push(h('circle',{key:'ring',cx,cy,r:r+5,fill:'none',stroke:col,strokeWidth:1.5,opacity:0.45}));
+        if(g==='conditional') grp.push(h('circle',{key:'ring',cx,cy,r:r+5,fill:'none',stroke:col,strokeWidth:1.5,strokeDasharray:'3 3',opacity:0.6}));
+      }
+      grp.push(h('circle',{key:'dot',cx,cy,r,fill:col,stroke:'#fff',strokeWidth:1.6}));
+      if(multi){
+        const up=c.HELP>=0, hy=cy-r-7, hc=up?P.finalist:P.liability;
+        const dp=up?`M ${cx} ${hy-5} L ${cx+5} ${hy+3} L ${cx-5} ${hy+3} Z`:`M ${cx} ${hy+5} L ${cx+5} ${hy-3} L ${cx-5} ${hy-3} Z`;
+        grp.push(h('path',{key:'help',d:dp,fill:hc,opacity:0.95}));
+      }
+      grp.push(this.txt(cx+nd[0],cy+nd[1],c.alias,{anchor:nd[2],size:12.5,weight:isFin?700:(g==='liability'?600:500),fill:dim?P.faint:P.ink,baseline:'middle'}));
+      els.push(h('g',{key:'b'+c.alias,style:{cursor:'pointer',transition:'opacity .12s',opacity:dim?0.34:1},
+        onMouseEnter:(e)=>this.setHover(e,{fig:'f1',id:c.alias, ...this.costimTip(c)}),
+        onMouseMove:(e)=>this.moveHover(e),
+        onMouseLeave:()=>this.clearHover()}, grp));
+      if(active) els.push(h('circle',{key:'hl'+c.alias,cx,cy,r:r+9,fill:'none',stroke:col,strokeWidth:1.4,opacity:0.7,pointerEvents:'none'}));
+    });
+
+    if(multi){
+      const lx=padL+8, lyy=padT+16;
+      els.push(h('circle',{key:'lgc1',cx:lx+5,cy:lyy-3,r:6,fill:'none',stroke:P.liability,strokeWidth:3}));
+      els.push(this.txt(lx+16,lyy-3,'ring = CRS  \u00b7  coral feeds / blue damps',{size:9.5,mono:true,fill:P.sub,baseline:'middle'}));
+      els.push(h('path',{key:'lgh1',d:`M ${lx+5} ${lyy+9} L ${lx+9} ${lyy+15} L ${lx+1} ${lyy+15} Z`,fill:P.finalist}));
+      els.push(h('path',{key:'lgh2',d:`M ${lx+96} ${lyy+15} L ${lx+100} ${lyy+9} L ${lx+92} ${lyy+9} Z`,fill:P.liability}));
+      els.push(this.txt(lx+16,lyy+13,'help preserved',{size:9.5,mono:true,fill:P.sub,baseline:'middle'}));
+      els.push(this.txt(lx+107,lyy+13,'help eroded',{size:9.5,mono:true,fill:P.sub,baseline:'middle'}));
+    }
+
+    // annotations
+    if((this.props.show_annotations ?? true)){
+      const cd28=d.costim.find(c=>c.alias==='CD28');
+      const ax=xS(cd28.E), ay=yS(yval(cd28)), tx=ax-16, ty=ay+32;
+      const gg=[h('line',{key:'l',x1:ax,y1:ay+9,x2:tx+3,y2:ty-7,stroke:P.liability,strokeWidth:1,opacity:0.5})];
+      ['CD28  z = 12.1','strongest effector,','but feeds CRS + SUPP','\u2014 TGN1412-class'].forEach((ln,i)=> gg.push(this.txt(tx,ty+i*13,ln,{size:10.5,mono:true,fill:P.liability,weight:i===0?600:400,anchor:'end'})));
+      els.push(h('g',{key:'an28',pointerEvents:'none'},gg));
+    }
+
+    return h('svg',{viewBox:`0 0 ${W} ${H}`,width:'100%',style:{display:'block',height:'auto',maxWidth:W+'px',margin:'0 auto',userSelect:'none'},
+      onMouseLeave:()=>this.clearHover()}, els);
+  }
+  costimTip(c){
+    const P=this.pal;
+    const cellStyle="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#1A1712";
+    const tone = (v,goodLow)=>{ const good = goodLow? v<0 : v>0; return "font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:"+(Math.abs(v)<0.03?'#8C8474':(good?'#0E7C5F':'#DB3B22'))+"";};
+    const tierLabel={T1_favorable_robust:'Tier 1 \u00b7 favourable (robust)',T2_favorable:'Tier 2 \u00b7 favourable',T3_neutral_or_insufficient:'Tier 3 \u00b7 neutral',T4_liability:'Tier 4 \u00b7 liability'}[c.tier]||c.tier;
+    let note='';
+    if(c.alias==='CD28') note='Off-scale effector, but feeds CRS and suppression \u2014 the classic superagonist liability.';
+    else if(c.alias==='CD27') note='Suppression-negating, help-spared, Treg-neutral: the fully-clean lead.';
+    else if(c.alias==='4-1BB') note='Effector hit with no CRS / SUPP / HELP liability.';
+    else if(c.alias==='CD30') note='Strong suppression-negation, but erodes CD4 help by 48 h \u2014 conditional.';
+    else if(c.alias==='OX40') note='Effector hit, but its dominant private module is Treg-suppression.';
+    else if(c.alias==='CD40') note='APC-side receptor \u2014 barely expressed on the engaged T cell ('+this.fmt(c.exprPct,1)+'%).';
+    return {
+      title:c.alias, sub:c.gene===c.alias?'':c.gene, accent:this.colorOf(this.groupOf(c.alias)),
+      rows:[
+        {k:'Effector (Schmidt z)', v:this.fmt(c.E,2)+(c.E_hit?'  hit':''), vStyle:"font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:"+(c.E_hit?'#0E7C5F':'#8C8474')},
+        {k:'CRS agonism', v:this.fmtSigned(c.CRS)+'  '+c.CRS_call, vStyle:tone(c.CRS,true)},
+        {k:'Suppression agonism', v:this.fmtSigned(c.SUPP)+'  '+c.SUPP_call, vStyle:tone(c.SUPP,true)},
+        {k:'Help agonism', v:this.fmtSigned(c.HELP)+'  '+c.HELP_call, vStyle:tone(c.HELP,false)},
+        {k:'Treg-fraction OR', v:this.fmt(c.tregOR,2)+'  (q '+this.fmtQ(c.tregQ)+')', vStyle:cellStyle},
+        {k:'Verdict', v:tierLabel, vStyle:"font-family:'IBM Plex Sans';font-size:12px;font-weight:600;color:"+this.colorOf(this.groupOf(c.alias))}
+      ],
+      note
+    };
+  }
+
+  lerpColor(a,b,t){
+    const pa=[parseInt(a.slice(1,3),16),parseInt(a.slice(3,5),16),parseInt(a.slice(5,7),16)];
+    const pb=[parseInt(b.slice(1,3),16),parseInt(b.slice(3,5),16),parseInt(b.slice(5,7),16)];
+    const c=pa.map((v,i)=>Math.round(v+(pb[i]-v)*t));
+    return 'rgb('+c[0]+','+c[1]+','+c[2]+')';
+  }
+  divColor(value,key){
+    const paper='#FBF7EF';
+    let g = (key==='HELP')? value : -value; // + = good
+    let t = Math.max(-1,Math.min(1, g/0.22));
+    if(t>=0) return this.lerpColor(paper,'#0E7C5F',t*0.92);
+    return this.lerpColor(paper,'#DB3B22',(-t)*0.92);
+  }
+  fig2(){
+    const d=this.state.data; if(!d) return null;
+    const h=React.createElement, P=this.pal;
+    const byAlias={}; d.costim.forEach(c=>byAlias[c.alias]=c);
+    const groups=[
+      {label:'NOMINATED', members:['CD27','4-1BB','CD30']},
+      {label:'ELIMINATED \u2014 LIABILITY', members:['CD28','OX40']},
+      {label:'GATED \u2014 APC-SIDE', members:['CD40']},
+      {label:'BELOW EFFECTOR GATE', members:['DR3','DNAM1','GITR','HVEM','ICOS']}
+    ];
+    const cols=[
+      {key:'E', title:'CD8 EFFECTOR', sub:'Schmidt z', type:'bullet', dir:'\u2191 benefit', dcol:P.finalist},
+      {key:'CRS', title:'CRS', sub:'cytokine release', type:'div', dir:'\u2193 safer'},
+      {key:'SUPP', title:'SUPPRESSION', sub:'IL-10 / Treg', type:'div', dir:'\u2193 safer'},
+      {key:'HELP', title:'CD4 HELP', sub:'Tfh program', type:'div', dir:'\u2191 preserve'}
+    ];
+    const padL=20, labelW=158, colW=135, colGap=6, cellH=30, rowGap=5, groupGap=15, padT=70, padR=16;
+    const W=padL+labelW+cols.length*colW+(cols.length-1)*colGap+padR;
+    const x0=padL+labelW;
+    const colX=i=>x0+i*(colW+colGap);
+    const hv=this.state.hover;
+    const els=[];
+
+    // column headers
+    cols.forEach((c,i)=>{ const cx=colX(i)+colW/2;
+      els.push(this.txt(cx,34,c.title,{anchor:'middle',size:11.5,weight:600,fill:P.ink,ls:0.4}));
+      els.push(this.txt(cx,48,c.sub,{anchor:'middle',size:10,mono:true,fill:P.sub}));
+      els.push(this.txt(cx,61,c.dir,{anchor:'middle',size:9.5,mono:true,fill:i===0?P.finalist:(c.key==='HELP'?P.finalist:P.liability),weight:500}));
+    });
+    els.push(this.txt(padL,52,'RECEPTOR',{size:10,mono:true,fill:P.sub,ls:0.6,weight:600}));
+    els.push(h('line',{key:'hr',x1:padL,y1:padT-6,x2:W-padR,y2:padT-6,stroke:P.ink,strokeWidth:1.3}));
+
+    let y=padT;
+    groups.forEach((grp,gi)=>{
+      els.push(this.txt(padL,y+12,grp.label,{size:9.5,mono:true,fill:P.sub,weight:600,ls:0.8}));
+      y+=20;
+      grp.members.forEach(al=>{
+        const c=byAlias[al]; const g=this.groupOf(al), col=this.colorOf(g);
+        const rowActive = hv && hv.fig==='f2' && hv.id===al;
+        // row bg on hover
+        if(rowActive) els.push(h('rect',{key:'rb'+al,x:padL-6,y:y-3,width:W-padR-padL+12,height:cellH+6,fill:'rgba(26,23,18,0.035)',rx:5}));
+        // label
+        els.push(h('circle',{key:'ld'+al,cx:padL+6,cy:y+cellH/2,r:5,fill:col}));
+        els.push(this.txt(padL+18,y+cellH/2-2,al,{size:13.5,weight:g==='finalist'?700:600,fill:P.ink,baseline:'middle'}));
+        if(c.gene!==al) els.push(this.txt(padL+18,y+cellH/2+11,c.gene,{size:9.5,mono:true,fill:P.faint,baseline:'middle'}));
+        // cells
+        cols.forEach((cc,ci)=>{
+          const cx=colX(ci), val=c[cc.key];
+          const cellNode=[];
+          if(cc.type==='bullet'){
+            const innerW=colW-72, bx=cx+8, by=y+cellH/2;
+            els.push(h('rect',{key:'tk'+al,x:bx,y:by-5,width:innerW,height:10,rx:5,fill:'#EFE8DB'}));
+            const zmax=12.2, frac=Math.max(0,Math.min(1,val/zmax));
+            els.push(h('rect',{key:'bf'+al,x:bx,y:by-5,width:Math.max(2,frac*innerW),height:10,rx:5,fill:c.E_hit?P.finalist:P.neutral,opacity:c.E_hit?1:0.55}));
+            if(c.E_hit) els.push(h('circle',{key:'eh'+al,cx:bx+frac*innerW,cy:by,r:3.4,fill:'#fff',stroke:P.finalist,strokeWidth:1.6}));
+            els.push(this.txt(cx+colW-8,by,this.fmt(val,2),{anchor:'end',baseline:'middle',size:12,mono:true,weight:700,fill:c.E_hit?'#0B5E48':P.sub}));
+          } else {
+            const fill=this.divColor(val,cc.key);
+            const sig=(c[cc.key+'_call']||'').includes('*');
+            const tnorm=Math.abs(Math.max(-1,Math.min(1,((cc.key==='HELP')?val:-val)/0.22)));
+            const dark=tnorm>0.52;
+            els.push(h('rect',{key:'ce'+al+ci,x:cx,y:y,width:colW,height:cellH,rx:4,fill,stroke:sig?(((cc.key==='HELP')?val>0:val<0)?'#0B5E48':'#A82814'):'#EFE8DB',strokeWidth:sig?2:1}));
+            els.push(this.txt(cx+colW/2,y+cellH/2,this.fmtSigned(val,2),{anchor:'middle',baseline:'middle',size:11.5,mono:true,weight:600,fill:dark?'#fff':P.ink}));
+            if(sig) els.push(this.txt(cx+colW-7,y+9,'*',{anchor:'end',size:12,weight:700,fill:dark?'#fff':(((cc.key==='HELP')?val>0:val<0)?'#0B5E48':'#A82814')}));
+          }
+        });
+        // full-row hit target
+        els.push(h('rect',{key:'ht'+al,x:padL-6,y:y-3,width:W-padR-padL+12,height:cellH+6,fill:'transparent',style:{cursor:'pointer'},
+          onMouseEnter:(e)=>this.setHover(e,{fig:'f2',id:al, ...this.costimTip(c)}),
+          onMouseMove:(e)=>this.moveHover(e),
+          onMouseLeave:()=>this.clearHover()}));
+        y+=cellH+rowGap;
+      });
+      if(gi<groups.length-1) y+=groupGap-rowGap;
+    });
+    const H=y+10;
+    // sig note
+    els.push(this.txt(W-padR,H-2,'\u25cf marks effector hit    * significant agonism (BH q<0.05)',{anchor:'end',size:9.5,mono:true,fill:P.faint}));
+    return h('svg',{viewBox:`0 0 ${W} ${H+8}`,width:'100%',style:{display:'block',height:'auto',maxWidth:W+'px',margin:'0 auto',userSelect:'none'},onMouseLeave:()=>this.clearHover()},els);
+  }
+  tregTip(t){
+    const P=this.pal;
+    const donors=t.ORs.map((o,i)=> o===null?null:('D'+(i+1)+' '+this.fmt(o,2))).filter(Boolean).join('   ');
+    const favorable = t.OR_MH>1;
+    return {
+      title:t.alias, sub:'n_kd '+this.fmt(t.n_kd,0),
+      accent:this.colorOf(this.groupOf(t.alias)),
+      rows:[
+        {k:'Pooled OR (MH)', v:this.fmt(t.OR_MH,3)+this.qStar(t.q), vStyle:"font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:"+(Math.abs(Math.log2(t.OR_MH))<0.15?'#8C8474':(favorable?'#0E7C5F':'#DB3B22'))},
+        {k:'95% CI', v:this.fmt(t.ci_lo,2)+' \u2013 '+this.fmt(t.ci_hi,2), vStyle:"font-family:'IBM Plex Mono',monospace;font-size:12px;color:#3A342B"},
+        {k:'q (CMH, BH)', v:this.fmtQ(t.q), vStyle:"font-family:'IBM Plex Mono',monospace;font-size:12px;color:#3A342B"},
+        {k:'Per-donor OR', v:donors, vStyle:"font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6E6656"},
+        {k:'Direction', v:favorable?'depletes Treg (favourable)':'expands Treg (liability)', vStyle:"font-family:'IBM Plex Sans';font-size:12px;font-weight:600;color:"+(favorable?'#0E7C5F':'#DB3B22')}
+      ],
+      note: t.confounded==='yes' ? 'Marked confounded \u2014 read as directional only, not a clean estimate.' : ''
+    };
+  }
+  fig3(){
+    const d=this.state.data; if(!d) return null;
+    const h=React.createElement, P=this.pal;
+    const byAlias={}; d.treg.forEach(t=>byAlias[t.alias]=t);
+    const groups=[['CD27','4-1BB'],['CD30'],['CD28','OX40'],['CD40'],['ICOS','DNAM1','GITR','HVEM','DR3']];
+    const order=[].concat(...groups);
+    const showDonors=(this.props.treg_show_donors ?? true);
+    const padL=112, padR=58, padT=74, rowH=27, rowGap=7, groupGap=13, W=780;
+    const plotL=padL, plotR=W-padR;
+    const lo=-3.3, hi=2.0;
+    const xS=l=> plotL + (l-lo)/(hi-lo)*(plotR-plotL);
+    const L2=v=>Math.log2(v);
+    const hv=this.state.hover;
+    const els=[];
+    let y=padT;
+    const nRows=order.length, nGaps=groups.length-1;
+    const plotBottom = padT + nRows*(rowH+rowGap) + nGaps*(groupGap-rowGap) - rowGap;
+
+    // zone washes
+    els.push(h('rect',{key:'zl',x:plotL,y:padT-6,width:xS(0)-plotL,height:plotBottom-(padT-6)+6,fill:'rgba(219,59,34,0.05)'}));
+    els.push(h('rect',{key:'zr',x:xS(0),y:padT-6,width:plotR-xS(0),height:plotBottom-(padT-6)+6,fill:'rgba(14,124,95,0.06)'}));
+    // zone labels
+    els.push(this.txt(plotL+4,padT-40,'\u25c0  agonism EXPANDS Treg',{size:10.5,mono:true,fill:P.liability,weight:600}));
+    els.push(this.txt(plotL+4,padT-27,'a liability',{size:10.5,mono:true,fill:P.liability,opacity:0.8}));
+    els.push(this.txt(plotR-4,padT-40,'agonism DEPLETES Treg  \u25b6',{size:10.5,mono:true,fill:P.finalist,weight:600,anchor:'end'}));
+    els.push(this.txt(plotR-4,padT-27,'favourable',{size:10.5,mono:true,fill:P.finalist,opacity:0.85,anchor:'end'}));
+
+    // x grid + ticks (OR labels at log2 positions)
+    [-3,-2,-1,0,1].forEach(l=>{ const xx=xS(l);
+      els.push(h('line',{key:'xg'+l,x1:xx,y1:padT-6,x2:xx,y2:plotBottom,stroke:l===0?'#C2B8A6':P.grid,strokeWidth:l===0?1.5:1,strokeDasharray:l===0?'':''}));
+      const orv=Math.pow(2,l);
+      els.push(this.txt(xx,plotBottom+18,(orv<1?orv.toFixed(orv<0.2?2:2):orv.toFixed(0)),{anchor:'middle',size:10.5,mono:true,fill:P.sub}));
+    });
+    els.push(this.txt(xS(0),plotBottom+31,'OR = 1',{anchor:'middle',size:9.5,mono:true,fill:P.sub,weight:600}));
+    els.push(this.txt((plotL+plotR)/2,plotBottom+46,'Treg-fraction odds ratio  (knockdown frame, log\u2082 spacing)',{anchor:'middle',size:12,weight:600,fill:P.ink}));
+
+    // rows
+    groups.forEach((grp,gi)=>{
+      grp.forEach(al=>{
+        const t=byAlias[al]; const g=this.groupOf(al), col=this.colorOf(g);
+        const yc=y+rowH/2;
+        const active=hv&&hv.fig==='f3'&&hv.id===al;
+        if(active) els.push(h('rect',{key:'rb'+al,x:8,y:y-3,width:W-16,height:rowH+6,fill:'rgba(26,23,18,0.035)',rx:5}));
+        // label
+        els.push(h('circle',{key:'ld'+al,cx:14,cy:yc,r:5,fill:col}));
+        els.push(this.txt(26,yc,al,{size:13,weight:g==='finalist'?700:600,fill:P.ink,baseline:'middle'}));
+        if(t.confounded==='yes') els.push(this.txt(26,yc+11,'confounded',{size:8.5,mono:true,fill:P.faint,baseline:'middle'}));
+        // per-donor dots
+        if(showDonors){
+          const jit=[-5,-1.7,1.7,5];
+          t.ORs.forEach((o,di)=>{ if(o===null||o<=0) return; const xx=xS(Math.max(lo,Math.min(hi,L2(o))));
+            els.push(h('circle',{key:'pd'+al+di,cx:xx,cy:yc+jit[di],r:3,fill:col,opacity:0.32}));
+          });
+        }
+        // CI whisker
+        const clo=xS(Math.max(lo,L2(t.ci_lo))), chi=xS(Math.min(hi,L2(t.ci_hi))), cx=xS(L2(t.OR_MH));
+        const conf=t.confounded==='yes';
+        els.push(h('line',{key:'ci'+al,x1:clo,y1:yc,x2:chi,y2:yc,stroke:col,strokeWidth:1.6,opacity:conf?0.4:0.8}));
+        els.push(h('line',{key:'cl'+al,x1:clo,y1:yc-3.5,x2:clo,y2:yc+3.5,stroke:col,strokeWidth:1.6,opacity:conf?0.4:0.8}));
+        els.push(h('line',{key:'ch'+al,x1:chi,y1:yc-3.5,x2:chi,y2:yc+3.5,stroke:col,strokeWidth:1.6,opacity:conf?0.4:0.8}));
+        // diamond
+        els.push(h('path',{key:'dm'+al,d:`M ${cx-6.5} ${yc} L ${cx} ${yc-7.5} L ${cx+6.5} ${yc} L ${cx} ${yc+7.5} Z`,fill:conf?'#fff':col,stroke:col,strokeWidth:1.8,strokeDasharray:conf?'2 2':''}));
+        // value + star
+        const fav=t.OR_MH>1;
+        const sigTreg=(t.q!==null && t.q!==undefined && !isNaN(t.q) && t.q<0.05);
+        els.push(this.txt(W-8,yc,this.fmt(t.OR_MH,2)+this.qStar(t.q),{anchor:'end',baseline:'middle',size:12,mono:true,weight:600,fill:sigTreg?(fav?'#0B5E48':'#A82814'):P.sub}));
+        // hit target
+        els.push(h('rect',{key:'ht'+al,x:8,y:y-3,width:W-16,height:rowH+6,fill:'transparent',style:{cursor:'pointer'},
+          onMouseEnter:(e)=>this.setHover(e,{fig:'f3',id:al, ...this.tregTip(t)}),
+          onMouseMove:(e)=>this.moveHover(e),
+          onMouseLeave:()=>this.clearHover()}));
+        y+=rowH+rowGap;
+      });
+      if(gi<groups.length-1) y+=groupGap-rowGap;
+    });
+    const H=plotBottom+56;
+    // legend
+    els.push(h('path',{key:'lgd',d:`M ${plotL+2} ${H-6} L ${plotL+8} ${H-12} L ${plotL+14} ${H-6} L ${plotL+8} ${H-1} Z`,fill:P.neutral}));
+    els.push(this.txt(plotL+20,H-6,'pooled MH OR + 95% CI',{size:9.5,mono:true,fill:P.faint,baseline:'middle'}));
+    if(showDonors){ els.push(h('circle',{key:'lgd2',cx:plotL+178,cy:H-6,r:3,fill:P.neutral,opacity:0.4}));
+      els.push(this.txt(plotL+186,H-6,'per-donor OR',{size:9.5,mono:true,fill:P.faint,baseline:'middle'})); }
+    els.push(this.txt(W-8,H-6,'* q < 0.05',{anchor:'end',size:9.5,mono:true,fill:P.faint,baseline:'middle'}));
+    return h('svg',{viewBox:`0 0 ${W} ${H+4}`,width:'100%',style:{display:'block',height:'auto',maxWidth:W+'px',margin:'0 auto',userSelect:'none'},onMouseLeave:()=>this.clearHover()},els);
+  }
+  taaGroup(g){
+    if(g.gene==='EBP'||g.gene==='PIGT'||g.gene==='RNF149') return 'qc';
+    if(g.gene==='LY6E'||g.gene==='CXCL16') return 'leak';
+    if(!g.offFlag) return 'lead';
+    return 'other';
+  }
+  taaColor(grp){ return {lead:this.pal.finalist, leak:this.pal.liability, qc:this.pal.gated, other:this.pal.neutral}[grp]; }
+  prettyFlag(f){ if(!f) return 'none (clean)'; return f.split(';').map(s=>s.replace(/_/g,' ')).join(', '); }
+  taaTip(g){
+    const P=this.pal, grp=this.taaGroup(g);
+    const nT=g.offFlag?g.offFlag.split(';').length:0;
+    return {
+      title:g.gene, sub:g.top? g.top.replace(/_/g,' ').replace(':',' \u00b7 '):'',
+      accent:this.taaColor(grp),
+      rows:[
+        {k:'Safety rank (genome-wide)', v:'#'+this.fmt(g.rankSafety2,0)+' of 31', vStyle:"font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#1A1712"},
+        {k:'Tumor-cell restriction z', v:this.fmtSigned(g.restr,2), vStyle:"font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:"+(g.restr>0.5?'#0E7C5F':(g.restr<0?'#DB3B22':'#8C8474'))},
+        {k:'Safety score (B6-v2)', v:this.fmt(g.safety2,1), vStyle:"font-family:'IBM Plex Mono',monospace;font-size:12px;color:#3A342B"},
+        {k:'Off-tumor cell types', v:(nT?nT+'  \u00b7  ':'')+this.prettyFlag(g.offFlag), vStyle:"font-family:'IBM Plex Mono',monospace;font-size:11px;color:"+(nT>=3?'#DB3B22':'#6E6656')},
+        {k:'Healthy vital-organ max', v:this.fmt(g.vital,2), vStyle:"font-family:'IBM Plex Mono',monospace;font-size:12px;color:#3A342B"}
+      ],
+      note: grp==='qc'?'Surface-QC excluded \u2014 internal/secreted topology, not a true cell-surface target.'
+        : g.gene==='LY6E'?'Looked strong, but leaks across 6 healthy compartments incl. ~50% of T cells.'
+        : g.gene==='CXCL16'?'Off-tumor myeloid/macrophage (~55%) \u2014 dual expression demotes it.'
+        : grp==='lead'?'Clean: no replicated off-tumor compartment in either CRC cohort.':''
+    };
+  }
+  fig4(){
+    const d=this.state.data; if(!d) return null;
+    const h=React.createElement, P=this.pal;
+    const showQC=(this.props.show_qc_excluded ?? true);
+    const W=780,H=566, padL=60,padR=30,padT=54,padB=74;
+    const plotW=W-padL-padR, plotH=H-padT-padB;
+    const xLo=-0.75,xHi=2.65, yLo=-20.5,yHi=14;
+    const xS=v=>padL+(v-xLo)/(xHi-xLo)*plotW;
+    const yS=v=>padT+(yHi-v)/(yHi-yLo)*plotH;
+    const hv=this.state.hover;
+    const els=[];
+
+    // window wash (selective & safe)
+    els.push(h('rect',{key:'win',x:xS(0.8),y:yS(yHi),width:xS(xHi)-xS(0.8),height:yS(6)-yS(yHi),fill:'rgba(14,124,95,0.07)'}));
+    els.push(this.txt(xS(0.9),yS(yHi)+15,'TUMOR-CONDITIONAL WINDOW',{anchor:'start',size:10,mono:true,fill:'#0E7C5F',weight:600,ls:0.8,opacity:0.62}));
+
+    // grid + ticks
+    [-0.5,0,0.5,1,1.5,2,2.5].forEach(v=>{const xx=xS(v);
+      els.push(h('line',{key:'xg'+v,x1:xx,y1:padT,x2:xx,y2:padT+plotH,stroke:v===0?'#C9BFAE':P.grid,strokeWidth:v===0?1.3:1}));
+      els.push(this.txt(xx,padT+plotH+18,v.toFixed(1),{anchor:'middle',size:10.5,mono:true,fill:P.sub}));
+    });
+    [-20,-15,-10,-5,0,5,10].forEach(v=>{const yy=yS(v);
+      els.push(h('line',{key:'yg'+v,x1:padL,y1:yy,x2:padL+plotW,y2:yy,stroke:v===0?'#C9BFAE':P.grid,strokeWidth:v===0?1.3:1}));
+      els.push(this.txt(padL-9,yy,v.toString(),{anchor:'end',baseline:'middle',size:10.5,mono:true,fill:P.sub}));
+    });
+    // frame + titles
+    els.push(h('line',{key:'ax',x1:padL,y1:padT+plotH,x2:padL+plotW,y2:padT+plotH,stroke:P.ink,strokeWidth:1.4}));
+    els.push(h('line',{key:'ay',x1:padL,y1:padT,x2:padL,y2:padT+plotH,stroke:P.ink,strokeWidth:1.4}));
+    els.push(this.txt(padL+plotW/2,H-13,'Tumor-cell restriction z  \u2014  confined to malignant epithelium \u2192',{anchor:'middle',size:12.5,weight:600,fill:P.ink}));
+    els.push(this.txt(0,0,'Per-cell-type safety score  \u2014  safer \u2191',{anchor:'middle',size:12.5,weight:600,fill:P.ink,transform:`translate(15 ${padT+plotH/2}) rotate(-90)`}));
+
+    const labelSet={'CEACAM6':[11,-4,'start',700],'CEACAM5':[11,13,'start',700],'LY6E':[-11,4,'end',600],'CXCL16':[-11,-6,'end',600],'DPEP1':[11,3,'start',500]};
+
+    const draw=(grp)=> d.taa.filter(g=>this.taaGroup(g)===grp).forEach(g=>{
+      if(grp==='qc' && !showQC) return;
+      const col=this.taaColor(grp);
+      const cx=xS(Math.max(xLo,Math.min(xHi,g.restr))), cy=yS(Math.max(yLo,Math.min(yHi,g.safety2)));
+      const emph=(grp==='lead'||grp==='leak');
+      const r=emph?7.5:5;
+      const active=hv&&hv.fig==='f4'&&hv.id===g.gene;
+      const dim=hv&&hv.fig==='f4'&&hv.id!==g.gene;
+      const node=[];
+      if(grp==='qc'){
+        node.push(h('circle',{key:'d',cx,cy,r:6,fill:'#fff',stroke:col,strokeWidth:1.6,strokeDasharray:'2.5 2'}));
+        node.push(h('line',{key:'x1',x1:cx-3,y1:cy-3,x2:cx+3,y2:cy+3,stroke:col,strokeWidth:1.3}));
+        node.push(h('line',{key:'x2',x1:cx-3,y1:cy+3,x2:cx+3,y2:cy-3,stroke:col,strokeWidth:1.3}));
+      } else {
+        node.push(h('circle',{key:'d',cx,cy,r,fill:col,stroke:'#fff',strokeWidth:1.5,opacity:grp==='other'?0.5:1}));
+      }
+      const lab=labelSet[g.gene];
+      if(lab) node.push(this.txt(cx+lab[0],cy+lab[1],g.gene,{anchor:lab[2],size:emph?12.5:11,weight:lab[3],fill:dim?P.faint:(grp==='other'?P.sub:P.ink),baseline:'middle'}));
+      els.push(h('g',{key:'p'+g.gene,style:{cursor:'pointer',transition:'opacity .12s',opacity:dim?0.4:1},
+        onMouseEnter:(e)=>this.setHover(e,{fig:'f4',id:g.gene, ...this.taaTip(g)}),
+        onMouseMove:(e)=>this.moveHover(e),
+        onMouseLeave:()=>this.clearHover()},node));
+    });
+    draw('other'); draw('qc'); draw('leak'); draw('lead');
+
+    // annotations for the two demotions
+    if((this.props.show_annotations ?? true)){
+      const ly=d.taa.find(g=>g.gene==='LY6E'), cx1=d.taa.find(g=>g.gene==='CXCL16');
+      const call=(g,tx,ty,lines,anchor)=>{ const cx=xS(g.restr),cy=yS(g.safety2); const gg=[h('line',{key:'l',x1:cx,y1:cy,x2:tx,y2:ty,stroke:P.liability,strokeWidth:1,opacity:0.45})];
+        lines.forEach((ln,i)=>gg.push(this.txt(tx,ty+i*13,ln,{size:10,mono:true,fill:P.liability,weight:i===0?600:400,anchor})));
+        return h('g',{key:'ca'+g.gene,pointerEvents:'none'},gg); };
+      els.push(call(ly, xS(0.55), yS(-7), ['LY6E \u2014 demoted','6 off-tumor types','incl. ~50% T cells'],'start'));
+      els.push(call(cx1, xS(1.15), yS(9.5), ['CXCL16 \u2014 demoted','off-tumor myeloid','/ macrophage'],'start'));
+    }
+
+    // legend (compact, in-plot top-left)
+    const ly0=padT+16;
+    const leg=[['lead','clean lead'],['leak','demoted \u2014 off-tumor leak'],['other','flagged / other'],['qc','surface-QC excluded']];
+    leg.forEach((L,i)=>{ const yy=ly0+i*15; 
+      if(L[0]==='qc'){ els.push(h('circle',{key:'lg'+i,cx:padL+12,cy:yy,r:5,fill:'#fff',stroke:P.gated,strokeWidth:1.5,strokeDasharray:'2.5 2'})); }
+      else els.push(h('circle',{key:'lg'+i,cx:padL+12,cy:yy,r:5,fill:this.taaColor(L[0]),opacity:L[0]==='other'?0.5:1}));
+      els.push(this.txt(padL+22,yy,L[1],{size:10,mono:true,fill:P.sub,baseline:'middle'}));
+    });
+
+    return h('svg',{viewBox:`0 0 ${W} ${H}`,width:'100%',style:{display:'block',height:'auto',maxWidth:W+'px',margin:'0 auto',userSelect:'none'},onMouseLeave:()=>this.clearHover()},els);
+  }
+  breadthTip(g){
+    const P=this.pal, lead=(g.gene==='CXCL16'||g.gene==='LY6E')?false:true;
+    return {
+      title:g.gene, sub:g.top? g.top.replace(/_/g,' ').replace(':',' \u00b7 '):'', accent:lead?P.finalist:P.liability,
+      rows:[
+        {k:'Vital-organ max', v:this.fmt(g.vital,3), vStyle:"font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:"+P.vital},
+        {k:'Immune max', v:this.fmt(g.immune,3), vStyle:"font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:"+P.immune},
+        {k:'Myeloid max', v:this.fmt(g.myeloid,3), vStyle:"font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:"+P.myeloid},
+        {k:'Expressing compartments', v:this.fmt(g.nComp,0)+' / 88', vStyle:"font-family:'IBM Plex Mono',monospace;font-size:12px;color:#3A342B"},
+        {k:'Peak healthy location', v:(g.top||'').replace(/_/g,' ').replace(':',' \u00b7 '), vStyle:"font-family:'IBM Plex Sans';font-size:12px;color:#3A342B"}
+      ],
+      note: lead?'Tumor-enriched, not tumor-specific \u2014 low but non-zero, so conditional gating is still required.'
+        :'Broad off-tumor expression \u2014 the reason it drops out of the slate.'
+    };
+  }
+  fig5(){
+    const d=this.state.data; if(!d) return null;
+    const h=React.createElement, P=this.pal;
+    const byGene={}; d.taa.forEach(g=>byGene[g.gene]=g);
+    const order=['CEACAM6','CEACAM5','DPEP1','ITGB4','CXCL16','LY6E'], leadN=4;
+    const W=780,H=410, padL=54,padR=22,padT=46,padB=64;
+    const plotW=W-padL-padR, plotH=H-padT-padB, base=padT+plotH;
+    const yMax=1.3, yS=v=>base - v/yMax*plotH;
+    const slotW=plotW/order.length;
+    const comps=[['vital',P.vital],['immune',P.immune],['myeloid',P.myeloid]];
+    const barW=22, gap=6, totW=comps.length*barW+(comps.length-1)*gap;
+    const hv=this.state.hover;
+    const els=[];
+
+    // y grid
+    [0,0.25,0.5,0.75,1,1.25].forEach(v=>{const yy=yS(v);
+      els.push(h('line',{key:'yg'+v,x1:padL,y1:yy,x2:padL+plotW,y2:yy,stroke:v===0?P.ink:P.grid,strokeWidth:v===0?1.4:1}));
+      els.push(this.txt(padL-9,yy,v.toFixed(2),{anchor:'end',baseline:'middle',size:10.5,mono:true,fill:P.sub}));
+    });
+    els.push(this.txt(0,0,'Max healthy expression (mean)',{anchor:'middle',size:12,weight:600,fill:P.ink,transform:`translate(14 ${padT+plotH/2}) rotate(-90)`}));
+
+    // zone divider + labels
+    const divX=padL+leadN*slotW;
+    els.push(h('line',{key:'dv',x1:divX,y1:padT-6,x2:divX,y2:base,stroke:'#C9BFAE',strokeWidth:1.2,strokeDasharray:'4 4'}));
+    els.push(this.txt(padL+leadN*slotW/2,padT-16,'SURFACE-VALID LEADS',{anchor:'middle',size:10,mono:true,fill:'#0E7C5F',weight:600,ls:0.6}));
+    els.push(this.txt(divX+(order.length-leadN)*slotW/2,padT-16,'DEMOTED \u2014 BROAD',{anchor:'middle',size:10,mono:true,fill:'#DB3B22',weight:600,ls:0.6}));
+
+    order.forEach((gn,gi)=>{
+      const g=byGene[gn]; const lead=gi<leadN; const slotX=padL+gi*slotW;
+      const startX=slotX+(slotW-totW)/2;
+      comps.forEach((c,ci)=>{
+        const v=g[c[0]]||0; const bx=startX+ci*(barW+gap); const by=yS(v);
+        const active=hv&&hv.fig==='f5'&&hv.id===gn&&hv.comp===ci;
+        els.push(h('rect',{key:'bar'+gn+ci,x:bx,y:by,width:barW,height:Math.max(1,base-by),fill:c[1],rx:2,
+          style:{cursor:'pointer',transition:'opacity .12s',opacity:(hv&&hv.fig==='f5'&&hv.id!==gn)?0.4:1},
+          onMouseEnter:(e)=>this.setHover(e,{fig:'f5',id:gn,comp:ci, ...this.breadthTip(g)}),
+          onMouseMove:(e)=>this.moveHover(e),
+          onMouseLeave:()=>this.clearHover()}));
+        els.push(this.txt(bx+barW/2,by-4,this.fmt(v,2),{anchor:'middle',size:8.5,mono:true,fill:P.sub,weight:500}));
+      });
+      els.push(this.txt(slotX+slotW/2,base+17,gn,{anchor:'middle',size:12.5,weight:lead?600:700,fill:lead?P.ink:P.liability}));
+    });
+
+    // annotation on CEACAM6 vital bar
+    if((this.props.show_annotations ?? true)){
+      const g=byGene['CEACAM6']; const slotX=padL; const startX=slotX+(slotW-totW)/2;
+      const bx=startX+barW/2, by=yS(g.vital);
+      const tx=slotX+slotW+8, ty=yS(1.02);
+      const gg=[h('line',{key:'l',x1:bx+barW/2,y1:by,x2:tx-4,y2:ty+3,stroke:P.vital,strokeWidth:1,opacity:0.5})];
+      ['CEACAM6 vital-organ 0.76','tumor-enriched, not specific','\u2192 gating still required'].forEach((ln,i)=>gg.push(this.txt(tx,ty+i*13,ln,{size:10,mono:true,fill:P.vital,weight:i===0?600:400})));
+      els.push(h('g',{key:'anc',pointerEvents:'none'},gg));
+    }
+    return h('svg',{viewBox:`0 0 ${W} ${H}`,width:'100%',style:{display:'block',height:'auto',maxWidth:W+'px',margin:'0 auto',userSelect:'none'},onMouseLeave:()=>this.clearHover()},els);
+  }
+
+  fig1Parallel(){
+    const d=this.state.data; if(!d) return null;
+    const h=React.createElement, P=this.pal;
+    const W=780,H=548, padL=58,padR=58,padT=78,padB=48;
+    const top=padT, bot=H-padB;
+    const axes=[
+      {key:'E', name:'CD8 EFFECTOR', sub:'Schmidt z', lo:-1, hi:12.2, up:'high'},
+      {key:'CRS', name:'CRS', sub:'cytokine release', lo:-0.14, hi:0.16, up:'low'},
+      {key:'SUPP', name:'SUPPRESSION', sub:'IL-10 / Treg', lo:-0.32, hi:0.16, up:'low'},
+      {key:'HELP', name:'CD4 HELP', sub:'Tfh program', lo:-0.26, hi:0.13, up:'high'}
+    ];
+    const n=axes.length, axX=i=>padL+i*((W-padL-padR)/(n-1));
+    const yPos=(ax,v)=>{ const t=(v-ax.lo)/(ax.hi-ax.lo); const f=ax.up==='high'?t:(1-t); return bot-f*(bot-top); };
+    const hv=this.state.hover, els=[];
+    els.push(h('rect',{key:'fb',x:padL-20,y:top-4,width:(W-padL-padR)+40,height:(bot-top)*0.40,fill:'rgba(14,124,95,0.06)'}));
+    els.push(h('rect',{key:'lb',x:padL-20,y:top+(bot-top)*0.60,width:(W-padL-padR)+40,height:(bot-top)*0.40,fill:'rgba(219,59,34,0.05)'}));
+    els.push(this.txt(padL-16,top+11,'\u2191 FAVOURABLE',{size:9,mono:true,fill:'#0E7C5F',weight:600,ls:0.5,opacity:0.7}));
+    els.push(this.txt(padL-16,bot-5,'\u2193 LIABILITY',{size:9,mono:true,fill:'#DB3B22',weight:600,ls:0.5,opacity:0.7}));
+    axes.forEach((ax,i)=>{ const x=axX(i);
+      els.push(h('line',{key:'ax'+i,x1:x,y1:top,x2:x,y2:bot,stroke:'#C9BFAE',strokeWidth:1.3}));
+      const tanchor=i===0?'start':'end', tside=i===0?9:-9;
+      const ticks=[ax.lo,ax.hi]; if(ax.lo<0&&ax.hi>0) ticks.push(0);
+      ticks.forEach(tv=>{ const yy=yPos(ax,tv); els.push(h('line',{key:'tk'+i+tv,x1:x-4,y1:yy,x2:x+4,y2:yy,stroke:P.faint,strokeWidth:1}));
+        els.push(this.txt(x+tside,yy,(ax.key==='E'?tv.toFixed(0):this.fmtSigned(tv,2)),{anchor:tanchor,baseline:'middle',size:9,mono:true,fill:P.faint})); });
+      if(ax.lo<0&&ax.hi>0){ const zy=yPos(ax,0); els.push(h('line',{key:'z'+i,x1:x-11,y1:zy,x2:x+11,y2:zy,stroke:P.faint,strokeWidth:1,strokeDasharray:'2 2'})); }
+      els.push(this.txt(x,top-42,ax.name,{anchor:'middle',size:11.5,weight:600,fill:P.ink,ls:0.3}));
+      els.push(this.txt(x,top-29,ax.sub,{anchor:'middle',size:9.5,mono:true,fill:P.sub}));
+      els.push(this.txt(x,top-16,ax.up==='high'?'\u2191 more = better':'\u2193 less = safer',{anchor:'middle',size:9,mono:true,fill:'#0E7C5F',opacity:0.8}));
+    });
+    const drawOrder=['ICOS','DNAM1','GITR','HVEM','DR3','CD40','OX40','CD28','CD30','4-1BB','CD27'];
+    const lnud={'CD28':[-10,0],'CD27':[-10,0],'4-1BB':[-10,-4],'CD30':[-10,11],'CD40':[-10,-4],'OX40':[-10,11]};
+    drawOrder.forEach(al=>{ const c=d.costim.find(x=>x.alias===al); const g=this.groupOf(al), col=this.colorOf(g);
+      const pts=axes.map((ax,i)=>[axX(i), yPos(ax, c[ax.key])]);
+      const dPath='M '+pts.map(p=>p[0]+' '+p[1]).join(' L ');
+      const emph=(g!=='neutral'), dim=hv&&hv.fig==='fp'&&hv.id!==al, active=hv&&hv.fig==='fp'&&hv.id===al;
+      els.push(h('path',{key:'ln'+al,d:dPath,fill:'none',stroke:col,strokeWidth:active?3.4:(emph?2.4:1.3),opacity:dim?0.16:(emph?0.95:0.5),strokeLinejoin:'round',
+        style:{cursor:'pointer',transition:'opacity .12s'},
+        onMouseEnter:(e)=>this.setHover(e,{fig:'fp',id:al, ...this.costimTip(c)}),
+        onMouseMove:(e)=>this.moveHover(e),
+        onMouseLeave:()=>this.clearHover()}));
+      pts.forEach((p,i)=>els.push(h('circle',{key:'pt'+al+i,cx:p[0],cy:p[1],r:active?4:3,fill:col,stroke:'#fff',strokeWidth:1,opacity:dim?0.22:1,pointerEvents:'none'})));
+    });
+    const emphList=drawOrder.filter(al=>this.groupOf(al)!=='neutral').map(al=>{const c=d.costim.find(x=>x.alias===al);return {al,g:this.groupOf(al),col:this.colorOf(this.groupOf(al)),vy:yPos(axes[0],c.E)};}).sort((a,b)=>a.vy-b.vy);
+    let prevY=-99; const labX=padL-14;
+    emphList.forEach(o=>{ let ly=o.vy; if(ly<prevY+15) ly=prevY+15; prevY=ly;
+      const dim=hv&&hv.fig==='fp'&&hv.id!==o.al;
+      if(Math.abs(ly-o.vy)>2) els.push(h('line',{key:'ll'+o.al,x1:labX+4,y1:ly,x2:padL-2,y2:o.vy,stroke:o.col,strokeWidth:0.8,opacity:dim?0.15:0.45}));
+      els.push(this.txt(labX,ly,o.al,{anchor:'end',baseline:'middle',size:11.5,weight:o.g==='finalist'?700:600,fill:dim?P.faint:o.col}));
+    });
+    return h('svg',{viewBox:`0 0 ${W} ${H}`,width:'100%',style:{display:'block',height:'auto',maxWidth:W+'px',margin:'0 auto',userSelect:'none'},onMouseLeave:()=>this.clearHover()},els);
+  }
+
+  fig1ThreeD(){
+    const d=this.state.data; if(!d) return null;
+    const h=React.createElement, LC=(a,b,t)=>this.lerpColor(a,b,t);
+    const W=780,H=498, cx0=W/2, cy0=H*0.45, scale=126, cam=4.0;
+    const yaw=this.state.yaw, pitch=this.state.pitch;
+    const cyaw=Math.cos(yaw),syaw=Math.sin(yaw),cpit=Math.cos(pitch),spit=Math.sin(pitch);
+    const rot=(x,y,z)=>{ const x1=x*cyaw+z*syaw, z1=-x*syaw+z*cyaw; const y2=y*cpit-z1*spit, z2=y*spit+z1*cpit; return [x1,y2,z2]; };
+    const prj=(x,y,z)=>{ const r=rot(x,y,z); const p=cam/(cam-r[2]); return {sx:cx0+r[0]*scale*p, sy:cy0-r[1]*scale*p, z:r[2], p}; };
+    const T={ gridF:'rgba(120,110,90,0.12)', edge:'rgba(70,64,52,0.16)', dim:'#6E6656', tick:'#8C8474' };
+    const CG={finalist:'#0E7C5F',conditional:'#E0870D',liability:'#DB3B22',gated:'#3C4FD1',neutral:'#AEA492'};
+    const eDom=[-1,12.2], sDom=[-0.34,0.17], cDom=[-0.15,0.17];
+    const nX=v=>2*(v-eDom[0])/(eDom[1]-eDom[0])-1, nY=v=>2*(v-sDom[0])/(sDom[1]-sDom[0])-1, nZ=v=>2*(v-cDom[0])/(cDom[1]-cDom[0])-1;
+    const els=[], defs=[];
+    defs.push(h('radialGradient',{key:'bg',id:'v3bg',cx:'50%',cy:'37%',r:'86%'},[h('stop',{key:0,offset:'0%',stopColor:'#FDFBF6'}),h('stop',{key:1,offset:'55%',stopColor:'#F4EEE2'}),h('stop',{key:2,offset:'100%',stopColor:'#EAE1D1'})]));
+    Object.keys(CG).forEach(k=>{ const c=CG[k]; defs.push(h('radialGradient',{key:'g'+k,id:'sph_'+k,cx:'38%',cy:'30%',r:'86%'},[h('stop',{key:0,offset:'0%',stopColor:LC(c,'#ffffff',0.34)}),h('stop',{key:1,offset:'58%',stopColor:c}),h('stop',{key:2,offset:'100%',stopColor:LC(c,'#000000',0.30)})])); });
+    els.push(h('defs',{key:'defs'},defs));
+    els.push(h('rect',{key:'bgr',x:0,y:0,width:W,height:H,rx:8,fill:'url(#v3bg)'}));
+    const center=prj(0,0,0);
+    const outward=(sx,sy,dist)=>{ const dx=sx-center.sx, dy=sy-center.sy, L=Math.hypot(dx,dy)||1; return [sx+dx/L*dist, sy+dy/L*dist]; };
+    const labEl=(x,y,s,o)=>h('text',{x,y,fill:o.fill,textAnchor:o.anchor||'start',dominantBaseline:'middle',fontFamily:o.mono?"'IBM Plex Mono',monospace":"'IBM Plex Sans',sans-serif",fontSize:o.size||11,fontWeight:o.weight||600,letterSpacing:o.ls||0,opacity:o.op==null?1:o.op,stroke:'rgba(250,247,241,0.92)',strokeWidth:o.halo==null?3:o.halo,paintOrder:'stroke',strokeLinejoin:'round',style:{pointerEvents:'none'}},s);
+    const N=4; for(let i=0;i<=N;i++){ const t=-1+i*2/N;
+      let a=prj(t,-1,-1),b=prj(t,-1,1); els.push(h('line',{key:'fga'+i,x1:a.sx,y1:a.sy,x2:b.sx,y2:b.sy,stroke:T.gridF,strokeWidth:1}));
+      let c2=prj(-1,-1,t),d2=prj(1,-1,t); els.push(h('line',{key:'fgb'+i,x1:c2.sx,y1:c2.sy,x2:d2.sx,y2:d2.sy,stroke:T.gridF,strokeWidth:1}));
+    }
+    const CC=[[-1,-1,-1],[1,-1,-1],[1,1,-1],[-1,1,-1],[-1,-1,1],[1,-1,1],[1,1,1],[-1,1,1]];
+    const cp=CC.map(c=>prj(c[0],c[1],c[2]));
+    const EE=[[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]];
+    EE.forEach((e,i)=>els.push(h('line',{key:'ce'+i,x1:cp[e[0]].sx,y1:cp[e[0]].sy,x2:cp[e[1]].sx,y2:cp[e[1]].sy,stroke:T.edge,strokeWidth:1})));
+    const avgz=(a,b)=>(cp[a].z+cp[b].z)/2;
+    const xEdge=avgz(0,1)>=avgz(4,5)?-1:1, zEdge=avgz(0,4)>=avgz(1,5)?-1:1;
+    const vEs=[{e:[0,3],x:-1,z:-1},{e:[1,2],x:1,z:-1},{e:[5,6],x:1,z:1},{e:[4,7],x:-1,z:1}]; let yE=vEs[0],best=-9; vEs.forEach(v=>{const az=avgz(v.e[0],v.e[1]); if(az>best){best=az;yE=v;}});
+    [0,3,6,9,12].forEach(v=>{ const pt=prj(nX(v),-1.04,xEdge), o=outward(pt.sx,pt.sy,12); els.push(labEl(o[0],o[1],String(v),{anchor:'middle',size:9,mono:true,fill:T.tick,halo:2.5})); });
+    [-0.1,0,0.1].forEach(v=>{ const pt=prj(zEdge,-1.04,nZ(v)), o=outward(pt.sx,pt.sy,12); els.push(labEl(o[0],o[1],this.fmtSigned(v,2),{anchor:'middle',size:9,mono:true,fill:T.tick,halo:2.5})); });
+    [-0.3,-0.2,-0.1,0,0.1].forEach(v=>{ const pt=prj(yE.x,nY(v),yE.z), o=outward(pt.sx,pt.sy,14); els.push(labEl(o[0],o[1],this.fmtSigned(v,2),{anchor:'middle',size:9,mono:true,fill:T.tick,halo:2.5})); });
+    let at=prj(nX(6),-1,xEdge),ao=outward(at.sx,at.sy,29); els.push(labEl(ao[0],ao[1],'EFFECTOR',{anchor:'middle',size:9.5,mono:true,fill:T.dim,weight:600,ls:1.2}));
+    at=prj(zEdge,-1,nZ(0.01)); ao=outward(at.sx,at.sy,29); els.push(labEl(ao[0],ao[1],'CRS',{anchor:'middle',size:9.5,mono:true,fill:T.dim,weight:600,ls:1.2}));
+    at=prj(yE.x,nY(-0.09),yE.z); ao=outward(at.sx,at.sy,32); els.push(labEl(ao[0],ao[1],'SUPPRESSION',{anchor:'middle',size:9.5,mono:true,fill:T.dim,weight:600,ls:1.2}));
+    const zone=(x0,x1,y0,y1,z0,z1,col,rgba,key)=>{
+      const ZC=[[x0,y0,z0],[x1,y0,z0],[x1,y1,z0],[x0,y1,z0],[x0,y0,z1],[x1,y0,z1],[x1,y1,z1],[x0,y1,z1]];
+      const zp=ZC.map(c=>prj(c[0],c[1],c[2]));
+      [{nm:[0,-1,0],idx:[0,1,5,4]},{nm:[0,1,0],idx:[3,2,6,7]},{nm:[-1,0,0],idx:[0,3,7,4]},{nm:[1,0,0],idx:[1,2,6,5]},{nm:[0,0,-1],idx:[0,1,2,3]},{nm:[0,0,1],idx:[4,5,6,7]}].forEach((f,fi)=>{ const rn=rot(f.nm[0],f.nm[1],f.nm[2]); if(rn[2]>=0) return; els.push(h('path',{key:key+'f'+fi,d:'M '+f.idx.map(i=>zp[i].sx.toFixed(1)+' '+zp[i].sy.toFixed(1)).join(' L ')+' Z',fill:rgba})); });
+      EE.forEach((e,i)=>{ els.push(h('line',{key:key+'gw'+i,x1:zp[e[0]].sx,y1:zp[e[0]].sy,x2:zp[e[1]].sx,y2:zp[e[1]].sy,stroke:col,strokeWidth:2.4,opacity:0.08})); els.push(h('line',{key:key+'e'+i,x1:zp[e[0]].sx,y1:zp[e[0]].sy,x2:zp[e[1]].sx,y2:zp[e[1]].sy,stroke:col,strokeWidth:1,opacity:0.5})); });
+      return zp;
+    };
+    const wp=zone(nX(1.8),1,-1,nY(0),-1,nZ(0),'#0E7C5F','rgba(14,124,95,0.08)','w');
+    const lqp=zone(nX(1.8),1,nY(0),1,nZ(0),1,'#DB3B22','rgba(219,59,34,0.07)','l');
+    let wl=0,ws=1e9; wp.forEach((q,i)=>{ if(q.sx<ws){ws=q.sx;wl=i;} });
+    els.push(labEl(wp[wl].sx-9,wp[wl].sy-5,'THERAPEUTIC WINDOW',{anchor:'end',size:9.5,mono:true,fill:'#0B5E48',weight:600,ls:0.4}));
+    els.push(labEl(wp[wl].sx-9,wp[wl].sy+7,'effector-hit, low SUPP + CRS',{anchor:'end',size:8,mono:true,fill:'#3E8E74'}));
+    let li=0,lls=1e9; lqp.forEach((q,i)=>{ if(q.sy<lls){lls=q.sy;li=i;} });
+    els.push(labEl(lqp[li].sx,lqp[li].sy-9,'DUAL-LIABILITY',{anchor:'middle',size:9.5,mono:true,fill:'#C0381F',weight:600,ls:0.4}));
+    const hv=this.state.hover;
+    const rows=d.costim.map(c=>({c,p:prj(nX(c.E),nY(c.SUPP),nZ(c.CRS)),fp:prj(nX(c.E),-1,nZ(c.CRS))}));
+    const zs=rows.map(r=>r.p.z), zmin=Math.min(...zs), zmax=Math.max(...zs);
+    rows.sort((a,b)=>a.p.z-b.p.z);
+    rows.forEach(({c,p,fp})=>{ const g=this.groupOf(c.alias), col=CG[g];
+      const far=(zmax-p.z)/((zmax-zmin)||1), inWin=(c.E>1.8&&c.SUPP<0&&c.CRS<0), inLiab=(c.E>1.8&&c.SUPP>0&&c.CRS>0);
+      const dim=hv&&hv.fig==='f3d'&&hv.id!==c.alias;
+      const r=(g==='neutral'?4.6:6.4)*Math.max(0.74,Math.min(1.46,p.p));
+      els.push(h('ellipse',{key:'sh'+c.alias,cx:fp.sx,cy:fp.sy+2,rx:r*0.82,ry:r*0.3,fill:'#4a3d28',opacity:dim?0.04:0.14}));
+      els.push(h('line',{key:'dl'+c.alias,x1:p.sx,y1:p.sy,x2:fp.sx,y2:fp.sy,stroke:col,strokeWidth:1,opacity:dim?0.05:0.22,strokeDasharray:'1 4'}));
+      if((inWin||inLiab)&&!dim) els.push(h('circle',{key:'gl'+c.alias,cx:p.sx,cy:p.sy,r:r*2.1,fill:inWin?'#0E7C5F':'#DB3B22',opacity:0.1}));
+      els.push(h('circle',{key:'sp'+c.alias,cx:p.sx,cy:p.sy,r,fill:'url(#sph_'+g+')',stroke:LC(col,'#ffffff',0.25),strokeWidth:0.75,opacity:dim?0.32:(1-0.2*far),style:{cursor:'pointer'},
+        onMouseEnter:(e)=>{ if(!this.state.drag) this.setHover(e,{fig:'f3d',id:c.alias, ...this.costimTip(c)}); },
+        onMouseMove:(e)=>this.moveHover(e),
+        onMouseLeave:()=>this.clearHover()}));
+      if(g!=='neutral'||(hv&&hv.id===c.alias)){
+        const dx=p.sx-center.sx, dy=p.sy-center.sy, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L;
+        const lx=p.sx+ux*(r+15), ly=p.sy+uy*(r+13), anc=ux>0.25?'start':(ux<-0.25?'end':'middle');
+        els.push(h('line',{key:'ll'+c.alias,x1:p.sx+ux*r,y1:p.sy+uy*r,x2:lx-ux*3,y2:ly-uy*3,stroke:col,strokeWidth:0.8,opacity:dim?0.2:0.5}));
+        els.push(labEl(lx,ly,c.alias,{anchor:anc,size:11,weight:g==='finalist'?700:600,fill:dim?T.dim:'#1A1712',op:dim?0.5:(1-0.28*far)}));
+      }
+    });
+    els.push(labEl(16,23,'EFFECTOR \u00d7 SUPPRESSION \u00d7 CRS',{anchor:'start',size:9,mono:true,fill:T.dim,ls:1.5,halo:2.5}));
+    els.push(labEl(W-16,23,'drag to rotate',{anchor:'end',size:9,mono:true,fill:T.dim,halo:2.5}));
+    return h('svg',{viewBox:`0 0 ${W} ${H}`,width:'100%',style:{display:'block',height:'auto',maxWidth:W+'px',margin:'0 auto',userSelect:'none',cursor:this.state.drag?'grabbing':'grab',touchAction:'none'},
+      onMouseDown:(e)=>this.setState({drag:{x:e.clientX,y:e.clientY,yaw:this.state.yaw,pitch:this.state.pitch},hover:null}),
+      onMouseMove:(e)=>{ const dr=this.state.drag; if(dr){ const nyaw=dr.yaw+(e.clientX-dr.x)*0.01; let np=dr.pitch+(e.clientY-dr.y)*0.008; np=Math.max(-0.15,Math.min(1.15,np)); this.setState({yaw:nyaw,pitch:np}); } },
+      onMouseUp:()=>this.setState({drag:null}),
+      onMouseLeave:()=>this.setState({drag:null})},els);
+  }
+
+  renderVals(){
+    const hv=this.state.hover;
+    const tipShow=!!hv;
+    let tipStyle='display:none';
+    if(hv){
+      const flipX = hv.cx > (typeof window!=='undefined'?window.innerWidth:1200)-300;
+      const tx = hv.cx + (flipX?-16:16);
+      tipStyle = 'position:fixed;z-index:9999;pointer-events:none;'+
+        'left:'+tx+'px;top:'+(hv.cy+16)+'px;'+
+        (flipX?'transform:translateX(-100%);':'')+
+        'background:#fff;border:1px solid #E0D6C6;border-radius:8px;box-shadow:0 8px 28px rgba(26,23,18,0.16),0 1px 3px rgba(26,23,18,0.1);'+
+        'min-width:238px;max-width:320px;overflow:hidden;animation:tipin .13s ease;font-family:\'IBM Plex Sans\',sans-serif';
+    }
+    const cv=(this.state.fig1view||'scatter');
+    const sig=JSON.stringify([!!this.state.data,this.props.fig1_yaxis,this.state.fig1y,this.props.show_annotations,this.props.show_qc_excluded,this.props.treg_show_donors,hv?hv.fig+':'+hv.id:'']);
+    if(!this._fc||this._fc.sig!==sig){ this._fc={sig,f2:this.fig2(),f3:this.fig3(),f4:this.fig4(),f5:this.fig5()}; }
+    const curY=this.state.fig1y||this.props.fig1_yaxis||'Suppression (IL-10 / Treg)';
+    return {
+      fig1El: (cv==='3d'?this.fig1ThreeD():this.fig1(cv)),
+      f1views: ['scatter','multi','3d'].map(k=>({key:k,label:({scatter:'Trade-off map',multi:'Multi-channel','3d':'3D viewport'})[k],active:cv===k,onClick:()=>this.setState({fig1view:k,hover:null}),style:this.segStyle(cv===k)})),
+      f1yShow: cv==='scatter',
+      f1yviews: [{k:'Suppression (IL-10 / Treg)',l:'Suppression'},{k:'Cytokine release (CRS)',l:'CRS'},{k:'Combined liability',l:'Combined'}].map(o=>({label:o.l,active:curY===o.k,onClick:()=>this.setState({fig1y:o.k}),style:this.segStyleSm(curY===o.k)})),
+      fig2El: this._fc.f2,
+      fig3El: this._fc.f3,
+      fig4El: this._fc.f4,
+      fig5El: this._fc.f5,
+      tipShow,
+      tipStyle,
+      tipBarStyle: hv? 'height:4px;background:'+(hv.accent||'#0E7C5F') : 'height:4px',
+      tipTitle: hv? hv.title : '',
+      tipSub: hv? hv.sub : '',
+      tipRows: hv? hv.rows : [],
+      tipNote: hv? (hv.note||'') : ''
+    };
+  }
+}
+</script>
+</body>
+</html>

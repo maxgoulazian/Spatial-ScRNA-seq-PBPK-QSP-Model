@@ -1,0 +1,6 @@
+rank_combined,rank_causal_pertresp,arm,lineage,effector_drive_score,pertresp_drive,grnboost2_drive,IFNG_lfc,IFNG_t,schmidt_effector_z_raw,n_effector_up,top_downstream_genes
+1,3,TNFRSF9,CD8,8.9177,-0.5523,58.7173,-0.01669,-0.27,3.74,5,GNLY(+0.031); GZMK(+0.026); IL2(+0.011); XCL1(+0.007); TNF(+0.000)
+2,2,CD2,CD8,1.6626,0.245,8.7902,0.23034,3.21,5.6,9,IFNG(+0.230); GZMK(+0.160); GZMB(+0.094); GNLY(+0.084); TNF(+0.036)
+3,1,CD28,CD8,0.7548,0.8114,-0.3507,0.15814,2.01,12.11,11,CCL5(+0.198); CCL4(+0.189); IFNG(+0.158); XCL1(+0.120); GNLY(+0.107)
+4,4,CD27,CD8,-0.6839,-1.2772,3.6789,0.16671,2.89,4.28,5,GZMK(+0.245); IFNG(+0.167); XCL1(+0.064); TNF(+0.006); IL2(+0.004)
+5,5,LTBR,CD8,-2.0799,-2.1878,0.6689,0.04004,0.71,3.49,5,GZMK(+0.206); XCL1(+0.082); IFNG(+0.040); TNF(+0.005); IL2(+0.003)

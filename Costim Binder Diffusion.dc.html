@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{margin:0;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:#E8A33D;text-decoration:none}
+    input[type=range].scrub{-webkit-appearance:none;appearance:none;height:4px;border-radius:3px;background:rgba(243,239,230,0.16);outline:none;cursor:pointer}
+    input[type=range].scrub::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:13px;height:13px;border-radius:50%;background:#E8A33D;cursor:grab}
+    input[type=range].scrub::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:#E8A33D;border:none;cursor:grab}
+  </style>
+</helmet>
+<div style="width:1120px;height:680px;position:relative;background:radial-gradient(130% 120% at 80% 6%, #241f15 0%, #17150F 54%, #0C0B07 100%);color:#F3EFE6;font-family:'IBM Plex Sans',sans-serif;display:flex;flex-direction:column;overflow:hidden">
+
+  <div style="display:flex;justify-content:space-between;align-items:baseline;padding:24px 30px 0">
+    <div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#E8A33D;font-weight:600">RFdiffusion · de novo binder design</div>
+      <div style="font-family:'Newsreader',serif;font-size:26px;font-weight:600;margin-top:4px;line-height:1.05">Four binders diffuse from noise onto their targets</div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,239,230,0.5)">4-1BB · CD27 · CD3 · CEACAM5</div>
+  </div>
+
+  <div style="flex:1;position:relative;margin:18px 30px 0;border-radius:14px;overflow:hidden;border:1px solid rgba(243,239,230,0.12);background:#0B0A07;min-height:0">
+    <img ref="{{ imgRef }}" src="timelapse/f_049.png" alt="diffusion frame" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#0B0A07"/>
+    <div style="position:absolute;left:16px;top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:rgba(243,239,230,0.82);background:rgba(11,10,7,0.55);padding:5px 11px;border-radius:6px;pointer-events:none">{{ stageLabel }}</div>
+  </div>
+
+  <div style="padding:16px 30px 22px;display:flex;align-items:center;gap:20px">
+    <button onClick="{{ onPlay }}" style="appearance:none;cursor:pointer;flex:none;width:46px;height:46px;border-radius:50%;border:1px solid #E8A33D;background:rgba(232,163,61,0.14);color:#E8A33D;font-size:15px;display:flex;align-items:center;justify-content:center">{{ playIcon }}</button>
+    <input type="range" class="scrub" min="0" max="49" step="1" value="{{ scrubVal }}" onInput="{{ onScrub }}" style="flex:1"/>
+    <div style="display:flex;gap:6px;flex:none">
+      <sc-for list="{{ speeds }}" as="s" hint-placeholder-count="3">
+        <button onClick="{{ s.onClick }}" style="{{ s.style }}">{{ s.label }}</button>
+      </sc-for>
+    </div>
+  </div>
+  <div style="padding:0 30px 20px;font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.6;color:rgba(243,239,230,0.4)">{{ source }}</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1120,&quot;height&quot;:680}}">
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.N = 50;
+    let i = this.N - 1;
+    try{ const s = localStorage.getItem('costim_diff_i'); if(s!=null){ const p=parseInt(s); if(!isNaN(p)) i=Math.max(0,Math.min(this.N-1,p)); } }catch(e){}
+    if((typeof location!=='undefined')&&/[?&]demo=1/.test(location.search)){ i=this.N-1; }
+    this.state = { i:i, playing:true, speed:1 };
+  }
+  componentDidMount(){
+    this._imgs=[]; for(let k=0;k<this.N;k++){ const im=new Image(); im.src='timelapse/f_'+String(k).padStart(3,'0')+'.png'; this._imgs.push(im); }
+    if(this.imgEl) this.imgEl.src=this.frameUrl(this.state.i);
+    if(this.state.playing) this.startLoop();
+  }
+  componentWillUnmount(){ this.stopLoop(); }
+  frameUrl(i){ return 'timelapse/f_'+String(i).padStart(3,'0')+'.png'; }
+  componentDidUpdate(){ if(this.imgEl) this.imgEl.src=this.frameUrl(this.state.i); }
+  startLoop(){ this.stopLoop(); const base=90; this._t=setInterval(()=>{ this.setState(s=>{ const ni=(s.i - 1 + this.N) % this.N; this.persist(ni); return {i:ni}; }); }, base/this.state.speed); }
+  stopLoop(){ if(this._t){ clearInterval(this._t); this._t=null; } }
+  persist(i){ try{ localStorage.setItem('costim_diff_i', String(i)); }catch(e){} }
+  toggle(){ const p=!this.state.playing; this.setState({playing:p}); if(p) this.startLoop(); else this.stopLoop(); }
+  scrub(e){ const val=parseInt(e.target.value)||0; const i=(this.N-1)-val; this.stopLoop(); this.persist(i); this.setState({playing:false, i:i}); }
+  setSpeed(v){ this.setState({speed:v}, ()=>{ if(this.state.playing) this.startLoop(); }); }
+  renderVals(){
+    const S=this.state, prog=(this.N-1 - S.i)/(this.N-1);
+    const spd=(on)=>'appearance:none;cursor:pointer;font-family:\'IBM Plex Mono\',monospace;font-size:11px;font-weight:600;padding:8px 12px;border-radius:6px;border:1px solid '+(on?'#E8A33D':'rgba(243,239,230,0.2)')+';background:'+(on?'rgba(232,163,61,0.16)':'transparent')+';color:'+(on?'#E8A33D':'rgba(243,239,230,0.55)');
+    const stage = prog<0.15?'◀ pure noise':(prog<0.55?'backbone emerging':(prog<0.85?'docking onto target':'complex resolved ▶'));
+    return {
+      imgRef:(el)=>{ this.imgEl=el; if(el) el.src=this.frameUrl(this.state.i); },
+      scrubVal:(this.N-1)-S.i,
+      stageLabel:stage,
+      playIcon:S.playing?'❚❚':'▶',
+      onPlay:()=>this.toggle(), onScrub:(e)=>this.scrub(e),
+      speeds:[{label:'0.5×',v:0.5},{label:'1×',v:1},{label:'2×',v:2}].map(s=>({label:s.label, onClick:()=>this.setSpeed(s.v), style:spd(S.speed===s.v)})),
+      source:'RFdiffusion 4-arm campaign (4-1BB · CD27 · CD3 · CEACAM5) · 50 ChimeraX-rendered frames · played noise → docked. Source TIMELAPSE_4ARM.'
+    };
+  }
+}
+</script>
+</body>
+</html>

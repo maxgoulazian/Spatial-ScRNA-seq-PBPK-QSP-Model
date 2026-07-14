@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{margin:0;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  </style>
+</helmet>
+<div style="width:1120px;background:#F4EEE2;font-family:'IBM Plex Sans',sans-serif;color:#1A1712;padding:26px 26px 22px;display:flex;flex-direction:column;gap:16px">
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div style="grid-column:1 / -1;background:#FFFFFF;border:1px solid #E7DECF;border-radius:10px;padding:18px 20px 12px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px"><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#2A251E;font-weight:600">Sustained execution &middot; 16,327 code cells in 6.1 days</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8C8474">bars = cells/day &middot; line = cumulative spend</div></div>
+      {{ execEl }}
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid #E7DECF;border-radius:10px;padding:18px 20px 14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#2A251E;font-weight:600;margin-bottom:4px">1 profile &rarr; 150 sub-agents</div>
+      <div style="font-size:12.5px;color:#6E6656;margin-bottom:8px">one OPERON profile, fanned out across 11 hubs</div>
+      {{ fanEl }}
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid #E7DECF;border-radius:10px;padding:18px 20px 14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#2A251E;font-weight:600;margin-bottom:4px">Self-audit &middot; 1,155 checks</div>
+      <div style="font-size:12.5px;color:#6E6656;margin-bottom:8px">749 independent reviewers &middot; 337 real errors caught</div>
+      {{ verEl }}
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid #E7DECF;border-radius:10px;padding:18px 20px 14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#2A251E;font-weight:600;margin-bottom:4px">2,445 live grounding calls</div>
+      <div style="font-size:12.5px;color:#6E6656;margin-bottom:8px">every external claim anchored at write time &middot; log scale</div>
+      {{ groundEl }}
+    </div>
+
+    <div style="background:#FFFFFF;border:1px solid #E7DECF;border-radius:10px;padding:18px 20px 14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#2A251E;font-weight:600;margin-bottom:4px">Cost is concentrated, not spread</div>
+      <div style="font-size:12.5px;color:#6E6656;margin-bottom:8px">44% of $4,211 went to the mechanistic model alone</div>
+      {{ costEl }}
+    </div>
+  </div>
+
+  <sc-if value="{{ tip }}" hint-placeholder-val="{{ false }}">
+    <div style="{{ tipStyle }}">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8C8474">{{ tipK }}</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:#1A1712;margin-top:2px">{{ tipV }}</div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1120,&quot;height&quot;:860}}">
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.state = { hover:null };
+    this.exec = { days:['07-07','07-08','07-09','07-10','07-11','07-12','07-13'], cells:[1263,1789,2384,3467,2334,1992,3098], cum:[0.50,1.85,2.25,2.70,3.15,3.40,4.21] };
+    this.fan = [['PBPK model correction',63,true],['Brief audit',46,false],['Literature harvest',15,false],['PK/PD figure workflow',8,false],['S3 synthesis',4,false],['Other hubs (\u00d76)',14,false]];
+    this.ver = [['PASS',332,'#2E8B57'],['WARN',456,'#E0870D'],['FAIL',337,'#C0392B'],['INCONCL.',30,'#AEA492']];
+    this.ground = [['PubMed',1655,true],['UniProt / protein',246,false],['Drug labels (FDA)',221,false],['ChEMBL',136,false],['Literature FT',91,false],['Gene ontologies',25,false],['PDB / structures',23,false],['GEO archives',22,false]];
+    this.cost = [['QSP / PBPK model',1818,true],['Data / infra',927,false],['Spatial / TAA',143,false],['Toxicity axes (CD4)',106,false],['Literature / PK',78,false],['Effector (CD8)',42,false],['Binder / structure',27,false],['Verify / audit',18,false]];
+  }
+  setHover(e,k,v){ this.setState({hover:{x:e.clientX,y:e.clientY,k,v}}); }
+  moveHover(e){ if(this.state.hover) this.setState({hover:Object.assign({},this.state.hover,{x:e.clientX,y:e.clientY})}); }
+  clearHover(){ this.setState({hover:null}); }
+  txt(x,y,s,o){ o=o||{}; return React.createElement('text',{x,y,fill:o.fill||'#6E6656',textAnchor:o.anchor||'start',dominantBaseline:o.baseline||'alphabetic',fontFamily:o.mono===false?"'IBM Plex Sans',sans-serif":"'IBM Plex Mono',monospace",fontSize:o.size||10.5,fontWeight:o.weight||400,letterSpacing:o.ls||0,style:{pointerEvents:'none'}},s); }
+
+  execChart(){
+    const h=React.createElement, E=this.exec, W=1040,H=190, padL=8,padR=52,padT=14,padB=26;
+    const pw=W-padL-padR, ph=H-padT-padB, n=E.days.length, bw=pw/n*0.52;
+    const cellMax=3600, cumMax=4.5;
+    const bx=i=>padL+pw*(i+0.5)/n, by=v=>padT+ph*(1-v/cellMax);
+    const cy=v=>padT+ph*(1-v/cumMax);
+    const els=[];
+    [0,1200,2400,3600].forEach(v=>{ const y=by(v); els.push(h('line',{key:'g'+v,x1:padL,y1:y,x2:padL+pw,y2:y,stroke:'#EFE8DB',strokeWidth:1})); els.push(this.txt(padL,y-3,(v/1000)+'k',{size:9,fill:'#B0A596'})); });
+    E.cells.forEach((v,i)=>{ const x=bx(i)-bw/2, y=by(v);
+      els.push(h('rect',{key:'b'+i,x,y,width:bw,height:padT+ph-y,rx:2,fill:'#2E6FA8',opacity:this.state.hover&&this.state.hover.k!==E.days[i]&&this.state.hover._g==='ex'?0.45:0.9,style:{cursor:'pointer'},
+        onMouseEnter:(e)=>this.setState({hover:{x:e.clientX,y:e.clientY,k:E.days[i],v:v.toLocaleString()+' cells  \u00b7  $'+E.cum[i].toFixed(2)+'k cumulative',_g:'ex'}}),
+        onMouseMove:(e)=>this.moveHover(e), onMouseLeave:()=>this.clearHover()}));
+      els.push(this.txt(bx(i),y-5,(v/1000).toFixed(1)+'k',{anchor:'middle',size:9.5,fill:'#2E6FA8',weight:600}));
+      els.push(this.txt(bx(i),H-9,E.days[i].slice(3),{anchor:'middle',size:9.5,fill:'#8C8474'}));
+    });
+    let dpath=''; E.cum.forEach((v,i)=>{ dpath+=(i?'L':'M')+bx(i).toFixed(1)+' '+cy(v).toFixed(1)+' '; });
+    els.push(h('path',{key:'cum',d:dpath,fill:'none',stroke:'#C0392B',strokeWidth:2.2}));
+    E.cum.forEach((v,i)=>els.push(h('circle',{key:'cp'+i,cx:bx(i),cy:cy(v),r:3.2,fill:'#C0392B'})));
+    els.push(this.txt(padL+pw+6,cy(E.cum[n-1]),'$4.2k',{fill:'#C0392B',size:11,weight:600,baseline:'middle'}));
+    [0,1.5,3,4.5].forEach(v=>els.push(this.txt(padL+pw+6,cy(v),'$'+v+'k',{fill:'#C99',size:8.5,baseline:'middle',fill:'#C0968C'})));
+    return h('svg',{viewBox:'0 0 '+W+' '+H,width:'100%',style:{display:'block',height:'auto'}},els);
+  }
+  hbars(data, opts){
+    const h=React.createElement, W=470, rowH=opts.rowH||26, padL=opts.padL||150, padR=76, padT=6;
+    const H=padT*2+data.length*rowH;
+    const max=Math.max(...data.map(d=>d[1]));
+    const pw=W-padL-padR;
+    const els=[];
+    data.forEach((d,i)=>{ const y=padT+i*rowH+rowH/2; const bw=Math.max(2,pw*d[1]/max);
+      const col= d[2]? opts.hi : opts.base;
+      els.push(this.txt(padL-8,y,d[0],{anchor:'end',baseline:'middle',size:11,mono:false,fill:d[2]?'#1A1712':'#4A4438',weight:d[2]?600:400}));
+      els.push(h('rect',{key:'r'+i,x:padL,y:y-rowH*0.32,width:bw,height:rowH*0.64,rx:3,fill:col,style:{cursor:'pointer'},
+        onMouseEnter:(e)=>this.setState({hover:{x:e.clientX,y:e.clientY,k:d[0],v:opts.fmt(d[1])}}),
+        onMouseMove:(e)=>this.moveHover(e), onMouseLeave:()=>this.clearHover()}));
+      els.push(this.txt(padL+bw+6,y,opts.fmt(d[1]),{baseline:'middle',size:10.5,fill:d[2]?opts.hi:'#6E6656',weight:600}));
+    });
+    return h('svg',{viewBox:'0 0 '+W+' '+H,width:'100%',style:{display:'block',height:'auto'}},els);
+  }
+  verChart(){
+    const h=React.createElement, W=470,H=176, padT=18,padB=30, pw=W-24, ph=H-padT-padB;
+    const max=480, n=this.ver.length, bw=pw/n*0.5;
+    const total=this.ver.reduce((a,d)=>a+d[1],0);
+    const els=[]; const bx=i=>12+pw*(i+0.5)/n; const by=v=>padT+ph*(1-v/max);
+    this.ver.forEach((d,i)=>{ const x=bx(i)-bw/2,y=by(d[1]);
+      els.push(h('rect',{key:'v'+i,x,y,width:bw,height:padT+ph-y,rx:3,fill:d[2],opacity:0.9,style:{cursor:'pointer'},
+        onMouseEnter:(e)=>this.setState({hover:{x:e.clientX,y:e.clientY,k:d[0],v:d[1]+' checks  \u00b7  '+(100*d[1]/total).toFixed(0)+'%'}}),
+        onMouseMove:(e)=>this.moveHover(e), onMouseLeave:()=>this.clearHover()}));
+      els.push(this.txt(bx(i),y-5,String(d[1]),{anchor:'middle',size:12,fill:d[2],weight:600}));
+      els.push(this.txt(bx(i),H-10,d[0],{anchor:'middle',size:9.5,fill:'#8C8474'}));
+    });
+    return h('svg',{viewBox:'0 0 '+W+' '+H,width:'100%',style:{display:'block',height:'auto'}},els);
+  }
+  groundChart(){
+    const h=React.createElement, W=470, rowH=21, padL=132, padR=44, padT=6;
+    const H=padT*2+this.ground.length*rowH, pw=W-padL-padR;
+    const lx=v=>padL+pw*(Math.log10(v)-1)/(Math.log10(2000)-1);
+    const els=[];
+    [10,100,1000].forEach(v=>{ const x=lx(v); els.push(h('line',{key:'gl'+v,x1:x,y1:padT,x2:x,y2:H-padT,stroke:'#EFE8DB',strokeWidth:1})); els.push(this.txt(x,H-1,v>=1000?'1k':String(v),{anchor:'middle',size:8,fill:'#B0A596'})); });
+    this.ground.forEach((d,i)=>{ const y=padT+i*rowH+rowH/2, x=lx(d[1]);
+      els.push(this.txt(padL-8,y,d[0],{anchor:'end',baseline:'middle',size:10.5,mono:false,fill:d[2]?'#1A1712':'#4A4438',weight:d[2]?600:400}));
+      els.push(h('line',{key:'ls'+i,x1:padL,y1:y,x2:x,y2:y,stroke:d[2]?'#B0741C':'#CFC5B4',strokeWidth:d[2]?2.4:1.6}));
+      els.push(h('circle',{key:'lc'+i,cx:x,cy:y,r:d[2]?5.5:4.2,fill:d[2]?'#B0741C':'#7C8592',style:{cursor:'pointer'},
+        onMouseEnter:(e)=>this.setState({hover:{x:e.clientX,y:e.clientY,k:d[0],v:d[1].toLocaleString()+' calls'}}),
+        onMouseMove:(e)=>this.moveHover(e), onMouseLeave:()=>this.clearHover()}));
+      els.push(this.txt(x+9,y,d[1].toLocaleString(),{baseline:'middle',size:10,fill:d[2]?'#B0741C':'#6E6656',weight:600}));
+    });
+    return h('svg',{viewBox:'0 0 '+W+' '+H,width:'100%',style:{display:'block',height:'auto'}},els);
+  }
+  renderVals(){
+    const hv=this.state.hover;
+    let tipStyle='display:none';
+    if(hv){ const flip=hv.x>760; tipStyle='position:fixed;z-index:99;pointer-events:none;left:'+(hv.x+(flip?-14:14))+'px;top:'+(hv.y-10)+'px;'+(flip?'transform:translateX(-100%);':'')+'background:#fff;border:1px solid #E0D6C6;border-radius:8px;box-shadow:0 10px 30px rgba(26,23,18,0.18);padding:8px 12px;min-width:120px'; }
+    return {
+      execEl:this.execChart(),
+      fanEl:this.hbars(this.fan,{hi:'#C0392B',base:'#8CA0AE',padL:150,fmt:v=>v+' agents'}),
+      verEl:this.verChart(),
+      groundEl:this.groundChart(),
+      costEl:this.hbars(this.cost,{hi:'#C0392B',base:'#C7B79A',padL:150,fmt:v=>'$'+v.toLocaleString()}),
+      tip:!!hv, tipStyle, tipK:hv?hv.k:'', tipV:hv?hv.v:''
+    };
+  }
+}
+</script>
+</body>
+</html>

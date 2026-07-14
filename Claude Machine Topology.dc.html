@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{margin:0;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  </style>
+</helmet>
+<div style="width:1120px;background:#F4EEE2;font-family:'IBM Plex Sans',sans-serif;color:#1A1712;padding:22px 24px 18px;position:relative">
+  {{ diagramEl }}
+  <div style="display:flex;flex-wrap:wrap;gap:22px;margin-top:6px;padding:14px 8px 2px;border-top:1px solid #E2D9C9">
+    <div style="display:flex;align-items:baseline;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:600;color:#1A1712">6.1</span><span style="font-size:12.5px;color:#6E6656">days &middot; 123 active work-hours</span></div>
+    <div style="display:flex;align-items:baseline;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:600;color:#1A1712">384</span><span style="font-size:12.5px;color:#6E6656">context compactions survived</span></div>
+    <div style="display:flex;align-items:baseline;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:600;color:#C0392B">19:00</span><span style="font-size:12.5px;color:#6E6656">peak hour = 1,497 cells &middot; quietest still 102 &mdash; around the clock</span></div>
+  </div>
+  <sc-if value="{{ tip }}" hint-placeholder-val="{{ false }}">
+    <div style="{{ tipStyle }}">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#1A1712">{{ tipK }}</div>
+      <div style="font-size:12px;line-height:1.45;color:#4A4438;margin-top:3px">{{ tipV }}</div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1120,&quot;height&quot;:600}}">
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.state = { hover:null };
+    this.N = {
+      you:   {x:34, y:40,  w:150,h:40, kind:'ghost', t:'YOU \u2014 anywhere', s:'laptop / phone, remote in'},
+      mac:   {x:34, y:104, w:150,h:70, kind:'dark',  t:'Mac mini', s:'always-on control node', tip:'The one machine you keep on. You drive the whole fleet remotely from it.'},
+      claude:{x:250,y:96,  w:216,h:88, kind:'gold',  t:'Claude Science', s:'OPERON orchestrator', s2:'65 sessions \u00b7 16,327 cells', tip:'One custom OPERON profile ran every frame \u2014 planning, delegating and reconciling the whole program.'},
+      subs:  {x:252,y:250, w:212,h:78, kind:'blue',  t:'150 sub-agents', s:'1 profile, fanned out', s2:'11 hubs \u00b7 isolated context', tip:'Spawned across 11 orchestrator hubs, each with its own clean context window, run in parallel.'},
+      store: {x:252,y:402, w:212,h:72, kind:'dark',  t:'Artifact store', s:'2,332 files / 3,277 versions', s2:'verified lineage', tip:'Every output versioned with lineage \u2014 and repurposed as the fleet\u2019s async message bus (4,058 reads).'},
+      xeon:  {x:612,y:66,  w:334,h:84, kind:'green', t:'Lab Xeon (RAID4)', s:'80 cores \u00b7 1.9 TB', s2:'ssh:balthasar-lab', tip:'The 80-core workstation where the ~16k analysis cells actually executed.'},
+      modal: {x:612,y:236, w:334,h:74, kind:'amber', t:'Modal cloud GPU', s:'AF3 / Boltz-2 fold', s2:'byoc:modal \u00b7 27 jobs', tip:'Cloud GPUs for the de novo binder folding campaign \u2014 27 AlphaFold-3 / Boltz-2 jobs.'},
+      dbs:   {x:612,y:398, w:334,h:84, kind:'grey',  t:'Cloud databases', s:'PubMed \u00b7 UniProt \u00b7 FDA', s2:'ChEMBL \u00b7 GEO \u00b7 PDB', tip:'Live literature + data lookups grounding every external claim at write time.'}
+    };
+    this.E = [
+      {a:'mac',b:'claude',side:'h',  col:'#5A5346',lbl:'drive remotely',dash:false},
+      {a:'claude',b:'xeon',side:'r', col:'#0E7C5F',lbl:'7,419 calls \u00b7 225 MB back',dash:false,bi:true},
+      {a:'claude',b:'modal',side:'r',col:'#E0870D',lbl:'27 GPU jobs',dash:false},
+      {a:'claude',b:'subs',side:'v', col:'#2E6FA8',lbl:'delegate \u00b7 collect \u00b7 msg (385)',dash:false,bi:true},
+      {a:'subs',b:'store',side:'v',  col:'#5A5346',lbl:'save / read (4,058)',dash:false},
+      {a:'subs',b:'dbs',side:'d',    col:'#8C8474',lbl:'2,445 grounding calls',dash:true},
+      {a:'store',b:'modal',side:'d', col:'#B0741C',lbl:'folded structures',dash:true}
+    ];
+  }
+  setHover(e,k,v){ this.setState({hover:{x:e.clientX,y:e.clientY,k,v}}); }
+  moveHover(e){ if(this.state.hover) this.setState({hover:Object.assign({},this.state.hover,{x:e.clientX,y:e.clientY})}); }
+  clearHover(){ this.setState({hover:null}); }
+
+  diagram(){
+    const h=React.createElement, N=this.N;
+    const W=1072,H=496;
+    const KIND={
+      ghost:{fill:'none',stroke:'none',t:'#8C8474',s:'#A89E8E'},
+      dark:{fill:'#211E17',stroke:'#211E17',t:'#F3EFE6',s:'rgba(243,239,230,0.66)'},
+      gold:{fill:'#B0741C',stroke:'#B0741C',t:'#FFFFFF',s:'rgba(255,255,255,0.82)'},
+      blue:{fill:'#2E6FA8',stroke:'#2E6FA8',t:'#FFFFFF',s:'rgba(255,255,255,0.82)'},
+      green:{fill:'#0E7C5F',stroke:'#0E7C5F',t:'#FFFFFF',s:'rgba(255,255,255,0.82)'},
+      amber:{fill:'#E0870D',stroke:'#E0870D',t:'#FFFFFF',s:'rgba(255,255,255,0.85)'},
+      grey:{fill:'#8C8474',stroke:'#8C8474',t:'#FFFFFF',s:'rgba(255,255,255,0.85)'}
+    };
+    const defs=[]; ['#0E7C5F','#E0870D','#2E6FA8','#5A5346','#8C8474','#B0741C'].forEach(c=>{
+      defs.push(h('marker',{key:'m'+c,id:'ar_'+c.slice(1),markerWidth:8,markerHeight:8,refX:6.5,refY:3,orient:'auto',markerUnits:'userSpaceOnUse'},h('path',{d:'M0 0 L7 3 L0 6 Z',fill:c})));
+    });
+    const els=[h('defs',{key:'d'},defs)];
+    const cx=n=>n.x+n.w/2, cy=n=>n.y+n.h/2;
+    // edges first
+    this.E.forEach((e,i)=>{ const A=N[e.a],B=N[e.b]; let x1,y1,x2,y2,d;
+      if(e.side==='h'){ x1=A.x+A.w;y1=cy(A);x2=B.x;y2=cy(A); d='M'+x1+' '+y1+' L'+x2+' '+y2; }
+      else if(e.side==='v'){ x1=cx(A);y1=A.y+A.h;x2=cx(B);y2=B.y; d='M'+x1+' '+y1+' L'+x2+' '+y2; }
+      else if(e.side==='r'){ x1=A.x+A.w;y1=cy(A)+(e.b==='xeon'?-14:14);x2=B.x;y2=cy(B); const mx=(x1+x2)/2; d='M'+x1+' '+y1+' C'+mx+' '+y1+' '+mx+' '+y2+' '+x2+' '+y2; }
+      else { x1=A.x+A.w;y1=cy(A);x2=B.x;y2=cy(B); const mx=(x1+x2)/2; d='M'+x1+' '+y1+' C'+mx+' '+y1+' '+mx+' '+y2+' '+x2+' '+y2; }
+      els.push(h('path',{key:'e'+i,d,fill:'none',stroke:e.col,strokeWidth:e.dash?1.6:2.2,strokeDasharray:e.dash?'5 4':'',opacity:0.9,markerEnd:'url(#ar_'+e.col.slice(1)+')',markerStart:e.bi?'url(#ar_'+e.col.slice(1)+')':''}));
+      // label chip at mid
+      const lx=(x1+x2)/2, ly=(y1+y2)/2 - (e.side==='v'?0:6);
+      const cw=e.lbl.length*5.6+14;
+      els.push(h('rect',{key:'lb'+i,x:lx-cw/2,y:ly-9,width:cw,height:18,rx:5,fill:'#F4EEE2',stroke:e.col,strokeWidth:0.8,opacity:0.96}));
+      els.push(h('text',{key:'lt'+i,x:lx,y:ly+1,textAnchor:'middle',dominantBaseline:'middle',fontFamily:"'IBM Plex Mono',monospace",fontSize:9.5,fontWeight:600,fill:e.col,style:{pointerEvents:'none'}},e.lbl));
+    });
+    // nodes
+    Object.keys(N).forEach(key=>{ const n=N[key], K=KIND[n.kind];
+      if(n.kind==='ghost'){
+        els.push(h('text',{key:'gt'+key,x:n.x,y:n.y+16,fontFamily:"'IBM Plex Sans',sans-serif",fontSize:13,fontWeight:600,fill:K.t},n.t));
+        els.push(h('text',{key:'gs'+key,x:n.x,y:n.y+32,fontFamily:"'IBM Plex Mono',monospace",fontSize:10,fill:K.s},n.s));
+        els.push(h('path',{key:'ga'+key,d:'M'+(n.x+30)+' '+(n.y+40)+' L'+(n.x+30)+' '+(N.mac.y-2),stroke:'#8C8474',strokeWidth:1.4,markerEnd:'url(#ar_5A5346)',fill:'none'}));
+        return;
+      }
+      const hov=this.state.hover&&this.state.hover._n===key;
+      els.push(h('rect',{key:'n'+key,x:n.x,y:n.y,width:n.w,height:n.h,rx:11,fill:K.fill,stroke:hov?'#1A1712':K.stroke,strokeWidth:hov?2.5:1,style:{cursor:'pointer'},
+        onMouseEnter:(e)=>this.setState({hover:{x:e.clientX,y:e.clientY,_n:key,k:n.t,v:n.tip}}),
+        onMouseMove:(e)=>this.moveHover(e), onMouseLeave:()=>this.clearHover()}));
+      els.push(h('text',{key:'nt'+key,x:n.x+18,y:n.y+(n.s2?26:30),fontFamily:"'IBM Plex Sans',sans-serif",fontSize:16,fontWeight:600,fill:K.t,style:{pointerEvents:'none'}},n.t));
+      els.push(h('text',{key:'ns'+key,x:n.x+18,y:n.y+(n.s2?46:50),fontFamily:"'IBM Plex Mono',monospace",fontSize:11,fill:K.s,style:{pointerEvents:'none'}},n.s));
+      if(n.s2) els.push(h('text',{key:'ns2'+key,x:n.x+18,y:n.y+62,fontFamily:"'IBM Plex Mono',monospace",fontSize:11,fill:K.s,style:{pointerEvents:'none'}},n.s2));
+    });
+    return h('svg',{viewBox:'0 0 '+W+' '+H,width:'100%',style:{display:'block',height:'auto'}},els);
+  }
+  renderVals(){
+    const hv=this.state.hover;
+    let tipStyle='display:none';
+    if(hv){ const flip=hv.x>760; tipStyle='position:fixed;z-index:99;pointer-events:none;left:'+(hv.x+(flip?-14:16))+'px;top:'+(hv.y+16)+'px;'+(flip?'transform:translateX(-100%);':'')+'background:#fff;border:1px solid #E0D6C6;border-radius:9px;box-shadow:0 12px 30px rgba(26,23,18,0.18);padding:10px 13px;max-width:280px'; }
+    return { diagramEl:this.diagram(), tip:!!hv, tipStyle, tipK:hv?hv.k:'', tipV:hv?hv.v:'' };
+  }
+}
+</script>
+</body>
+</html>
