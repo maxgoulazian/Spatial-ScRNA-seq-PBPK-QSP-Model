@@ -1,0 +1,37 @@
+set bgColor white
+open scene_membrane.pdb
+open pos_41bb_trimer.pdb
+open pos_41bb_ligand.pdb
+open pos_cd3_receptor.pdb
+open sc41_final.pdb
+open sccd3_final.pdb
+surface #2 enclose #2
+color #2 #3f8f8e
+transparency #2 35 target s
+surface #3 enclose #3
+color #3 #b0d8d6
+transparency #3 45 target s
+surface #4 enclose #4
+color #4 #8e7cc3
+transparency #4 35 target s
+color #2:26,31,40,41,44 & #2/X #e8a33d target s
+color #4:376,377,378,379,380,381 #e8a33d target s
+style #5-6 ball
+size #5-6 ballScale 0.9
+rainbow #5-6 residues palette viridis
+show #1 atoms
+style #1 sphere
+size #1 atomRadius 2.3
+color #1 white
+color #1@PO4 orange
+color #1@NC3 goldenrod
+color #1@GL1,GL2 gray(170)
+lighting soft
+lighting shadows true intensity 0.7
+material dull
+graphics silhouettes true width 1.5
+view
+turn x 12
+zoom 0.86
+save cam_12.png width 1700 height 1050 supersample 2
+exit

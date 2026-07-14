@@ -1,0 +1,65 @@
+{
+ "EPCAM": {
+  "Epithelial": 1535414.9,
+  "_default": 9360.0,
+  "_method": "log1p(nCPM*6000/1e6)->Glassman(0.7768,3.9723); anchor=max nCPM over HPA celltypes per lineage; EPCAM is an epithelial carcinoma TAA (catumaxomab/solitomab target) -> TAA-class restriction applied (cf. hpa_ihc_anchor.py): keep Epithelial anchor only, all non-epithelial lineages floored to _default (IHC0=9360). EPCAM has NO HPA immune/endothelial/blood single-cell expression; the only non-epithelial HPA signal is Oocytes (germ cell->'Other', 819.7 nCPM=225670.9 copies) which is floored to avoid leaking EpCAM onto cardiomyocyte/neuron 'Other' cells (fake on-target-off-tumor toxicity)."
+ },
+ "malignant_carcinoma_baseline_copies_per_cell": 1535414.9,
+ "sources": {
+  "primary_anchor": "Human Protein Atlas (proteinatlas.org), single-cell RNA (nCPM)",
+  "gene": "EPCAM (TACSTD1, CD326, EGP-2/EGP40, GA733-2, TROP1, KSA, ESA, MK-1, 17-1A)",
+  "ensembl": "ENSG00000119888",
+  "hpa_single_cell_url": "https://www.proteinatlas.org/ENSG00000119888-EPCAM/single+cell",
+  "hpa_tissue_url": "https://www.proteinatlas.org/ENSG00000119888-EPCAM/tissue",
+  "hpa_release_source_file": "proteinatlas.tsv (official HPA bulk download, col 'RNA single cell type specific nCPM')",
+  "hpa_single_cell_nCPM_verbatim": {
+   "Colonocytes": 2714.8,
+   "Enterocytes": 2694.4,
+   "Enteric transient amplifying cells": 1859.2,
+   "Enteric stem cells": 1605.1,
+   "Goblet cells": 1377.2,
+   "Paneth cells": 1256.9,
+   "Oocytes": 819.7,
+   "Pancreatic duct cells": 803.5
+  },
+  "hpa_tissue_nTPM_verbatim": {
+   "intestine": 756.2
+  },
+  "hpa_blood_nTPM": "not detected (field empty for EPCAM) -> no immune/blood lineage expression",
+  "hpa_cancer_pTPM": "not reported as specific (field empty) -> pan-carcinoma, not lineage-restricted",
+  "conversion": "idx = ln(1 + nCPM*6000/1e6);  copies/cell = 10^(3.9723 + 0.7768*idx). (0.7768, 3.9723) = least-squares fit of log10(Glassman&Balthasar 2016 ladder {IHC0:9.36e3, IHC1:6.46e4, IHC2:2.55e5, IHC3:2.30e6}) vs IHC index {0,1,2,3}. Reproduces existing noihc_ncpm_anchor.json values (FLT3, FCRL5, TNFRSF9) to the decimal."
+ },
+ "raw_hpa_per_lineage_before_TAA_restriction": {
+  "Epithelial": {
+   "cell_type": "Colonocytes",
+   "nCPM": 2714.8,
+   "copies": 1535414.9
+  },
+  "Other_oocyte_germcell": {
+   "cell_type": "Oocytes",
+   "nCPM": 819.7,
+   "copies": 225670.9
+  },
+  "note": "Unrestricted method would emit Other=225670.9 copies from Oocytes (819.7 nCPM). Floored to _default in the emitted entry because the ABM 'Other' label is a catch-all (cardiomyocytes/neurons/adipocytes/germ cells) and EpCAM is germ-cell/epithelial-specific, not expressed on cardiomyocytes or neurons."
+ },
+ "cross_check_literature": {
+  "metric": "absolute EpCAM surface copies/cell on carcinoma (QIFIKIT / calibrated flow cytometry)",
+  "citation": "Sapski S, Beha N, Kontermann RE, M\u00fcller D. 'Influence of antigen density and immunosuppressive factors on tumor-targeted costimulation with antibody-fusion proteins and bispecific antibody-mediated T cell response.' Cancer Immunology, Immunotherapy. 2020;69(11):2291-2303. doi:10.1007/s00262-020-02624-6. EpCAM surface density measured by DAKO QIFIKIT (K007811-8).",
+  "colon_carcinoma_EpCAM_per_cell": {
+   "LoVo": ">769000",
+   "LS174T": "~602000",
+   "HCT-116": "~591000"
+  },
+  "lung_carcinoma_low_EpCAM_per_cell": {
+   "A549": "~8000",
+   "NCI-H460": "<2000"
+  },
+  "paper_high_EpCAM_threshold": ">150000 molecules/cell",
+  "comparison_to_HPA_anchor": "HPA-derived Epithelial anchor = 1535415 copies/cell (from normal colonocytes, the highest-nCPM EpCAM epithelium). QIFIKIT colon-carcinoma lines measure ~591,000-769,000 EpCAM/cell -> same order of magnitude (10^5-10^6); HPA anchor is ~2x above the carcinoma-line measurements (consistent: normal colonocyte is peak-physiological EpCAM). For a CRC-specific model the modeler may prefer the QIFIKIT carcinoma value ~6-7.7e5; per instruction the HPA value is retained as the anchor and this is reported as a cross-check."
+ },
+ "_provenance": {
+  "built_utc": "2026-07-13T21:55:09.222107Z",
+  "anchor_type": "HPA single-cell nCPM -> Glassman ladder (Path B / no-IHC), TAA-restricted",
+  "schema_matches": "noihc_ncpm_anchor.json (drop-in mergeable under key 'EPCAM')"
+ }
+}

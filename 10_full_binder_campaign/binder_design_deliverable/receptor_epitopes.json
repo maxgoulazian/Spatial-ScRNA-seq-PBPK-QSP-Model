@@ -1,0 +1,96 @@
+{
+  "4-1BB": {
+    "gene": "TNFRSF9",
+    "template_pdb": "6MGP",
+    "receptor_chains": [
+      "X",
+      "Y",
+      "Z"
+    ],
+    "ligand": "4-1BBL (TNFSF9)",
+    "ligand_chains": [
+      "A",
+      "B",
+      "C"
+    ],
+    "epitope_resids": [
+      36,
+      39,
+      40,
+      49,
+      50,
+      51,
+      52,
+      55,
+      56,
+      59,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      69,
+      70,
+      71,
+      72,
+      92,
+      95,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104
+    ],
+    "note": "receptor CRD residues contacting 4-1BBL; ligand-competitive epitope = agonism-relevant"
+  },
+  "CD27": {
+    "gene": "TNFRSF7",
+    "template_pdb": "7KX0",
+    "receptor_chains": [
+      "D",
+      "E",
+      "F"
+    ],
+    "ligand": "CD70 (TNFSF7)",
+    "ligand_chains": [
+      "A",
+      "B",
+      "C"
+    ],
+    "epitope_resids": [
+      48,
+      66,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      76,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      88,
+      89,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      118,
+      119,
+      121
+    ],
+    "note": "receptor CRD residues contacting CD70; ligand-competitive epitope"
+  }
+}

@@ -1,0 +1,241 @@
+set bgColor white
+open membrane.pdb
+open assembly.pdb
+cartoon #2
+hide #2 atoms
+hide #2/Y,Z,A,B,C,D,E,F cartoon
+surface #2/X enclose #2/X
+color #2/X #a9bdd0
+transparency #2/X 30 target s
+color #2/X:26,31,40,41,44 #e8a33d
+show #2/X:26,31,40,41,44 atoms
+style #2/X:26,31,40,41,44 stick
+open frames/b_000.pdb
+open frames/b_001.pdb
+open frames/b_002.pdb
+open frames/b_003.pdb
+open frames/b_004.pdb
+open frames/b_005.pdb
+open frames/b_006.pdb
+open frames/b_007.pdb
+open frames/b_008.pdb
+open frames/b_009.pdb
+open frames/b_010.pdb
+open frames/b_011.pdb
+open frames/b_012.pdb
+open frames/b_013.pdb
+open frames/b_014.pdb
+open frames/b_015.pdb
+open frames/b_016.pdb
+open frames/b_017.pdb
+open frames/b_018.pdb
+open frames/b_019.pdb
+open frames/b_020.pdb
+open frames/b_021.pdb
+open frames/b_022.pdb
+open frames/b_023.pdb
+open frames/b_024.pdb
+open frames/b_025.pdb
+open frames/b_026.pdb
+open frames/b_027.pdb
+open frames/b_028.pdb
+open frames/b_029.pdb
+open frames/b_030.pdb
+open frames/b_031.pdb
+open frames/b_032.pdb
+open frames/b_033.pdb
+open frames/b_034.pdb
+open frames/b_035.pdb
+open frames/b_036.pdb
+open frames/b_037.pdb
+open frames/b_038.pdb
+open frames/b_039.pdb
+open frames/b_040.pdb
+open frames/b_041.pdb
+open frames/b_042.pdb
+open frames/b_043.pdb
+open frames/b_044.pdb
+open frames/b_045.pdb
+open frames/b_046.pdb
+open frames/b_047.pdb
+open frames/b_048.pdb
+open frames/b_049.pdb
+hide #3-52 models
+style #3-52 ball
+size #3-52 ballScale 0.9
+rainbow #3-52 residues
+show #1 atoms
+style #1 sphere
+size #1 atomRadius 2.3
+color #1 white
+color #1@PO4 orange
+color #1@NC3 goldenrod
+color #1@GL1,GL2 gray(170)
+lighting soft
+lighting shadows true intensity 0.7
+material dull
+graphics silhouettes true width 1.5
+view
+turn x -8
+turn y 42
+zoom 0.62
+movie record size 1600,1200 supersample 2
+wait 20
+show #52 models
+wait 4
+hide #52 models
+show #51 models
+wait 4
+hide #51 models
+show #50 models
+wait 4
+hide #50 models
+show #49 models
+wait 4
+hide #49 models
+show #48 models
+wait 4
+hide #48 models
+show #47 models
+wait 4
+hide #47 models
+show #46 models
+wait 4
+hide #46 models
+show #45 models
+wait 4
+hide #45 models
+show #44 models
+wait 4
+hide #44 models
+show #43 models
+wait 4
+hide #43 models
+show #42 models
+wait 4
+hide #42 models
+show #41 models
+wait 4
+hide #41 models
+show #40 models
+wait 4
+hide #40 models
+show #39 models
+wait 4
+hide #39 models
+show #38 models
+wait 4
+hide #38 models
+show #37 models
+wait 4
+hide #37 models
+show #36 models
+wait 4
+hide #36 models
+show #35 models
+wait 4
+hide #35 models
+show #34 models
+wait 4
+hide #34 models
+show #33 models
+wait 4
+hide #33 models
+show #32 models
+wait 4
+hide #32 models
+show #31 models
+wait 4
+hide #31 models
+show #30 models
+wait 4
+hide #30 models
+show #29 models
+wait 4
+hide #29 models
+show #28 models
+wait 4
+hide #28 models
+show #27 models
+wait 4
+hide #27 models
+show #26 models
+wait 4
+hide #26 models
+show #25 models
+wait 4
+hide #25 models
+show #24 models
+wait 4
+hide #24 models
+show #23 models
+wait 4
+hide #23 models
+show #22 models
+wait 4
+hide #22 models
+show #21 models
+wait 4
+hide #21 models
+show #20 models
+wait 4
+hide #20 models
+show #19 models
+wait 4
+hide #19 models
+show #18 models
+wait 4
+hide #18 models
+show #17 models
+wait 4
+hide #17 models
+show #16 models
+wait 4
+hide #16 models
+show #15 models
+wait 4
+hide #15 models
+show #14 models
+wait 4
+hide #14 models
+show #13 models
+wait 4
+hide #13 models
+show #12 models
+wait 4
+hide #12 models
+show #11 models
+wait 4
+hide #11 models
+show #10 models
+wait 4
+hide #10 models
+show #9 models
+wait 4
+hide #9 models
+show #8 models
+wait 4
+hide #8 models
+show #7 models
+wait 4
+hide #7 models
+show #6 models
+wait 4
+hide #6 models
+show #5 models
+wait 4
+hide #5 models
+show #4 models
+wait 4
+hide #4 models
+show #3 models
+wait 4
+wait 35
+turn y 1.0 15
+wait 2
+turn y -1.0 30
+wait 2
+turn y 1.0 15
+wait 15
+movie encode 41bb_membrane.mp4 framerate 25 quality highest
+exit

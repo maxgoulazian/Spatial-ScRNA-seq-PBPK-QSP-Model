@@ -1,0 +1,24 @@
+[18:01:04] loading /media/balthasar-lab/RAID4/costim_engager_counterscreen/data/schmidt2022_tcell_perturbseq/cd8_grn_input.h5ad
+[18:01:05] X (60512, 19929)
+[18:01:05] regulators: 86; missing-from-var: ['IRX4']
+[18:01:05] expression columns (union reg+effector): 98
+[18:01:07] applied from_delayed empty-list patch
+[18:01:07] starting LocalCluster n_workers=40 (workers hold only the ~98-gene matrix)
+/media/balthasar-lab/RAID4/costim_engager_counterscreen/tools/grn-venv/lib/python3.11/site-packages/distributed/node.py:188: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 35645 instead
+  warnings.warn(
+[18:01:09] cluster up: http://127.0.0.1:35645/status
+[18:01:10] CD8: expression (32031, 98); running grnboost2...
+/media/balthasar-lab/RAID4/costim_engager_counterscreen/tools/grn-venv/lib/python3.11/site-packages/distributed/client.py:3429: UserWarning: Sending large graph of size 12.02 MiB.
+This may cause some slowdown.
+Consider loading the data with Dask directly
+ or using futures or delayed objects to embed the data into the graph without repetition.
+See also https://docs.dask.org/en/stable/best-practices.html#load-data-with-dask for more information.
+  warnings.warn(
+[18:01:21] CD8: grnboost2 returned 4881 edges in 11.7s
+[18:01:21] CD8: saved FULL 4881 edges -> grnboost2_CD8.csv
+[18:01:22] CD4: expression (17990, 98); running grnboost2...
+[18:01:25] CD4: grnboost2 returned 4934 edges in 3.8s
+[18:01:25] CD4: saved FULL 4934 edges -> grnboost2_CD4.csv
+[18:01:26] STEP2 DONE

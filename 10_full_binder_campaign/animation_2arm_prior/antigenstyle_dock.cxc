@@ -1,0 +1,47 @@
+set bgColor white
+open scene_membrane.pdb
+open pos_41bb_trimer.pdb
+open pos_41bb_ligand.pdb
+open pos_cd3_receptor.pdb
+open px41_full_docked.pdb
+open pxcd3_full_docked.pdb
+surface #2 enclose #2
+color #2 #3f8f8e
+transparency #2 55 target s
+surface #3 enclose #3
+color #3 #b0d8d6
+transparency #3 60 target s
+surface #4 enclose #4
+color #4 #8e7cc3
+transparency #4 55 target s
+show #2,3,4 cartoons
+color #2 #3f8f8e target c
+color #3 #b0d8d6 target c
+color #4 #8e7cc3 target c
+color #2:26,31,40,41,44 & #2/X #e8a33d target s
+color #4:376,377,378,379,380,381 #e8a33d target s
+surface #5 enclose #5
+color #5 #e0795f
+transparency #5 55 target s
+surface #6 enclose #6
+color #6 #e0795f
+transparency #6 55 target s
+show #5,6 cartoons
+color #5,6 #d85a3c target c
+hide #5,6 atoms
+show #1 atoms
+style #1 sphere
+size #1 atomRadius 2.3
+color #1 white
+color #1@PO4 orange
+color #1@NC3 goldenrod
+color #1@GL1,GL2 gray(170)
+lighting soft
+lighting shadows true intensity 0.7
+material dull
+graphics silhouettes true width 1.5
+view
+turn x 6
+zoom 0.92
+save antigenstyle_dock.png width 1500 height 950 supersample 1
+exit

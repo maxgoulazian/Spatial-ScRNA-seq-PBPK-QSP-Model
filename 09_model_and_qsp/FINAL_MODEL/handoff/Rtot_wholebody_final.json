@@ -1,0 +1,282 @@
+{
+ "Rtot_nM": {
+  "EPCAM": {
+   "spleen": 0.0099,
+   "bone": 0.0,
+   "liver": 0.0,
+   "lung": 223.1852,
+   "large_int": 53.9672,
+   "kidney": 247.6374,
+   "pancreas": 99.4344,
+   "skin": 0.0,
+   "heart": 0.0,
+   "small_int": 418.4584,
+   "adipose": 0.0,
+   "brain": 4.5841,
+   "tumor": 486.5278
+  },
+  "DLL3": {
+   "spleen": 0.0001,
+   "bone": 0.0,
+   "liver": 0.0,
+   "lung": 0.0,
+   "large_int": 0.0,
+   "kidney": 0.0,
+   "pancreas": 0.0,
+   "skin": 0.0,
+   "heart": 0.0,
+   "small_int": 0.0646,
+   "adipose": 0.0,
+   "tumor": 4.3481,
+   "brain": 0.0
+  },
+  "CD3E": {
+   "spleen": 138.8846,
+   "bone": 106.1009,
+   "liver": 4.1338,
+   "lung": 16.3413,
+   "large_int": 22.59,
+   "kidney": 2.1142,
+   "pancreas": 0.6723,
+   "skin": 0.8978,
+   "heart": 0.2004,
+   "small_int": 14.5315,
+   "adipose": 0.1102
+  },
+  "MS4A1": {
+   "bone": 4.982,
+   "spleen": 196.643,
+   "large_int": 10.098,
+   "liver": 1.384,
+   "lung": 5.3,
+   "kidney": 2.009,
+   "pancreas": 1.538,
+   "skin": 0.121,
+   "heart": 0.024,
+   "small_int": 4.3759,
+   "adipose": 0.0214
+  },
+  "CD19": {
+   "bone": 1.661,
+   "spleen": 65.548,
+   "large_int": 3.366,
+   "liver": 0.461,
+   "lung": 1.767,
+   "kidney": 0.67,
+   "pancreas": 0.513,
+   "skin": 0.04,
+   "heart": 0.008,
+   "small_int": 2.5348,
+   "adipose": 0.0
+  },
+  "TNFRSF17": {
+   "bone": 1.993,
+   "spleen": 5.244,
+   "large_int": 1.346,
+   "liver": 0.111,
+   "lung": 0.212,
+   "kidney": 0.064,
+   "pancreas": 0.062,
+   "skin": 0.002,
+   "heart": 0.002,
+   "small_int": 2.4985,
+   "adipose": 0.0
+  },
+  "GPRC5D": {
+   "bone": 2.491,
+   "spleen": 6.555,
+   "large_int": 1.683,
+   "liver": 0.138,
+   "lung": 0.265,
+   "kidney": 0.08,
+   "pancreas": 0.077,
+   "skin": 0.002,
+   "heart": 0.002,
+   "small_int": 3.2305,
+   "adipose": 0.0005
+  },
+  "CEACAM5": {
+   "tumor": 6.4587,
+   "spleen": 6.1374,
+   "bone": 5.3019,
+   "liver": 5.6314,
+   "lung": 6.705,
+   "large_int": 144.7986,
+   "kidney": 1.2534,
+   "pancreas": 0.4869,
+   "skin": 0.5448,
+   "heart": 0.2948,
+   "brain": 0.0,
+   "adipose": 0.0443,
+   "small_int": 4.0079
+  },
+  "ERBB2": {
+   "tumor": 1.9188,
+   "spleen": 6.5846,
+   "bone": 5.3497,
+   "liver": 7.9362,
+   "lung": 51.6029,
+   "large_int": 2.4643,
+   "kidney": 25.7557,
+   "pancreas": 1.1273,
+   "skin": 3.8678,
+   "heart": 0.6638,
+   "brain": 0.0,
+   "adipose": 0.0553,
+   "small_int": 75.1085
+  },
+  "FOLH1": {
+   "spleen": 0.0,
+   "bone": 0.0,
+   "liver": 0.0,
+   "lung": 0.0,
+   "large_int": 0.0,
+   "kidney": 0.0,
+   "pancreas": 0.0,
+   "skin": 0.0,
+   "heart": 0.0,
+   "brain": 0.0,
+   "adipose": 0.0,
+   "small_int": 0.0,
+   "tumor": 3.5518
+  },
+  "PMEL": {
+   "tumor": 9.4729,
+   "spleen": 0.0,
+   "bone": 0.0,
+   "liver": 0.0,
+   "lung": 0.0,
+   "large_int": 0.0,
+   "kidney": 0.0,
+   "pancreas": 0.0,
+   "skin": 0.0,
+   "heart": 0.0,
+   "brain": 0.0,
+   "adipose": 0.0,
+   "small_int": 0.0
+  }
+ },
+ "meta": {
+  "method": "Whole-body per-cell target pools. EPCAM/DLL3/CD3: from per-cell agent densities (Tier-1 native, reliable epithelial/T labels) scaled to organ-true cellularity. CD20/CD19/BCMA/GPRC5D: computed from per-organ B-cell/plasma-cell counts x copies/cell / Vis. IMPORTANT PROVENANCE: the per-organ B/plasma cell counts (LINEAGE_CELLS) are ORDER-OF-MAGNITUDE ESTIMATES chosen for biological plausibility, NOT read from any per-organ table or paper. Only two facts are externally grounded (both web-verified this session): the whole-body total ~3e13 cells with marrow ~90% (Sender/Fuchs/Milo 2016 PLoS Biol 14:e1002533), and normal marrow plasma cells 0.25-2% of nucleated cells (Terstappen flow-cytometry; ksvdl clinical). The estimates were CONSTRAINED to be consistent with those two facts (marrow plasma <2%, marrow the dominant plasma reservoir). The raw Xenium label transfer over-assigned plasma cells (67% vs <2%), so raw agent counts could NOT be used for the B/plasma pool magnitude \u2014 hence the estimate-based counts. The per-cell AGENTS still drive per-cell PD/killing (their density heterogeneity is real). These pool magnitudes are a documented modeling assumption to be refined against clinical TMDD data, not a literature readout.",
+  "plasma_cell_fraction_marrow": "literature 0.25-2% of nucleated cells (Terstappen ScienceDirect; ksvdl <2%); raw label transfer gave 67% (over-labeled) \u2014 corrected via absolute counts",
+  "lineage_cells_used": {
+   "bone": {
+    "plasma": 100000000000.0,
+    "bcell": 20000000000.0
+   },
+   "spleen": {
+    "plasma": 10000000000.0,
+    "bcell": 30000000000.0
+   },
+   "large_int": {
+    "plasma": 5000000000.0,
+    "bcell": 3000000000.0
+   },
+   "liver": {
+    "plasma": 2000000000.0,
+    "bcell": 2000000000.0
+   },
+   "lung": {
+    "plasma": 1000000000.0,
+    "bcell": 2000000000.0
+   },
+   "kidney": {
+    "plasma": 200000000.0,
+    "bcell": 500000000.0
+   },
+   "pancreas": {
+    "plasma": 100000000.0,
+    "bcell": 200000000.0
+   },
+   "skin": {
+    "plasma": 100000000.0,
+    "bcell": 500000000.0
+   },
+   "heart": {
+    "plasma": 10000000.0,
+    "bcell": 10000000.0
+   }
+  },
+  "copies_per_cell": {
+   "MS4A1": 150000,
+   "CD19": 50000,
+   "TNFRSF17": 12000,
+   "GPRC5D": 15000
+  },
+  "caveat": "organ interstitial-nM pools invert vs cell count for marrow (large Vis) \u2014 the TMDD SINK uses total receptor AMOUNT (nmol) not nM, so bone plasma reservoir contributes correctly to drug consumption",
+  "lineage_cells_provenance": "ORDER-OF-MAGNITUDE ESTIMATES (not from literature tables); constrained to Sender 2016 total + marrow plasma <2%",
+  "spleen_CD20_check": "spleen CD20 (MS4A1) emergent pool = 196.6 nM. Prior independent grid-derived anchor was 239 nM; the emergent per-cell-scaled value is 196.6 nM, ~18% below the grid anchor (NOT a 1% match \u2014 earlier claim of 241 nM was incorrect). The gap reflects that the emergent pool uses corrected absolute-count B-cell numbers while the grid anchor used raw agent density; both are order-of-magnitude consistent but not calibrated to each other.",
+  "tumor_and_organ_extension_2026-07-13": {
+   "added_organs": [
+    "small_int",
+    "adipose"
+   ],
+   "organ_basis": "builder percell_binding.organ_pool_nM, same VIS_L+ORGAN_TRUE_CELLS as the 9 originals (verified: kidney EPCAM reproduces 247.637)",
+   "tumor_written": [
+    "CEACAM5(crc,6.46nM)",
+    "ERBB2(crc,1.92nM)"
+   ],
+   "tumor_NOT_FOUND": [
+    "DLL3(lung)",
+    "EPCAM(ovary,no col)",
+    "FOLH1(prostate)",
+    "PMEL(skin)"
+   ],
+   "tumor_NOT_FOUND_reason": "those tumor ABMs carry RAW EXPRESSION not copies; Glassman copies-conversion not yet run -> cannot compute on same basis. NOT invented.",
+   "tumor_basis": "Vis=0.03L (engine V0.1*fIS0.3), Ncell=3.15e10 (organ_cellcount_anchor.json); same formula as organs",
+   "spleen_CD20_recheck": 196.6
+  },
+  "tumor_completion_2026-07-13": {
+   "all_6_solid_targets_complete": true,
+   "tumor_Rtot_nM": {
+    "CEACAM5": 6.4587,
+    "ERBB2": 1.9188,
+    "FOLH1": 3.5518,
+    "EPCAM": 486.5278,
+    "DLL3": 4.3481,
+    "PMEL": 9.4729
+   },
+   "basis": "pool_nM=(\u03a3copies\u00b7scale)/(Vis_tumor\u00b7AVO)\u00b71e9; Vis=0.03L, Ncell=3.15e10 (organ_cellcount_anchor); verified: kidney EPCAM reproduces 247.637",
+   "anchor_sources": {
+    "CEACAM5": "HPA-IHC (native)",
+    "ERBB2": "HPA-IHC (native)",
+    "FOLH1": "HPA-IHC lineage",
+    "EPCAM": "HPA single-cell nCPM ENSG00000119888 (agent+verified)",
+    "DLL3": "HPA single-cell nCPM ENSG00000090932 (agent)",
+    "PMEL": "HPA single-cell nCPM ENSG00000185664 Melanocytes=3051.8 (agent+orchestrator-verified)"
+   },
+   "tumor_types": {
+    "CEACAM5": "crc",
+    "ERBB2": "crc",
+    "FOLH1": "prostate",
+    "EPCAM": "ovary",
+    "DLL3": "lung/SCLC",
+    "PMEL": "skin/melanoma"
+   },
+   "organ_panel_caveats": {
+    "PMEL_organs": "PMEL not in organ Xenium panels -> organ pools=0 (melanocyte-restricted antigen; absence is a PANEL gap not a verified-zero; skin melanocytes not captured). Off-tumor PMEL toxicity in skin is a known clinical signal (tebentafusp) but not quantifiable from this panel.",
+    "DLL3_organs": "DLL3 absent from ['brain'] panel -> 0; near-absent in healthy tissue anyway (HPA: brain-enriched only).",
+    "CEACAM5_ERBB2_organs": "from IHC-anchored _copies columns in organ ABMs (convert_copies_ALL)."
+   },
+   "EPCAM_organ_panel_gaps": {
+    "organs_with_no_EPCAM_in_panel": [
+     "bone",
+     "liver",
+     "skin",
+     "heart",
+     "adipose"
+    ],
+    "note": "EPCAM absent from the Xenium panel in ['bone', 'liver', 'skin', 'heart', 'adipose'] (all cells exactly 0) -> pool=0 is a PANEL GAP, NOT a verified-zero. Clinically EpCAM IS on liver cholangiocytes (catumaxomab hepatotox signal); this model cannot quantify that off-tumor liability from the current organ panels. EPCAM pools ARE valid in kidney/lung/large_int/small_int/pancreas (real epithelial copies).",
+    "measured_organs": [
+     "spleen",
+     "lung",
+     "large_int",
+     "kidney",
+     "pancreas",
+     "brain",
+     "small_int"
+    ]
+   }
+  }
+ }
+}

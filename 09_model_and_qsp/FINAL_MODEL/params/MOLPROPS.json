@@ -1,0 +1,292 @@
+{
+ "atezolizumab": {
+  "mw_kda": 145.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "cemiplimab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.8295,
+  "prov": "lib-table/spec"
+ },
+ "dostarlimab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.8295,
+  "prov": "lib-table/spec"
+ },
+ "ipilimumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "nivolumab": {
+  "mw_kda": 146.0,
+  "fFcRn": 0.75,
+  "prov": "sourced"
+ },
+ "pembrolizumab": {
+  "mw_kda": 149.0,
+  "fFcRn": 0.8295,
+  "prov": "sourced"
+ },
+ "relatlimab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.8295,
+  "prov": "lib-table/spec"
+ },
+ "feladilimab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.8295,
+  "prov": "lib-table/spec"
+ },
+ "ivuxolimab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "mitazalimab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "selicrelumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "urelumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.8295,
+  "prov": "lib-table/spec"
+ },
+ "vopratelimab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "benralizumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "dupilumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.8295,
+  "prov": "sourced"
+ },
+ "omalizumab": {
+  "mw_kda": 149.0,
+  "fFcRn": 0.72,
+  "prov": "lib-table/spec"
+ },
+ "tezepelumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "tocilizumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "bevacizumab": {
+  "mw_kda": 149.0,
+  "fFcRn": 0.75,
+  "prov": "sourced"
+ },
+ "cetuximab": {
+  "mw_kda": 152.0,
+  "fFcRn": 0.715,
+  "prov": "sourced"
+ },
+ "daratumumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "sourced"
+ },
+ "obinutuzumab": {
+  "mw_kda": 146.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "panitumumab": {
+  "mw_kda": 147.0,
+  "fFcRn": 0.715,
+  "prov": "lib-table/spec"
+ },
+ "pertuzumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "sourced"
+ },
+ "rituximab": {
+  "mw_kda": 145.0,
+  "fFcRn": 0.75,
+  "prov": "sourced"
+ },
+ "trastuzumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.7995,
+  "prov": "sourced"
+ },
+ "blinatumomab": {
+  "mw_kda": 54.1,
+  "fFcRn": 0.0,
+  "prov": "sourced"
+ },
+ "catumaxomab": {
+  "mw_kda": 150.0,
+  "fFcRn": 0.7,
+  "prov": "lib-table/spec"
+ },
+ "elranatamab": {
+  "mw_kda": 146.0,
+  "fFcRn": 0.7015,
+  "prov": "format-class default"
+ },
+ "epcoritamab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.7015,
+  "prov": "sourced"
+ },
+ "glofitamab": {
+  "mw_kda": 195.0,
+  "fFcRn": 0.7015,
+  "prov": "sourced"
+ },
+ "linvoseltamab": {
+  "mw_kda": 150.0,
+  "fFcRn": 0.7015,
+  "prov": "format-class default"
+ },
+ "mosunetuzumab": {
+  "mw_kda": 146.0,
+  "fFcRn": 0.7015,
+  "prov": "sourced"
+ },
+ "odronextamab": {
+  "mw_kda": 150.0,
+  "fFcRn": 0.7015,
+  "prov": "format-class default"
+ },
+ "talquetamab": {
+  "mw_kda": 146.0,
+  "fFcRn": 0.7015,
+  "prov": "format-class default"
+ },
+ "tarlatamab": {
+  "mw_kda": 105.0,
+  "fFcRn": 0.5,
+  "prov": "format-class default"
+ },
+ "tebentafusp": {
+  "mw_kda": 77.0,
+  "fFcRn": 0.0,
+  "prov": "format-class default"
+ },
+ "teclistamab": {
+  "mw_kda": 146.0,
+  "fFcRn": 0.7015,
+  "prov": "format-class default"
+ },
+ "adalimumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.715,
+  "prov": "lib-table/spec"
+ },
+ "alirocumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "certolizumab pegol": {
+  "mw_kda": 91.0,
+  "fFcRn": 0.715,
+  "prov": "lib-table/spec"
+ },
+ "denosumab": {
+  "mw_kda": 147.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "eculizumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "evolocumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "golimumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "guselkumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "infliximab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "ixekizumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.8295,
+  "prov": "lib-table/spec"
+ },
+ "natalizumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.8295,
+  "prov": "lib-table/spec"
+ },
+ "ravulizumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "risankizumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "secukinumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "tildrakizumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "ustekinumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "vedolizumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "lib-table/spec"
+ },
+ "necitumumab": {
+  "mw_kda": 144.8,
+  "fFcRn": 0.75,
+  "prov": "format-class default"
+ },
+ "teprotumumab": {
+  "mw_kda": 148.0,
+  "fFcRn": 0.75,
+  "prov": "format-class default"
+ },
+ "cevostamab": {
+  "mw_kda": 145.0,
+  "fFcRn": 0.715,
+  "prov": "estimate: IgG1 bispecific ~145 kDa (web figure not transcript-verified; class value)"
+ }
+}

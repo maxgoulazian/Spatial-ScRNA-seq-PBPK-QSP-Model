@@ -1,0 +1,614 @@
+set bgColor white
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/membrane_long.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/S_41bb_receptor.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/S_41bb_ligand.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/S_cd27_fullreceptor.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/S_cd3_receptor.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/S_cea5_fullreceptor.pdb
+surface #2 enclose #2
+color #2:25-45 #fee0d2 target s
+color #2:46-86 #fc9272 target s
+color #2:87-117 #ef3b2c target s
+color #2:118-168 #a50f15 target s
+transparency #2 30 target s
+surface #4 enclose #4
+color #4:20-62 #fdd0a2 target s
+color #4:63-110 #fd8d3c target s
+color #4:111-191 #d94801 target s
+transparency #4 30 target s
+surface #5 enclose #5
+color #5:227-310 #bdbdbd target s
+color #5:311-394 #525252 target s
+transparency #5 30 target s
+surface #6 enclose #6
+color #6:35-144 #deebf7 target s
+color #6:145-237 #c6dbef target s
+color #6:238-320 #9ecae1 target s
+color #6:321-414 #6baed6 target s
+color #6:415-498 #4292c6 target s
+color #6:499-591 #2171b5 target s
+color #6:592-685 #084594 target s
+transparency #6 30 target s
+surface #3 enclose #3
+color #3 #f5c6c0
+transparency #3 55 target s
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_000.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_001.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_002.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_003.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_004.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_005.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_006.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_007.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_008.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_009.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_010.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_011.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_012.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_013.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_014.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_015.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_016.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_017.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_018.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_019.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_020.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_021.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_022.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_023.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_024.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_025.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_026.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_027.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_028.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_029.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_030.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_031.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_032.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_033.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_034.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_035.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_036.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_037.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_038.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_039.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_040.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_041.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_042.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_043.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_044.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_045.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_046.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_047.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_048.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_049.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_000.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_001.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_002.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_003.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_004.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_005.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_006.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_007.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_008.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_009.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_010.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_011.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_012.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_013.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_014.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_015.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_016.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_017.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_018.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_019.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_020.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_021.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_022.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_023.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_024.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_025.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_026.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_027.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_028.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_029.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_030.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_031.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_032.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_033.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_034.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_035.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_036.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_037.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_038.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_039.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_040.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_041.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_042.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_043.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_044.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_045.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_046.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_047.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_048.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_049.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_000.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_001.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_002.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_003.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_004.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_005.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_006.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_007.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_008.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_009.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_010.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_011.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_012.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_013.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_014.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_015.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_016.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_017.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_018.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_019.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_020.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_021.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_022.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_023.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_024.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_025.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_026.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_027.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_028.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_029.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_030.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_031.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_032.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_033.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_034.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_035.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_036.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_037.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_038.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_039.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_040.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_041.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_042.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_043.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_044.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_045.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_046.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_047.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_048.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_049.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_000.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_001.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_002.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_003.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_004.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_005.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_006.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_007.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_008.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_009.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_010.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_011.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_012.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_013.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_014.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_015.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_016.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_017.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_018.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_019.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_020.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_021.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_022.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_023.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_024.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_025.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_026.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_027.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_028.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_029.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_030.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_031.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_032.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_033.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_034.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_035.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_036.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_037.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_038.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_039.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_040.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_041.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_042.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_043.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_044.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_045.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_046.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_047.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_048.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_049.pdb
+style #7-206 ball
+size #7-206 ballScale 1.0
+hide #7-206 cartoons
+show #7-206 atoms
+color #7-206 gray(170)
+color #7/H:41-54 #7/H:95-104 #e8a33d
+color #8/H:41-54 #8/H:95-104 #e8a33d
+color #9/H:41-54 #9/H:95-104 #e8a33d
+color #10/H:41-54 #10/H:95-104 #e8a33d
+color #11/H:41-54 #11/H:95-104 #e8a33d
+color #12/H:41-54 #12/H:95-104 #e8a33d
+color #13/H:41-54 #13/H:95-104 #e8a33d
+color #14/H:41-54 #14/H:95-104 #e8a33d
+color #15/H:41-54 #15/H:95-104 #e8a33d
+color #16/H:41-54 #16/H:95-104 #e8a33d
+color #17/H:41-54 #17/H:95-104 #e8a33d
+color #18/H:41-54 #18/H:95-104 #e8a33d
+color #19/H:41-54 #19/H:95-104 #e8a33d
+color #20/H:41-54 #20/H:95-104 #e8a33d
+color #21/H:41-54 #21/H:95-104 #e8a33d
+color #22/H:41-54 #22/H:95-104 #e8a33d
+color #23/H:41-54 #23/H:95-104 #e8a33d
+color #24/H:41-54 #24/H:95-104 #e8a33d
+color #25/H:41-54 #25/H:95-104 #e8a33d
+color #26/H:41-54 #26/H:95-104 #e8a33d
+color #27/H:41-54 #27/H:95-104 #e8a33d
+color #28/H:41-54 #28/H:95-104 #e8a33d
+color #29/H:41-54 #29/H:95-104 #e8a33d
+color #30/H:41-54 #30/H:95-104 #e8a33d
+color #31/H:41-54 #31/H:95-104 #e8a33d
+color #32/H:41-54 #32/H:95-104 #e8a33d
+color #33/H:41-54 #33/H:95-104 #e8a33d
+color #34/H:41-54 #34/H:95-104 #e8a33d
+color #35/H:41-54 #35/H:95-104 #e8a33d
+color #36/H:41-54 #36/H:95-104 #e8a33d
+color #37/H:41-54 #37/H:95-104 #e8a33d
+color #38/H:41-54 #38/H:95-104 #e8a33d
+color #39/H:41-54 #39/H:95-104 #e8a33d
+color #40/H:41-54 #40/H:95-104 #e8a33d
+color #41/H:41-54 #41/H:95-104 #e8a33d
+color #42/H:41-54 #42/H:95-104 #e8a33d
+color #43/H:41-54 #43/H:95-104 #e8a33d
+color #44/H:41-54 #44/H:95-104 #e8a33d
+color #45/H:41-54 #45/H:95-104 #e8a33d
+color #46/H:41-54 #46/H:95-104 #e8a33d
+color #47/H:41-54 #47/H:95-104 #e8a33d
+color #48/H:41-54 #48/H:95-104 #e8a33d
+color #49/H:41-54 #49/H:95-104 #e8a33d
+color #50/H:41-54 #50/H:95-104 #e8a33d
+color #51/H:41-54 #51/H:95-104 #e8a33d
+color #52/H:41-54 #52/H:95-104 #e8a33d
+color #53/H:41-54 #53/H:95-104 #e8a33d
+color #54/H:41-54 #54/H:95-104 #e8a33d
+color #55/H:41-54 #55/H:95-104 #e8a33d
+color #56/H:41-54 #56/H:95-104 #e8a33d
+color #57/H:41-50 #57/H:52-62 #57/H:96-106 #e8a33d
+color #58/H:41-50 #58/H:52-62 #58/H:96-106 #e8a33d
+color #59/H:41-50 #59/H:52-62 #59/H:96-106 #e8a33d
+color #60/H:41-50 #60/H:52-62 #60/H:96-106 #e8a33d
+color #61/H:41-50 #61/H:52-62 #61/H:96-106 #e8a33d
+color #62/H:41-50 #62/H:52-62 #62/H:96-106 #e8a33d
+color #63/H:41-50 #63/H:52-62 #63/H:96-106 #e8a33d
+color #64/H:41-50 #64/H:52-62 #64/H:96-106 #e8a33d
+color #65/H:41-50 #65/H:52-62 #65/H:96-106 #e8a33d
+color #66/H:41-50 #66/H:52-62 #66/H:96-106 #e8a33d
+color #67/H:41-50 #67/H:52-62 #67/H:96-106 #e8a33d
+color #68/H:41-50 #68/H:52-62 #68/H:96-106 #e8a33d
+color #69/H:41-50 #69/H:52-62 #69/H:96-106 #e8a33d
+color #70/H:41-50 #70/H:52-62 #70/H:96-106 #e8a33d
+color #71/H:41-50 #71/H:52-62 #71/H:96-106 #e8a33d
+color #72/H:41-50 #72/H:52-62 #72/H:96-106 #e8a33d
+color #73/H:41-50 #73/H:52-62 #73/H:96-106 #e8a33d
+color #74/H:41-50 #74/H:52-62 #74/H:96-106 #e8a33d
+color #75/H:41-50 #75/H:52-62 #75/H:96-106 #e8a33d
+color #76/H:41-50 #76/H:52-62 #76/H:96-106 #e8a33d
+color #77/H:41-50 #77/H:52-62 #77/H:96-106 #e8a33d
+color #78/H:41-50 #78/H:52-62 #78/H:96-106 #e8a33d
+color #79/H:41-50 #79/H:52-62 #79/H:96-106 #e8a33d
+color #80/H:41-50 #80/H:52-62 #80/H:96-106 #e8a33d
+color #81/H:41-50 #81/H:52-62 #81/H:96-106 #e8a33d
+color #82/H:41-50 #82/H:52-62 #82/H:96-106 #e8a33d
+color #83/H:41-50 #83/H:52-62 #83/H:96-106 #e8a33d
+color #84/H:41-50 #84/H:52-62 #84/H:96-106 #e8a33d
+color #85/H:41-50 #85/H:52-62 #85/H:96-106 #e8a33d
+color #86/H:41-50 #86/H:52-62 #86/H:96-106 #e8a33d
+color #87/H:41-50 #87/H:52-62 #87/H:96-106 #e8a33d
+color #88/H:41-50 #88/H:52-62 #88/H:96-106 #e8a33d
+color #89/H:41-50 #89/H:52-62 #89/H:96-106 #e8a33d
+color #90/H:41-50 #90/H:52-62 #90/H:96-106 #e8a33d
+color #91/H:41-50 #91/H:52-62 #91/H:96-106 #e8a33d
+color #92/H:41-50 #92/H:52-62 #92/H:96-106 #e8a33d
+color #93/H:41-50 #93/H:52-62 #93/H:96-106 #e8a33d
+color #94/H:41-50 #94/H:52-62 #94/H:96-106 #e8a33d
+color #95/H:41-50 #95/H:52-62 #95/H:96-106 #e8a33d
+color #96/H:41-50 #96/H:52-62 #96/H:96-106 #e8a33d
+color #97/H:41-50 #97/H:52-62 #97/H:96-106 #e8a33d
+color #98/H:41-50 #98/H:52-62 #98/H:96-106 #e8a33d
+color #99/H:41-50 #99/H:52-62 #99/H:96-106 #e8a33d
+color #100/H:41-50 #100/H:52-62 #100/H:96-106 #e8a33d
+color #101/H:41-50 #101/H:52-62 #101/H:96-106 #e8a33d
+color #102/H:41-50 #102/H:52-62 #102/H:96-106 #e8a33d
+color #103/H:41-50 #103/H:52-62 #103/H:96-106 #e8a33d
+color #104/H:41-50 #104/H:52-62 #104/H:96-106 #e8a33d
+color #105/H:41-50 #105/H:52-62 #105/H:96-106 #e8a33d
+color #106/H:41-50 #106/H:52-62 #106/H:96-106 #e8a33d
+color #107/H:51-59 #107/H:99-110 #107/L:147-155 #107/L:206-216 #e8a33d
+color #108/H:51-59 #108/H:99-110 #108/L:147-155 #108/L:206-216 #e8a33d
+color #109/H:51-59 #109/H:99-110 #109/L:147-155 #109/L:206-216 #e8a33d
+color #110/H:51-59 #110/H:99-110 #110/L:147-155 #110/L:206-216 #e8a33d
+color #111/H:51-59 #111/H:99-110 #111/L:147-155 #111/L:206-216 #e8a33d
+color #112/H:51-59 #112/H:99-110 #112/L:147-155 #112/L:206-216 #e8a33d
+color #113/H:51-59 #113/H:99-110 #113/L:147-155 #113/L:206-216 #e8a33d
+color #114/H:51-59 #114/H:99-110 #114/L:147-155 #114/L:206-216 #e8a33d
+color #115/H:51-59 #115/H:99-110 #115/L:147-155 #115/L:206-216 #e8a33d
+color #116/H:51-59 #116/H:99-110 #116/L:147-155 #116/L:206-216 #e8a33d
+color #117/H:51-59 #117/H:99-110 #117/L:147-155 #117/L:206-216 #e8a33d
+color #118/H:51-59 #118/H:99-110 #118/L:147-155 #118/L:206-216 #e8a33d
+color #119/H:51-59 #119/H:99-110 #119/L:147-155 #119/L:206-216 #e8a33d
+color #120/H:51-59 #120/H:99-110 #120/L:147-155 #120/L:206-216 #e8a33d
+color #121/H:51-59 #121/H:99-110 #121/L:147-155 #121/L:206-216 #e8a33d
+color #122/H:51-59 #122/H:99-110 #122/L:147-155 #122/L:206-216 #e8a33d
+color #123/H:51-59 #123/H:99-110 #123/L:147-155 #123/L:206-216 #e8a33d
+color #124/H:51-59 #124/H:99-110 #124/L:147-155 #124/L:206-216 #e8a33d
+color #125/H:51-59 #125/H:99-110 #125/L:147-155 #125/L:206-216 #e8a33d
+color #126/H:51-59 #126/H:99-110 #126/L:147-155 #126/L:206-216 #e8a33d
+color #127/H:51-59 #127/H:99-110 #127/L:147-155 #127/L:206-216 #e8a33d
+color #128/H:51-59 #128/H:99-110 #128/L:147-155 #128/L:206-216 #e8a33d
+color #129/H:51-59 #129/H:99-110 #129/L:147-155 #129/L:206-216 #e8a33d
+color #130/H:51-59 #130/H:99-110 #130/L:147-155 #130/L:206-216 #e8a33d
+color #131/H:51-59 #131/H:99-110 #131/L:147-155 #131/L:206-216 #e8a33d
+color #132/H:51-59 #132/H:99-110 #132/L:147-155 #132/L:206-216 #e8a33d
+color #133/H:51-59 #133/H:99-110 #133/L:147-155 #133/L:206-216 #e8a33d
+color #134/H:51-59 #134/H:99-110 #134/L:147-155 #134/L:206-216 #e8a33d
+color #135/H:51-59 #135/H:99-110 #135/L:147-155 #135/L:206-216 #e8a33d
+color #136/H:51-59 #136/H:99-110 #136/L:147-155 #136/L:206-216 #e8a33d
+color #137/H:51-59 #137/H:99-110 #137/L:147-155 #137/L:206-216 #e8a33d
+color #138/H:51-59 #138/H:99-110 #138/L:147-155 #138/L:206-216 #e8a33d
+color #139/H:51-59 #139/H:99-110 #139/L:147-155 #139/L:206-216 #e8a33d
+color #140/H:51-59 #140/H:99-110 #140/L:147-155 #140/L:206-216 #e8a33d
+color #141/H:51-59 #141/H:99-110 #141/L:147-155 #141/L:206-216 #e8a33d
+color #142/H:51-59 #142/H:99-110 #142/L:147-155 #142/L:206-216 #e8a33d
+color #143/H:51-59 #143/H:99-110 #143/L:147-155 #143/L:206-216 #e8a33d
+color #144/H:51-59 #144/H:99-110 #144/L:147-155 #144/L:206-216 #e8a33d
+color #145/H:51-59 #145/H:99-110 #145/L:147-155 #145/L:206-216 #e8a33d
+color #146/H:51-59 #146/H:99-110 #146/L:147-155 #146/L:206-216 #e8a33d
+color #147/H:51-59 #147/H:99-110 #147/L:147-155 #147/L:206-216 #e8a33d
+color #148/H:51-59 #148/H:99-110 #148/L:147-155 #148/L:206-216 #e8a33d
+color #149/H:51-59 #149/H:99-110 #149/L:147-155 #149/L:206-216 #e8a33d
+color #150/H:51-59 #150/H:99-110 #150/L:147-155 #150/L:206-216 #e8a33d
+color #151/H:51-59 #151/H:99-110 #151/L:147-155 #151/L:206-216 #e8a33d
+color #152/H:51-59 #152/H:99-110 #152/L:147-155 #152/L:206-216 #e8a33d
+color #153/H:51-59 #153/H:99-110 #153/L:147-155 #153/L:206-216 #e8a33d
+color #154/H:51-59 #154/H:99-110 #154/L:147-155 #154/L:206-216 #e8a33d
+color #155/H:51-59 #155/H:99-110 #155/L:147-155 #155/L:206-216 #e8a33d
+color #156/H:51-59 #156/H:99-110 #156/L:147-155 #156/L:206-216 #e8a33d
+color #157/H:1-6 #157/H:22-31 #157/L:171-179 #e8a33d
+color #158/H:1-6 #158/H:22-31 #158/L:171-179 #e8a33d
+color #159/H:1-6 #159/H:22-31 #159/L:171-179 #e8a33d
+color #160/H:1-6 #160/H:22-31 #160/L:171-179 #e8a33d
+color #161/H:1-6 #161/H:22-31 #161/L:171-179 #e8a33d
+color #162/H:1-6 #162/H:22-31 #162/L:171-179 #e8a33d
+color #163/H:1-6 #163/H:22-31 #163/L:171-179 #e8a33d
+color #164/H:1-6 #164/H:22-31 #164/L:171-179 #e8a33d
+color #165/H:1-6 #165/H:22-31 #165/L:171-179 #e8a33d
+color #166/H:1-6 #166/H:22-31 #166/L:171-179 #e8a33d
+color #167/H:1-6 #167/H:22-31 #167/L:171-179 #e8a33d
+color #168/H:1-6 #168/H:22-31 #168/L:171-179 #e8a33d
+color #169/H:1-6 #169/H:22-31 #169/L:171-179 #e8a33d
+color #170/H:1-6 #170/H:22-31 #170/L:171-179 #e8a33d
+color #171/H:1-6 #171/H:22-31 #171/L:171-179 #e8a33d
+color #172/H:1-6 #172/H:22-31 #172/L:171-179 #e8a33d
+color #173/H:1-6 #173/H:22-31 #173/L:171-179 #e8a33d
+color #174/H:1-6 #174/H:22-31 #174/L:171-179 #e8a33d
+color #175/H:1-6 #175/H:22-31 #175/L:171-179 #e8a33d
+color #176/H:1-6 #176/H:22-31 #176/L:171-179 #e8a33d
+color #177/H:1-6 #177/H:22-31 #177/L:171-179 #e8a33d
+color #178/H:1-6 #178/H:22-31 #178/L:171-179 #e8a33d
+color #179/H:1-6 #179/H:22-31 #179/L:171-179 #e8a33d
+color #180/H:1-6 #180/H:22-31 #180/L:171-179 #e8a33d
+color #181/H:1-6 #181/H:22-31 #181/L:171-179 #e8a33d
+color #182/H:1-6 #182/H:22-31 #182/L:171-179 #e8a33d
+color #183/H:1-6 #183/H:22-31 #183/L:171-179 #e8a33d
+color #184/H:1-6 #184/H:22-31 #184/L:171-179 #e8a33d
+color #185/H:1-6 #185/H:22-31 #185/L:171-179 #e8a33d
+color #186/H:1-6 #186/H:22-31 #186/L:171-179 #e8a33d
+color #187/H:1-6 #187/H:22-31 #187/L:171-179 #e8a33d
+color #188/H:1-6 #188/H:22-31 #188/L:171-179 #e8a33d
+color #189/H:1-6 #189/H:22-31 #189/L:171-179 #e8a33d
+color #190/H:1-6 #190/H:22-31 #190/L:171-179 #e8a33d
+color #191/H:1-6 #191/H:22-31 #191/L:171-179 #e8a33d
+color #192/H:1-6 #192/H:22-31 #192/L:171-179 #e8a33d
+color #193/H:1-6 #193/H:22-31 #193/L:171-179 #e8a33d
+color #194/H:1-6 #194/H:22-31 #194/L:171-179 #e8a33d
+color #195/H:1-6 #195/H:22-31 #195/L:171-179 #e8a33d
+color #196/H:1-6 #196/H:22-31 #196/L:171-179 #e8a33d
+color #197/H:1-6 #197/H:22-31 #197/L:171-179 #e8a33d
+color #198/H:1-6 #198/H:22-31 #198/L:171-179 #e8a33d
+color #199/H:1-6 #199/H:22-31 #199/L:171-179 #e8a33d
+color #200/H:1-6 #200/H:22-31 #200/L:171-179 #e8a33d
+color #201/H:1-6 #201/H:22-31 #201/L:171-179 #e8a33d
+color #202/H:1-6 #202/H:22-31 #202/L:171-179 #e8a33d
+color #203/H:1-6 #203/H:22-31 #203/L:171-179 #e8a33d
+color #204/H:1-6 #204/H:22-31 #204/L:171-179 #e8a33d
+color #205/H:1-6 #205/H:22-31 #205/L:171-179 #e8a33d
+color #206/H:1-6 #206/H:22-31 #206/L:171-179 #e8a33d
+hide #7-206 models
+show #1 atoms
+style #1 sphere
+size #1 atomRadius 2.3
+color #1 white
+color #1@PO4 orange
+color #1@NC3 goldenrod
+color #1@GL1,GL2 gray(170)
+lighting soft
+lighting shadows true intensity 0.7
+material dull
+graphics silhouettes true width 1.5
+view
+turn x 6
+zoom 1.15
+movie record size 2200,1040 supersample 2
+wait 20
+show #7,57,107,157 models
+wait 2
+hide #7,57,107,157 models
+show #8,58,108,158 models
+wait 2
+hide #8,58,108,158 models
+show #9,59,109,159 models
+wait 2
+hide #9,59,109,159 models
+show #10,60,110,160 models
+wait 2
+hide #10,60,110,160 models
+show #11,61,111,161 models
+wait 2
+hide #11,61,111,161 models
+show #12,62,112,162 models
+wait 2
+hide #12,62,112,162 models
+show #13,63,113,163 models
+wait 2
+hide #13,63,113,163 models
+show #14,64,114,164 models
+wait 2
+hide #14,64,114,164 models
+show #15,65,115,165 models
+wait 2
+hide #15,65,115,165 models
+show #16,66,116,166 models
+wait 2
+hide #16,66,116,166 models
+show #17,67,117,167 models
+wait 2
+hide #17,67,117,167 models
+show #18,68,118,168 models
+wait 2
+hide #18,68,118,168 models
+show #19,69,119,169 models
+wait 2
+hide #19,69,119,169 models
+show #20,70,120,170 models
+wait 2
+hide #20,70,120,170 models
+show #21,71,121,171 models
+wait 2
+hide #21,71,121,171 models
+show #22,72,122,172 models
+wait 2
+hide #22,72,122,172 models
+show #23,73,123,173 models
+wait 2
+hide #23,73,123,173 models
+show #24,74,124,174 models
+wait 2
+hide #24,74,124,174 models
+show #25,75,125,175 models
+wait 2
+hide #25,75,125,175 models
+show #26,76,126,176 models
+wait 2
+hide #26,76,126,176 models
+show #27,77,127,177 models
+wait 2
+hide #27,77,127,177 models
+show #28,78,128,178 models
+wait 2
+hide #28,78,128,178 models
+show #29,79,129,179 models
+wait 2
+hide #29,79,129,179 models
+show #30,80,130,180 models
+wait 2
+hide #30,80,130,180 models
+show #31,81,131,181 models
+wait 2
+hide #31,81,131,181 models
+show #32,82,132,182 models
+wait 2
+hide #32,82,132,182 models
+show #33,83,133,183 models
+wait 2
+hide #33,83,133,183 models
+show #34,84,134,184 models
+wait 2
+hide #34,84,134,184 models
+show #35,85,135,185 models
+wait 2
+hide #35,85,135,185 models
+show #36,86,136,186 models
+wait 2
+hide #36,86,136,186 models
+show #37,87,137,187 models
+wait 2
+hide #37,87,137,187 models
+show #38,88,138,188 models
+wait 2
+hide #38,88,138,188 models
+show #39,89,139,189 models
+wait 2
+hide #39,89,139,189 models
+show #40,90,140,190 models
+wait 2
+hide #40,90,140,190 models
+show #41,91,141,191 models
+wait 2
+hide #41,91,141,191 models
+show #42,92,142,192 models
+wait 2
+hide #42,92,142,192 models
+show #43,93,143,193 models
+wait 2
+hide #43,93,143,193 models
+show #44,94,144,194 models
+wait 2
+hide #44,94,144,194 models
+show #45,95,145,195 models
+wait 2
+hide #45,95,145,195 models
+show #46,96,146,196 models
+wait 2
+hide #46,96,146,196 models
+show #47,97,147,197 models
+wait 2
+hide #47,97,147,197 models
+show #48,98,148,198 models
+wait 2
+hide #48,98,148,198 models
+show #49,99,149,199 models
+wait 2
+hide #49,99,149,199 models
+show #50,100,150,200 models
+wait 2
+hide #50,100,150,200 models
+show #51,101,151,201 models
+wait 2
+hide #51,101,151,201 models
+show #52,102,152,202 models
+wait 2
+hide #52,102,152,202 models
+show #53,103,153,203 models
+wait 2
+hide #53,103,153,203 models
+show #54,104,154,204 models
+wait 2
+hide #54,104,154,204 models
+show #55,105,155,205 models
+wait 2
+hide #55,105,155,205 models
+show #56,106,156,206 models
+wait 2
+wait 25
+turn y 1.0 20
+wait 2
+turn y -1.0 40
+wait 2
+turn y 1.0 20
+wait 30
+movie encode fourarm_final.mp4 framerate 25 quality highest
+exit

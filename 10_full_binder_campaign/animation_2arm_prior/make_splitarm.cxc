@@ -1,0 +1,400 @@
+set bgColor white
+open scene_membrane.pdb
+open pos_41bb_trimer.pdb
+open pos_41bb_ligand.pdb
+open pos_cd3_receptor.pdb
+open px41_framework.pdb
+open pxcd3_framework.pdb
+open px41_cdr/c_000.pdb
+open px41_cdr/c_001.pdb
+open px41_cdr/c_002.pdb
+open px41_cdr/c_003.pdb
+open px41_cdr/c_004.pdb
+open px41_cdr/c_005.pdb
+open px41_cdr/c_006.pdb
+open px41_cdr/c_007.pdb
+open px41_cdr/c_008.pdb
+open px41_cdr/c_009.pdb
+open px41_cdr/c_010.pdb
+open px41_cdr/c_011.pdb
+open px41_cdr/c_012.pdb
+open px41_cdr/c_013.pdb
+open px41_cdr/c_014.pdb
+open px41_cdr/c_015.pdb
+open px41_cdr/c_016.pdb
+open px41_cdr/c_017.pdb
+open px41_cdr/c_018.pdb
+open px41_cdr/c_019.pdb
+open px41_cdr/c_020.pdb
+open px41_cdr/c_021.pdb
+open px41_cdr/c_022.pdb
+open px41_cdr/c_023.pdb
+open px41_cdr/c_024.pdb
+open px41_cdr/c_025.pdb
+open px41_cdr/c_026.pdb
+open px41_cdr/c_027.pdb
+open px41_cdr/c_028.pdb
+open px41_cdr/c_029.pdb
+open px41_cdr/c_030.pdb
+open px41_cdr/c_031.pdb
+open px41_cdr/c_032.pdb
+open px41_cdr/c_033.pdb
+open px41_cdr/c_034.pdb
+open px41_cdr/c_035.pdb
+open px41_cdr/c_036.pdb
+open px41_cdr/c_037.pdb
+open px41_cdr/c_038.pdb
+open px41_cdr/c_039.pdb
+open px41_cdr/c_040.pdb
+open px41_cdr/c_041.pdb
+open px41_cdr/c_042.pdb
+open px41_cdr/c_043.pdb
+open px41_cdr/c_044.pdb
+open px41_cdr/c_045.pdb
+open px41_cdr/c_046.pdb
+open px41_cdr/c_047.pdb
+open px41_cdr/c_048.pdb
+open px41_cdr/c_049.pdb
+open pxcd3_cdr/c_000.pdb
+open pxcd3_cdr/c_001.pdb
+open pxcd3_cdr/c_002.pdb
+open pxcd3_cdr/c_003.pdb
+open pxcd3_cdr/c_004.pdb
+open pxcd3_cdr/c_005.pdb
+open pxcd3_cdr/c_006.pdb
+open pxcd3_cdr/c_007.pdb
+open pxcd3_cdr/c_008.pdb
+open pxcd3_cdr/c_009.pdb
+open pxcd3_cdr/c_010.pdb
+open pxcd3_cdr/c_011.pdb
+open pxcd3_cdr/c_012.pdb
+open pxcd3_cdr/c_013.pdb
+open pxcd3_cdr/c_014.pdb
+open pxcd3_cdr/c_015.pdb
+open pxcd3_cdr/c_016.pdb
+open pxcd3_cdr/c_017.pdb
+open pxcd3_cdr/c_018.pdb
+open pxcd3_cdr/c_019.pdb
+open pxcd3_cdr/c_020.pdb
+open pxcd3_cdr/c_021.pdb
+open pxcd3_cdr/c_022.pdb
+open pxcd3_cdr/c_023.pdb
+open pxcd3_cdr/c_024.pdb
+open pxcd3_cdr/c_025.pdb
+open pxcd3_cdr/c_026.pdb
+open pxcd3_cdr/c_027.pdb
+open pxcd3_cdr/c_028.pdb
+open pxcd3_cdr/c_029.pdb
+open pxcd3_cdr/c_030.pdb
+open pxcd3_cdr/c_031.pdb
+open pxcd3_cdr/c_032.pdb
+open pxcd3_cdr/c_033.pdb
+open pxcd3_cdr/c_034.pdb
+open pxcd3_cdr/c_035.pdb
+open pxcd3_cdr/c_036.pdb
+open pxcd3_cdr/c_037.pdb
+open pxcd3_cdr/c_038.pdb
+open pxcd3_cdr/c_039.pdb
+open pxcd3_cdr/c_040.pdb
+open pxcd3_cdr/c_041.pdb
+open pxcd3_cdr/c_042.pdb
+open pxcd3_cdr/c_043.pdb
+open pxcd3_cdr/c_044.pdb
+open pxcd3_cdr/c_045.pdb
+open pxcd3_cdr/c_046.pdb
+open pxcd3_cdr/c_047.pdb
+open pxcd3_cdr/c_048.pdb
+open pxcd3_cdr/c_049.pdb
+surface #2 enclose #2
+color #2 #3f8f8e
+transparency #2 40 target s
+surface #3 enclose #3
+color #3 #b0d8d6
+transparency #3 50 target s
+surface #4 enclose #4
+color #4 #8e7cc3
+transparency #4 40 target s
+color #2:26,31,40,41,44 & #2/X #e8a33d target s
+color #4:376,377,378,379,380,381 #e8a33d target s
+surface #5 enclose #5
+color #5 #bcc2c8
+transparency #5 35 target s
+surface #6 enclose #6
+color #6 #bcc2c8
+transparency #6 35 target s
+hide #7-106 cartoons
+show #7-106 atoms
+style #7-106 ball
+size #7-106 ballScale 1.4
+color #7-106 #e0218a
+hide #7-106 models
+show #1 atoms
+style #1 sphere
+size #1 atomRadius 2.3
+color #1 white
+color #1@PO4 orange
+color #1@NC3 goldenrod
+color #1@GL1,GL2 gray(170)
+lighting soft
+lighting shadows true intensity 0.7
+material dull
+graphics silhouettes true width 1.5
+view
+turn x 6
+zoom 0.92
+movie record size 1920,1180 supersample 1
+show #56 models
+show #106 models
+wait 2
+hide #56 models
+hide #106 models
+show #55 models
+show #105 models
+wait 2
+hide #55 models
+hide #105 models
+show #54 models
+show #104 models
+wait 2
+hide #54 models
+hide #104 models
+show #53 models
+show #103 models
+wait 2
+hide #53 models
+hide #103 models
+show #52 models
+show #102 models
+wait 2
+hide #52 models
+hide #102 models
+show #51 models
+show #101 models
+wait 2
+hide #51 models
+hide #101 models
+show #50 models
+show #100 models
+wait 2
+hide #50 models
+hide #100 models
+show #49 models
+show #99 models
+wait 2
+hide #49 models
+hide #99 models
+show #48 models
+show #98 models
+wait 2
+hide #48 models
+hide #98 models
+show #47 models
+show #97 models
+wait 2
+hide #47 models
+hide #97 models
+show #46 models
+show #96 models
+wait 2
+hide #46 models
+hide #96 models
+show #45 models
+show #95 models
+wait 2
+hide #45 models
+hide #95 models
+show #44 models
+show #94 models
+wait 2
+hide #44 models
+hide #94 models
+show #43 models
+show #93 models
+wait 2
+hide #43 models
+hide #93 models
+show #42 models
+show #92 models
+wait 2
+hide #42 models
+hide #92 models
+show #41 models
+show #91 models
+wait 2
+hide #41 models
+hide #91 models
+show #40 models
+show #90 models
+wait 2
+hide #40 models
+hide #90 models
+show #39 models
+show #89 models
+wait 2
+hide #39 models
+hide #89 models
+show #38 models
+show #88 models
+wait 2
+hide #38 models
+hide #88 models
+show #37 models
+show #87 models
+wait 2
+hide #37 models
+hide #87 models
+show #36 models
+show #86 models
+wait 2
+hide #36 models
+hide #86 models
+show #35 models
+show #85 models
+wait 2
+hide #35 models
+hide #85 models
+show #34 models
+show #84 models
+wait 2
+hide #34 models
+hide #84 models
+show #33 models
+show #83 models
+wait 2
+hide #33 models
+hide #83 models
+show #32 models
+show #82 models
+wait 2
+hide #32 models
+hide #82 models
+show #31 models
+show #81 models
+wait 2
+hide #31 models
+hide #81 models
+show #30 models
+show #80 models
+wait 2
+hide #30 models
+hide #80 models
+show #29 models
+show #79 models
+wait 2
+hide #29 models
+hide #79 models
+show #28 models
+show #78 models
+wait 2
+hide #28 models
+hide #78 models
+show #27 models
+show #77 models
+wait 2
+hide #27 models
+hide #77 models
+show #26 models
+show #76 models
+wait 2
+hide #26 models
+hide #76 models
+show #25 models
+show #75 models
+wait 2
+hide #25 models
+hide #75 models
+show #24 models
+show #74 models
+wait 2
+hide #24 models
+hide #74 models
+show #23 models
+show #73 models
+wait 2
+hide #23 models
+hide #73 models
+show #22 models
+show #72 models
+wait 2
+hide #22 models
+hide #72 models
+show #21 models
+show #71 models
+wait 2
+hide #21 models
+hide #71 models
+show #20 models
+show #70 models
+wait 2
+hide #20 models
+hide #70 models
+show #19 models
+show #69 models
+wait 2
+hide #19 models
+hide #69 models
+show #18 models
+show #68 models
+wait 2
+hide #18 models
+hide #68 models
+show #17 models
+show #67 models
+wait 2
+hide #17 models
+hide #67 models
+show #16 models
+show #66 models
+wait 2
+hide #16 models
+hide #66 models
+show #15 models
+show #65 models
+wait 2
+hide #15 models
+hide #65 models
+show #14 models
+show #64 models
+wait 2
+hide #14 models
+hide #64 models
+show #13 models
+show #63 models
+wait 2
+hide #13 models
+hide #63 models
+show #12 models
+show #62 models
+wait 2
+hide #12 models
+hide #62 models
+show #11 models
+show #61 models
+wait 2
+hide #11 models
+hide #61 models
+show #10 models
+show #60 models
+wait 2
+hide #10 models
+hide #60 models
+show #9 models
+show #59 models
+wait 2
+hide #9 models
+hide #59 models
+show #8 models
+show #58 models
+wait 2
+hide #8 models
+hide #58 models
+show #7 models
+show #57 models
+wait 2
+wait 20
+turn y 2 15
+turn y -2 30
+turn y 2 15
+wait 20
+movie encode splitarm_diffusion.mp4 framerate 25 quality highest
+exit

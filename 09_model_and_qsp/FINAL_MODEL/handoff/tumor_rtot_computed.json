@@ -1,0 +1,47 @@
+{
+ "CEACAM5": {
+  "mol": "cibisatamab",
+  "ttype": "crc",
+  "col": "CEACAM5_copies",
+  "n": 307762,
+  "mean": 3704.289725006574,
+  "rtot_nM": 6.458673694729284,
+  "basis": "copies"
+ },
+ "ERBB2": {
+  "mol": "cinrebafusp",
+  "ttype": "crc",
+  "col": "ERBB2_copies",
+  "n": 307762,
+  "mean": 1100.498245720678,
+  "rtot_nM": 1.9187913468942426,
+  "basis": "copies"
+ },
+ "DLL3": {
+  "mol": "tarlatamab",
+  "ttype": "lung",
+  "col": "DLL3",
+  "n": 162254,
+  "mean": 0.2543251120674564,
+  "rtot_nM": 0.0004434326235689469,
+  "basis": "copies"
+ },
+ "FOLH1": {
+  "mol": "pasotuxizumab/acapatamab",
+  "ttype": "prostate",
+  "col": "FOLH1",
+  "n": 193000,
+  "mean": 0.6081540538690251,
+  "rtot_nM": 0.0010603567435751473,
+  "basis": "RAW_EXPR_flag"
+ },
+ "PMEL": {
+  "mol": "tebentafusp",
+  "ttype": "skin",
+  "col": "PMEL",
+  "n": 106980,
+  "mean": 3.4591536984218125,
+  "rtot_nM": 0.006031262848367734,
+  "basis": "RAW_EXPR_flag"
+ }
+}

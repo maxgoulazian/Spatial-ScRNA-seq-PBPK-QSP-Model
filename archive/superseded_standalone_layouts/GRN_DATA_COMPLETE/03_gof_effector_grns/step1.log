@@ -1,0 +1,9 @@
+[17:43:08] loading /media/balthasar-lab/RAID4/costim_engager_counterscreen/data/schmidt2022_tcell_perturbseq/cd8_grn_input.h5ad
+[17:43:10] X (60512, 19929) nnz=157,102,010
+[17:43:10] CD8A+ 0.444 CD8B+ 0.449 CD4+ 0.382
+[17:43:10] CD8 32,031 | CD4 17,990 | neither 10,491
+[17:43:14] CD8: 32,031 cells, 2000 ctrl, lfc (73, 19929) in 3.9s
+[17:43:14] CD8 IFNG dlog1p per arm: {'CD28': 0.15814, 'CD27': 0.16671, 'TNFRSF9': -0.01669, 'CD2': 0.23034, 'LTBR': 0.04004}
+[17:43:17] CD4: 17,990 cells, 1196 ctrl, lfc (73, 19929) in 2.7s
+[17:43:17] CD4 IFNG dlog1p per arm: {'CD28': 0.13295, 'CD27': 0.16133, 'TNFRSF9': 0.10011, 'CD2': -0.00656, 'LTBR': 0.11194}
+[17:43:17] STEP1 DONE -> /media/balthasar-lab/RAID4/costim_engager_counterscreen/work/cd8cd4_gof_grn/step1_summary.json

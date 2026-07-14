@@ -1,0 +1,23 @@
+[2026-03-04 04:24:43,704][rfantibody.rfdiffusion.inference.model_runners][INFO] - Reading checkpoint from /home/weights/RFdiffusion_Ab.pt
+[2026-03-04 04:24:46,800][rfantibody.rfdiffusion.inference.model_runners][INFO] - Loading checkpoint.
+[2026-03-04 04:24:46,930][rfantibody.rfdiffusion.diffusion][INFO] - Using cached IGSO3.
+[2026-03-04 04:24:46,946][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Trast_0
+[2026-03-04 04:24:46,946][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Trast_0.pdb already exists.
+[2026-03-04 04:24:46,946][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Trast_1
+[2026-03-04 04:24:46,946][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Trast_1.pdb already exists.
+[2026-03-04 04:24:46,946][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Trast_2
+[2026-03-04 04:24:46,946][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Trast_2.pdb already exists.
+[2026-03-04 04:24:46,946][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Trast_3
+[2026-03-04 04:24:46,946][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Trast_3.pdb already exists.
+[2026-03-04 04:24:46,947][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Trast_4
+[2026-03-04 04:24:46,947][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Trast_4.pdb already exists.
+[2026-03-04 04:24:46,947][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Trast_5
+[2026-03-04 04:24:46,947][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Trast_5.pdb already exists.
+[2026-03-04 04:24:46,947][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Trast_6
+[2026-03-04 04:24:46,947][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Trast_6.pdb already exists.
+[2026-03-04 04:24:46,947][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Trast_7
+[2026-03-04 04:24:46,947][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Trast_7.pdb already exists.
+[2026-03-04 04:24:46,947][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Trast_8
+[2026-03-04 04:24:46,948][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Trast_8.pdb already exists.
+[2026-03-04 04:24:46,948][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Trast_9
+[2026-03-04 04:24:46,948][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Trast_9.pdb already exists.

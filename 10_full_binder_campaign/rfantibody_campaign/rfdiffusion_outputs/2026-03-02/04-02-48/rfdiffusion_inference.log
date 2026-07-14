@@ -1,0 +1,23 @@
+[2026-03-02 04:02:48,571][rfantibody.rfdiffusion.inference.model_runners][INFO] - Reading checkpoint from /home/weights/RFdiffusion_Ab.pt
+[2026-03-02 04:02:51,779][rfantibody.rfdiffusion.inference.model_runners][INFO] - Loading checkpoint.
+[2026-03-02 04:02:51,910][rfantibody.rfdiffusion.diffusion][INFO] - Using cached IGSO3.
+[2026-03-02 04:02:51,925][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Telis_0
+[2026-03-02 04:02:51,925][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Telis_0.pdb already exists.
+[2026-03-02 04:02:51,925][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Telis_1
+[2026-03-02 04:02:51,925][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Telis_1.pdb already exists.
+[2026-03-02 04:02:51,926][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Telis_2
+[2026-03-02 04:02:51,926][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Telis_2.pdb already exists.
+[2026-03-02 04:02:51,926][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Telis_3
+[2026-03-02 04:02:51,926][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Telis_3.pdb already exists.
+[2026-03-02 04:02:51,926][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Telis_4
+[2026-03-02 04:02:51,926][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Telis_4.pdb already exists.
+[2026-03-02 04:02:51,926][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Telis_5
+[2026-03-02 04:02:51,926][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Telis_5.pdb already exists.
+[2026-03-02 04:02:51,927][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Telis_6
+[2026-03-02 04:02:51,927][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Telis_6.pdb already exists.
+[2026-03-02 04:02:51,927][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Telis_7
+[2026-03-02 04:02:51,927][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Telis_7.pdb already exists.
+[2026-03-02 04:02:51,927][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Telis_8
+[2026-03-02 04:02:51,927][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Telis_8.pdb already exists.
+[2026-03-02 04:02:51,927][__main__][INFO] - Making design /home/scripts/examples/example_outputs/Telis_9
+[2026-03-02 04:02:51,927][__main__][INFO] - (cautious mode) Skipping this design because /home/scripts/examples/example_outputs/Telis_9.pdb already exists.

@@ -1,0 +1,1144 @@
+{
+ "atezolizumab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "atezolizumab",
+   "target": "PD-L1/CD274",
+   "KD_nM": 0.4,
+   "kint_perday": 0.1,
+   "valency": 2,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": null,
+   "koff_pers": null,
+   "Rtot_nM": {
+    "lung": 4.0,
+    "tumor": 3.0,
+    "spleen": 2.0
+   },
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "sAg_kdeg_perday": 0.0,
+   "receptors_per_cell": 0.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 2,
+   "avidity_sink": true
+  }
+ },
+ "cemiplimab": {
+  "source": "auto",
+  "spec": {
+   "name": "cemiplimab",
+   "target": "PD-1 (PDCD1)",
+   "KD_nM": 0.6,
+   "mw_kda": 148.0,
+   "fFcRn": 0.8295,
+   "modality": "IgG4 mAb",
+   "is_bispecific": 0,
+   "family": "checkpoint",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "dostarlimab": {
+  "source": "auto",
+  "spec": {
+   "name": "dostarlimab",
+   "target": "PD-1 (PDCD1)",
+   "KD_nM": 0.3,
+   "mw_kda": 148.0,
+   "fFcRn": 0.8295,
+   "modality": "IgG4 mAb",
+   "is_bispecific": 0,
+   "family": "checkpoint",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "ipilimumab": {
+  "source": "auto",
+  "spec": {
+   "name": "ipilimumab",
+   "target": "CTLA-4 (CTLA4)",
+   "KD_nM": 18.2,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG1 mAb",
+   "is_bispecific": 0,
+   "family": "checkpoint",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "nivolumab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "nivolumab",
+   "target": "PD-1/PDCD1",
+   "KD_nM": 1.45,
+   "kint_perday": 0.05,
+   "valency": 2,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": null,
+   "koff_pers": null,
+   "Rtot_nM": {
+    "spleen": 3.0,
+    "large_int": 2.0,
+    "lung": 1.5
+   },
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "sAg_kdeg_perday": 0.0,
+   "receptors_per_cell": 2400.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 2,
+   "avidity_sink": true
+  }
+ },
+ "pembrolizumab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "pembrolizumab",
+   "target": "PD-1/PDCD1",
+   "KD_nM": 0.027,
+   "kint_perday": 0.1,
+   "valency": 2,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": null,
+   "koff_pers": null,
+   "Rtot_nM": {
+    "spleen": 4.446748828305543,
+    "tumor": 0.0013284312537390774
+   },
+   "Rtot_plasma_nM": 0.0013498575642832559,
+   "sAg_nM": 0.0,
+   "sAg_kdeg_perday": 0.0,
+   "receptors_per_cell": 2400.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 2,
+   "avidity_sink": true
+  }
+ },
+ "relatlimab": {
+  "source": "auto",
+  "spec": {
+   "name": "relatlimab",
+   "target": "LAG-3 (LAG3)",
+   "KD_nM": 0.12,
+   "mw_kda": 148.0,
+   "fFcRn": 0.8295,
+   "modality": "IgG4 mAb",
+   "is_bispecific": 0,
+   "family": "checkpoint",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "feladilimab": {
+  "source": "auto",
+  "spec": {
+   "name": "feladilimab",
+   "target": "ICOS (ICOS)",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.8295,
+   "modality": "IgG4 agonist mAb",
+   "is_bispecific": 0,
+   "family": "costim",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "ivuxolimab": {
+  "source": "auto",
+  "spec": {
+   "name": "ivuxolimab",
+   "target": "OX40 (TNFRSF4)",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG2 agonist mAb",
+   "is_bispecific": 0,
+   "family": "costim",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "mitazalimab": {
+  "source": "auto",
+  "spec": {
+   "name": "mitazalimab",
+   "target": "CD40 (TNFRSF5)",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG1 agonist mAb",
+   "is_bispecific": 0,
+   "family": "costim",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "selicrelumab": {
+  "source": "auto",
+  "spec": {
+   "name": "selicrelumab",
+   "target": "CD40 (TNFRSF5)",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG2 agonist mAb",
+   "is_bispecific": 0,
+   "family": "costim",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "urelumab": {
+  "source": "auto",
+  "spec": {
+   "name": "urelumab",
+   "target": "4-1BB (TNFRSF9/CD137)",
+   "KD_nM": 2.2e-08,
+   "mw_kda": 148.0,
+   "fFcRn": 0.8295,
+   "modality": "IgG4 agonist mAb",
+   "is_bispecific": 0,
+   "family": "costim",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "vopratelimab": {
+  "source": "auto",
+  "spec": {
+   "name": "vopratelimab",
+   "target": "ICOS (ICOS)",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG agonist mAb",
+   "is_bispecific": 0,
+   "family": "costim",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "benralizumab": {
+  "source": "auto",
+  "spec": {
+   "name": "benralizumab",
+   "target": "IL-5R\u03b1 (IL5RA)",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG1 mAb",
+   "is_bispecific": 0,
+   "family": "cytokine",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "dupilumab": {
+  "source": "auto",
+  "spec": {
+   "name": "dupilumab",
+   "target": "IL-4R\u03b1 (IL4R)",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.8295,
+   "modality": "IgG4 mAb",
+   "is_bispecific": 0,
+   "family": "cytokine",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "omalizumab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "omalizumab",
+   "target": "IgE",
+   "KD_nM": 1.0,
+   "kint_perday": 0.0,
+   "valency": 2,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": null,
+   "koff_pers": null,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 1.0,
+   "sAg_kdeg_perday": 0.055,
+   "receptors_per_cell": 0.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 2,
+   "avidity_sink": true
+  }
+ },
+ "tezepelumab": {
+  "source": "auto",
+  "spec": {
+   "name": "tezepelumab",
+   "target": "TSLP",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG2 mAb",
+   "is_bispecific": 0,
+   "family": "cytokine",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "tocilizumab": {
+  "source": "auto",
+  "spec": {
+   "name": "tocilizumab",
+   "target": "IL-6R (IL6R)",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG1 mAb",
+   "is_bispecific": 0,
+   "family": "cytokine",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "bevacizumab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "bevacizumab",
+   "target": "VEGFA",
+   "KD_nM": 0.5,
+   "kint_perday": 0.0,
+   "valency": 2,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": null,
+   "koff_pers": null,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.3,
+   "sAg_kdeg_perday": 0.055,
+   "receptors_per_cell": 0.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 2,
+   "avidity_sink": true
+  }
+ },
+ "cetuximab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "cetuximab",
+   "target": "EGFR",
+   "KD_nM": 0.39,
+   "kint_perday": 0.3,
+   "valency": 2,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": null,
+   "koff_pers": null,
+   "Rtot_nM": {
+    "skin": 8.0,
+    "large_int": 6.0,
+    "liver": 4.0
+   },
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "sAg_kdeg_perday": 0.0,
+   "receptors_per_cell": 500000.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 2,
+   "avidity_sink": true
+  }
+ },
+ "daratumumab": {
+  "source": "auto",
+  "spec": {
+   "name": "daratumumab",
+   "target": "CD38",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG1 mAb",
+   "is_bispecific": 0,
+   "family": "onco",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "obinutuzumab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "obinutuzumab",
+   "target": "CD20/MS4A1",
+   "KD_nM": 4.0,
+   "kint_perday": 0.05,
+   "valency": 2,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": null,
+   "koff_pers": null,
+   "Rtot_nM": {
+    "spleen": 239.6,
+    "bone": 5.4
+   },
+   "Rtot_plasma_nM": 0.05,
+   "sAg_nM": 0.0,
+   "sAg_kdeg_perday": 0.0,
+   "receptors_per_cell": 100000.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 2,
+   "avidity_sink": true
+  }
+ },
+ "panitumumab": {
+  "source": "auto",
+  "spec": {
+   "name": "panitumumab",
+   "target": "EGFR",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG2 mAb",
+   "is_bispecific": 0,
+   "family": "onco",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "pertuzumab": {
+  "source": "auto",
+  "spec": {
+   "name": "pertuzumab",
+   "target": "HER2 (ERBB2)",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG1 mAb",
+   "is_bispecific": 0,
+   "family": "onco",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "rituximab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "rituximab",
+   "target": "CD20/MS4A1",
+   "KD_nM": 5.0,
+   "kint_perday": 0.0,
+   "valency": 2,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": null,
+   "koff_pers": null,
+   "Rtot_nM": {
+    "spleen": 239.6,
+    "bone": 5.4
+   },
+   "Rtot_plasma_nM": 0.05,
+   "sAg_nM": 0.0,
+   "sAg_kdeg_perday": 0.0,
+   "receptors_per_cell": 100000.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 2,
+   "avidity_sink": true
+  }
+ },
+ "trastuzumab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "trastuzumab",
+   "target": "HER2/ERBB2",
+   "KD_nM": 0.5,
+   "kint_perday": 0.17,
+   "valency": 2,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": 700000.0,
+   "koff_pers": 0.0004,
+   "Rtot_nM": {
+    "tumor": 11.070260447825646,
+    "skin": 0.003234396313155136
+   },
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "sAg_kdeg_perday": 0.0,
+   "receptors_per_cell": 2000000.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 2,
+   "avidity_sink": true
+  }
+ },
+ "blinatumomab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "blinatumomab",
+   "target": "CD19",
+   "KD_nM": 1.49,
+   "kint_perday": 0.0,
+   "valency": 1,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": null,
+   "koff_pers": null,
+   "Rtot_nM": {
+    "spleen": 148.22496094351808,
+    "bone": 1.6273282858303697
+   },
+   "Rtot_plasma_nM": 0.010713155272089332,
+   "sAg_nM": 0.0,
+   "sAg_kdeg_perday": 0.0,
+   "receptors_per_cell": 20000.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 1,
+   "avidity_sink": true,
+   "Rtot_cd3_plasma_nM": 0.05,
+   "kint_cd3_perday": 0.05
+  }
+ },
+ "catumaxomab": {
+  "source": "auto",
+  "spec": {
+   "name": "catumaxomab",
+   "target": "EpCAM; CD3",
+   "KD_nM": 0.56,
+   "mw_kda": 150.0,
+   "fFcRn": 0.7,
+   "modality": "Trifunctional bispecific",
+   "is_bispecific": 1,
+   "family": "TCE",
+   "n_arm_target": 1,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "elranatamab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "elranatamab",
+   "target": "BCMA/TNFRSF17",
+   "KD_nM": 0.15,
+   "kint_perday": 0.17,
+   "valency": 2,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": null,
+   "koff_pers": null,
+   "Rtot_nM": {
+    "spleen": 40.0,
+    "bone": 80.0
+   },
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "sAg_kdeg_perday": 0.0,
+   "receptors_per_cell": 12000.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 1,
+   "avidity_sink": true,
+   "Rtot_cd3_plasma_nM": 0.05,
+   "kint_cd3_perday": 0.05
+  }
+ },
+ "epcoritamab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "epcoritamab",
+   "target": "CD20/MS4A1",
+   "KD_nM": 5.0,
+   "kint_perday": 0.0,
+   "valency": 1,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": null,
+   "koff_pers": null,
+   "Rtot_nM": {
+    "spleen": 741.1248047175905,
+    "bone": 5.429962749658479
+   },
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "sAg_kdeg_perday": 0.0,
+   "receptors_per_cell": 100000.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 1,
+   "avidity_sink": true,
+   "Rtot_cd3_plasma_nM": 0.05,
+   "kint_cd3_perday": 0.05,
+   "ka_sc_perday": 0.28
+  }
+ },
+ "glofitamab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "glofitamab",
+   "target": "CD20/MS4A1",
+   "KD_nM": 5.0,
+   "kint_perday": 0.0,
+   "valency": 2,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": null,
+   "koff_pers": null,
+   "Rtot_nM": {
+    "spleen": 741.1248047175905,
+    "bone": 5.429962749658479
+   },
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "sAg_kdeg_perday": 0.0,
+   "receptors_per_cell": 100000.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 2,
+   "avidity_sink": true,
+   "Rtot_cd3_plasma_nM": 0.05,
+   "kint_cd3_perday": 0.05
+  }
+ },
+ "linvoseltamab": {
+  "source": "auto",
+  "spec": {
+   "name": "linvoseltamab",
+   "target": "BCMA; CD3",
+   "KD_nM": 1.0,
+   "mw_kda": 146.0,
+   "fFcRn": 0.7,
+   "modality": "IgG bispecific",
+   "is_bispecific": 1,
+   "family": "TCE",
+   "n_arm_target": 1,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "mosunetuzumab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "mosunetuzumab",
+   "target": "CD20/MS4A1",
+   "KD_nM": 5.0,
+   "kint_perday": 0.0,
+   "valency": 1,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": null,
+   "koff_pers": null,
+   "Rtot_nM": {
+    "spleen": 741.1248047175905,
+    "bone": 5.429962749658479
+   },
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "sAg_kdeg_perday": 0.0,
+   "receptors_per_cell": 100000.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 1,
+   "avidity_sink": true,
+   "Rtot_cd3_plasma_nM": 0.05,
+   "kint_cd3_perday": 0.05
+  }
+ },
+ "odronextamab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "odronextamab",
+   "target": "CD20/MS4A1",
+   "KD_nM": 5.0,
+   "kint_perday": 0.0,
+   "valency": 2,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": null,
+   "koff_pers": null,
+   "Rtot_nM": {
+    "spleen": 239.6,
+    "bone": 5.4
+   },
+   "Rtot_plasma_nM": 0.05,
+   "sAg_nM": 0.0,
+   "sAg_kdeg_perday": 0.0,
+   "receptors_per_cell": 100000.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 1,
+   "avidity_sink": true,
+   "Rtot_cd3_plasma_nM": 0.05,
+   "kint_cd3_perday": 0.05
+  }
+ },
+ "talquetamab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "talquetamab",
+   "target": "GPRC5D",
+   "KD_nM": 2.0,
+   "kint_perday": 0.1,
+   "valency": 2,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": null,
+   "koff_pers": null,
+   "Rtot_nM": {
+    "bone": 30.0,
+    "spleen": 10.0
+   },
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "sAg_kdeg_perday": 0.0,
+   "receptors_per_cell": 0.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 1,
+   "avidity_sink": true,
+   "Rtot_cd3_plasma_nM": 0.05,
+   "kint_cd3_perday": 0.05,
+   "ka_sc_perday": 0.28
+  }
+ },
+ "tarlatamab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "tarlatamab",
+   "target": "DLL3",
+   "KD_nM": 0.5,
+   "kint_perday": 0.1,
+   "valency": 2,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": null,
+   "koff_pers": null,
+   "Rtot_nM": {
+    "tumor": 10.0
+   },
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "sAg_kdeg_perday": 0.0,
+   "receptors_per_cell": 0.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 1,
+   "avidity_sink": true,
+   "Rtot_cd3_plasma_nM": 0.05,
+   "kint_cd3_perday": 0.05
+  }
+ },
+ "tebentafusp": {
+  "source": "auto",
+  "spec": {
+   "name": "tebentafusp",
+   "target": "gp100-HLA-A*02:01; CD3",
+   "KD_nM": 1.0,
+   "mw_kda": 77.0,
+   "fFcRn": 0.6,
+   "modality": "ImmTAC (TCR-based)",
+   "is_bispecific": 1,
+   "family": "TCE",
+   "n_arm_target": 1,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "teclistamab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "teclistamab",
+   "target": "BCMA/TNFRSF17",
+   "KD_nM": 0.15,
+   "kint_perday": 0.17,
+   "valency": 1,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": null,
+   "koff_pers": null,
+   "Rtot_nM": {
+    "bone": 1.0212315263119158,
+    "large_int": 0.942468119206778
+   },
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "sAg_kdeg_perday": 0.0,
+   "receptors_per_cell": 12000.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 1,
+   "avidity_sink": true,
+   "Rtot_cd3_plasma_nM": 0.05,
+   "kint_cd3_perday": 0.05,
+   "ka_sc_perday": 0.28
+  }
+ },
+ "adalimumab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "adalimumab",
+   "target": "TNF/TNFA",
+   "KD_nM": 0.1,
+   "kint_perday": 0.0,
+   "valency": 2,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": null,
+   "koff_pers": null,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.05,
+   "sAg_kdeg_perday": 0.055,
+   "receptors_per_cell": 0.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 2,
+   "avidity_sink": true,
+   "ka_sc_perday": 0.28
+  }
+ },
+ "alirocumab": {
+  "source": "auto",
+  "spec": {
+   "name": "alirocumab",
+   "target": "PCSK9",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG1 mAb",
+   "is_bispecific": 0,
+   "family": "autoimmune",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "certolizumab pegol": {
+  "source": "auto",
+  "spec": {
+   "name": "certolizumab pegol",
+   "target": "TNF-\u03b1 (TNF)",
+   "KD_nM": 1.0,
+   "mw_kda": 91.0,
+   "fFcRn": 0.0,
+   "modality": "PEG-Fab",
+   "is_bispecific": 0,
+   "family": "autoimmune",
+   "n_arm_target": 1,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "denosumab": {
+  "source": "handbuilt",
+  "spec": {
+   "name": "denosumab",
+   "target": "RANKL/TNFSF11",
+   "KD_nM": 0.05,
+   "kint_perday": 0.0,
+   "valency": 2,
+   "ksyn_frac_perday": 1.0,
+   "kon_perM_pers": null,
+   "koff_pers": null,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.02,
+   "sAg_kdeg_perday": 0.055,
+   "receptors_per_cell": 0.0,
+   "r_cell_um": 8.0,
+   "r_Ab_nm": 12.5,
+   "n_arm_target": 2,
+   "avidity_sink": true
+  }
+ },
+ "eculizumab": {
+  "source": "auto",
+  "spec": {
+   "name": "eculizumab",
+   "target": "C5",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG2/4 mAb",
+   "is_bispecific": 0,
+   "family": "autoimmune",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "evolocumab": {
+  "source": "auto",
+  "spec": {
+   "name": "evolocumab",
+   "target": "PCSK9",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG2 mAb",
+   "is_bispecific": 0,
+   "family": "autoimmune",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "golimumab": {
+  "source": "auto",
+  "spec": {
+   "name": "golimumab",
+   "target": "TNF-\u03b1 (TNF)",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG1 mAb",
+   "is_bispecific": 0,
+   "family": "autoimmune",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "guselkumab": {
+  "source": "auto",
+  "spec": {
+   "name": "guselkumab",
+   "target": "IL-23 p19 (IL23A)",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG1 mAb",
+   "is_bispecific": 0,
+   "family": "autoimmune",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "infliximab": {
+  "source": "auto",
+  "spec": {
+   "name": "infliximab",
+   "target": "TNF-\u03b1 (TNF)",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG1 chimeric mAb",
+   "is_bispecific": 0,
+   "family": "autoimmune",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "ixekizumab": {
+  "source": "auto",
+  "spec": {
+   "name": "ixekizumab",
+   "target": "IL-17A",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.8295,
+   "modality": "IgG4 mAb",
+   "is_bispecific": 0,
+   "family": "autoimmune",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "natalizumab": {
+  "source": "auto",
+  "spec": {
+   "name": "natalizumab",
+   "target": "\u03b14 integrin (ITGA4)",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.8295,
+   "modality": "IgG4 mAb",
+   "is_bispecific": 0,
+   "family": "autoimmune",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "ravulizumab": {
+  "source": "auto",
+  "spec": {
+   "name": "ravulizumab",
+   "target": "C5",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG2/4 mAb",
+   "is_bispecific": 0,
+   "family": "autoimmune",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "risankizumab": {
+  "source": "auto",
+  "spec": {
+   "name": "risankizumab",
+   "target": "IL-23 p19 (IL23A)",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG1 mAb",
+   "is_bispecific": 0,
+   "family": "autoimmune",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "secukinumab": {
+  "source": "auto",
+  "spec": {
+   "name": "secukinumab",
+   "target": "IL-17A",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG1 mAb",
+   "is_bispecific": 0,
+   "family": "autoimmune",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "tildrakizumab": {
+  "source": "auto",
+  "spec": {
+   "name": "tildrakizumab",
+   "target": "IL-23 p19 (IL23A)",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG1 mAb",
+   "is_bispecific": 0,
+   "family": "autoimmune",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "ustekinumab": {
+  "source": "auto",
+  "spec": {
+   "name": "ustekinumab",
+   "target": "IL-12/23 p40 (IL12B)",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG1 mAb",
+   "is_bispecific": 0,
+   "family": "autoimmune",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ },
+ "vedolizumab": {
+  "source": "auto",
+  "spec": {
+   "name": "vedolizumab",
+   "target": "\u03b14\u03b27 integrin (ITGA4/ITGB7)",
+   "KD_nM": 1.0,
+   "mw_kda": 148.0,
+   "fFcRn": 0.75,
+   "modality": "IgG1 mAb",
+   "is_bispecific": 0,
+   "family": "autoimmune",
+   "n_arm_target": 2,
+   "Rtot_nM": {},
+   "Rtot_plasma_nM": 0.0,
+   "sAg_nM": 0.0,
+   "kint_perday": 0.15
+  }
+ }
+}

@@ -1,0 +1,58 @@
+{
+ "_doc": "IL-6/CRS validation. Clinical anchors restricted to the THREE manifest-VERIFIED digitized-curve values (mosun mean 127.4, glofit median 30.2, talq median 19.8). teclistamab EXCLUDED: its 21 pg/mL is a loose MajesTEC-1 mean, not a digitized curve, and SUBMISSION_MANIFEST v3 says do not cite it as a sourced anchor.",
+ "emergent_peaks_mech_ecf_pgml": {
+  "mosunetuzumab": 723.7,
+  "teclistamab": 429.0,
+  "glofitamab": 650.7,
+  "talquetamab": 772.4
+ },
+ "clinical_anchors_VERIFIED_digitized_pgml": {
+  "mosunetuzumab": 127.4,
+  "glofitamab": 30.2,
+  "talquetamab": 19.8
+ },
+ "teclistamab_EXCLUDED": "model peak 429.0 computed but NO verified clinical anchor; 21 mean is unverified MajesTEC-1, dropped per manifest v3. Any tecli-based ratio is PROVISIONAL, not validated.",
+ "tests_VERIFIED_anchors_only": {
+  "glofit/talq_CLEANEST_both_median_stepup": {
+   "model": 0.84,
+   "clinical": 1.53,
+   "verdict": "WRONG DIRECTION (0.84x vs 1.53x)"
+  },
+  "mosun/talq": {
+   "model": 0.94,
+   "clinical": 6.43,
+   "verdict": "WRONG DIRECTION (0.94x vs 6.43x) \u2014 talq inverted"
+  },
+  "mosun/glofit": {
+   "model": 1.11,
+   "clinical": 4.22,
+   "verdict": "DIRECTION OK, COMPRESSED (1.11x vs 4.22x)"
+  }
+ },
+ "tests_PROVISIONAL_depend_on_unverified_teclistamab": {
+  "glofit/tecli": {
+   "model": 1.52,
+   "clinical_UNVERIFIED": 1.44,
+   "note": "looked like a match (1.52x vs 1.44x) but leans on the UNVERIFIED tecli 21 anchor \u2014 NOT a validated pass"
+  },
+  "mosun/tecli_prior_headline": {
+   "model": 1.69,
+   "clinical_UNVERIFIED": 6.07,
+   "note": "prior 'headline' test; tecli anchor unverified so this is PROVISIONAL not the validation"
+  }
+ },
+ "rank_model_low_to_high": [
+  "teclistamab",
+  "glofitamab",
+  "mosunetuzumab",
+  "talquetamab"
+ ],
+ "rank_clinical_verified_low_to_high": [
+  "talquetamab",
+  "glofitamab",
+  "mosunetuzumab"
+ ],
+ "VERDICT": "FAIL on verified anchors. Among the 3 manifest-verified digitized anchors (mosun/glofit/talq), the cleanest same-statistic pair (glofit/talq, both medians) is WRONG DIRECTION, driven by talquetamab inversion. mosun/glofit direction is correct but magnitude compressed (1.11x vs 4.22x). The earlier 'good match' (glofit/tecli) leaned on an anchor the manifest says not to cite; removing it removes the apparent pass.",
+ "DIAGNOSIS_talq": "talq highest il6_prod (1.80M pg/hr) + highest peak despite LOWEST Cmax (7.4), driven by depletion-weighted engagement. Clinically LOWEST IL-6 because GPRC5D is on plasma cells/keratinized tissue, NOT myeloid-contacting compartments. Myeloid IL-6 term doesn't condition on WHICH target compartment killing occurs in. Real mechanism gap.",
+ "NO_RESCUE": "Not denominator-shopped, not talq-dropped. teclistamab excluded because its anchor is unverified per manifest, NOT to improve the result (excluding it makes the result WORSE \u2014 removes the only apparent match)."
+}

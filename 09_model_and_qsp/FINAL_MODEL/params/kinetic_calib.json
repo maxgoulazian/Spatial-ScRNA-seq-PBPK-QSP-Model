@@ -1,0 +1,21 @@
+{
+ "IL6_SCALE_kin": 0.05473008541177651,
+ "k_hit": 12.0,
+ "k_death": 1.0,
+ "il6_raw_peak": 10414.747130603793,
+ "mosun_kill": {
+  "spleen": 0.8223352706624172,
+  "bone": 0.7019377925193352,
+  "large_int": 0.9701125767559843,
+  "liver": 0.4714733499284291,
+  "lung": 0.67112031247185,
+  "small_int": 0.7216101659581875,
+  "pancreas": 0.9648958593468753,
+  "kidney": 0.8167987788164229,
+  "skin": 0.0,
+  "heart": 0.0,
+  "adipose": 0.42039268878426517
+ },
+ "clin_il6": 570.0,
+ "k_death_provenance": "k_death=1.0 LOCKED. PRIMARY anchor (compartment-independent): engaged-CTL serial ceiling k_hit*koff/(k_hit+koff)=11.6/day at KD_CD3=40nM; emergent engaged rate 2.7/day median inside Halle 2-16/day band, NO fitting. SECONDARY check: mosunetuzumab full PBPK-PD at k_death=1.0 gives IL6 609 (clin 570), organ B-cell depl 0.93, heme blast depl 0.53. The heme-vs-solid depletion gap is EMERGENT from multiple mechanistic inputs (contact geometry ~2.5x + target:effector ratio ~27x + antigen density/KD), NOT geometry alone and NOT a per-setting k_death; the prior depletion-fit 0.5 was an artifact of forcing heme clinical depletion through a solid-geometry+ratio engine. ONE shared value, all engagers."
+}

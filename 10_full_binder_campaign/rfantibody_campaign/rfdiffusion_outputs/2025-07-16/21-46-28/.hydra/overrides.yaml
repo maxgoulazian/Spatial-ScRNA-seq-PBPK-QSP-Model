@@ -1,0 +1,12 @@
+- antibody.target_pdb=/home/input/Ep.pdb
+- antibody.framework_pdb=/home/input/EpAb_chothia_HLT.pdb
+- inference.ckpt_override_path=/home/weights/RFdiffusion_Ab.pt
+- ppi.hotspot_res=[Q1, E2, E3, V5, K10, L11, V13, N14, C15, F16, V17, N19, R21, Q24,
+  T26, V28, Q31, T33, N51, G52, S53, L55, G56, Y95, D96, T111, S113, E114, Y119, W120,
+  I122, E200, H204, K206]
+- antibody.design_loops=[L1:8-13,L2:7,L3:9-11,H1:7,H2:6,H3:5-13]
+- inference.num_designs=20
+- inference.final_step=48
+- diffuser.T=50
+- inference.deterministic=True
+- inference.output_prefix=/home/outputs/8bw0

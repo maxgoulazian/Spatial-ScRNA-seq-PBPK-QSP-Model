@@ -1,0 +1,8 @@
+- antibody.target_pdb=/home/input/target_41BB.pdb
+- antibody.framework_pdb=/home/input/framework_VHH.pdb
+- inference.ckpt_override_path=/home/weights/RFdiffusion_Ab.pt
+- ppi.hotspot_res=[T26,T31,T40,T41,T44]
+- antibody.design_loops=[H1:7,H2:6,H3:5-13]
+- inference.num_designs=100
+- inference.deterministic=True
+- inference.output_prefix=/home/campaign_out/41BB/41BB

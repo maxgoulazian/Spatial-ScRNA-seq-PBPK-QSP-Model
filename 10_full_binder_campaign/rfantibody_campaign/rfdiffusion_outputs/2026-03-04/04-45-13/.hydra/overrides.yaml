@@ -1,0 +1,10 @@
+- antibody.target_pdb=/home/scripts/examples/example_inputs/Trastuzumab.pdb
+- antibody.framework_pdb=/home/scripts/examples/example_inputs/h-NbBCII10.pdb
+- inference.ckpt_override_path=/home/weights/RFdiffusion_Ab.pt
+- ppi.hotspot_res=[D31,D49,D52,D53,D54,D55,D56,D60,D63,D65,D66,E97,E98,E99,E100,E101,E26,E27,E28]
+- antibody.design_loops=[H1:7,H2:6,H3:13]
+- inference.num_designs=10
+- inference.final_step=48
+- inference.deterministic=True
+- diffuser.T=50
+- inference.output_prefix=/home/scripts/examples/example_outputs/Trast4

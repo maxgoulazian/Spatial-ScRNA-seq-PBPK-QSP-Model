@@ -1,0 +1,268 @@
+{
+ "dupilumab": {
+  "Rtot_plasma_nM": 6.59,
+  "KD_nM": 14.1,
+  "kint_perday": 1.0,
+  "n_arm_target": 2,
+  "ksyn_frac_perday": 1.0,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0
+ },
+ "daratumumab": {
+  "Rtot_plasma_nM": 90.0,
+  "KD_nM": 1.35,
+  "kint_perday": 0.5,
+  "n_arm_target": 2,
+  "ksyn_frac_perday": 0.5,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0
+ },
+ "panitumumab": {
+  "Rtot_plasma_nM": 0.0,
+  "KD_nM": 1.0,
+  "kint_perday": 207.36,
+  "n_arm_target": 2,
+  "ksyn_frac_perday": 0.95,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0
+ },
+ "linvoseltamab": {
+  "Rtot_plasma_nM": 0.0,
+  "sAg_nM": 0.5,
+  "sAg_kdeg_perday": 0.3,
+  "KD_nM": 0.4,
+  "kint_perday": 2.0,
+  "n_arm_target": 1,
+  "ksyn_frac_perday": 1.5
+ },
+ "alirocumab": {
+  "sAg_nM": 3.0,
+  "sAg_kdeg_perday": 0.4,
+  "KD_nM": 0.6,
+  "kint_perday": 0.0,
+  "n_arm_target": 2,
+  "Rtot_plasma_nM": 0.0
+ },
+ "eculizumab": {
+  "sAg_nM": 370.0,
+  "sAg_kdeg_perday": 0.3,
+  "KD_nM": 0.12,
+  "kint_perday": 0.0,
+  "n_arm_target": 2,
+  "Rtot_plasma_nM": 0.0
+ },
+ "ravulizumab": {
+  "sAg_nM": 370.0,
+  "sAg_kdeg_perday": 0.1,
+  "KD_nM": 0.12,
+  "kint_perday": 0.0,
+  "n_arm_target": 2,
+  "Rtot_plasma_nM": 0.0
+ },
+ "golimumab": {
+  "sAg_nM": 0.05,
+  "sAg_kdeg_perday": 0.5,
+  "KD_nM": 0.1,
+  "kint_perday": 0.0,
+  "n_arm_target": 2,
+  "Rtot_plasma_nM": 0.0,
+  "ksyn_frac_perday": 0.0
+ },
+ "tocilizumab": {
+  "sAg_nM": 8.0,
+  "sAg_kdeg_perday": 0.6,
+  "KD_nM": 2.5,
+  "kint_perday": 0.0,
+  "n_arm_target": 2,
+  "Rtot_plasma_nM": 0.0
+ },
+ "rituximab": {
+  "Rtot_plasma_nM": 0.05,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0,
+  "KD_nM": 5.0,
+  "kint_perday": 0.02,
+  "n_arm_target": 2,
+  "ksyn_frac_perday": 0.05
+ },
+ "cetuximab": {
+  "Rtot_plasma_nM": 0.0,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0,
+  "KD_nM": 0.15,
+  "kint_perday": 207.36,
+  "n_arm_target": 2,
+  "ksyn_frac_perday": 0.3
+ },
+ "bevacizumab": {
+  "Rtot_plasma_nM": 0.0,
+  "sAg_nM": 0.3,
+  "sAg_kdeg_perday": 0.055,
+  "KD_nM": 0.5,
+  "kint_perday": 0.0,
+  "n_arm_target": 2,
+  "ksyn_frac_perday": 1.0
+ },
+ "nivolumab": {
+  "Rtot_plasma_nM": 0.0,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0,
+  "KD_nM": 1.45,
+  "kint_perday": 0.05,
+  "n_arm_target": 2,
+  "ksyn_frac_perday": 0.5
+ },
+ "atezolizumab": {
+  "Rtot_plasma_nM": 0.0,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0,
+  "KD_nM": 0.4,
+  "kint_perday": 0.1,
+  "n_arm_target": 2,
+  "ksyn_frac_perday": 0.3
+ },
+ "adalimumab": {
+  "Rtot_plasma_nM": 0.0,
+  "sAg_nM": 0.05,
+  "sAg_kdeg_perday": 0.055,
+  "KD_nM": 0.1,
+  "kint_perday": 0.0,
+  "n_arm_target": 2,
+  "ksyn_frac_perday": 1.0
+ },
+ "obinutuzumab": {
+  "Rtot_plasma_nM": 0.05,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0,
+  "KD_nM": 4.0,
+  "kint_perday": 0.02,
+  "n_arm_target": 2,
+  "ksyn_frac_perday": 0.05
+ },
+ "denosumab": {
+  "Rtot_plasma_nM": 0.0,
+  "sAg_nM": 0.02,
+  "sAg_kdeg_perday": 0.055,
+  "KD_nM": 0.05,
+  "kint_perday": 0.0,
+  "n_arm_target": 2,
+  "ksyn_frac_perday": 1.0
+ },
+ "omalizumab": {
+  "Rtot_plasma_nM": 0.0,
+  "sAg_nM": 1.0,
+  "sAg_kdeg_perday": 0.055,
+  "KD_nM": 1.0,
+  "kint_perday": 0.0,
+  "n_arm_target": 2,
+  "ksyn_frac_perday": 1.0
+ },
+ "tarlatamab": {
+  "Rtot_plasma_nM": 0.0,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0,
+  "KD_nM": 0.5,
+  "kint_perday": 0.3,
+  "n_arm_target": 1,
+  "ksyn_frac_perday": 0.5
+ },
+ "elranatamab": {
+  "Rtot_plasma_nM": 0.0,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0,
+  "KD_nM": 0.15,
+  "kint_perday": 2.0,
+  "n_arm_target": 1,
+  "ksyn_frac_perday": 1.5
+ },
+ "talquetamab": {
+  "Rtot_plasma_nM": 0.0,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0,
+  "KD_nM": 2.0,
+  "kint_perday": 0.2,
+  "n_arm_target": 1,
+  "ksyn_frac_perday": 0.3
+ },
+ "odronextamab": {
+  "Rtot_plasma_nM": 0.05,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0,
+  "KD_nM": 5.0,
+  "kint_perday": 0.02,
+  "n_arm_target": 1,
+  "ksyn_frac_perday": 0.05
+ },
+ "cevostamab": {
+  "Rtot_plasma_nM": 0.0,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0,
+  "KD_nM": 3.0,
+  "kint_perday": 0.2,
+  "n_arm_target": 1,
+  "ksyn_frac_perday": 0.25
+ },
+ "trastuzumab": {
+  "Rtot_plasma_nM": 0.0,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0,
+  "KD_nM": 0.5,
+  "kint_perday": 4.58,
+  "n_arm_target": 2,
+  "ksyn_frac_perday": 0.1
+ },
+ "pembrolizumab": {
+  "Rtot_plasma_nM": 0.0013498575642832559,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0,
+  "KD_nM": 0.027,
+  "kint_perday": 0.05,
+  "n_arm_target": 2,
+  "ksyn_frac_perday": 0.5
+ },
+ "mosunetuzumab": {
+  "Rtot_plasma_nM": 0.0,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0,
+  "KD_nM": 5.0,
+  "kint_perday": 0.02,
+  "n_arm_target": 1,
+  "ksyn_frac_perday": 0.05
+ },
+ "glofitamab": {
+  "Rtot_plasma_nM": 0.0,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0,
+  "KD_nM": 5.0,
+  "kint_perday": 0.02,
+  "n_arm_target": 2,
+  "ksyn_frac_perday": 0.05
+ },
+ "blinatumomab": {
+  "Rtot_plasma_nM": 0.010713155272089332,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0,
+  "KD_nM": 1.49,
+  "kint_perday": 0.05,
+  "n_arm_target": 1,
+  "ksyn_frac_perday": 0.1
+ },
+ "teclistamab": {
+  "Rtot_plasma_nM": 0.0,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0,
+  "KD_nM": 0.15,
+  "kint_perday": 2.0,
+  "n_arm_target": 1,
+  "ksyn_frac_perday": 1.5
+ },
+ "epcoritamab": {
+  "Rtot_plasma_nM": 0.0,
+  "sAg_nM": 0.0,
+  "sAg_kdeg_perday": 0.0,
+  "KD_nM": 5.0,
+  "kint_perday": 0.02,
+  "n_arm_target": 1,
+  "ksyn_frac_perday": 0.05
+ }
+}

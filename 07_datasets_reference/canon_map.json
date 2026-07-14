@@ -1,0 +1,84 @@
+{
+ "rule": "Use ONLY these CURRENT artifacts. Verify every number you cite against the artifact itself (read it). Do NOT use outdated siblings or recall values from memory. QSP/model results are OUT OF SCOPE (reserve a section).",
+ "project_dir": "/media/balthasar-lab/RAID4/costim_engager_counterscreen",
+ "tracks": {
+  "T1_receptor_nomination": {
+   "COSTIM_FINAL_3AXIS_SCORE_v7.csv": "2490744f-4d2a-4af5-bfbd-3141f3d7bdba",
+   "FINAL_NOMINATION_v7.md": "750853c9-3179-433c-b824-adbdfdb6b519",
+   "PRE_QSP_MASTER_SUMMARY.md": "d35cd995-6da9-4567-b2b3-90c59ee18192",
+   "S3_verdict_master_v7.csv": "c7feeb93-9c2e-4602-aede-f3e5f8399553",
+   "C3_v7_master_verification.csv": "86cfff89-432c-4808-bb91-6b48518951cb",
+   "V7_VERIFICATION_LEDGER.csv": "6e64b970-95a1-4e6b-922a-0c303a9bc895",
+   "FINALISTS_12arm_withGRN.csv": "8d5dde0c-cf26-43c3-a8d3-2a63df2c3c63"
+  },
+  "T2_GRN": {
+   "cd4_grn_edges_full.parquet": "a3b66850-02fc-4e0c-8fe3-fc46fe39557b",
+   "cd4_grn_edges_TFtarget_full.csv": "577bfd7f-5511-487b-99bb-135db5205cf6",
+   "cd4_grn_qsp_drive_full.csv": "b29a7179-cb79-404c-b396-5c3999f143dd",
+   "cd4_grn_methods.md": "bc4ca06d-54fa-4028-ba7d-497fe52c79a4",
+   "cd4_grn_figure.png": "ff249e44-d7d8-42da-a341-deb178c96210",
+   "cd4_grn_nomination.png": "8b723297-676a-4223-8574-dc48e95ffe1e",
+   "grn_operator_shared_backbone.parquet": "448a3286-0e6b-4789-a02a-cf1727cc0146",
+   "grn_operator_cd8_effector_lineage.parquet": "8bb0b328-9f03-4d55-a937-2079f5b3a343",
+   "grn_operator_cd4_effector_lineage.parquet": "d7199f9c-7572-48cd-848f-5f1fbcdaf9bc",
+   "receptor_input_node_map.csv": "d137b58b-d2dd-4e0d-9c6c-7517a01888b8",
+   "program_gene_sets.json": "e4ba41f8-56de-4667-bee6-7e0236dcd468",
+   "per_arm_drive_magnitude_uncertainty.csv": "2ce4989e-55a3-4a1a-a960-0fc6681159be",
+   "per_arm_prolif_exh_drive.csv": "b3faddb6-7003-4d62-a28d-aba8ceda29c1",
+   "baseline_CD8.parquet": "039877d3-544c-4b68-b85f-86f6357f901b",
+   "baseline_Treg.parquet": "b46dc7d0-53dd-457c-b290-a4cbbe4300a1",
+   "baseline_CD4conv.parquet": "f323a002-007f-4199-85f7-6623de6e4fa4"
+  },
+  "T3_effector_expression": {
+   "A29_network_effector_selectivity.csv": "2cd38911-9380-4ab8-a714-3b74cd8b6923",
+   "A30_nomination_recheck.csv": "4eeff468-79c8-4a50-8aa8-2b95c0b3938d",
+   "A30_2x2_concordance_classification.csv": "cc17dd6b-f6fe-47ce-be0e-f61ac4a40b29",
+   "A34_expression_selectivity_CD8vsCD4.csv": "bd73371e-1c00-4f9d-9719-8b72f0c80deb",
+   "A21_expression_breadth_percompartment.csv": "395d2edf-021d-4418-b675-1355c4ca7c61",
+   "A21_qsp_expression_prior.csv": "fc8e0dd2-e94a-4e18-9f59-840f8940c0c5"
+  },
+  "T4_discovery_modules": {
+   "A22_redirector_coexpression.csv": "3f4458e4-dbd8-4d9c-a266-adc82351c142",
+   "A22_redirector_coexpression.png": "c6c12630-171c-4b7e-a64b-b7f9cb31c62d",
+   "A24_kinetic_onset_genomewide.csv": "1f343084-b944-4c30-9b06-e55c1066ebe7",
+   "A24_kinetic_onset.png": "bd14b217-5a4a-4071-962c-f9d3585d12f9",
+   "A25_crs_master_regulator_scan.csv": "cb29679d-f55e-4e61-9be9-2ec7e38e2215",
+   "A25_crs_master_regulator.png": "51285563-efbc-41cf-9741-c909495634b1"
+  },
+  "T6_TAA": {
+   "TAA_finalists_6.csv": "470be6af-9d51-4be4-8be0-6a84cb923362",
+   "TAA_finalists_annotated.csv": "NOT_FOUND"
+  }
+ },
+ "synthesis_docs": {
+  "FINAL_FRAMING_receptor_plus_format.md": "595e647c-4d8b-4ea1-9e76-9702d0320775",
+  "MASTER_AUDIT.md": "c4f1066c-4ea8-4ddf-929e-f30b92424a71",
+  "FINAL_SUBMISSION_AND_AUDIT.md": "8b234abe-f35c-4601-91fb-a8a0e35553c4",
+  "CLAUDE_DESIGN_BRIEF_v4.md": "09bb6917-b9a4-4569-805e-176e1f9bc21e",
+  "PRE_QSP_MASTER_SUMMARY.md": "d35cd995-6da9-4567-b2b3-90c59ee18192"
+ },
+ "T5_binder_design": {
+  "AF3_TESTABLE_PANELS.md": "b64ad6d4-44fa-4c7d-8c28-475011412403",
+  "AF3_FINAL_FINALISTS.md": "e335a9b4-bce6-405d-b954-c0669b85e0e6",
+  "af3_master_scored.csv": "6ada8747-1a5d-4226-b069-9de412846e1d",
+  "T1_funnel_attrition.csv": "7148f1dc-f86f-471c-9ba0-a497b9de1a41",
+  "T2_retained_vs_filtered.csv": "7bb770f4-cca8-4e89-ba54-dd2b6d9f0c44",
+  "T3_finalist_headtohead.csv": "a78b5548-9344-4087-9350-122bce704088",
+  "T4_pertarget_cdr_profile.csv": "c435d071-b45f-45a3-a564-67b021efba7e",
+  "FIG_funnel_separation.png": "b0472532-f11c-4725-a746-b975051adf6d",
+  "FIG_cdr_properties.png": "38627667-8533-40b5-a44a-f2ba45b8e71f",
+  "deposit_dir": "/media/balthasar-lab/RAID4/costim_engager_counterscreen/deliverables_v5/binder_design/af3_campaign",
+  "campaign_out": "/media/balthasar-lab/RAID1/RFantibody/campaign_out"
+ },
+ "GRN_rings_preferred": {
+  "grn_ring_cd8_effector.png": "b684c6ce-c5bb-40a2-a8bc-4fda4ce4e798",
+  "grn_ring_cd4_effector.png": "22f9edd2-f72f-4317-9402-f2e77fe2dc85"
+ },
+ "key_facts": {
+  "nomination": "CLEAN set = {4-1BB (TNFRSF9), CD27}; gate = liability VETO (CRS/SUPP/HELP/PROLIF/EXH). CD28 top effector z=12.11 but GATED[CRS,SUPP,PROLIF].",
+  "E_schmidt_z": "CD28 12.11, CD27 4.28, 4-1BB 3.74, CD30 3.22, CD40 2.65, OX40 2.07, DR3 1.58, DNAM1 0.64, GITR 0.09, HVEM 0.02, ICOS -0.39",
+  "datasets": "hero CD4 Perturb-seq (Zhu 2025 CRISPRi, 11526 reg x 10282 genes x 3 timepoints); Schmidt 2022 CD8 CRISPRa (effector); RTCC CITE-seq GSE292621 (25523 cells); Shifrut 2018 SLICE",
+  "binder": "4 targets (4-1BB, CD27, CD3, CEACAM5); RFdiffusion->ProteinMPNN(temp0.2)->AF3 (3964 screen -> 152 refold -> 39 ten-seed finalists); fold-scRMSD<2A hard gate + ipSAE grading",
+  "provisional_do_not_present": "OX40/GITR net-negative-kill in Treg-rich = PROVISIONAL (not artifact-backed); CEACAM5 rfdiffusion_campaign column='deferred' in TAA_finalists_6.csv (AF3 binder work is a SEPARATE track)."
+ }
+}

@@ -1,0 +1,10 @@
+- antibody.target_pdb=/home/scripts/examples/example_inputs/Tusa_VHVL.pdb
+- antibody.framework_pdb=/home/scripts/examples/example_inputs/h-NbBCII10.pdb
+- inference.ckpt_override_path=/home/weights/RFdiffusion_Ab.pt
+- ppi.hotspot_res=[H100,H101,H102,H103,H104,H28,H30,H31,H32]
+- antibody.design_loops=[H1:7,H2:6,H3:5-13]
+- inference.num_designs=1000
+- inference.final_step=48
+- inference.deterministic=True
+- diffuser.T=50
+- inference.quiver=example_outputs/nb_designs.qv

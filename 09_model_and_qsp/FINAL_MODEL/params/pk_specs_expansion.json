@@ -1,0 +1,189 @@
+{
+"certolizumab pegol": {
+"target": "TNF",
+"KD_nM": 0.09,
+"sAg_nM": 0.05,
+"sAg_kdeg_perday": 0.5,
+"mw_kda": 91.0,
+"fFcRn": 0.0,
+"route": "SC",
+"F_sc": 0.8,
+"ka_sc": 0.25,
+"note": "PEG-Fab, no Fc"
+},
+"denosumab": {
+"target": "RANKL",
+"KD_nM": 0.03,
+"sAg_nM": 0.02,
+"sAg_kdeg_perday": 0.3,
+"mw_kda": 147.0,
+"fFcRn": 0.75,
+"route": "SC",
+"F_sc": 0.62,
+"ka_sc": 0.25
+},
+"evolocumab": {
+"target": "PCSK9",
+"KD_nM": 0.5,
+"sAg_nM": 4.0,
+"sAg_kdeg_perday": 1.0,
+"mw_kda": 144.0,
+"fFcRn": 0.72,
+"route": "SC",
+"F_sc": 0.72,
+"ka_sc": 0.25,
+"note": "PCSK9 like alirocumab"
+},
+"omalizumab": {
+"target": "IgE",
+"KD_nM": 1.0,
+"sAg_nM": 0.5,
+"sAg_kdeg_perday": 0.4,
+"mw_kda": 149.0,
+"fFcRn": 0.72,
+"route": "SC",
+"F_sc": 0.62,
+"ka_sc": 0.25
+},
+"tezepelumab": {
+"target": "TSLP",
+"KD_nM": 0.06,
+"sAg_nM": 0.02,
+"sAg_kdeg_perday": 0.5,
+"mw_kda": 147.0,
+"fFcRn": 0.72,
+"route": "SC",
+"F_sc": 0.77,
+"ka_sc": 0.25
+},
+"pertuzumab": {
+"target": "HER2",
+"KD_nM": 5.0,
+"Rtot_plasma_nM": 0.0,
+"Rtot_nM": {},
+"kint_perday": 0.05,
+"mw_kda": 148.0,
+"fFcRn": 0.72,
+"route": "IV"
+},
+"natalizumab": {
+"target": "a4-integrin",
+"KD_nM": 3.0,
+"Rtot_plasma_nM": 10.0,
+"kint_perday": 0.15,
+"mw_kda": 149.0,
+"fFcRn": 0.72,
+"route": "IV",
+"note": "integrin on circulating leukocytes"
+},
+"vedolizumab": {
+"target": "a4b7-integrin",
+"KD_nM": 0.1,
+"Rtot_plasma_nM": 8.0,
+"kint_perday": 0.1,
+"mw_kda": 147.0,
+"fFcRn": 0.72,
+"route": "IV"
+},
+"dostarlimab": {
+"target": "PD-1",
+"KD_nM": 1.4,
+"Rtot_plasma_nM": 2.0,
+"kint_perday": 0.15,
+"mw_kda": 144.0,
+"fFcRn": 0.75,
+"route": "IV"
+},
+"nivolumab": {
+"target": "PD-1",
+"KD_nM": 1.45,
+"Rtot_plasma_nM": 2.0,
+"kint_perday": 0.15,
+"mw_kda": 146.0,
+"fFcRn": 0.75,
+"route": "IV"
+},
+"ipilimumab": {
+"target": "CTLA-4",
+"KD_nM": 5.0,
+"Rtot_plasma_nM": 0.2,
+"kint_perday": 0.05,
+"mw_kda": 148.0,
+"fFcRn": 0.72,
+"route": "IV"
+},
+"relatlimab": {
+"target": "LAG-3",
+"KD_nM": 0.12,
+"Rtot_plasma_nM": 1.0,
+"kint_perday": 0.15,
+"mw_kda": 148.0,
+"fFcRn": 0.75,
+"route": "IV"
+},
+"urelumab": {
+"target": "4-1BB",
+"KD_nM": 1.0,
+"Rtot_plasma_nM": 0.5,
+"kint_perday": 0.1,
+"mw_kda": 146.0,
+"fFcRn": 0.75,
+"route": "IV"
+},
+"utomilumab": {
+"target": "4-1BB",
+"KD_nM": 6.0,
+"Rtot_plasma_nM": 2.0,
+"kint_perday": 0.2,
+"mw_kda": 146.0,
+"fFcRn": 0.72,
+"route": "IV"
+},
+"selicrelumab": {
+"target": "CD40",
+"KD_nM": 0.5,
+"Rtot_plasma_nM": 0.5,
+"kint_perday": 0.1,
+"mw_kda": 146.0,
+"fFcRn": 0.72,
+"route": "IV"
+},
+"mitazalimab": {
+"target": "CD40",
+"KD_nM": 1.0,
+"Rtot_plasma_nM": 0.5,
+"kint_perday": 0.1,
+"mw_kda": 146.0,
+"fFcRn": 0.72,
+"route": "IV"
+},
+"vopratelimab": {
+"target": "ICOS",
+"KD_nM": 0.5,
+"Rtot_plasma_nM": 2.0,
+"kint_perday": 0.2,
+"mw_kda": 146.0,
+"fFcRn": 0.72,
+"route": "IV"
+},
+"tebentafusp": {
+"target": "gp100-HLA/CD3",
+"KD_nM": 0.0001,
+"Rtot_plasma_nM": 0.0,
+"kint_perday": 0.5,
+"mw_kda": 77.0,
+"fFcRn": 0.0,
+"route": "IV",
+"note": "no Fc, ~1d half-life"
+},
+"blinatumomab": {
+"target": "CD19/CD3",
+"KD_nM": 1.49,
+"Rtot_plasma_nM": 0.01,
+"kint_perday": 2.0,
+"mw_kda": 54.1,
+"fFcRn": 0.0,
+"route": "IV_infusion",
+"note": "cIV 28d"
+}
+}

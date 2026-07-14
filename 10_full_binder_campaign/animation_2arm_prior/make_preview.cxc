@@ -1,0 +1,43 @@
+set bgColor white
+open membrane.pdb
+open assembly.pdb
+show #1 atoms
+style #1 sphere
+size #1 atomRadius 2.3
+color #1 white
+color #1@PO4 orange
+color #1@NC3 goldenrod
+color #1@GL1,GL2 gray(170)
+cartoon #2
+hide #2 atoms
+hide #2/Y,Z,A,B,C,D,E,F cartoon
+surface #2/X enclose #2/X
+color #2/X #a9bdd0
+transparency #2/X 30 target s
+color #2/X:26,31,40,41,44 #e8a33d
+show #2/X:26,31,40,41,44 atoms
+style #2/X:26,31,40,41,44 stick
+open frames/b_049.pdb
+open frames/b_025.pdb
+open frames/b_000.pdb
+style #3-5 ball
+size #3-5 ballScale 0.9
+rainbow #3-5 residues palette bluered
+hide #3-5 models
+lighting soft
+lighting shadows true intensity 0.7
+material dull
+graphics silhouettes true width 1.5
+view
+turn x -8
+turn y 28
+zoom 0.72
+show #3 models
+save prev_noise.png width 1400 height 1050 supersample 2
+hide #3 models
+show #4 models
+save prev_mid.png width 1400 height 1050 supersample 2
+hide #4 models
+show #5 models
+save prev_docked.png width 1400 height 1050 supersample 2
+exit

@@ -1,0 +1,10 @@
+- antibody.target_pdb=/home/scripts/examples/example_inputs/Telis.pdb
+- antibody.framework_pdb=/home/scripts/examples/example_inputs/h-NbBCII10.pdb
+- inference.ckpt_override_path=/home/weights/RFdiffusion_Ab.pt
+- ppi.hotspot_res=[A100,A101,A102,A103,B95,B96,B98]
+- antibody.design_loops=[H1:7,H2:6,H3:5-13]
+- inference.num_designs=10
+- inference.final_step=48
+- inference.deterministic=True
+- diffuser.T=50
+- inference.output_prefix=/home/scripts/examples/example_outputs/Telis

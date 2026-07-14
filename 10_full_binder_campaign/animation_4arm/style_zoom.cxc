@@ -1,0 +1,63 @@
+set bgColor white
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/membrane_long.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/S_41bb_receptor.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/S_41bb_ligand.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/S_cd27_fullreceptor.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/S_cd3_receptor.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/S_cea5_fullreceptor.pdb
+surface #2 enclose #2
+color #2:25-45 #fee0d2 target s
+color #2:46-86 #fc9272 target s
+color #2:87-117 #ef3b2c target s
+color #2:118-168 #a50f15 target s
+transparency #2 30 target s
+surface #4 enclose #4
+color #4:20-62 #fdd0a2 target s
+color #4:63-110 #fd8d3c target s
+color #4:111-191 #d94801 target s
+transparency #4 30 target s
+surface #5 enclose #5
+color #5:227-310 #bdbdbd target s
+color #5:311-394 #525252 target s
+transparency #5 30 target s
+surface #6 enclose #6
+color #6:35-144 #deebf7 target s
+color #6:145-237 #c6dbef target s
+color #6:238-320 #9ecae1 target s
+color #6:321-414 #6baed6 target s
+color #6:415-498 #4292c6 target s
+color #6:499-591 #2171b5 target s
+color #6:592-685 #084594 target s
+transparency #6 30 target s
+surface #3 enclose #3
+color #3 #f5c6c0
+transparency #3 55 target s
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_41bb_049.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd27/b_049.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cd3_049.pdb
+open /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/F_cea5/b_049.pdb
+style #7-10 ball
+size #7-10 ballScale 0.9
+hide #7-10 cartoons
+show #7-10 atoms
+color #7-10 gray(180)
+color #7/H:41-54 #7/H:95-104 #e8a33d
+color #8/H:41-50 #8/H:52-62 #8/H:96-106 #e8a33d
+color #9/H:51-59 #9/H:99-110 #9/L:147-155 #9/L:206-216 #e8a33d
+color #10/H:1-6 #10/H:22-31 #10/L:171-179 #e8a33d
+show #1 atoms
+style #1 sphere
+size #1 atomRadius 2.3
+color #1 white
+color #1@PO4 orange
+color #1@NC3 goldenrod
+color #1@GL1,GL2 gray(170)
+lighting soft
+lighting shadows true intensity 0.7
+material dull
+graphics silhouettes true width 1.5
+view
+turn x 6
+zoom 1.15
+save /media/balthasar-lab/RAID4/claude-science/orgs/9fd4274a-b16e-4c92-b73c-8d8341c1ba5e/workspaces/02b24eaf-12aa-44ca-a8eb-cc6c68e406d2/anim4/style_zoom.png width 2200 height 1040 supersample 2
+exit

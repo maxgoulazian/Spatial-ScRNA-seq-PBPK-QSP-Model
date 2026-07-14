@@ -1,0 +1,25 @@
+{
+  "41BB": {
+    "target": "target_41BB.pdb",
+    "hotspots": [
+      "T26",
+      "T31",
+      "T40",
+      "T41",
+      "T44"
+    ],
+    "framework": "h-NbBCII10.pdb"
+  },
+  "CD27": {
+    "target": "target_CD27.pdb",
+    "hotspots": [
+      "T72",
+      "T80",
+      "T83",
+      "T85",
+      "T113",
+      "T115"
+    ],
+    "framework": "h-NbBCII10.pdb"
+  }
+}

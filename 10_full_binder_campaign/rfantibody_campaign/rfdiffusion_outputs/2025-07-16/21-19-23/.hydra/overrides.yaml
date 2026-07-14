@@ -1,0 +1,11 @@
+- antibody.target_pdb=/home/input/CEA_A3B3.pdb
+- antibody.framework_pdb=/home/input/8bw0_chothia_HLT.pdb
+- inference.ckpt_override_path=/home/weights/RFdiffusion_Ab.pt
+- ppi.hotspot_res=[K511,L590, P621, S622, Q624, Y625, Q635, H636, T637, V639, F641,
+  L660, A661]
+- antibody.design_loops=[L1:8-13,L2:7,L3:9-11,H1:7,H2:6,H3:5-13]
+- inference.num_designs=20
+- inference.final_step=48
+- diffuser.T=50
+- inference.deterministic=True
+- inference.output_prefix=/home/outputs/8bw0

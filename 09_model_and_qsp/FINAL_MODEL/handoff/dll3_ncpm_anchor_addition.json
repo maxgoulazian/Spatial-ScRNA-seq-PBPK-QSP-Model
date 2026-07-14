@@ -1,0 +1,77 @@
+{
+ "DLL3": {
+  "Other": 21268.0,
+  "Epithelial": 10731.1,
+  "B_plasma": 9645.5,
+  "CD8_T": 9523.5,
+  "CD4conv_T": 9523.5,
+  "otherT_NK": 9523.5,
+  "Treg": 9523.5,
+  "_default": 9360.0,
+  "_method": "log1p(value*6000/1e6)->Glassman(0.7768,3.9723); anchor=max HPA value/million over cell types per lineage; value=single-cell nCPM where available, else blood-immune-lineage nTPM"
+ },
+ "sources": {
+  "gene": "DLL3",
+  "ensembl": "ENSG00000090932",
+  "uniprot": "Q9NYJ7",
+  "hpa_release": "25.1",
+  "gene_url": "https://www.proteinatlas.org/ENSG00000090932-DLL3",
+  "retrieved_via": "get_protein_atlas_gene (protein-annotation MCP server, HPA release 25.1). The tool returns HPA's structured per-gene JSON sections, not URLs; the values below are verbatim fields of those sections. The atlas-tab name is where a human can view each on the gene page.",
+  "identity_notes": [
+   "RNA tissue specificity: Tissue enriched (brain 27.1 nTPM). Protein tissue: Not detected in normal tissue.",
+   "RNA single cell type specificity: Cell type enhanced. RNA blood: Immune cell enhanced (trace).",
+   "Near-absent in healthy tissue; tumor-associated antigen (SCLC/neuroendocrine, tarlatamab target)."
+  ],
+  "values_used": {
+   "single_cell_expression -> 'RNA single cell type specific nCPM' (HPA tab: Single Cell Type)": {
+    "Oocytes": 96.7,
+    "Oligodendrocyte progenitor cells": 49.3,
+    "Differentiating spermatogonia": 46.4,
+    "Undifferentiated spermatogonia": 27.3,
+    "Early primary spermatocytes": 17.3,
+    "Epididymal basal cells": 13.0,
+    "Other brain neurons": 12.2,
+    "_mapping": "germ/brain -> Other (max=Oocytes 96.7); Epididymal basal cells -> Epithelial (13.0). No Myeloid/Endothelial/Fibroblast/T/B single-cell entries for DLL3."
+   },
+   "blood_expression -> 'RNA blood cell specific nTPM' / 'RNA blood lineage specific nTPM' (HPA tab: Immune Cell)": {
+    "memory B-cell": 2.6,
+    "naive CD8 T-cell": 1.4,
+    "B-cells (lineage)": 2.6,
+    "T-cells (lineage)": 1.4,
+    "_mapping": "used for immune lineages lacking a single-cell nCPM entry. B_plasma<-2.6; CD8_T/CD4conv_T/otherT_NK/Treg<-1.4."
+   },
+   "tissue_expression -> 'RNA tissue specific nTPM' (HPA tab: Tissue)": {
+    "brain": 27.1,
+    "_note": "only tissue-enriched normal signal; captured via the 'Other' single-cell value."
+   },
+   "cancer_expression -> 'RNA cancer specific pTPM' (HPA tab: Pathology)": {
+    "Glioblastoma Multiforme (TCGA)": 60.2,
+    "Skin Cutaneous Melanoma (TCGA)": 26.8,
+    "_note": "max=GBM 60.2 -> malignant/tumor-cell baseline. HPA/TCGA has NO SCLC (DLL3's principal indication), so 60.2 pTPM is a conservative FLOOR for tumor-cell DLL3; higher SCLC surface DLL3 exists in literature (not HPA, not used)."
+   }
+  },
+  "malignant_tumor_cell_baseline": {
+   "copies_per_cell": 16286.9,
+   "source_value_pTPM": 60.2,
+   "source": "cancer_expression 'RNA cancer specific pTPM' -> Glioblastoma Multiforme (TCGA) 60.2 (max over HPA TCGA set)",
+   "kept_out_of_anchor_dict_because": "the tumor cells carry the 'Epithelial' lineage label (lab=4, is_tum) shared with NORMAL epithelium in the per-organ files; placing 60.2-pTPM-derived copies on 'Epithelial' would over-express DLL3 in normal gut/lung epithelium, which HPA contradicts (DLL3 protein Not detected in normal tissue). The anchor dict therefore keeps 'Epithelial'=10731.1 (normal, epididymal basal 13.0 nCPM). To give the 135861 is_tum cells the malignant baseline, add a tumor-specific selection in the Path-B applier \u2014 a user modeling decision, not baked in here."
+  },
+  "conversion": {
+   "ladder": "Glassman & Balthasar 2016: log10(copies)=0.7768*score+3.9723",
+   "score": "score=log1p(value*6000/1e6)=ln(1+value*0.006); value=nCPM (single cell) / nTPM (blood) / pTPM (cancer)",
+   "default_floor": "9360.0 copies (Glassman IHC0); lineages with no HPA DLL3 signal fall through to _default",
+   "verified": "round-trips exactly against stored TNFRSF9 Myeloid=20253.4 <-> nCPM 89.6"
+  },
+  "computed_copies_per_cell": {
+   "Other": 21268.0,
+   "Epithelial": 10731.1,
+   "B_plasma": 9645.5,
+   "CD8_T": 9523.5,
+   "CD4conv_T": 9523.5,
+   "otherT_NK": 9523.5,
+   "Treg": 9523.5,
+   "_default": 9360.0,
+   "_malignant_tumor_cell (metadata, not an anchor key)": 16286.9
+  }
+ }
+}

@@ -1,0 +1,55 @@
+{
+ "checkpoint": [
+  "nivolumab",
+  "pembrolizumab",
+  "cemiplimab",
+  "dostarlimab",
+  "atezolizumab",
+  "ipilimumab",
+  "relatlimab"
+ ],
+ "costim_agonist": [
+  "urelumab",
+  "selicrelumab",
+  "mitazalimab",
+  "feladilimab",
+  "vopratelimab",
+  "ivuxolimab"
+ ],
+ "cytokine_IL": [
+  "tocilizumab",
+  "dupilumab",
+  "benralizumab",
+  "ustekinumab",
+  "ixekizumab",
+  "secukinumab",
+  "guselkumab",
+  "risankizumab",
+  "tildrakizumab",
+  "tezepelumab"
+ ],
+ "antitumor_mAb": [
+  "rituximab",
+  "obinutuzumab",
+  "cetuximab",
+  "panitumumab",
+  "trastuzumab",
+  "pertuzumab",
+  "bevacizumab",
+  "daratumumab",
+  "denosumab"
+ ],
+ "other_mAb": [
+  "eculizumab",
+  "ravulizumab",
+  "omalizumab",
+  "adalimumab",
+  "golimumab",
+  "infliximab",
+  "certolizumab pegol",
+  "natalizumab",
+  "vedolizumab",
+  "alirocumab",
+  "evolocumab"
+ ]
+}

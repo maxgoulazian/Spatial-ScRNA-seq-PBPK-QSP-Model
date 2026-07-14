@@ -1,0 +1,60 @@
+{
+ "saved_at": "2026-07-13T16:44:15.139649",
+ "task_state": "COMPLETE: all 9 synthesis lanes done. Master report + both reproduction notebooks shipped.",
+ "MASTER_REPORT": {
+  "COSTIM_COUNTERSCREEN_RESEARCH_REPORT.md": "1e3151d4-198b-4d6e-b126-6ac919897c65 (art c3be6b5c-71d3-415b-a5e9-02e595e9c95a)",
+  "note": "14,095 words, 7 sections + reserved QSP \u00a78 + reproducibility. 9 figures embedded."
+ },
+ "report_sections": {
+  "REPORT_01_framing_nomination.md": "b432116b-0dce-426d-a25a-fbc0ca134370",
+  "REPORT_02_toxicity_counterscreen.md": "a9479ee4-697e-49ba-b864-177efdafec37",
+  "REPORT_03_effector_expression.md": "2054625f-9b43-4e31-a1d9-70485888a536",
+  "REPORT_04_grn.md": "f4d1b81d-3f9d-4065-8a90-0e2be19a20df",
+  "REPORT_05_discovery.md": "9c479424-563e-4993-ae0c-9b831fa2358a",
+  "REPORT_06_taa.md": "09401820-dcfd-4431-afd0-3d58c600fea8",
+  "REPORT_07_binder_design.md": "56b33a70-295c-4fbc-b4f4-179ac632d939"
+ },
+ "report_figures": {
+  "A25_crs_master_regulator.png": "51285563-efbc-41cf-9741-c909495634b1",
+  "cd4_grn_figure.png": "ff249e44-d7d8-42da-a341-deb178c96210",
+  "grn_ring_cd8_effector.png": "b684c6ce-c5bb-40a2-a8bc-4fda4ce4e798",
+  "grn_ring_cd4_effector.png": "22f9edd2-f72f-4317-9402-f2e77fe2dc85",
+  "A22_redirector_coexpression.png": "c6c12630-171c-4b7e-a64b-b7f9cb31c62d",
+  "A24_kinetic_onset.png": "bd14b217-5a4a-4071-962c-f9d3585d12f9",
+  "FIG_funnel_separation.png": "b0472532-f11c-4725-a646-b975051adf6d",
+  "FIG_cdr_properties.png": "38627667-8533-40b5-a44a-f2ba45b8e71f",
+  "FIG_effector_expression.png": "d7a6e69d-3188-40f3-85d6-89466649d986",
+  "fourarm_docked_still.png": "f385b0e0-6e77-488b-83d0-a3e39d0e4f05"
+ },
+ "data_analysis_notebook": {
+  "notebook": "c4c24ab8-7e6e-4266-942b-ee21f1222c75",
+  "executed": "e30c3d11-2757-4ad8-bcf8-a60dfe0dae0e",
+  "requirements": "abd59b24-9b9d-4ff8-8ab5-9a6675597090",
+  "readme": "3809e6a4-b2a0-4695-8e38-64ddb4ca20b1",
+  "build_script": "cc56d095-af04-43af-b934-207af2f46c9c",
+  "deposited_tar": "30a901ba-cfc8-475a-974f-72cae0dd6a5a"
+ },
+ "binder_notebook": {
+  "binder_design_reproduction.ipynb": "1233a313-a4a5-4d85-902a-d07ede299ca1",
+  "requirements.txt": "8fe67c59-5fbc-4c5a-92b4-191ed9d7c4a9",
+  "nb_assets.tgz": "afef4e41-8724-4c96-bcd1-cd9936f3d43c",
+  "funnel_separation_repro.png": "ab6dbba8-7b1f-4765-98f0-b5ce35c294b8",
+  "status": "PASS 23/23 clean-room CPU"
+ },
+ "canon_map": "3c601789-05c5-4211-a102-ac4963a968f8",
+ "pbpk_qsp_lane_prompt": "52208126-3d8e-4dec-b538-1a5aa254f3fe",
+ "animation": {
+  "fourarm_diffusion_final.mp4": "ca32319a-6232-436e-823a-92dd19439906 (art 6ecf8e04-b988-462f-b9f3-ee3a4cc2ce66)",
+  "fourarm_diffusion_loop.mp4": "e9c3eef5-9bf8-46f4-8a1d-c80c5c9187fc (art 9317434f-71f6-4787-b34d-cd46d3f858fc)",
+  "fourarm_docked_still.png": "f385b0e0-6e77-488b-83d0-a3e39d0e4f05"
+ },
+ "local_folders": {
+  "consolidated_all": "/media/balthasar-lab/RAID4/costim_engager_counterscreen/BINDER_AND_ANIMATION_COMPLETE/ (4.8GB)",
+  "timelapse_only": "/media/balthasar-lab/RAID4/costim_engager_counterscreen/TIMELAPSE_4ARM/ (1.2GB)",
+  "project_root": "/media/balthasar-lab/RAID4/costim_engager_counterscreen"
+ },
+ "next_steps": [
+  "PBPK-QSP lane prompt (52208126) ready to hand off",
+  "QSP \u00a78 attaches when that lane returns"
+ ]
+}

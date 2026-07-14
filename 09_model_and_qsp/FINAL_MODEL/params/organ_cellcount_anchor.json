@@ -1,0 +1,38 @@
+{
+ "method": "Vorgan*(1-fV-fIS)/Vcell_organ",
+ "source": "Shah-Betts volumes + literature per-organ mean cell volume; cross-check Bianconi2013/Hatton2023",
+ "Ncell_by_organ": {
+  "lung": 353500000000.00006,
+  "heart": 21573749999.999996,
+  "kidney": 107725000000.00002,
+  "brain": 392949999999.99994,
+  "muscle": 854000000000.0,
+  "skin": 1495999999999.9998,
+  "adipose": 183083333333.3333,
+  "bone": 4295000000000.0,
+  "stomach": 59399999999.99999,
+  "small_int": 353785714285.7143,
+  "large_int": 201385714285.7143,
+  "pancreas": 93840000000.0,
+  "spleen": 655500000000.0,
+  "liver": 352285714285.7143,
+  "tumor": 31499999999.999992
+ },
+ "Vcell_um3": {
+  "lung": 1000,
+  "heart": 8000,
+  "kidney": 2000,
+  "brain": 3000,
+  "muscle": 30000,
+  "skin": 1500,
+  "adipose": 60000,
+  "bone": 2000,
+  "stomach": 2000,
+  "small_int": 1400,
+  "large_int": 1400,
+  "pancreas": 1500,
+  "spleen": 200,
+  "liver": 3500,
+  "tumor": 2000
+ }
+}

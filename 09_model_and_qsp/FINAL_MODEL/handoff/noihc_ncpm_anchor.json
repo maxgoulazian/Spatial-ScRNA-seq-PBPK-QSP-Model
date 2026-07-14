@@ -1,0 +1,97 @@
+{
+ "TNFRSF9": {
+  "Myeloid": 20253.4,
+  "Endothelial": 10318.0,
+  "otherT_NK": 12193.2,
+  "CD8_T": 14326.2,
+  "CD4conv_T": 14326.2,
+  "Treg": 11336.7,
+  "_default": 9360.0,
+  "_method": "log1p(nCPM*6000/1e6)->Glassman(0.7768,3.9723); anchor=max nCPM over HPA celltypes per lineage"
+ },
+ "TNFRSF25": {
+  "Other": 18114.7,
+  "otherT_NK": 26601.9,
+  "CD4conv_T": 9953.4,
+  "CD8_T": 9604.8,
+  "Treg": 10192.3,
+  "_default": 9360.0,
+  "_method": "log1p(nCPM*6000/1e6)->Glassman(0.7768,3.9723); anchor=max nCPM over HPA celltypes per lineage"
+ },
+ "LY6E": {
+  "Other": 14484.3,
+  "Epithelial": 11856.2,
+  "Myeloid": 200464.3,
+  "_default": 9360.0,
+  "_method": "log1p(nCPM*6000/1e6)->Glassman(0.7768,3.9723); anchor=max nCPM over HPA celltypes per lineage"
+ },
+ "FLT3": {
+  "Myeloid": 238262.2,
+  "CD8_T": 142822.5,
+  "_default": 9360.0,
+  "_method": "log1p(nCPM*6000/1e6)->Glassman(0.7768,3.9723); anchor=max nCPM over HPA celltypes per lineage"
+ },
+ "FCRL5": {
+  "B_plasma": 71010.7,
+  "Other": 16531.7,
+  "_default": 9360.0,
+  "_method": "log1p(nCPM*6000/1e6)->Glassman(0.7768,3.9723); anchor=max nCPM over HPA celltypes per lineage"
+ },
+ "DLL3": {
+  "Other": 21268.0,
+  "Epithelial": 10731.1,
+  "B_plasma": 9645.5,
+  "CD8_T": 9523.5,
+  "CD4conv_T": 9523.5,
+  "otherT_NK": 9523.5,
+  "Treg": 9523.5,
+  "_default": 9360.0,
+  "_method": "log1p(value*6000/1e6)->Glassman(0.7768,3.9723); anchor=max HPA value/million over cell types per lineage; value=single-cell nCPM where available, else blood-immune-lineage nTPM"
+ },
+ "EPCAM": {
+  "Epithelial": 1535414.9,
+  "_default": 9360.0,
+  "_method": "log1p(nCPM*6000/1e6)->Glassman(0.7768,3.9723); anchor=max nCPM over HPA celltypes per lineage; EPCAM is an epithelial carcinoma TAA (catumaxomab/solitomab target) -> TAA-class restriction applied (cf. hpa_ihc_anchor.py): keep Epithelial anchor only, all non-epithelial lineages floored to _default (IHC0=9360). EPCAM has NO HPA immune/endothelial/blood single-cell expression; the only non-epithelial HPA signal is Oocytes (germ cell->'Other', 819.7 nCPM=225670.9 copies) which is floored to avoid leaking EpCAM onto cardiomyocyte/neuron 'Other' cells (fake on-target-off-tumor toxicity)."
+ },
+ "PMEL": {
+  "malignant": 1871303.4,
+  "malignant cell": 1871303.4,
+  "Melanocytes": 1871303.4,
+  "_default": 9360.0,
+  "_method": "log1p(nCPM*6000/1e6)->Glassman(0.7768,3.9723); anchor=max nCPM over HPA celltypes per lineage. PMEL is a melanocyte/melanoma differentiation antigen: the malignant/tumor lineage (melanocyte-derived tumor cells; skin ABM ref_celltype='malignant cell') is keyed to HPA single-cell Melanocytes nCPM=3051.8 -> 1871303.4 copies/cell (81% of Glassman IHC-3 ceiling). All immune/stromal/epithelial lineages -> _default (HPA: 'Not detected in immune cells'; RNA blood lineage 'Not detected'; PMEL absent on keratinocytes/'epithelial cell'). Aliases 'malignant','malignant cell','Melanocytes' all carry the SAME sourced value so the melanoma build matches whichever key it coarsens the malignant melanocyte lineage to; keratinocytes and 'Other' deliberately left at _default to prevent off-target leakage (same fail-closed rule as the IHC path).",
+  "_sources": {
+   "gene": "PMEL",
+   "aliases": "SILV, gp100, PMEL17, ME20, Pmel17, SI, SIL, HMB45",
+   "Ensembl": "ENSG00000185664",
+   "UniProt": "P40967",
+   "HPA_gene_page": "https://www.proteinatlas.org/ENSG00000185664-PMEL",
+   "HPA_single_cell_page": "https://www.proteinatlas.org/ENSG00000185664-PMEL/single+cell",
+   "HPA_tissue_page": "https://www.proteinatlas.org/ENSG00000185664-PMEL/tissue",
+   "HPA_cancer_page": "https://www.proteinatlas.org/ENSG00000185664-PMEL/cancer",
+   "HPA_api_endpoint": "https://www.proteinatlas.org/api/search_download.php?search=PMEL&format=json&columns=g,gs,eg,rnascsm,rnacasm,rnabcs,rnabls",
+   "local_snapshot": "hpa_full/proteinatlas.tsv (HPA bulk download; values verified identical to live HPA API 2026-07-13)",
+   "values_used": {
+    "RNA single cell type specific nCPM": {
+     "Melanocytes": 3051.8,
+     "Retinal pigment epithelial cells": 780.1
+    },
+    "RNA single cell type group specific nCPM": {
+     "Pigment cells": 3051.8
+    },
+    "RNA tissue specific nTPM": {
+     "skin 1": 109.1,
+     "cervix": 31.6
+    },
+    "RNA cancer specific pTPM": {
+     "Skin Cutaneous Melanoma (TCGA)": 7481.2
+    },
+    "RNA blood cell specificity": "Not detected in immune cells",
+    "RNA blood lineage specificity": "Not detected",
+    "RNA single cell type specificity": "Group enriched (Pigment cells)"
+   },
+   "anchor_value_derivation": "copies = 10^(0.7768*log1p(3051.8*6000/1e6) + 3.9723) = 1871303.4 copies/cell",
+   "Glassman_ladder_ref": "Glassman & Balthasar 2016, J Pharmacokinet Pharmacodyn 43:427-446, DOI 10.1007/s10928-016-9482-0 (IHC0..3 -> 9.36e3/6.46e4/2.55e5/2.30e6 copies/cell); _default=9.36e3 = IHC-0 floor",
+   "malignant_lineage_label": "skin_abm_cells.npz ref_celltype='malignant cell' (n=19580, all is_tum=True); melanocyte->malignant per melanoma build"
+  }
+ }
+}

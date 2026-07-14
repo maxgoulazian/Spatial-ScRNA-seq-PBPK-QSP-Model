@@ -1,0 +1,66 @@
+{
+ "CD38": {
+  "B_plasma": 46511.91740606801,
+  "Myeloid": 33902.53942867841,
+  "otherT_NK": 68211.40096733278,
+  "_default": 9360.0,
+  "_method": "HPA blood-lineage nTPM->log1p->Glassman; anchor=max over HPA blood celltypes per model lineage",
+  "_raw": "B-cells: 9.9;dendritic cells: 5.8;NK-cells: 18.3"
+ },
+ "TNFRSF17": {
+  "B_plasma": 240354.5816737721,
+  "Myeloid": 211580.0751398555,
+  "_default": 9360.0,
+  "_method": "HPA blood-lineage nTPM->log1p->Glassman; anchor=max over HPA blood celltypes per model lineage",
+  "_raw": "B-cells: 125.4;dendritic cells: 103.5"
+ },
+ "CD33": {
+  "Myeloid": 342808.15079804073,
+  "_default": 9360.0,
+  "_method": "HPA blood-lineage nTPM->log1p->Glassman; anchor=max over HPA blood celltypes per model lineage",
+  "_raw": "dendritic cells: 213.7;monocytes: 166.7"
+ },
+ "GPRC5D": {
+  "B_plasma": 59397.75759362184,
+  "_default": 9360.0,
+  "_method": "HPA blood-lineage nTPM->log1p->Glassman; anchor=max over HPA blood celltypes per model lineage",
+  "_raw": "B-cells: 14.7"
+ },
+ "FLT3": {
+  "Myeloid": 161287.55469239864,
+  "_default": 9360.0,
+  "_method": "HPA blood-lineage nTPM->log1p->Glassman; anchor=max over HPA blood celltypes per model lineage",
+  "_raw": "dendritic cells: 68.7"
+ },
+ "FCRL5": {
+  "B_plasma": 58123.25568024345,
+  "_default": 9360.0,
+  "_method": "HPA blood-lineage nTPM->log1p->Glassman; anchor=max over HPA blood celltypes per model lineage",
+  "_raw": "B-cells: 14.2"
+ },
+ "MS4A1": {
+  "B_plasma": 706038.5378825805,
+  "_default": 9360.0,
+  "_method": "HPA blood-lineage nTPM->log1p->Glassman; anchor=max over HPA blood celltypes per model lineage",
+  "_raw": "B-cells: 630.0"
+ },
+ "CD19": {
+  "B_plasma": 297192.26948442444,
+  "_default": 9360.0,
+  "_method": "HPA blood-lineage nTPM->log1p->Glassman; anchor=max over HPA blood celltypes per model lineage",
+  "_raw": "B-cells: 172.5"
+ },
+ "IL3RA": {
+  "Myeloid": 1856457.9070649368,
+  "_default": 9360.0,
+  "_method": "HPA blood-lineage nTPM->log1p->Glassman; anchor=max over HPA blood celltypes per model lineage",
+  "_raw": "granulocytes: 2669.0"
+ },
+ "CD3E": {
+  "otherT_NK": 331588.5742436341,
+  "CD4conv_T": 607161.1033687191,
+  "_default": 9360.0,
+  "_method": "HPA blood-lineage nTPM->log1p->Glassman; anchor=max over HPA blood celltypes per model lineage",
+  "_raw": "NK-cells: 203.3;T-cells: 502.8"
+ }
+}

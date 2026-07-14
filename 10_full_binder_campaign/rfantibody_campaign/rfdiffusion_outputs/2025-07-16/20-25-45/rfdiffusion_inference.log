@@ -1,0 +1,5 @@
+[2025-07-16 20:25:45,182][rfantibody.rfdiffusion.inference.model_runners][INFO] - Reading checkpoint from /home/weights/RFdiffusion_Ab.pt
+[2025-07-16 20:26:39,918][rfantibody.rfdiffusion.inference.model_runners][INFO] - Loading checkpoint.
+[2025-07-16 20:26:40,130][rfantibody.rfdiffusion.diffusion][INFO] - Using cached IGSO3.
+[2025-07-16 20:26:40,154][__main__][INFO] - Making design /home/outputs/8bw0_0
+[2025-07-16 20:26:51,382][rfantibody.rfdiffusion.inference.utils][INFO] - Sampled motif RMSD: 0.27

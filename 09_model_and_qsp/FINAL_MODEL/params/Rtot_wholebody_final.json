@@ -1,0 +1,132 @@
+{
+ "Rtot_nM": {
+  "EPCAM": {
+   "spleen": 0.0099,
+   "bone": 0.0,
+   "liver": 0.0,
+   "lung": 223.1852,
+   "large_int": 53.9672,
+   "kidney": 247.6374,
+   "pancreas": 99.4344,
+   "skin": 0.0,
+   "heart": 0.0
+  },
+  "DLL3": {
+   "spleen": 0.0001,
+   "bone": 0.0,
+   "liver": 0.0,
+   "lung": 0.0,
+   "large_int": 0.0,
+   "kidney": 0.0,
+   "pancreas": 0.0,
+   "skin": 0.0,
+   "heart": 0.0
+  },
+  "CD3E": {
+   "spleen": 138.8846,
+   "bone": 106.1009,
+   "liver": 4.1338,
+   "lung": 16.3413,
+   "large_int": 22.59,
+   "kidney": 2.1142,
+   "pancreas": 0.6723,
+   "skin": 0.8978,
+   "heart": 0.2004
+  },
+  "MS4A1": {
+   "bone": 4.982,
+   "spleen": 196.643,
+   "large_int": 10.098,
+   "liver": 1.384,
+   "lung": 5.3,
+   "kidney": 2.009,
+   "pancreas": 1.538,
+   "skin": 0.121,
+   "heart": 0.024
+  },
+  "CD19": {
+   "bone": 1.661,
+   "spleen": 65.548,
+   "large_int": 3.366,
+   "liver": 0.461,
+   "lung": 1.767,
+   "kidney": 0.67,
+   "pancreas": 0.513,
+   "skin": 0.04,
+   "heart": 0.008
+  },
+  "TNFRSF17": {
+   "bone": 1.993,
+   "spleen": 5.244,
+   "large_int": 1.346,
+   "liver": 0.111,
+   "lung": 0.212,
+   "kidney": 0.064,
+   "pancreas": 0.062,
+   "skin": 0.002,
+   "heart": 0.002
+  },
+  "GPRC5D": {
+   "bone": 2.491,
+   "spleen": 6.555,
+   "large_int": 1.683,
+   "liver": 0.138,
+   "lung": 0.265,
+   "kidney": 0.08,
+   "pancreas": 0.077,
+   "skin": 0.002,
+   "heart": 0.002
+  }
+ },
+ "meta": {
+  "method": "Whole-body per-cell target pools. EPCAM/DLL3/CD3: from per-cell agent densities (Tier-1 native, reliable epithelial/T labels) scaled to organ-true cellularity. CD20/CD19/BCMA/GPRC5D: computed from per-organ B-cell/plasma-cell counts x copies/cell / Vis. IMPORTANT PROVENANCE: the per-organ B/plasma cell counts (LINEAGE_CELLS) are ORDER-OF-MAGNITUDE ESTIMATES chosen for biological plausibility, NOT read from any per-organ table or paper. Only two facts are externally grounded (both web-verified this session): the whole-body total ~3e13 cells with marrow ~90% (Sender/Fuchs/Milo 2016 PLoS Biol 14:e1002533), and normal marrow plasma cells 0.25-2% of nucleated cells (Terstappen flow-cytometry; ksvdl clinical). The estimates were CONSTRAINED to be consistent with those two facts (marrow plasma <2%, marrow the dominant plasma reservoir). The raw Xenium label transfer over-assigned plasma cells (67% vs <2%), so raw agent counts could NOT be used for the B/plasma pool magnitude \u2014 hence the estimate-based counts. The per-cell AGENTS still drive per-cell PD/killing (their density heterogeneity is real). These pool magnitudes are a documented modeling assumption to be refined against clinical TMDD data, not a literature readout.",
+  "plasma_cell_fraction_marrow": "literature 0.25-2% of nucleated cells (Terstappen ScienceDirect; ksvdl <2%); raw label transfer gave 67% (over-labeled) \u2014 corrected via absolute counts",
+  "lineage_cells_used": {
+   "bone": {
+    "plasma": 100000000000.0,
+    "bcell": 20000000000.0
+   },
+   "spleen": {
+    "plasma": 10000000000.0,
+    "bcell": 30000000000.0
+   },
+   "large_int": {
+    "plasma": 5000000000.0,
+    "bcell": 3000000000.0
+   },
+   "liver": {
+    "plasma": 2000000000.0,
+    "bcell": 2000000000.0
+   },
+   "lung": {
+    "plasma": 1000000000.0,
+    "bcell": 2000000000.0
+   },
+   "kidney": {
+    "plasma": 200000000.0,
+    "bcell": 500000000.0
+   },
+   "pancreas": {
+    "plasma": 100000000.0,
+    "bcell": 200000000.0
+   },
+   "skin": {
+    "plasma": 100000000.0,
+    "bcell": 500000000.0
+   },
+   "heart": {
+    "plasma": 10000000.0,
+    "bcell": 10000000.0
+   }
+  },
+  "copies_per_cell": {
+   "MS4A1": 150000,
+   "CD19": 50000,
+   "TNFRSF17": 12000,
+   "GPRC5D": 15000
+  },
+  "caveat": "organ interstitial-nM pools invert vs cell count for marrow (large Vis) \u2014 the TMDD SINK uses total receptor AMOUNT (nmol) not nM, so bone plasma reservoir contributes correctly to drug consumption",
+  "lineage_cells_provenance": "ORDER-OF-MAGNITUDE ESTIMATES (not from literature tables); constrained to Sender 2016 total + marrow plasma <2%",
+  "spleen_CD20_check": "spleen CD20 (MS4A1) emergent pool = 196.6 nM. Prior independent grid-derived anchor was 239 nM; the emergent per-cell-scaled value is 196.6 nM, ~18% below the grid anchor (NOT a 1% match \u2014 earlier claim of 241 nM was incorrect). The gap reflects that the emergent pool uses corrected absolute-count B-cell numbers while the grid anchor used raw agent density; both are order-of-magnitude consistent but not calibrated to each other."
+ }
+}

@@ -1,0 +1,19 @@
+Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (16)/media/balthasar-lab/RAID4/costim_engager_counterscreen/tools/grn-venv/lib/python3.11/site-packages/distributed/node.py:188: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 44505 instead
+  warnings.warn(
+Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (16)Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (16)grnboost2 OK (12, 3) in 0.3s
+   TF target  importance
+0  r0     t0   27.400802
+1  r1     r2   18.673102
+1  r2     r1   16.890419
+1  r2     r0   14.963037
+0  r0     r1   12.109581
+0  r1     r0   12.036963
+0  r0     r2   11.326898
+1  r1     t1    9.396806
+0  r0     t1    8.981411
+2  r2     t1    7.621783
+2  r2     t0    0.915069
+1  r1     t0    0.684129
+PATCHTEST PASS

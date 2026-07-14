@@ -1,0 +1,42 @@
+[
+ {
+  "molecule": "cibisatamab",
+  "n": 307762,
+  "drug_cv": 30.3,
+  "mean_kill": 3.67,
+  "kill_hi_drug": 1.09,
+  "kill_lo_drug": 3.45
+ },
+ {
+  "molecule": "tarlatamab",
+  "n": 307762,
+  "drug_cv": 43.8,
+  "mean_kill": 0.0,
+  "kill_hi_drug": 0.0,
+  "kill_lo_drug": 0.0
+ },
+ {
+  "molecule": "cinrebafusp_alfa",
+  "n": 307762,
+  "drug_cv": 29.7,
+  "mean_kill": 25.98,
+  "kill_hi_drug": 50.13,
+  "kill_lo_drug": 4.64
+ },
+ {
+  "molecule": "acapatamab",
+  "n": 307762,
+  "drug_cv": 31.4,
+  "mean_kill": 15.89,
+  "kill_hi_drug": 34.76,
+  "kill_lo_drug": 1.35
+ },
+ {
+  "molecule": "catumaxomab",
+  "n": 307762,
+  "drug_cv": 29.4,
+  "mean_kill": 0.0,
+  "kill_hi_drug": 0.0,
+  "kill_lo_drug": 0.0
+ }
+]

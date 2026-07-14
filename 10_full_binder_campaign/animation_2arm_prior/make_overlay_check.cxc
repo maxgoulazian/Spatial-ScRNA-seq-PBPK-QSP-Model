@@ -1,0 +1,26 @@
+set bgColor white
+open assembly.pdb
+cartoon #1
+hide #1 atoms
+hide #1/Y,Z,A,B,C,D,E,F cartoon
+surface #1/X enclose #1/X
+color #1/X #a9bdd0
+transparency #1/X 25 target s
+color #1/X:26,31,40,41,44 #e8a33d
+show #1/X:26,31,40,41,44 atoms
+style #1/X:26,31,40,41,44 stick
+open binder23_final.pdb
+open binder_final.pdb
+cartoon #2 #3
+color #2 #c0392b
+color #3 #7f8c8d
+transparency #3 40 target c
+lighting soft
+material dull
+graphics silhouettes true width 1.5
+view #1/X:26,31,40,41,44
+zoom 0.55
+save overlay_check.png width 1400 height 1050 supersample 2
+hide #3 models
+save overlay_new_solo.png width 1400 height 1050 supersample 2
+exit

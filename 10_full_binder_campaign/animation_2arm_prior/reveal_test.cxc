@@ -1,0 +1,11 @@
+set bgColor white
+open sc41/b_000.pdb
+style #1 ball
+size #1 ballScale 1.0
+hide #1 cartoons
+hide #1 models
+rainbow #1 residues palette viridis
+show #1 models
+view #1
+save reveal_test.png width 800 height 800 supersample 1
+exit

@@ -1,0 +1,17 @@
+{
+ "DLL3": {
+  "ttype": "lung",
+  "copies_mean": 15413.2197265625,
+  "n": 162254
+ },
+ "FOLH1": {
+  "ttype": "prostate",
+  "copies_mean": 2037.06494140625,
+  "n": 193000
+ },
+ "PMEL": {
+  "ttype": "skin",
+  "copies_mean": 37499.078125,
+  "n": 106980
+ }
+}

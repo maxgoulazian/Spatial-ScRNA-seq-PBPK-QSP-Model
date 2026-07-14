@@ -1,0 +1,956 @@
+{
+ "mosunetuzumab": {
+  "tgt": "MS4A1",
+  "KD_TAA_nM": 5.45,
+  "kon_TAA_perM_pers": 430000.0,
+  "koff_TAA_pers": 0.0023435,
+  "KD_CD3_nM": 40.0,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 0.004,
+  "kint_perday": 0.1,
+  "ksyn_frac_perday": 0.1,
+  "kdeg_perday": 0.1,
+  "n_arm_TAA": 1,
+  "n_arm_CD3": 1,
+  "mw_kda": 146.0,
+  "fFcRn": 1.0,
+  "route": "IV",
+  "regimen_mg_day": [
+   [
+    1,
+    1.0
+   ],
+   [
+    8,
+    2.0
+   ],
+   [
+    15,
+    60.0
+   ],
+   [
+    22,
+    60.0
+   ],
+   [
+    43,
+    30.0
+   ]
+  ],
+  "il6_obs_pgml": null,
+  "measured_vs_derived": "CD20 KD=class(rituximab/type-I anti-CD20 lineage, cell-based 5.45nM); CD20 kon=class-measured(rituximab SPR 4.3e5); CD20 koff=DERIVED(kon*KD). CD3 KD=schema-default 40nM (molecule-specific SPR not in accessible lit; anti-CD3 clone 40G5c); CD3 kon=std-mAb 1e5; CD3 koff=DERIVED. kint/ksyn/kdeg=class-estimate (CD20 non-internalizing, Ferl2018). MW/format=MEASURED(Zhu2025 Table1). Regimen=MEASURED(USPI/Lunsumio).",
+  "validation_data": "Clinical serum PK (conc-time), CRS/IL-6 & cytokine time-course figures, B-cell depletion, exposure-response (ORR) in catalog digitized_data & figures; Hosseini2020 QSP mitigates CRS via step-up.",
+  "sources": {
+   "KD_TAA": "rituximab-type (type-I) anti-CD20 lineage; cell-based Kd 5.45 nM, PMC11158754 Table2 (specific parent clone designation not sourced in-session; type-I class attribution only)",
+   "kon_koff": "anti-CD20 SPR kon (ka)=4.3e5 /M/s adopted from rituximab (Beck, ScienceDirect S0003269722000914). koff_TAA is DERIVED = kon*KD using the cell-based KD 5.45 nM (=2.34e-3 /s), NOT the same study's measured kd=7.2e-5 /s. That measured kd pairs with a tight SPR KD ~0.17 nM (kd/ka); it was not adopted because KD_TAA is anchored to the cell-based 5.45 nM value, so only the kon is taken from that study.",
+   "KD_CD3": "schema default 40 nM; mosun anti-CD3=40G5c (Genentech); Betts2019 class-ref CD3 KD 11.4 nM (10.1208/s12248-019-0332-z) as alt",
+   "kint": "CD20 largely non-internalizing (Ferl2018 10.1111/cts.12535, refs 28-29); class-estimate 0.1/day",
+   "turnover": "ksyn=kdeg*Rtot identity (Betts2019); kdeg class-estimate 0.1/day (stable CD20)",
+   "mw_format": "Humanized IgG1 1:1 CrossMAb 146 kDa (Zhu2025 10.1111/cts.70250 Table1)",
+   "regimen": "C1: 1mg D1, 2mg D8, 60mg D15; C2 D1 60mg; C3+ 30mg Q3W, 21-day cycles, IV (Lunsumio USPI; Zhu2025)"
+  }
+ },
+ "glofitamab": {
+  "tgt": "MS4A1",
+  "KD_TAA_nM": 4.0,
+  "kon_TAA_perM_pers": 430000.0,
+  "koff_TAA_pers": 0.00172,
+  "KD_CD3_nM": 4.5,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 0.00045,
+  "kint_perday": 0.05,
+  "ksyn_frac_perday": 0.1,
+  "kdeg_perday": 0.1,
+  "n_arm_TAA": 2,
+  "n_arm_CD3": 1,
+  "mw_kda": 197.0,
+  "fFcRn": 1.0,
+  "route": "IV",
+  "regimen_mg_day": [
+   [
+    1,
+    2.5
+   ],
+   [
+    8,
+    10.0
+   ],
+   [
+    22,
+    30.0
+   ]
+  ],
+  "il6_obs_pgml": null,
+  "measured_vs_derived": "2:1 format => TAA n=2 (bivalent CD20 avidity), CD3 n=1 \u2014 MEASURED(Bacac2018/Zhu2025). CD20 KD=class-estimate(obinutuzumab GA101 type-II ~4nM); CD20 kon=class-measured(anti-CD20 SPR 4.3e5); CD20 koff=DERIVED. CD3 KD=schema-default 40nM; CD3 koff=DERIVED. kint=class-estimate (type-II obinutuzumab internalizes SLOWER than type-I, Dalle2011). MW 197kDa & regimen=MEASURED.",
+  "validation_data": "Clinical PK (Hutchings JCO2021, n=171), CRS 50.3%/IL-6 kinetics, obinutuzumab-pretreatment effect, exposure-response; catalog BLOOD supplement + digitized figures.",
+  "sources": {
+   "KD_TAA": "obinutuzumab(GA101)-derived type-II CD20 arm, high-affinity ~4 nM class-estimate (Bacac2018 10.1158/1078-0432.CCR-18-0455; GA101 lineage)",
+   "kon_koff": "anti-CD20 SPR kon 4.3e5 /M/s class-measured (rituximab, S0003269722000914); koff derived kon*KD (per-arm intrinsic; 2:1 avidity handled by n_arm_TAA=2 in model)",
+   "KD_CD3": "schema default 40 nM; Roche humanized anti-CD3 (shared with CD20-TCB); Betts2019 class-ref 11.4 nM alt",
+   "kint": "type-II anti-CD20 slower internalization than type-I (Dalle2011 MCT); class-estimate 0.05/day",
+   "turnover": "ksyn=kdeg*Rtot identity; kdeg class-estimate 0.1/day",
+   "mw_format": "Humanized IgG1 2:1 (2\u00d7CD20,1\u00d7CD3) 197 kDa (Zhu2025 Table1); Fab-Fc(G1)\u00d7Fab-Fab-Fc(G1)",
+   "regimen": "Obinutuzumab 1000 mg IV day -7 (Gpt); glofitamab 2.5mg C1D1, 10mg C1D8, 30mg C2D1(=D22) then 30mg Q3W, 21-day cycles, IV (Hutchings 10.1200/JCO.20.03175)"
+  },
+  "KD_CD3_source": "FDA BLA 761309 SPR Study 1108724 (KD=4-5nM CD3e); CD20 EC50 4.3nM cell-based"
+ },
+ "epcoritamab": {
+  "tgt": "MS4A1",
+  "KD_TAA_nM": 4.76,
+  "kon_TAA_perM_pers": 430000.0,
+  "koff_TAA_pers": 0.0020468,
+  "KD_CD3_nM": 40.0,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 0.004,
+  "kint_perday": 0.1,
+  "ksyn_frac_perday": 0.1,
+  "kdeg_perday": 0.1,
+  "n_arm_TAA": 1,
+  "n_arm_CD3": 1,
+  "mw_kda": 149.0,
+  "fFcRn": 1.0,
+  "route": "SC",
+  "regimen_mg_day": [
+   [
+    1,
+    0.16
+   ],
+   [
+    8,
+    0.8
+   ],
+   [
+    15,
+    48.0
+   ],
+   [
+    22,
+    48.0
+   ],
+   [
+    29,
+    48.0
+   ],
+   [
+    36,
+    48.0
+   ],
+   [
+    43,
+    48.0
+   ],
+   [
+    50,
+    48.0
+   ]
+  ],
+  "il6_obs_pgml": null,
+  "measured_vs_derived": "CD20 KD=class-measured(ofatumumab/7D8 parent clone 4.76nM); CD20 kon=class-measured(anti-CD20 SPR 4.3e5); CD20 koff=DERIVED. CD3 KD=schema-default 40nM; CD3 koff=DERIVED. Fc-silenced IgG1 (L234F/L235E/D265A) but FcRn intact => fFcRn=1.0 (MEASURED, Engelberts2020). SC route & 3-step regimen=MEASURED(Zhu2025/USPI). kint/turnover=class-estimate.",
+  "validation_data": "Clinical SC PK (conc-time LOESS, catalog PMC13338999), CRS/IL-6 peak vs step-up, B-cell depletion, exposure-efficacy (EPCORE NHL-1/-3); SC gives lower/delayed Cmax & reduced cytokines vs IV.",
+  "sources": {
+   "KD_TAA": "7D8/ofatumumab-derived CD20 arm; ofatumumab cell-based Kd 4.76 nM (PMC11158754 Table2); DuoBody controlled Fab-arm exchange (Engelberts2020 10.1016/j.ebiom.2019.102625)",
+   "kon_koff": "anti-CD20 SPR kon 4.3e5 /M/s class-measured (S0003269722000914); koff derived kon*KD",
+   "KD_CD3": "schema default 40 nM; Genmab humanized anti-CD3 arm; Betts2019 class-ref 11.4 nM alt",
+   "kint": "CD20 non-internalizing class-estimate 0.1/day (Ferl2018)",
+   "turnover": "ksyn=kdeg*Rtot identity; kdeg class-estimate 0.1/day",
+   "mw_format": "Humanized IgG1 1:1 DuoBody 149 kDa, Fc-silenced L234F/L235E/D265A (Zhu2025 Table1; Engelberts2020)",
+   "regimen": "SC: 0.16mg SUD1 D1, 0.8mg SUD2 D8, 48mg full D15; QW cycles1-3, Q2W 4-9, Q4W >=10, 28-day cycles (Epkinly USPI; Chen 10.1002/cpt.3588)"
+  }
+ },
+ "odronextamab": {
+  "tgt": "MS4A1",
+  "KD_TAA_nM": 5.0,
+  "kon_TAA_perM_pers": 430000.0,
+  "koff_TAA_pers": 0.00215,
+  "KD_CD3_nM": 40.0,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 0.004,
+  "kint_perday": 0.1,
+  "ksyn_frac_perday": 0.1,
+  "kdeg_perday": 0.1,
+  "n_arm_TAA": 1,
+  "n_arm_CD3": 1,
+  "mw_kda": 146.0,
+  "fFcRn": 1.0,
+  "route": "IV",
+  "regimen_mg_day": [
+   [
+    1,
+    0.7
+   ],
+   [
+    8,
+    4.0
+   ],
+   [
+    15,
+    20.0
+   ],
+   [
+    22,
+    160.0
+   ]
+  ],
+  "il6_obs_pgml": null,
+  "measured_vs_derived": "CD20 KD=class-estimate(anti-CD20 class ~5nM; fully-human REGN clone, cytotox EC50 15-84pM Smith2015); CD20 kon=class-measured(4.3e5); CD20 koff=DERIVED. CD3 KD=schema-default 40nM; CD3 koff=DERIVED. IgG4 native-format 1:1=MEASURED(Zhu2025). Regimen step-up days APPROXIMATE (RP2D 80mg FL/160mg DLBCL MEASURED). kint/turnover=class-estimate.",
+  "validation_data": "Clinical PK (fully-human IgG4, cyno t1/2 ~14 days Smith2015), CRS/IL-6 driven QSP step-up optimization (mechanistic cytokine model), ORR exposure-response (ELM-1/ELM-2); catalog Zhu2022 supplement (cytokine release assays).",
+  "sources": {
+   "KD_TAA": "fully-human CD20 arm (REGN1979); no public SPR KD \u2014 anti-CD20 class-estimate ~5 nM; functional cytotox EC50 15-84 pM (Smith2015 10.1038/srep17943)",
+   "kon_koff": "anti-CD20 SPR kon 4.3e5 /M/s class-measured (S0003269722000914); koff derived kon*KD",
+   "KD_CD3": "schema default 40 nM; Regeneron anti-CD3 arm; Betts2019 class-ref 11.4 nM alt",
+   "kint": "CD20 non-internalizing class-estimate 0.1/day (Ferl2018)",
+   "turnover": "ksyn=kdeg*Rtot identity; kdeg class-estimate 0.1/day",
+   "mw_format": "Fully human IgG4 1:1 146 kDa (Zhu2025 Table1; Smith2015 native-format bispecific IgG4)",
+   "regimen": "IV step-up (split doses) cycle1 ~0.7/4/20 mg then RP2D 80 mg FL / 160 mg DLBCL, weekly->Q2W (Zhu2025; Bannerji ELM-1 35366963). Step-up days approximate."
+  }
+ },
+ "blinatumomab": {
+  "tgt": "CD19",
+  "KD_TAA_nM": 1.49,
+  "kon_TAA_perM_pers": 100000.0,
+  "koff_TAA_pers": 0.000149,
+  "KD_CD3_nM": 260.0,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 0.026,
+  "kint_perday": 0.15,
+  "ksyn_frac_perday": 0.15,
+  "kdeg_perday": 0.15,
+  "n_arm_TAA": 1,
+  "n_arm_CD3": 1,
+  "mw_kda": 54.0,
+  "fFcRn": 0.0,
+  "route": "IV",
+  "regimen_mg_day": [
+   [
+    1,
+    0.009
+   ],
+   [
+    8,
+    0.028
+   ]
+  ],
+  "il6_obs_pgml": 2460.0,
+  "measured_vs_derived": "CD19 KD=MEASURED(flow 1.49nM, HD37 clone) - NOT SPR; CD3 KD=MEASURED(flow 260nM, L2K/TR66-derived) - NOT SPR. kon=std-mAb 1e5 (no published SPR); koff=DERIVED(kon*KD) for BOTH arms. MW 54kDa BiTE no-Fc => fFcRn=0 MEASURED. Continuous IV, dose in ug/day. IL-6 Cmax MEASURED(NHL). kint/turnover CD19 class-estimate.",
+  "validation_data": "Rich clinical PK/PD: NHL phase1 n=76 (Zhu 10.2174/1574884713666180518102514) - Css vs dose, B-cell depletion <48h at >=5 ug/m2/d, tumor-shrinkage Emax (50% at AUCcum>=1340 h*ug/L, Css>=1830 pg/mL), cytokine Cmax; ALL approved 9->28 ug/day.",
+  "sources": {
+   "KD_TAA": "CD19 KD 1.49 nM by flow cytometry, anti-CD19 HD37 scFv (canonical Amgen/NCI value; NOT SPR)",
+   "kon_koff": "no published SPR kon/koff for either arm; kon set to std mAb 1e5 /M/s; koff derived = kon*KD (CD19 1.49e-4 /s, CD3 2.6e-2 /s)",
+   "KD_CD3": "CD3 KD 260 nM by flow (low-affinity anti-CD3, TR66/L2K lineage); NOT SPR",
+   "kint": "CD19 moderately internalizing, class-estimate 0.15/day (faster than CD20)",
+   "turnover": "ksyn=kdeg*Rtot identity; kdeg class-estimate 0.15/day",
+   "mw_format": "BiTE tandem-scFv, ~54 kDa, NO Fc (Ferl2018 states 55 kDa); fFcRn=0 (no FcRn recycling, t1/2 ~2 h)",
+   "regimen": "Continuous IV infusion. ALL approved: 9 ug/day (D1-7) -> 28 ug/day (D8-28), 4-wk cycles [encoded as mg/day]. NHL study: 5-15-60 ug/m2/day step-up. IL-6 Cmax ~2460 pg/mL at 60 ug/m2/day flat first dose."
+  }
+ },
+ "teclistamab": {
+  "name": "teclistamab",
+  "tgt": "TNFRSF17",
+  "KD_TAA_nM": 0.18,
+  "kon_TAA_perM_pers": 1284722.2,
+  "koff_TAA_pers": 0.0002315,
+  "KD_CD3_nM": 28.03,
+  "kon_CD3_perM_pers": 115740.7,
+  "koff_CD3_pers": 0.0032986,
+  "kint_perday": 2.0,
+  "ksyn_frac_perday": 2.05,
+  "kdeg_perday": 2.05,
+  "n_arm_TAA": 1,
+  "n_arm_CD3": 1,
+  "mw_kda": 146.0,
+  "fFcRn": 0.7,
+  "route": "SC",
+  "regimen_mg_day": [
+   [
+    1,
+    4.8
+   ],
+   [
+    4,
+    24.0
+   ],
+   [
+    7,
+    120.0
+   ]
+  ],
+  "il6_obs_pgml": 21.5,
+  "measured_vs_derived": "BCMA & CD3 kon/koff: MEASURED-in-QSP (Janssen translational QSP, units 1/nM/d & 1/d, converted to /M/s & /s). KD_CD3=28.03nM from FDA review. kint_BCMA=2/d MEASURED (Lee 2016). ksyn/kdeg DERIVED from turnover identity ksyn=Rtot*(kshed+kint). Regimen mg = 0.06/0.3/1.5 mg/kg at 80kg.",
+  "validation_data": "MajesTEC-1 popPK; QSP-modeled IL-6 (observed mean peak ~21.5 pg/mL, PSP4 2024 Fig2); serum IL-6 up to ~520 pg/mL in CRS cases",
+  "sources": {
+   "KD_TAA": "Janssen teclistamab QSP suppl, KD_BCMA=0.18nM (koff20/kon111); DOI 10.1002/psp4.70105",
+   "kon_koff": "Teclistamab QSP: kon_mBCMA=111/nM/d, koff=20/d; kon_CD3=10/nM/d, koff_CD3=285/d (koff3 ref: Li epcoritamab CPT 2022)",
+   "KD_CD3": "FDA Multi-Disciplinary Review Teclistamab 2022 (KD_CD3=28.03nM)",
+   "kint": "Lee 2016 Br J Haematol 174(6):911, PMID 27313079 (BCMA kint=2/d)",
+   "regimen": "Tecvayli USPI: SC 0.06, 0.3 mg/kg step-up then 1.5 mg/kg QW"
+  },
+  "tgt_raw": "TNFRSF17 (BCMA)"
+ },
+ "elranatamab": {
+  "name": "elranatamab",
+  "tgt": "TNFRSF17",
+  "KD_TAA_nM": 0.04,
+  "kon_TAA_perM_pers": 995370.4,
+  "koff_TAA_pers": 3.981e-05,
+  "KD_CD3_nM": 17.0,
+  "kon_CD3_perM_pers": 995370.4,
+  "koff_CD3_pers": 0.016921,
+  "kint_perday": 2.0,
+  "ksyn_frac_perday": 2.05,
+  "kdeg_perday": 2.05,
+  "n_arm_TAA": 1,
+  "n_arm_CD3": 1,
+  "mw_kda": 150.0,
+  "fFcRn": 0.7,
+  "route": "SC",
+  "regimen_mg_day": [
+   [
+    1,
+    12.0
+   ],
+   [
+    4,
+    32.0
+   ],
+   [
+    8,
+    76.0
+   ]
+  ],
+  "il6_obs_pgml": 230.0,
+  "measured_vs_derived": "KD_BCMA=0.04nM & kon=86/nM/d MEASURED-in-model (Yoneyama Table 2, src PF-06863135 refs 29,31). koff_BCMA DERIVED=kon*KD. KD_CD3=17nM from AMG420 platform value (ref 32) \u2014 shared CD3, flag. kon_CD3 ASSUMED=kon_BCMA (single-kon model); koff_CD3 DERIVED. kint_BCMA=2/d class (Lee 2016). ksyn/kdeg DERIVED.",
+  "validation_data": "MagnetisMM-1/-3 popPK; IL-6 digitized (Nat Med 2023 Fig6): priming-only peak ~340 pg/mL, priming+premed peak ~230 pg/mL; CPT 2025 CRS-cytokine PK-PD model",
+  "sources": {
+   "KD_TAA": "Yoneyama 2022 PLOS Comput Biol Table 2, KD_BCMA=0.04nM; DOI 10.1371/journal.pcbi.1009715",
+   "kon_koff": "Yoneyama Table 2: kon=86/nM/day (ref 31); koff calc from kon and KD",
+   "KD_CD3": "Yoneyama Table 2 KD_CD3=17nM (source AMG420, ref 32 \u2014 platform CD3 value)",
+   "kint": "BCMA class estimate, Lee 2016 PMID 27313079 (kint=2/d)",
+   "regimen": "Elrexfio USPI: SC 12, 32 mg step-up then 76 mg QW"
+  },
+  "tgt_raw": "TNFRSF17 (BCMA)"
+ },
+ "linvoseltamab": {
+  "name": "linvoseltamab",
+  "tgt": "TNFRSF17",
+  "KD_TAA_nM": 1.0,
+  "kon_TAA_perM_pers": 100000.0,
+  "koff_TAA_pers": 0.0001,
+  "KD_CD3_nM": 35.0,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 0.0035,
+  "kint_perday": 2.0,
+  "ksyn_frac_perday": 2.05,
+  "kdeg_perday": 2.05,
+  "n_arm_TAA": 1,
+  "n_arm_CD3": 1,
+  "mw_kda": 150.0,
+  "fFcRn": 0.7,
+  "route": "IV",
+  "regimen_mg_day": [
+   [
+    1,
+    5.0
+   ],
+   [
+    8,
+    25.0
+   ],
+   [
+    15,
+    200.0
+   ]
+  ],
+  "il6_obs_pgml": null,
+  "measured_vs_derived": "KD_BCMA~1nM = literature/CLASS-ESTIMATE (full-length IgG4 BCMAxCD3, standard/normal CD3 affinity \u2014 the high-CD3-affinity sibling of REGN5459). kon set to standard mAb 1e5/M/s; koff DERIVED=kon*KD. KD_CD3=35nM CLASS-ESTIMATE (normal-affinity CD3). kint/ksyn/kdeg BCMA class.",
+  "validation_data": "LINKER-MM1 popPK (IV step-up then 200 mg QW\u2192Q2W/Q4W); no binding-characterization or cytokine digitized data in catalog",
+  "sources": {
+   "KD_TAA": "Class estimate; linvoseltamab = REGN5458, full-length IgG4 BCMAxCD3 (Bar et al 2025 review, normal CD3 affinity vs REGN5459)",
+   "kon_koff": "DERIVED: standard mAb kon 1e5/M/s, koff=kon*KD",
+   "KD_CD3": "Class estimate (standard CD3 affinity, contrast REGN5459 low-affinity variant)",
+   "kint": "BCMA class, Lee 2016",
+   "regimen": "Lynozyfic/LINKER-MM1: IV 5, 25 mg step-up then 200 mg QW"
+  },
+  "tgt_raw": "TNFRSF17 (BCMA)"
+ },
+ "alnuctamab": {
+  "name": "alnuctamab",
+  "tgt": "TNFRSF17",
+  "KD_TAA_nM": 0.3,
+  "kon_TAA_perM_pers": 100000.0,
+  "koff_TAA_pers": 3e-05,
+  "KD_CD3_nM": 25.0,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 0.0025,
+  "kint_perday": 2.0,
+  "ksyn_frac_perday": 2.05,
+  "kdeg_perday": 2.05,
+  "n_arm_TAA": 2,
+  "n_arm_CD3": 1,
+  "mw_kda": 150.0,
+  "fFcRn": 0.7,
+  "route": "SC",
+  "regimen_mg_day": [
+   [
+    1,
+    3.0
+   ],
+   [
+    8,
+    10.0
+   ],
+   [
+    15,
+    30.0
+   ]
+  ],
+  "il6_obs_pgml": null,
+  "measured_vs_derived": "FORMAT well-documented: 2+1 IgG1, BIVALENT BCMA (n_arm_TAA=2) + MONOVALENT low-affinity CD3e (n_arm_CD3=1). KD_BCMA~0.3nM and KD_CD3~25nM are CLASS-ESTIMATES \u2014 NO primary binding paper was successfully fetched (EM801 precursor gave abstract stub only). kon standard 1e5/M/s, koff DERIVED=kon*KD. kint_BCMA=2/d (Lee 2016). ksyn/kdeg via turnover identity. VERIFY KDs against patent WO2020219978A1.",
+  "validation_data": "CC-93269-MM-001 (NCT03486067) phase-1 PK; IV CRS 76% (grade>=3 7%) then pivoted to SC; no binding/cytokine digitized data in catalog",
+  "sources": {
+   "KD_TAA": "CLASS-ESTIMATE \u2014 no primary binding paper successfully retrieved. Format (2+1 IgG1, bivalent BCMA / monovalent low-affinity CD3e) is well-documented across ASH phase-1 abstracts (CC-93269/BMS-986349). Monovalent KD_BCMA~0.3nM inferred from precursor EM801 (Seckinger 2017 Cancer Cell 10.1016/j.ccell.2017.02.002 \u2014 abstract stub only, KD not extractable). TREAT AS ESTIMATE, verify against BMS patent WO2020219978A1 before use.",
+   "kon_koff": "DERIVED: standard mAb kon 1e5/M/s, koff=kon*KD",
+   "KD_CD3": "CLASS-ESTIMATE (qualitative 'low-affinity CD3e' from phase-1 abstracts); ~25nM placeholder, not from a verified primary source.",
+   "kint": "BCMA class, Lee 2016",
+   "regimen": "CC-93269 SC step-up (approx; escalation study)"
+  },
+  "tgt_raw": "TNFRSF17 (BCMA)"
+ },
+ "REGN5459": {
+  "name": "REGN5459",
+  "tgt": "TNFRSF17",
+  "KD_TAA_nM": 1.0,
+  "kon_TAA_perM_pers": 100000.0,
+  "koff_TAA_pers": 0.0001,
+  "KD_CD3_nM": 500.0,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 0.05,
+  "kint_perday": 2.0,
+  "ksyn_frac_perday": 2.05,
+  "kdeg_perday": 2.05,
+  "n_arm_TAA": 1,
+  "n_arm_CD3": 1,
+  "mw_kda": 150.0,
+  "fFcRn": 0.7,
+  "route": "IV",
+  "regimen_mg_day": null,
+  "il6_obs_pgml": null,
+  "measured_vs_derived": "DELIBERATELY LOW CD3 AFFINITY variant (Regeneron), same BCMA arm as REGN5458/linvoseltamab. KD_CD3~500nM = LOW-AFFINITY PLACEHOLDER (qualitative 'low CD3 affinity'; exact fold not published) \u2014 FLAG, tune in model. KD_BCMA~1nM class estimate. kon standard, koff DERIVED.",
+  "validation_data": "Phase 1/2 FIH (AACR CT013); low CD3 affinity gave high response with low CRS; no PK/cytokine digitized data in catalog",
+  "sources": {
+   "KD_TAA": "Class estimate (shares REGN5458 BCMA arm)",
+   "kon_koff": "DERIVED: standard mAb kon, koff=kon*KD",
+   "KD_CD3": "REGN5459 = 'BCMAxCD3 with LOW CD3 affinity' (AACR Abstract CT013, 2023); quantitative value not published \u2014 500nM placeholder, FLAG",
+   "kint": "BCMA class, Lee 2016",
+   "regimen": "FIH escalation (not fixed)"
+  },
+  "tgt_raw": "TNFRSF17 (BCMA)"
+ },
+ "talquetamab": {
+  "name": "talquetamab",
+  "tgt": "GPRC5D",
+  "KD_TAA_nM": 11.0,
+  "kon_TAA_perM_pers": 100000.0,
+  "koff_TAA_pers": 0.0011,
+  "KD_CD3_nM": 1.9,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 0.00019,
+  "kint_perday": 2.0,
+  "ksyn_frac_perday": 2.0,
+  "kdeg_perday": 2.0,
+  "n_arm_TAA": 1,
+  "n_arm_CD3": 1,
+  "mw_kda": 146.0,
+  "fFcRn": 0.7,
+  "route": "SC",
+  "regimen_mg_day": [
+   [
+    1,
+    0.8
+   ],
+   [
+    4,
+    4.8
+   ],
+   [
+    7,
+    32.0
+   ]
+  ],
+  "il6_obs_pgml": 18.2,
+  "measured_vs_derived": "KD_GPRC5D~11nM & KD_CD3e~1.9nM: from Eckmann Blood 2025 stating talquetamab monovalent affinities are 'in the same range' as forimtamig (ref 28=talquetamab) \u2014 cross-referenced, flag. 1+1 IgG4 DuoBody, monovalent GPRC5D + monovalent CD3e. kon standard, koff DERIVED. kint_GPRC5D=2/d CLASS-ESTIMATE (GPCR, poorly characterized).",
+  "validation_data": "MonumenTAL-1 popPK (CL0 2.08 L/d); IL-6 digitized (Targeted Onc 2024): observed median peak ~18 pg/mL, observed MAX ~212 pg/mL; MABEL EC20 0.083 nM",
+  "sources": {
+   "KD_TAA": "Eckmann Blood 2025 (forimtamig paper, DOI 10.1182/blood.2024025987): talquetamab GPRC5D monovalent affinity 'same range' ~11nM",
+   "kon_koff": "DERIVED: standard mAb kon 1e5/M/s, koff=kon*KD",
+   "KD_CD3": "Eckmann Blood 2025: talquetamab CD3e 'same range' ~1.9nM",
+   "kint": "GPRC5D class estimate (GPCR)",
+   "regimen": "Talvey USPI: SC 0.01/0.06 mg/kg step-up then 0.4 mg/kg QW (mg at 80kg)"
+  }
+ },
+ "forimtamig": {
+  "name": "forimtamig",
+  "tgt": "GPRC5D",
+  "KD_TAA_nM": 0.2,
+  "kon_TAA_perM_pers": 100000.0,
+  "koff_TAA_pers": 2e-05,
+  "KD_CD3_nM": 1.9,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 0.00019,
+  "kint_perday": 2.0,
+  "ksyn_frac_perday": 2.0,
+  "kdeg_perday": 2.0,
+  "n_arm_TAA": 2,
+  "n_arm_CD3": 1,
+  "mw_kda": 196.0,
+  "fFcRn": 0.7,
+  "route": "IV",
+  "regimen_mg_day": null,
+  "il6_obs_pgml": null,
+  "measured_vs_derived": "MEASURED by GCI (Eckmann Blood 2025 Fig1D): GPRC5D monovalent KD=11nM, BIVALENT AVIDITY KD=0.2nM (>50-fold), CD3e KD=1.9nM. 2+1 head-to-tail, BIVALENT GPRC5D (n_arm_TAA=2)+monovalent CD3 (n_arm_CD3=1). KD_TAA=0.2nM (bivalent avidity used as effective). kon standard, koff DERIVED. kint class.",
+  "validation_data": "Phase-1 (NCT04557150) IV & SC escalation; superior potency vs other GPRC5D/BCMA TCBs (Eckmann 2025); no cytokine digitized data in catalog",
+  "sources": {
+   "KD_TAA": "Eckmann Blood 2025 (DOI 10.1182/blood.2024025987, PMC11738037) GCI: GPRC5D monovalent 11nM, bivalent avidity 0.2nM",
+   "kon_koff": "DERIVED: standard mAb kon 1e5/M/s, koff=kon*KD (GCI koff not tabulated in main text)",
+   "KD_CD3": "Eckmann Blood 2025 GCI: CD3e KD=1.9nM",
+   "kint": "GPRC5D class estimate",
+   "regimen": "RG6234 phase-1 IV/SC escalation (not fixed)"
+  }
+ },
+ "cevostamab": {
+  "name": "cevostamab",
+  "tgt": "FCRL5",
+  "KD_TAA_nM": 0.016,
+  "kon_TAA_perM_pers": 100000.0,
+  "koff_TAA_pers": 1.6e-06,
+  "KD_CD3_nM": 0.033,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 3.3e-06,
+  "kint_perday": 1.0,
+  "ksyn_frac_perday": 1.0,
+  "kdeg_perday": 1.0,
+  "n_arm_TAA": 1,
+  "n_arm_CD3": 1,
+  "mw_kda": 145.2,
+  "fFcRn": 0.7,
+  "route": "IV",
+  "regimen_mg_day": [
+   [
+    1,
+    3.6
+   ],
+   [
+    22,
+    160.0
+   ]
+  ],
+  "il6_obs_pgml": null,
+  "measured_vs_derived": "KD_FcRH5=0.016nM (1.605e-11 M) & KD_CD3e=0.033nM (3.265e-11 M): MEASURED by BLI on clinical molecule (vendor QC, MedChemExpress/Selleck) \u2014 flag vendor-not-peer-reviewed. Humanized IgG1 TDB, MW 145.2 kDa. Format 1+1 (Genentech knob-in-hole TDB; master-table '2:1' likely mislabel \u2014 FLAG). kon standard, koff DERIVED. kint_FcRH5=1/d CLASS-ESTIMATE (FcRH5 internalizes slower than BCMA). NO catalog package.",
+  "validation_data": "GO39775 phase-1 (NCT03275103) IV Q3W step-up, linear PK, t1/2 supports Q3W; no PK/cytokine data in catalog (cevostamab absent from catalog)",
+  "sources": {
+   "KD_TAA": "BLI (MedChemExpress/Selleck cevostamab QC): FcRH5 KD=1.605e-11 M (0.016nM). Research-clone precursor: Li 2017 Cancer Cell 10.1016/j.ccell.2017.02.001 (1G7 12nM/10A8 3nM Scatchard)",
+   "kon_koff": "DERIVED: standard mAb kon 1e5/M/s, koff=kon*KD",
+   "KD_CD3": "BLI (MedChemExpress cevostamab QC): CD3e KD=3.265e-11 M (0.033nM)",
+   "kint": "FcRH5 class estimate (slower than BCMA)",
+   "regimen": "GO39775: IV Q3W single/double step-up, target up to 160 mg Q3W"
+  },
+  "tgt_raw": "FCRL5 (FcRH5)"
+ },
+ "tarlatamab": {
+  "name": "tarlatamab",
+  "tgt": "DLL3",
+  "KD_TAA_nM": 0.64,
+  "kon_TAA_perM_pers": 100000.0,
+  "koff_TAA_pers": 6.4e-05,
+  "KD_CD3_nM": 14.9,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 0.00149,
+  "kint_perday": 1.0,
+  "ksyn_frac_perday": 0.5,
+  "kdeg_perday": 0.5,
+  "n_arm_TAA": 1,
+  "n_arm_CD3": 1,
+  "mw_kda": 100.0,
+  "fFcRn": 0.6,
+  "route": "IV",
+  "regimen_mg_day": [
+   [
+    1,
+    1.0
+   ],
+   [
+    8,
+    10.0
+   ],
+   [
+    15,
+    10.0
+   ],
+   [
+    29,
+    10.0
+   ]
+  ],
+  "il6_obs_pgml": null,
+  "measured_vs_derived": "DLL3 KD & CD3 KD MEASURED (Giffin 2021, human); kon 1e5 std -> koff DERIVED; turnover class-estimate; scFc fFcRn est",
+  "validation_data": "Rich: pop-PK 420 pts (DeLLphi-300/301), Cavg-vs-tumor-response & Grade>=3 TEAE (digitized), CRS ~50%",
+  "sources": {
+   "KD_TAA": "Giffin 2021 Clin Cancer Res 27(5):1526-37 DOI 10.1158/1078-0432.CCR-20-2845; human DLL3 KD=0.64 nM (0.50 nM NHP) [via MedChemExpress/GlpBio/TargetMol/AJPT PK review citing Giffin]",
+   "KD_CD3": "Giffin 2021 same; human CD3 KD=14.9 nM (12 nM NHP)",
+   "kon_koff": "No published per-arm SPR kon/koff; kon=1e5/M/s (standard mAb) assumed, koff=kon*KD DERIVED",
+   "kint": "DLL3 internalizing (Rova-T ADC target); ~1/day antigen-class estimate",
+   "turnover": "kdeg 0.5/day generic membrane-receptor estimate; ksyn_frac=kdeg (steady-state identity)",
+   "format": "HLE BiTE, anti-DLL3xanti-CD3 scFv fused to scFc (single-chain IgG Fc); ~100 kDa; Prot NCT04885998 sec2.2.2",
+   "regimen": "Imdelltra USPI: 1 mg IV C1D1, 10 mg C1D8 & C1D15, then 10 mg Q2W"
+  }
+ },
+ "cibisatamab": {
+  "name": "cibisatamab",
+  "tgt": "CEACAM5",
+  "KD_TAA_nM": 16.0,
+  "kon_TAA_perM_pers": 100000.0,
+  "koff_TAA_pers": 0.0016,
+  "KD_CD3_nM": 80.0,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 0.008,
+  "kint_perday": 0.3,
+  "ksyn_frac_perday": 0.3,
+  "kdeg_perday": 0.3,
+  "n_arm_TAA": 2,
+  "n_arm_CD3": 1,
+  "mw_kda": 194.0,
+  "fFcRn": 0.75,
+  "route": "IV",
+  "regimen_mg_day": [
+   [
+    1,
+    100.0
+   ],
+   [
+    8,
+    100.0
+   ],
+   [
+    15,
+    100.0
+   ]
+  ],
+  "il6_obs_pgml": null,
+  "measured_vs_derived": "Format (2:1 bivalent CEA / monovalent low-aff CD3) CONFIRMED (Bacac 2016); CEA & CD3 KD LITERATURE-ESTIMATE (patent/review, no clean primary SPR table accessible); kon/koff DERIVED; turnover class-estimate",
+  "validation_data": "PK + ADA time-course (digitized, Fimmu 2024); published QSP model (Ma 2020 AAPS J); dose-escalation Phase 1",
+  "sources": {
+   "KD_TAA": "Bacac 2016 OncoImmunology 5(8):e1203498 DOI 10.1080/2162402X.2016.1203498 - CEA-TCB monovalent CEA binding, high avidity via bivalency; monovalent CEA KD ~16 nM (B3 domain) LITERATURE-ESTIMATE (Roche patents)",
+   "KD_CD3": "Monovalent low-affinity CD3e (Bacac 2016 states 'monovalent low affinity binding to CD3e to avoid non-specific activation'); KD~80 nM LITERATURE-ESTIMATE",
+   "kon_koff": "No primary SPR kon/koff; kon=1e5/M/s std, koff DERIVED. NOTE: kon/koff in PSP4 supp (10.1002/psp4.70019) are ADA-complex kinetics, NOT drug-target - excluded",
+   "kint": "CEA (CEACAM5) GPI-anchored, slow internalization; ~0.3/day antigen-class estimate",
+   "turnover": "kdeg 0.3/day class-estimate; ksyn_frac=kdeg",
+   "format": "2:1 CrossMab (RG7802): 2x CEA (bivalent avidity) + 1x CD3, effector-silent IgG1 Fc; ~194 kDa",
+   "regimen": "Phase 1 dose-escalation IV QW; representative ~100 mg QW (monotherapy up to 600 mg); exact step-up varies by cohort"
+  }
+ },
+ "tebentafusp": {
+  "name": "tebentafusp",
+  "tgt": "PMEL",
+  "KD_TAA_nM": 0.015,
+  "kon_TAA_perM_pers": 100000.0,
+  "koff_TAA_pers": 1.5e-06,
+  "KD_CD3_nM": 20.0,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 0.002,
+  "kint_perday": 0.15,
+  "ksyn_frac_perday": 0.15,
+  "kdeg_perday": 0.15,
+  "n_arm_TAA": 1,
+  "n_arm_CD3": 1,
+  "mw_kda": 77.0,
+  "fFcRn": 0.0,
+  "route": "IV",
+  "regimen_mg_day": [
+   [
+    1,
+    0.02
+   ],
+   [
+    8,
+    0.03
+   ],
+   [
+    15,
+    0.068
+   ],
+   [
+    22,
+    0.068
+   ]
+  ],
+  "il6_obs_pgml": null,
+  "measured_vs_derived": "ImmTAC platform CONFIRMED (affinity-enhanced TCR + humanized UCHT1 anti-CD3 scFv); gp100-HLA KD picomolar MEASURED-class (15 pM preclinical; BLI alt 0.776 nM); CD3 KD class-estimate; kon/koff DERIVED; NO Fc",
+  "validation_data": "PD-rich: serial cytokines (IL-6 CRS peak wk1-3), ctDNA kinetics (digitized), lymphocyte trafficking; approved (Kimmtrak)",
+  "sources": {
+   "KD_TAA": "gp100(YLEPGPVTA 280-288)/HLA-A*02:01; affinity-enhanced TCR KD~15 pM preclinical (Middleton 2020 CCR 26(22):5869 DOI 10.1158/1078-0432.CCR-20-1247; PMC10184536 ref40). Alt BLI KD=0.776 nM (MedChemExpress)",
+   "KD_CD3": "Humanized UCHT1 anti-CD3 scFv (ImmTAC platform, Nielsen/immadv ltae008 DOI 10.1093/immadv/ltae008); KD ~20 nM CLASS-ESTIMATE (UCHT1 range)",
+   "kon_koff": "Affinity-enhanced TCR has very slow off-rate (binding t1/2>12h class); kon=1e5 std, koff DERIVED (gives koff~1.5e-6/s, consistent w/ slow off-rate)",
+   "kint": "pMHC complex, slow surface turnover; ~0.15/day class-estimate",
+   "turnover": "kdeg 0.15/day (pMHC) class-estimate; ksyn_frac=kdeg",
+   "format": "ImmTAC: soluble affinity-enhanced TCR fused to anti-CD3 scFv; ~77 kDa; NO Fc (fFcRn=0)",
+   "regimen": "Kimmtrak USPI: 20 ug IV C1D1, 30 ug C1D8, 68 ug C1D15+, then 68 ug weekly"
+  },
+  "tgt_raw": "PMEL(gp100)-HLA-A*02:01"
+ },
+ "catumaxomab": {
+  "name": "catumaxomab",
+  "tgt": "EPCAM",
+  "KD_TAA_nM": 0.56,
+  "kon_TAA_perM_pers": 61000.0,
+  "koff_TAA_pers": 3.3e-05,
+  "KD_CD3_nM": 4.4,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 0.00043999999999999996,
+  "kint_perday": 0.3,
+  "ksyn_frac_perday": 0.3,
+  "kdeg_perday": 0.3,
+  "n_arm_TAA": 1,
+  "n_arm_CD3": 1,
+  "mw_kda": 150.0,
+  "fFcRn": 0.3,
+  "route": "IP",
+  "regimen_mg_day": [
+   [
+    0,
+    0.01
+   ],
+   [
+    3,
+    0.02
+   ],
+   [
+    7,
+    0.05
+   ],
+   [
+    10,
+    0.15
+   ]
+  ],
+  "il6_obs_pgml": null,
+  "measured_vs_derived": "EpCAM arm FULLY MEASURED (Ruf 2007 Biacore Table 3: kon 6.1e4, koff 3.3e-5, KD 0.56 nM); CD3 (mouse) KD class-estimate; route=INTRAPERITONEAL (not IV)",
+  "validation_data": "Ascites PK pg/mL (digitized, Ruf 2010 BCP), serum PK, ALT liver-tox by dose (digitized, oncotarget 2016)",
+  "sources": {
+   "KD_TAA": "Ruf 2007 Br J Cancer 97:315 DOI 10.1038/sj.bjc.6603881 Table 3: catumaxomab monovalent EpCAM arm kass=6.1e4 M-1s-1, kdiss=3.3e-5 s-1, KD=5.6e-10 M (Biacore 3000) - ALL MEASURED",
+   "KD_CD3": "Mouse anti-CD3 arm (mouse IgG2a); KD ~20 nM CLASS-ESTIMATE (not separately published)",
+   "kon_koff": "EpCAM MEASURED (Ruf 2007); CD3 kon=1e5 std, koff DERIVED",
+   "kint": "EpCAM slow internalization; ~0.3/day class-estimate",
+   "turnover": "kdeg 0.3/day class-estimate; ksyn_frac=kdeg",
+   "format": "Triomab: rat IgG2b(anti-EpCAM) x mouse IgG2a(anti-CD3) hybrid, intact chimeric Fc binds FcgR (trifunctional); ~150 kDa; rodent Fc = poor human FcRn (fFcRn~0.3, t1/2~2.5 d)",
+   "regimen": "Removab: 4 IP infusions 10/20/50/150 ug on days 0,3,7,10 (or 7,10,13,16); INTRAPERITONEAL for malignant ascites"
+  },
+  "_audit_2026-07-13": "KD_CD3 corrected 20.0 -> 4.4 nM. SQLite kinetics table, VERBATIM from Ruf 2010 (PMC2878603): 'intermediate affinity of catumaxomab to CD3 (KD=4.4 nM)'. koff_CD3 re-derived from kon*KD."
+ },
+ "solitomab": {
+  "name": "solitomab",
+  "tgt": "EPCAM",
+  "KD_TAA_nM": 5.0,
+  "kon_TAA_perM_pers": 100000.0,
+  "koff_TAA_pers": 0.0005,
+  "KD_CD3_nM": 260.0,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 0.026,
+  "kint_perday": 0.3,
+  "ksyn_frac_perday": 0.3,
+  "kdeg_perday": 0.3,
+  "n_arm_TAA": 1,
+  "n_arm_CD3": 1,
+  "mw_kda": 55.0,
+  "fFcRn": 0.0,
+  "route": "IV",
+  "regimen_mg_day": [
+   [
+    1,
+    0.024
+   ]
+  ],
+  "il6_obs_pgml": null,
+  "measured_vs_derived": "Canonical BiTE format CONFIRMED (MT110/AMG110); EpCAM KD CLASS-ESTIMATE (not accessible); CD3 KD CLASS-ESTIMATE (blinatumomab L2K/TR66 family low-affinity); kon/koff DERIVED",
+  "validation_data": "Phase 1 continuous IV (Kebenko 2018 OncoImmunology); GI/hepatic tox dose-limiting; limited PK",
+  "sources": {
+   "KD_TAA": "EpCAM BiTE binder (MT110); KD ~5 nM CLASS-ESTIMATE (no accessible primary SPR)",
+   "KD_CD3": "Canonical BiTE anti-CD3 (L2K/TR66 family, shared w/ blinatumomab) low-affinity ~260 nM CLASS-ESTIMATE",
+   "kon_koff": "kon=1e5 std, koff DERIVED",
+   "kint": "EpCAM ~0.3/day class-estimate",
+   "turnover": "kdeg 0.3/day class-estimate; ksyn_frac=kdeg",
+   "format": "Canonical BiTE (tandem scFv anti-EpCAM x anti-CD3); ~55 kDa; NO Fc (fFcRn=0), short t1/2 needs cIV",
+   "regimen": "Kebenko 2018 (DOI 10.1080/2162402X.2018.1450710): continuous IV infusion, dose-escalation; ~24 ug/day representative (up to ~96 ug/day); flag cIV"
+  }
+ },
+ "pasotuxizumab": {
+  "name": "pasotuxizumab",
+  "tgt": "FOLH1",
+  "KD_TAA_nM": 47.0,
+  "kon_TAA_perM_pers": 100000.0,
+  "koff_TAA_pers": 0.0047,
+  "KD_CD3_nM": 9.4,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 0.00094,
+  "kint_perday": 3.3,
+  "ksyn_frac_perday": 1.0,
+  "kdeg_perday": 1.0,
+  "n_arm_TAA": 1,
+  "n_arm_CD3": 1,
+  "mw_kda": 55.0,
+  "fFcRn": 0.0,
+  "route": "SC",
+  "regimen_mg_day": [
+   [
+    1,
+    0.005
+   ]
+  ],
+  "il6_obs_pgml": null,
+  "measured_vs_derived": "PSMA KD & CD3 KD LITERATURE (Friedrich 2012 cell-based saturation binding, full table paywalled); kon/koff DERIVED; PSMA kint MEASURED-class (rapid internalizer)",
+  "validation_data": "Phase 1 (Hummel 2021 Immunotherapy): PSA response >50% in 9/31 SC pts; cIV & SC PK; CRS",
+  "sources": {
+   "KD_TAA": "Friedrich 2012 Mol Cancer Ther 11(12):2664 (AMG212/BAY2010112); PSMA KD~47 nM LITERATURE (cell-based; primary table paywalled 403)",
+   "KD_CD3": "Friedrich 2012; CD3 KD~9.4 nM LITERATURE (cell-based)",
+   "kon_koff": "kon=1e5 std, koff DERIVED",
+   "kint": "PSMA rapidly & constitutively internalizes (t1/2~5-6h); ~3.3/day antigen-class estimate (well-established, PSMA radioligand/ADC biology)",
+   "turnover": "kdeg 1.0/day (PSMA high turnover) class-estimate; ksyn_frac=kdeg",
+   "format": "Canonical PSMA/CD3 BiTE; ~55 kDa; NO Fc (fFcRn=0)",
+   "regimen": "Originally continuous IV (Hummel); later SC dose-escalation; SC ~5 ug/day representative; flag SC/cIV"
+  },
+  "tgt_raw": "FOLH1(PSMA)"
+ },
+ "acapatamab": {
+  "name": "acapatamab",
+  "tgt": "FOLH1",
+  "KD_TAA_nM": 1.0,
+  "kon_TAA_perM_pers": 100000.0,
+  "koff_TAA_pers": 0.0001,
+  "KD_CD3_nM": 15.0,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 0.0015,
+  "kint_perday": 3.3,
+  "ksyn_frac_perday": 1.0,
+  "kdeg_perday": 1.0,
+  "n_arm_TAA": 1,
+  "n_arm_CD3": 1,
+  "mw_kda": 100.0,
+  "fFcRn": 0.6,
+  "route": "IV",
+  "regimen_mg_day": [
+   [
+    1,
+    0.1
+   ],
+   [
+    8,
+    0.2
+   ],
+   [
+    15,
+    0.3
+   ],
+   [
+    29,
+    0.3
+   ]
+  ],
+  "il6_obs_pgml": null,
+  "measured_vs_derived": "Format CONFIRMED (HLE BiTE scFc, AMG160); PSMA & CD3 KD CLASS-ESTIMATE (Deegen 2021 paywalled, no accessible KD); kon/koff DERIVED; PSMA kint MEASURED-class",
+  "validation_data": "Phase 1 (Deegen/CCR 2024 30(8):1488): PSA response, CRS common (27/32), step-up dosing; half-maximal lysis 6-42 pmol/L",
+  "sources": {
+   "KD_TAA": "AMG160 PSMA/CD3 HLE BiTE (Deegen 2021 CCR DOI 10.1158/1078-0432.CCR-20-3725, abstract only); PSMA KD ~1 nM CLASS-ESTIMATE",
+   "KD_CD3": "Amgen HLE BiTE anti-CD3; KD ~15 nM CLASS-ESTIMATE (per tarlatamab-class Amgen HLE BiTE)",
+   "kon_koff": "kon=1e5 std, koff DERIVED",
+   "kint": "PSMA rapid internalization; ~3.3/day antigen-class estimate",
+   "turnover": "kdeg 1.0/day (PSMA) class-estimate; ksyn_frac=kdeg",
+   "format": "HLE BiTE scFc (2nd-gen, additional Fc for half-life); ~100 kDa; fFcRn~0.6",
+   "regimen": "IV Q2W with step-up to RP2D ~0.3 mg (NCT03792841); representative step-up 0.1/0.2/0.3 mg then 0.3 Q2W; flag"
+  },
+  "tgt_raw": "FOLH1(PSMA)"
+ },
+ "runimotamab": {
+  "name": "runimotamab",
+  "tgt": "ERBB2",
+  "KD_TAA_nM": 0.3,
+  "kon_TAA_perM_pers": 100000.0,
+  "koff_TAA_pers": 3e-05,
+  "KD_CD3_nM": 50.0,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 0.005,
+  "kint_perday": 0.34,
+  "ksyn_frac_perday": 0.5,
+  "kdeg_perday": 0.5,
+  "n_arm_TAA": 1,
+  "n_arm_CD3": 1,
+  "mw_kda": 150.0,
+  "fFcRn": 0.75,
+  "route": "IV",
+  "regimen_mg_day": [
+   [
+    1,
+    0.09
+   ],
+   [
+    8,
+    0.36
+   ],
+   [
+    15,
+    1.4
+   ],
+   [
+    22,
+    1.4
+   ]
+  ],
+  "il6_obs_pgml": null,
+  "measured_vs_derived": "HER2 arm = trastuzumab 4D5-WT, KD 0.3 nM LITERATURE (Staflin 2020); CD3 = clone 40G5c, KD CLASS-ESTIMATE (exact not confirmed); kon/koff DERIVED",
+  "validation_data": "Phase 1a/b (Meric-Bernstam AACR 2025 CT204): monotherapy + trastuzumab combo; step-up needed for CRS; PK/PD",
+  "sources": {
+   "KD_TAA": "Staflin 2020 JCI Insight 5(7):e133757 DOI 10.1172/jci.insight.133757; HER2 arm=4D5(trastuzumab)-WT KD~0.3 nM LITERATURE (panel also reports 4D5 variants 0.3/14/49 nM)",
+   "KD_CD3": "anti-CD3 clone 40G5c (Genentech); KD ~50 nM CLASS-ESTIMATE (exact KD not cleanly published; runimotamab needs step-up+trastuzumab combo consistent w/ non-trivial CD3 engagement)",
+   "kon_koff": "kon=1e5 std, koff DERIVED",
+   "kint": "HER2 slow internalization/recycling; ~0.34/day antigen-class estimate",
+   "turnover": "kdeg 0.5/day class-estimate; ksyn_frac=kdeg",
+   "format": "1+1 knob-into-hole IgG1 N297G (effector-silent) HER2xCD3; ~150 kDa; fFcRn~0.75",
+   "regimen": "Phase 1a/b IV Q3W (or QW) with step-up +/- trastuzumab (CT204); mg values representative step-up, flag"
+  },
+  "tgt_raw": "ERBB2(HER2)"
+ },
+ "cinrebafusp_alfa": {
+  "name": "cinrebafusp_alfa",
+  "tgt": "ERBB2",
+  "KD_TAA_nM": 0.3,
+  "kon_TAA_perM_pers": 100000.0,
+  "koff_TAA_pers": 3e-05,
+  "KD_CD3_nM": 5.0,
+  "kon_CD3_perM_pers": 100000.0,
+  "koff_CD3_pers": 0.0005,
+  "kint_perday": 0.34,
+  "ksyn_frac_perday": 0.5,
+  "kdeg_perday": 0.5,
+  "n_arm_TAA": 2,
+  "n_arm_CD3": 2,
+  "mw_kda": 170.0,
+  "fFcRn": 0.75,
+  "route": "IV",
+  "regimen_mg_day": [
+   [
+    1,
+    8.0
+   ]
+  ],
+  "il6_obs_pgml": null,
+  "measured_vs_derived": "*** NOT A CD3 TCE: engager arm is 4-1BB (CD137) COSTIM AGONIST. KD_CD3 slot REPURPOSED for 4-1BB (~5 nM). HER2=trastuzumab 0.3 nM LITERATURE; both arms BIVALENT (2+2). kon/koff DERIVED. REGIMEN IN mg/kg NOT mg ***",
+  "validation_data": "Phase 1 (Hilton/CCR 2024 DOI 10.1158/1078-0432.CCR-24-1552): disposition Table S1 (n=78), cytokines IFNG/IP10/IL18 by dose (Tables S3-S5, digitized), PK",
+  "sources": {
+   "KD_TAA": "PRS-343: HER2 arm=trastuzumab IgG4-based KD~0.3 nM LITERATURE (Hinner 2019 CCR DOI 10.1158/1078-0432.CCR-18-3654)",
+   "KD_CD3": "*** 4-1BB (CD137) Anticalin, NOT CD3 *** KD~5 nM (anticalin, Hinner 2019) - placed in CD3 slot for runner compatibility, FLAG as 4-1BB costim",
+   "kon_koff": "kon=1e5 std, koff DERIVED",
+   "kint": "HER2 ~0.34/day class-estimate (TAA); 4-1BB costim receptor internalizes on agonism ~0.5/day",
+   "turnover": "kdeg 0.5/day class-estimate; ksyn_frac=kdeg",
+   "format": "2+2: bivalent HER2 (trastuzumab IgG4) + 2x 4-1BB Anticalin fused to Fc C-term; ~170 kDa; fFcRn~0.75. Costimulatory agonist, NOT T-cell redirector",
+   "regimen": "Phase 1 IV (Hilton 2024): 0.0015-18 mg/kg Q3W/Q2W/QW; 8 mg/kg Q2W key expansion. *** DOSES IN mg/kg (x body wt for mg) ***"
+  },
+  "tgt_raw": "ERBB2(HER2)"
+ }
+}

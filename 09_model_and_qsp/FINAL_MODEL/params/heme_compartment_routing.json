@@ -1,0 +1,19 @@
+{
+ "_doc": "Maps a heme TCE's target antigen -> which malignancy blast compartment to validate against. Each compartment has malignant targets + T-cell effectors in one ABM (dense no-ECM geometry). Built 2026-07-12.",
+ "by_target": {
+   "MS4A1":    {"malignancy":"DLBCL/NHL",  "npz":"heme_abm_dlbcl_steen.npz",       "note":"CD20 lymphoma; also B-ALL Caron if needed"},
+   "CD19":     {"malignancy":"DLBCL/B-ALL","npz":"heme_abm_dlbcl_steen.npz",       "note":"CD19; Steen has CD19+ malignant B"},
+   "TNFRSF17": {"malignancy":"myeloma",    "npz":"heme_abm_myeloma_boiarsky.npz",  "note":"BCMA; merged Boiarsky PC + vanGalen T"},
+   "GPRC5D":   {"malignancy":"myeloma",    "npz":"heme_abm_myeloma_boiarsky.npz",  "note":"GPRC5D myeloma"},
+   "FCRL5":    {"malignancy":"myeloma",    "npz":"heme_abm_myeloma_boiarsky.npz",  "note":"FcRH5 myeloma (cevostamab)"},
+   "IL3RA":    {"malignancy":"AML",        "npz":"heme_abm_cells.npz",             "note":"CD123 AML; van Galen"},
+   "CD33":     {"malignancy":"AML",        "npz":"heme_abm_cells.npz",             "note":"CD33 AML"},
+   "FLT3":     {"malignancy":"AML",        "npz":"heme_abm_cells.npz",             "note":"FLT3 AML"}
+ },
+ "compartments": {
+   "heme_abm_cells.npz":            {"source":"vanGalen2019_GSE116256_AML",       "n_cells":41090, "malignant":16169, "cd8":1338},
+   "heme_abm_dlbcl_steen.npz":      {"source":"Steen2021_GSE182434_DLBCL",        "n_cells":28416, "malignant":24379, "cd8":6640},
+   "heme_abm_myeloma_boiarsky.npz": {"source":"Boiarsky2022_GSE193531_PC + vanGalen_T", "n_cells":27431, "malignant":18988, "cd8":1338}
+ },
+ "solid_default": {"npz":"tumor_abm_cells.npz", "source":"CRC_Xenium_CEACAM5", "note":"all solid TCEs -> CRC ABM (ECM-throttled)"}
+}

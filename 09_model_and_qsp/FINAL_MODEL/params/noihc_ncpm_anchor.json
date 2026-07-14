@@ -1,0 +1,40 @@
+{
+ "TNFRSF9": {
+  "Myeloid": 20253.4,
+  "Endothelial": 10318.0,
+  "otherT_NK": 12193.2,
+  "CD8_T": 14326.2,
+  "CD4conv_T": 14326.2,
+  "Treg": 11336.7,
+  "_default": 9360.0,
+  "_method": "log1p(nCPM*6000/1e6)->Glassman(0.7768,3.9723); anchor=max nCPM over HPA celltypes per lineage"
+ },
+ "TNFRSF25": {
+  "Other": 18114.7,
+  "otherT_NK": 26601.9,
+  "CD4conv_T": 9953.4,
+  "CD8_T": 9604.8,
+  "Treg": 10192.3,
+  "_default": 9360.0,
+  "_method": "log1p(nCPM*6000/1e6)->Glassman(0.7768,3.9723); anchor=max nCPM over HPA celltypes per lineage"
+ },
+ "LY6E": {
+  "Other": 14484.3,
+  "Epithelial": 11856.2,
+  "Myeloid": 200464.3,
+  "_default": 9360.0,
+  "_method": "log1p(nCPM*6000/1e6)->Glassman(0.7768,3.9723); anchor=max nCPM over HPA celltypes per lineage"
+ },
+ "FLT3": {
+  "Myeloid": 238262.2,
+  "CD8_T": 142822.5,
+  "_default": 9360.0,
+  "_method": "log1p(nCPM*6000/1e6)->Glassman(0.7768,3.9723); anchor=max nCPM over HPA celltypes per lineage"
+ },
+ "FCRL5": {
+  "B_plasma": 71010.7,
+  "Other": 16531.7,
+  "_default": 9360.0,
+  "_method": "log1p(nCPM*6000/1e6)->Glassman(0.7768,3.9723); anchor=max nCPM over HPA celltypes per lineage"
+ }
+}

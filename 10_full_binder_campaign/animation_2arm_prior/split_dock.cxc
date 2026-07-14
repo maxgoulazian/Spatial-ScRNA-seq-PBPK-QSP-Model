@@ -1,0 +1,47 @@
+set bgColor white
+open scene_membrane.pdb
+open pos_41bb_trimer.pdb
+open pos_41bb_ligand.pdb
+open pos_cd3_receptor.pdb
+open px41_framework.pdb
+open px41_cdr/c_000.pdb
+open pxcd3_framework.pdb
+open pxcd3_cdr/c_000.pdb
+surface #2 enclose #2
+color #2 #3f8f8e
+transparency #2 40 target s
+surface #3 enclose #3
+color #3 #b0d8d6
+transparency #3 50 target s
+surface #4 enclose #4
+color #4 #8e7cc3
+transparency #4 40 target s
+color #2:26,31,40,41,44 & #2/X #e8a33d target s
+color #4:376,377,378,379,380,381 #e8a33d target s
+surface #5 enclose #5
+color #5 #7fa8c9
+transparency #5 35 target s
+surface #7 enclose #7
+color #7 #7fa8c9
+transparency #7 35 target s
+hide #6,8 cartoons
+show #6,8 atoms
+style #6,8 ball
+size #6,8 ballScale 1.4
+color #6,8 #e0218a
+show #1 atoms
+style #1 sphere
+size #1 atomRadius 2.3
+color #1 white
+color #1@PO4 orange
+color #1@NC3 goldenrod
+color #1@GL1,GL2 gray(170)
+lighting soft
+lighting shadows true intensity 0.7
+material dull
+graphics silhouettes true width 1.5
+view
+turn x 6
+zoom 0.9
+save split_dock.png width 1500 height 950 supersample 1
+exit
