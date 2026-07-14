@@ -48,10 +48,10 @@ network source (pan-lineage, CRS-gated) — see report §4.
 
 ## Model & figures (09 + 06)
 - **09_model_and_qsp/FINAL_MODEL/** — the runnable whole-body single-cell PBPK/QSP model:
-  `python run.py <engager>`, 13 engine modules, 31 handoff inputs, 18 agent grids, OPERATION.md, 27 model docs.
+  `python run.py <engager>`, 13 engine modules, 31 handoff inputs, 18 agent grids, OPERATION.md, 54 model-documentation files.
 - **Simulation-output figures (all from full-model runs):** 262 spatial 5-panel overlays
-  (cell-type / drug / bound-receptor / receptor / kill), 20 per-organ kill, 11 PK-vs-clinical, 5 PD (IL-6 + B-cell),
-  2 cell-type overlays. Plus 13 TIFF-underlay spatial, 66 antigen maps, GRN rings, 2 diffusion animations (06).
+  (cell-type / drug / bound-receptor / receptor / kill), 20 per-organ kill, 11 PK-vs-clinical,
+  2 cell-type overlays (PD/IL-6 overlays being finalized separately). Plus 13 TIFF-underlay spatial, 66 antigen maps, GRN rings, 2 diffusion animations (06).
 - **Model-output validation (2026-07-14):** the 20-molecule sweep shows the heme-vs-solid depletion split
   (0.77 vs 0.18) is *emergent from geometry* under one shared kill law; spatial kill is 10-26x enriched in
   high-drug regions (drug-penetration-limited); IL-6 magnitude is read only from the validated `fin_` set.
